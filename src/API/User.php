@@ -13,7 +13,7 @@ class User
 	 * @param UserWithRoles $User
 	 * @return mixed
 	 */
-	protected function registerUser( IRepository $UserRepo, UserWithRoles $User )
+	protected static function registerUser( IRepository $UserRepo, UserWithRoles $User )
 	{
 		return $UserRepo->save( $User );
 	}
@@ -23,8 +23,8 @@ class User
 	 * @param UserWithRoles $Admin
 	 * @return mixed
 	 */
-	function registerAdmin( IRepository $UserRepo, UserWithRoles $Admin )
+	public static function registerAdmin( IRepository $UserRepo, UserWithRoles $Admin )
 	{
-		return $this->registerUser( $UserRepo, $Admin );
+		return self::registerUser( $UserRepo, $Admin );
 	}
 }
