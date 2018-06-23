@@ -1,13 +1,13 @@
 <?php
 
-namespace App\DDD;
+namespace DDP\Core\Domain;
 
 /**
  * Class EntityBase
  * @package App\DDD
  */
 
-abstract class EntityBase
+abstract class EntityBase implements IEntity
 {
 	private $_Identifier;
 	private $_Deleted;
@@ -15,7 +15,7 @@ abstract class EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getDeleted()
+	public function getDeleted() : bool
 	{
 		return $this->_Deleted;
 	}
