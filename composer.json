@@ -1,6 +1,6 @@
 {
-  "name": "DragonflyRG/DomainPatterns",
-  "description": "DDD Patterts.",
+  "name": "dragonflyrg/domaingatterns",
+  "description": "DDD Patterns.",
   "type": "library",
   "license": "MIT",
   "authors": [
