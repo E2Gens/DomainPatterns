@@ -2,60 +2,29 @@
 
 namespace DDP\API;
 
-
+use DDP\Core\Infrastructure\IRepository;
 use DDP\Domain\User\Domain\UserWithRoles;
 use DDP\Domain\User\Infrastructure\UserRepository;
 
 class User
 {
-	private $_UserRepo;
-
 	/**
-	 * User constructor.
-	 * @param UserRepository $Repo
-	 */
-	public function __construct( UserRepository $Repo )
-	{
-		$this->_UserRepo = $Repo;
-	}
-
-	/**
-	 * @return UserRepository
-	 */
-	public function getUserRepo()
-	{
-		return $this->_UserRepo;
-	}
-
-	/**
-	 * @param UserRepository $UserRepo
-	 */
-	public function setUserRepo( $UserRepo )
-	{
-		$this->_UserRepo = $UserRepo;
-	}
-
-
-	/**
-	 * @param $User
+	 * @param IRepository $UserRepo
+	 * @param UserWithRoles $User
 	 * @return mixed
 	 */
-	protected function registerUser( UserWithRoles $User )
+	protected function registerUser( IRepository $UserRepo, UserWithRoles $User )
 	{
-		return $this->_UserRepo->save( $User );
+		return $UserRepo->save( $User );
 	}
 
 	/**
-	 * @param Domain\UserWithRoles $Admin
+	 * @param IRepository $UserRepo
+	 * @param UserWithRoles $Admin
 	 * @return mixed
 	 */
-	function registerAdmin( UserWithRoles $Admin )
+	function registerAdmin( IRepository $UserRepo, UserWithRoles $Admin )
 	{
-		return $this->registerUser( $Admin );
+		return $this->registerUser( $UserRepo, $Admin );
 	}
-
-	/**
-	 * @param Domain\UserWithRoles $Guest
-	 * @return mixed
-	 */
 }
