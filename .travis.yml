@@ -1,0 +1,15 @@
+language: php
+php:
+  - 7.2
+
+before_script: composer install
+
+script:
+  - vendor/bin/phpunit tests
+
+notifications:
+  slack:
+    rooms:
+      - dragonflyrg:w3hYXjTOZjrmBGQuszMILN7K#eckerd_notify
+      - dragonflyrg:w3hYXjTOZjrmBGQuszMILN7K#wavstay_notify
+      - dragonflyrg:w3hYXjTOZjrmBGQuszMILN7K#opensource_notify

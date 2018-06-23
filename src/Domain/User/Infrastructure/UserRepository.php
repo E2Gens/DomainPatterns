@@ -3,6 +3,7 @@
 namespace DDP\Domain\User\Infrastructure;
 
 use DDP\Core\Infrastructure\IRepository;
+use DDP\Domain\User;
 
 class UserRepository implements IRepository
 {
@@ -11,31 +12,32 @@ class UserRepository implements IRepository
 
 	/**
 	 * UserRepository constructor.
-	 * @param App\User $UserModel
+	 * @param $UserModel
 	 * @param $RoleModel
 	 */
-	public function __construct( App\User $UserModel, $RoleModel )
+	public function __construct( $UserModel, $RoleModel )
 	{
 		$this->_UserModel = $UserModel;
 		$this->_RoleModel = $RoleModel;
 	}
 
 	/**
-	 * @param Domain\User $User
+	 * @param $User
 	 * @return mixed
 	 */
-	public function save( Domain\User $User )
+	public function save( $User )
 	{
 		$Obj = $User->toStdClass();
 
 		if( !$User->getIdentifier() )
 		{
-			$UserModel = App\User::create( $Obj );
+			$UserModel = $User::create( $Obj );
 			$User->setIdentifier( $UserModel->id );
 		}
 		else
 		{
-			$UserModel = App\User::update( $Obj );
+			// @todo this is wrong and needs to be updated.
+			$UserModel = $User::update( $Obj );
 		}
 
 		$this->saveRoles( $User );
@@ -50,13 +52,13 @@ class UserRepository implements IRepository
 
 	/**
 	 * @param $UserId
-	 * @return Domain\User
+	 * @return User\Domain\User
 	 */
 	public function getById( $UserId )
 	{
-		$UserObj = App\User::find( $UserId );
+		$UserObj = $this->_UserModel::find( $UserId );
 
-		$User = Domain\User::fromStdClass( $UserObj );
+		$User = User\Domain\UserWithRoles::fromStdClass( $UserObj );
 
 		/**
 		 * Load all of the roles.
@@ -66,8 +68,8 @@ class UserRepository implements IRepository
 
 		foreach( $Roles as $RoleObj )
 		{
-			$RoleUser = new Domain\RoleUser();
-			$Role     = new Domain\Role();
+			$RoleUser = new User\Domain\RoleUser();
+			$Role     = new User\Domain\Role();
 
 			$Role->setIdentifier( $RoleObj->id );
 
@@ -82,18 +84,16 @@ class UserRepository implements IRepository
 	}
 
 	/**
-	 * Remove any deleted roles and save any new ones.
-	 *
-	 * @param Domain\User $User
+	 * @param User\Domain\UserWithRoles $User
 	 */
-	protected function saveRoles( Domain\User $User )
+	protected function saveRoles( User\Domain\UserWithRoles $User )
 	{
 		$Roles = $User->getRoles();
 
 		foreach( $Roles as $RoleUser )
 		{
-			$RoleModel = App\Role::findOrFail( $RoleUser->getRole()->getIdentifier() );
-			$UserModel = App\User::findOrFail( $RoleUser->getUser()->getIdentifier() );
+			$RoleModel = $this->_RoleModel::findOrFail( $RoleUser->getRole()->getIdentifier() );
+			$UserModel = $this->_UserModel::findOrFail( $RoleUser->getUser()->getIdentifier() );
 
 			if( $RoleUser->getDeleted() )
 			{
