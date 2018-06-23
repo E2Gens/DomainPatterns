@@ -6,6 +6,6 @@ doc/
 doc/phpdoc-cache*
 node_modules
 docs-cache
-.idea
+.idea/
 .DS_STORE
 public_html/
