@@ -1,0 +1,25 @@
+{
+  "name": "DragonflyRG/DomainPatterns",
+  "description": "DDD Patterts.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Lee Jones",
+      "email": "lee@dragonflyrg.com"
+    }
+  ],
+  "require": {
+
+  },
+  "require-dev": {
+    "phpunit/phpunit"               : "5.*",
+    "squizlabs/php_codesniffer"     : "2.*",
+    "phpmd/phpmd"                   : "1.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "DDP\\": "src/"
+    }
+  }
+}
