@@ -1,0 +1,11 @@
+composer.phar
+composer.lock
+composer-test.lock
+vendor/
+doc/
+doc/phpdoc-cache*
+node_modules
+docs-cache
+.idea
+.DS_STORE
+public_html/
