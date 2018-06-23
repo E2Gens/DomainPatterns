@@ -1,6 +1,6 @@
 <?php
 
-namespace DDD;
+namespace DDD\Infrastructure;
 
 interface IReadRepository
 {
