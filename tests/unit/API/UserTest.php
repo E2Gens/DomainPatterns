@@ -32,22 +32,4 @@ class UserTest extends TestCase
 		$this->assertTrue( $UserApi->registerAdmin( $User ) );
 
 	}
-
-	public function testConstruct()
-	{
-		$Repo = $this
-			->getMockBuilder( UserRepository::class )
-			->setMethods(['save'])
-			->disableOriginalConstructor()
-			->getMock();
-
-		$UserApi = new User(
-			$Repo
-		);
-
-		$this->assertEquals(
-			$Repo,
-			$UserApi->getUserRepo()
-		);
-	}
 }
