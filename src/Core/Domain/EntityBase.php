@@ -2,12 +2,15 @@
 
 namespace DDP\Core\Domain;
 
+use DDP\Core\IValidatable;
+use DDP\Core\IValidator;
+
 /**
  * Class EntityBase
  * @package App\DDD
  */
 
-abstract class EntityBase implements IEntity
+abstract class EntityBase implements IEntity, IValidatable
 {
 	private $_Identifier;
 	private $_Deleted;
@@ -23,7 +26,7 @@ abstract class EntityBase implements IEntity
 	/**
 	 * @param mixed $Deleted
 	 */
-	public function setDeleted( $Deleted ): void
+	public function setDeleted( bool $Deleted ): void
 	{
 		$this->_Deleted = $Deleted;
 	}
@@ -71,4 +74,12 @@ abstract class EntityBase implements IEntity
 	 */
 	public function toStdClass() : \stdClass
 	{}
+
+	public function validate( \Neuron\Data\Validation\ICollection $Validator, array &$Violations ): bool
+	{
+		$Result     = $Validator->isValid( static::class );
+		$Violations = $Validator->getViolations();
+
+		return $Result;
+	}
 }
