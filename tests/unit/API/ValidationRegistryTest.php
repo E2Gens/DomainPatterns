@@ -31,7 +31,6 @@ class MockValidatable implements \DDP\Core\IValidatable
 	}
 }
 
-
 class ValidationRegistryTest extends TestCase
 {
 	public function testRegister()

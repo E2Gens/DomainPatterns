@@ -20,8 +20,6 @@ class UserRepositoryTest extends TestCase
 			->will(
 				$this->returnValue( true )
 			);
-
-
 	}
 
 	public function testGetAll()

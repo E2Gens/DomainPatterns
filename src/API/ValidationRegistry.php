@@ -10,13 +10,11 @@ class ValidationRegistry
 
 	public function get( $Class )
 	{
-		echo 'get class: '.$Class;
 		return $this->_Validations[ $Class ];
 	}
 
 	public function register( $Class, IValidator $Validator)
 	{
-		echo 'register class: '. $Class;
 		$this->_Validations[ $Class ] = $Validator;
 	}
 
