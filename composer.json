@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-
+    "clearidea/neuron": "^0.7.6"
   },
   "require-dev": {
     "phpunit/phpunit"               : "7.*"

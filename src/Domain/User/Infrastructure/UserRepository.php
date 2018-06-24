@@ -31,13 +31,13 @@ class UserRepository implements IRepository
 
 		if( !$User->getIdentifier() )
 		{
-			$UserModel = $User::create( $Obj );
+			$UserModel = $this->_UserModel::create( $Obj );
 			$User->setIdentifier( $UserModel->id );
 		}
 		else
 		{
 			// @todo this is wrong and needs to be updated.
-			$UserModel = $User::update( $Obj );
+			$UserModel = $this->_UserModel::update( $Obj );
 		}
 
 		$this->saveRoles( $User );
