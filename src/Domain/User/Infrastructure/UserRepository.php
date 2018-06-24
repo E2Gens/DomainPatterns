@@ -27,17 +27,17 @@ class UserRepository implements IRepository
 	 */
 	public function save( $User )
 	{
-		$UserArray = $User->toArray();
+		$Obj = $User->toStdClass();
 
 		if( !$User->getIdentifier() )
 		{
-			$UserModel = $this->_UserModel::create( $UserArray );
+			$UserModel = $this->_UserModel::create( (array)$Obj );
 			$User->setIdentifier( $UserModel->id );
 		}
 		else
 		{
 			// @todo this is wrong and needs to be updated.
-			$UserModel = $this->_UserModel::update( $UserArray );
+			$UserModel = $this->_UserModel::update( (array)$Obj );
 		}
 
 		$this->saveRoles( $User );
