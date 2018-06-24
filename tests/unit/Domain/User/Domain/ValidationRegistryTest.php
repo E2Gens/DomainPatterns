@@ -24,8 +24,8 @@ class MockValidatable implements \DDP\Core\IValidatable
 {
 	public function validate( \Neuron\Data\Validation\ICollection $Validator, array &$Violations ): bool
 	{
-		$Result       = $Validator->isValid( true );
-		$Violations   = $Validator->getViolations();
+		$Result     = $Validator->isValid( true );
+		$Violations = $Validator->getViolations();
 
 		return $Result;
 	}
@@ -34,7 +34,6 @@ class MockValidatable implements \DDP\Core\IValidatable
 
 class ValidationRegistryTest extends TestCase
 {
-
 	public function testRegister()
 	{
 		$Registry = new ValidationRegistry();
