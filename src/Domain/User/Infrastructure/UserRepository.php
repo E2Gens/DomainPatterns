@@ -5,6 +5,8 @@ namespace DDP\Domain\User\Infrastructure;
 use DDP\Core\Infrastructure\IRepository;
 use DDP\Domain\User;
 
+// @todo rename to UserWithRolesRepository
+
 class UserRepository implements IRepository
 {
 	private $_UserModel;
