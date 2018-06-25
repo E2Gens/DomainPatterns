@@ -7,6 +7,10 @@ use DDP\Domain\User;
 
 // @todo rename to UserWithRolesRepository
 
+/**
+ * Class UserRepository
+ * @package DDP\Domain\User\Infrastructure
+ */
 class UserRepository implements IRepository
 {
 	private $_UserModel;
