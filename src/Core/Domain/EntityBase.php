@@ -3,7 +3,6 @@
 namespace DDP\Core\Domain;
 
 use DDP\Core\IValidatable;
-use DDP\Core\IValidator;
 
 /**
  * Class EntityBase

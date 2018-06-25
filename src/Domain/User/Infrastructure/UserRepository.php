@@ -7,25 +7,33 @@ use DDP\Domain\User;
 
 // @todo rename to UserWithRolesRepository
 
+/**
+ * Class UserRepository
+ * @package DDP\Domain\User\Infrastructure
+ */
 class UserRepository implements IRepository
 {
 	private $_UserModel;
 	private $_RoleModel;
+	private $_RoleUserModel;
 
 	/**
 	 * UserRepository constructor.
 	 * @param $UserModel
 	 * @param $RoleModel
 	 */
-	public function __construct( $UserModel, $RoleModel )
+	public function __construct( $UserModel, $RoleModel, $RoleUserModel )
 	{
-		$this->_UserModel = $UserModel;
-		$this->_RoleModel = $RoleModel;
+		$this->_UserModel     = $UserModel;
+		$this->_RoleModel     = $RoleModel;
+		$this->_RoleUserModel = $RoleUserModel;
 	}
 
 	/**
 	 * @param $User
 	 * @return mixed
+	 *
+	 * @todo $User needs to be a reference as the id can change during save.
 	 */
 	public function save( $User )
 	{
@@ -33,13 +41,12 @@ class UserRepository implements IRepository
 
 		if( !$User->getIdentifier() )
 		{
-			$UserModel = $this->_UserModel::create( (array)$Obj );
+			$UserModel = $this->_UserModel::create( ( array)$Obj );
 			$User->setIdentifier( $UserModel->id );
 		}
 		else
 		{
-			// @todo this is wrong and needs to be updated.
-			$UserModel = $this->_UserModel::update( (array)$Obj );
+			$UserModel = $this->_UserModel::whereId( $User->getIdentifier() )->update( ( array)$Obj );
 		}
 
 		$this->saveRoles( $User );
@@ -58,7 +65,7 @@ class UserRepository implements IRepository
 	 */
 	public function getById( $UserId )
 	{
-		$UserObj = $this->_UserModel::find( $UserId );
+		$UserObj = $this->_UserModel::find( $UserId )->toArray();
 
 		$User = User\Domain\UserWithRoles::fromStdClass( $UserObj );
 
@@ -66,12 +73,12 @@ class UserRepository implements IRepository
 		 * Load all of the roles.
 		 */
 
-		$Roles = $UserObj->roles();
+		$Roles = $this->_RoleUserModel::where( 'user_id', $UserId );
 
 		foreach( $Roles as $RoleObj )
 		{
-			$RoleUser = new User\Domain\RoleUser();
-			$Role     = new User\Domain\Role();
+			$RoleUser = new RoleUser();
+			$Role     = new Role();
 
 			$Role->setIdentifier( $RoleObj->id );
 
