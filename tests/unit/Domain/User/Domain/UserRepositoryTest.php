@@ -21,9 +21,4 @@ class UserRepositoryTest extends TestCase
 				$this->returnValue( true )
 			);
 	}
-
-	public function testSaveRoles()
-	{
-
-	}
 }
