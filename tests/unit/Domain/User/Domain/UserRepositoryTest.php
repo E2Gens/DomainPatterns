@@ -22,22 +22,7 @@ class UserRepositoryTest extends TestCase
 			);
 	}
 
-	public function testGetAll()
-	{
-
-	}
-
-	public function testSave()
-	{
-
-	}
-
-	public function testGetById()
-	{
-
-	}
-
-	public function test__construct()
+	public function testSaveRoles()
 	{
 
 	}

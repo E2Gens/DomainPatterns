@@ -92,25 +92,35 @@ class UserRepository implements IRepository
 	{
 		$Roles = $User->getRoles();
 
-		foreach( $Roles as $RoleUser )
+		if( is_array( $Roles ) )
 		{
-			$RoleModel = $this->_RoleModel::findOrFail( $RoleUser->getRole()->getIdentifier() );
-			$UserModel = $this->_UserModel::findOrFail( $RoleUser->getUser()->getIdentifier() );
+			array_walk( $Roles, [ $this, 'addOrRemoveRole' ] );
+		}
+	}
 
-			if( $RoleUser->getDeleted() )
-			{
-				/**
-				 * If RoleUser is flagged as deleted then detach the role from the user..
-				 */
-				$UserModel->roles()->detach( $RoleModel );
-			}
-			else if( !$RoleUser->getIdentifier() )
-			{
-				/**
-				 * If the RoleUser relation has no identifier then attach the role..
-				 */
-				$UserModel->roles()->attach( $RoleModel->id );
-			}
+	/**
+	 * @param $RoleUser
+	 */
+	protected function addOrRemoveRole( $RoleUser )
+	{
+		$RoleModel = $this->_RoleModel::findOrFail( $RoleUser->getRole()->getIdentifier() );
+		$UserModel = $this->_UserModel::findOrFail( $RoleUser->getUser()->getIdentifier() );
+
+		if( $RoleUser->getDeleted() )
+		{
+			/**
+			 * If RoleUser is flagged as deleted then detach the role from the user..
+			 */
+
+			$UserModel->roles()->detach( $RoleModel );
+		}
+		else if( !$RoleUser->getIdentifier() )
+		{
+			/**
+			 * If the RoleUser relation has no identifier then attach the role..
+			 */
+
+			$UserModel->roles()->attach( $RoleModel->id );
 		}
 	}
 }

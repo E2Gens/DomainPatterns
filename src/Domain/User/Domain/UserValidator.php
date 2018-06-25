@@ -6,6 +6,12 @@ use Neuron\Data\Validation;
 use Neuron\Data\Validation\ICollection;
 use Neuron\Data\Validation\IValidator;
 
+/**
+ * Class UserValidator
+ * @package DDP\Domain\User\Domain
+ *
+ * Validates the users name and email address.
+ */
 class UserValidator implements ICollection
 {
 	private $_Validators;
