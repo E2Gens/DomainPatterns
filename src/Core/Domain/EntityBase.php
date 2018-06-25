@@ -14,6 +14,11 @@ abstract class EntityBase implements IEntity, IValidatable
 	private $_Identifier;
 	private $_Deleted;
 
+	public function __construct()
+	{
+		$this->_Deleted = false;
+	}
+
 	/**
 	 * @return mixed
 	 */
