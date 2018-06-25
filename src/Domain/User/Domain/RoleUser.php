@@ -13,7 +13,7 @@ class RoleUser extends EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getUser() : UserWithRoles
+	public function getUser()
 	{
 		return $this->_User;
 	}
@@ -21,7 +21,7 @@ class RoleUser extends EntityBase
 	/**
 	 * @param mixed $User
 	 */
-	public function setUser( UserWithRoles $User ): void
+	public function setUser( $User ): void
 	{
 		$this->_User = $User;
 	}
