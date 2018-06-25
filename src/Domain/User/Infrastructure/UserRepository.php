@@ -88,7 +88,7 @@ class UserRepository implements IRepository
 	/**
 	 * @param User\Domain\UserWithRoles $User
 	 */
-	protected function saveRoles( User\Domain\UserWithRoles $User )
+	protected function saveRoles( $User )
 	{
 		$Roles = $User->getRoles();
 
