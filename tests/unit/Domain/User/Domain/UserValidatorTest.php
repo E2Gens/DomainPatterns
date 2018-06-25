@@ -57,12 +57,12 @@ class UserValidatorTest extends TestCase
 		$Violations = $UserValidator->getViolations();
 
 		$this->assertContains(
-			$User->getName().' is not a valid name.',
+			"Neuron\Data\Validation\Name validation failed for Lee Jones111",
 			$Violations
 		);
 
 		$this->assertContains(
-			$User->getEmail().' is not a valid email address.',
+			"Neuron\Data\Validation\Email validation failed for dragonflyrgcom",
 			$Violations
 		);
 	}

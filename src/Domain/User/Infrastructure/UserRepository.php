@@ -44,6 +44,14 @@ class UserRepository implements IRepository
 
 		$this->saveRoles( $User );
 
+		$Role = new Domain\Role();
+		$Role->setName( "adventure_company" );
+
+		if( $User->hasRole( $Role ) )
+		{
+			$this->saveCompanyCategories( $User );
+		}
+
 		return $UserModel;
 	}
 
@@ -58,7 +66,7 @@ class UserRepository implements IRepository
 	 */
 	public function getById( $UserId )
 	{
-		$UserObj = $this->_UserModel::find( $UserId );
+		$UserObj = $this->_UserModel::find( $UserId )->toArray();
 
 		$User = User\Domain\UserWithRoles::fromStdClass( $UserObj );
 
@@ -66,12 +74,12 @@ class UserRepository implements IRepository
 		 * Load all of the roles.
 		 */
 
-		$Roles = $UserObj->roles();
+		$Roles = App\RoleUser::where( 'user_id', $UserId );
 
 		foreach( $Roles as $RoleObj )
 		{
-			$RoleUser = new User\Domain\RoleUser();
-			$Role     = new User\Domain\Role();
+			$RoleUser = new RoleUser();
+			$Role     = new Role();
 
 			$Role->setIdentifier( $RoleObj->id );
 

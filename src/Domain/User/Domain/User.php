@@ -52,7 +52,10 @@ class User extends EntityBase
 	 */
 	public function setPassword( $Password ): void
 	{
-		$this->_Password = Hash::make( $Password );
+		if( $Password != null && !empty($Password) )
+		{
+			$this->_Password = Hash::make( $Password );
+		}
 	}
 
 	public static function fromArray( array $Data )
@@ -61,7 +64,7 @@ class User extends EntityBase
 
 		$User->setName( $Data[ 'name' ] );
 		$User->setEmail( $Data[ 'email' ] );
-		$User->setPassword( $Data[ 'password' ] );
+		$User->setPassword( isset( $Data[ 'password' ] ) ? $Data[ 'password' ]:null );
 
 		return $User;
 	}

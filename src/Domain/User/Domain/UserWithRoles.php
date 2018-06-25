@@ -103,6 +103,7 @@ class UserWithRoles extends User
 
 		$Role = new Role();
 		$Role->setName( $Data[ 'role' ] );
+		$Role->setIdentifier( $Data['role_id'] );
 
 		$RoleUser = new RoleUser();
 		$RoleUser->setUser( $User );
@@ -111,5 +112,21 @@ class UserWithRoles extends User
 		$User->addRole( $RoleUser );
 
 		return $User;
+	}
+
+	public function hasRole( Role $Role )
+	{
+		$HasRole = false;
+
+		foreach( $this->_Roles as $RoleUser )
+		{
+			if( $RoleUser->getRole()->getName() == $Role->getName() )
+			{
+				$HasRole = true;
+				break;
+			}
+		}
+
+		return $HasRole;
 	}
 }

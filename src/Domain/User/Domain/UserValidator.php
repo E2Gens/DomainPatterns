@@ -16,6 +16,7 @@ class UserValidator implements ICollection
 {
 	private $_Validators;
 	private $_Violations;
+	private $_User;
 
 	public function add( $Name, IValidator $Validator )
 	{
@@ -29,26 +30,28 @@ class UserValidator implements ICollection
 
 	public function __construct()
 	{
-		$this->add( 'email', new Validation\Email() );
-		$this->add( 'name',  new Validation\Name() );
+		$this->add( 'getEmail', new Validation\Email() );
+		$this->add( 'getName',  new Validation\Name() );
 	}
 
 	public function isValid( $User ) : bool
 	{
-		$Valid = true;
+		$this->_User = $User;
 
-		if( !$this->_Validators[ 'email' ]->isValid( $User->getEmail() ) )
+		$Keys = array_keys( $this->_Validators );
+		return array_reduce( $Keys, [ $this, 'reduceValid' ], true );
+	}
+
+	public function reduceValid( $Prev, $Key )
+	{
+		$Validator = $this->_Validators[ $Key ];
+
+		if( !$Validator->isValid( $this->_User->$Key() ) )
 		{
-			$this->_Violations[] = $User->getEmail().' is not a valid email address.';
-			$Valid = false;
+			$this->_Violations[] = get_class( $Validator)." validation failed for ".$this->_User->$Key();
+			return false;
 		}
 
-		if( !$this->_Validators[ 'name' ]->isValid( $User->getName() ) )
-		{
-			$this->_Violations[] = $User->getName().' is not a valid name.';
-			$Valid = false;
-		}
-
-		return $Valid;
+		return $Prev;
 	}
 }
