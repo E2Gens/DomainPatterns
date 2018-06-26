@@ -82,5 +82,5 @@
     <class full="DDP\Domain\User\Domain\RoleUser" namespace="DDP\Domain\User\Domain" name="RoleUser"/>
     <class full="DDP\Domain\User\Domain\User" namespace="DDP\Domain\User\Domain" name="User"/>
     <class full="DDP\Domain\User\Domain\UserWithRoles" namespace="DDP\Domain\User\Domain" name="UserWithRoles"/>
-  </implementors>
+  <class full="DDP\Domain\User\Domain\UserWithRoles" namespace="DDP\Domain\User\Domain" name="UserWithRoles"/></implementors>
 </interface>

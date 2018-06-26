@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="DDP\API\ValidationRegistry" namespace="DDP\API" name="ValidationRegistry" abstract="false" final="false" start="8" end="41">
-  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API" file="ValidationRegistry.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API/ValidationRegistry.php" size="703" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="f2b4e269315cc5e55c0505f9593f7c8bc72d87ee" relative="API/ValidationRegistry.php"/>
-  <member name="_Validations" visibility="private" static="false" line="10"/>
-  <method name="get" start="16" end="19" abstract="false" final="false" static="false" visibility="public">
+<class xmlns="http://xml.phpdox.net/src" full="DDP\API\ValidationRegistry" namespace="DDP\API" name="ValidationRegistry" abstract="false" final="false" start="15" end="54">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API" file="ValidationRegistry.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API/ValidationRegistry.php" size="1279" time="2018-06-26T11:28:15+00:00" unixtime="1530012495" sha1="e5a3245fd3fa53157ac6e983c9fde73bbedd0ae4" relative="API/ValidationRegistry.php"/>
+  <docblock>
+    <description compact="Use to globally associate a validation object with a class."/>
+    <see value="IValidatable"/>
+    <see value="IValidator"/>
+    <package value="DDP\API"/>
+  </docblock>
+  <member name="_Validations" visibility="private" static="false" line="17"/>
+  <method name="get" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
     <docblock>
-      <description/>
+      <description compact="Get the validator object associated with the class name."/>
       <param variable="$Class"/>
       <return type="mixed"/>
     </docblock>
     <parameter name="Class" byreference="false" type="{unknown}"/>
   </method>
-  <method name="register" start="25" end="28" abstract="false" final="false" static="false" visibility="public">
+  <method name="register" start="34" end="37" abstract="false" final="false" static="false" visibility="public">
     <docblock>
-      <description/>
+      <description compact="Associate a validator with a class."/>
       <param variable="$Class"/>
       <param type="object" variable="$Validator">
         <type full="Neuron\Data\Validation\IValidator" namespace="Neuron\Data\Validation" name="IValidator"/>
@@ -23,14 +29,16 @@
       <type full="Neuron\Data\Validation\IValidator" namespace="Neuron\Data\Validation" name="IValidator"/>
     </parameter>
   </method>
-  <method name="validate" start="35" end="40" abstract="false" final="false" static="false" visibility="public">
+  <method name="validate" start="48" end="53" abstract="false" final="false" static="false" visibility="public">
     <docblock>
-      <description/>
+      <description compact="Giving this method an object (not class, it will figure that out) will cause it to run the validator on the class. If the validation fails, the Violations array will contain a list of the failed validations."/>
       <param type="object" variable="$Object">
         <type full="DDP\Core\IValidatable" namespace="DDP\Core" name="IValidatable"/>
       </param>
-      <param variable="$Violations"/>
-      <return type="object">
+      <param description="validation fails, this array is populated with descriptions of the failed validations." variable="$Violations" type="object">
+        <type full="DDP\API\If" namespace="DDP\API" name="If"/>
+      </param>
+      <return description="False if validation fails." type="object">
         <type full="DDP\API\bool" namespace="DDP\API" name="bool"/>
       </return>
     </docblock>

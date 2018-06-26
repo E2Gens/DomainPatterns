@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Domain" file="UserWithRoles.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Domain/UserWithRoles.php" size="2099" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="0b1ec1dfa2c5f35879f45bd1c557f30011d235dd" relative="Domain/User/Domain/UserWithRoles.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Domain" file="UserWithRoles.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Domain/UserWithRoles.php" size="2060" time="2018-06-26T01:12:25+00:00" unixtime="1529975545" sha1="735b718f17f21fe42db8217f08b714a3abd6138b" relative="Domain/User/Domain/UserWithRoles.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -822,16 +822,6 @@
   </line>
   <line no="119">
     <token name="T_WHITESPACE">		</token>
-    <token name="T_VARIABLE">$HasRole</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_PHPDOX_EQUAL">=</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_STRING">false</token>
-    <token name="T_PHPDOX_SEMICOLON">;</token>
-  </line>
-  <line no="120"/>
-  <line no="121">
-    <token name="T_WHITESPACE">		</token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_WHITESPACE"> </token>
@@ -845,11 +835,11 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="122">
+  <line no="120">
     <token name="T_WHITESPACE">		</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="123">
+  <line no="121">
     <token name="T_WHITESPACE">			</token>
     <token name="T_IF">if</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
@@ -874,46 +864,39 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="124">
+  <line no="122">
     <token name="T_WHITESPACE">			</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="125">
+  <line no="123">
     <token name="T_WHITESPACE">				</token>
-    <token name="T_VARIABLE">$HasRole</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">true</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="126">
-    <token name="T_WHITESPACE">				</token>
-    <token name="T_BREAK">break</token>
-    <token name="T_PHPDOX_SEMICOLON">;</token>
-  </line>
-  <line no="127">
+  <line no="124">
     <token name="T_WHITESPACE">			</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="128">
+  <line no="125">
     <token name="T_WHITESPACE">		</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="129"/>
-  <line no="130">
+  <line no="126"/>
+  <line no="127">
     <token name="T_WHITESPACE">		</token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$HasRole</token>
+    <token name="T_STRING">false</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="131">
+  <line no="128">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="132">
+  <line no="129">
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="133"/>
+  <line no="130"/>
 </source>

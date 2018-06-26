@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core" file="IValidatable.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/IValidatable.php" size="175" time="2018-06-24T13:20:02+00:00" unixtime="1529846402" sha1="096c3cbb6006caf4742e88f038e4c390593830db" relative="Core/IValidatable.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core" file="IValidatable.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/IValidatable.php" size="394" time="2018-06-26T16:25:49+00:00" unixtime="1530030349" sha1="045947bb949a1067b7e17863ff55f85b902666ee" relative="Core/IValidatable.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -17,6 +17,28 @@
   <line no="5">
     <token name="T_USE">use</token>
     <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">DDP</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">API</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">ValidationRegistry</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="6">
+    <token name="T_USE">use</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">DDP</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Core</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Domain</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">ValidatorBase</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="7">
+    <token name="T_USE">use</token>
+    <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">Neuron</token>
     <token name="T_NS_SEPARATOR">\</token>
     <token name="T_STRING">Data</token>
@@ -24,16 +46,37 @@
     <token name="T_STRING">Validation</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="6"/>
-  <line no="7">
+  <line no="8"/>
+  <line no="9">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> * Used by ValidationRegistry to apply a Validator against the object.</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * @see ValidatorBase</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> * @see ValidationRegistry</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> * @package DDP\Core</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="16">
     <token name="T_INTERFACE">interface</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">IValidatable</token>
   </line>
-  <line no="8">
+  <line no="17">
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="9">
+  <line no="18">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -61,8 +104,8 @@
     <token name="T_STRING">bool</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="10">
+  <line no="19">
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="11"/>
+  <line no="20"/>
 </source>

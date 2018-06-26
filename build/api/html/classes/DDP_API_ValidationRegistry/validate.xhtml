@@ -62,20 +62,20 @@
             <a href="#return">Return</a>
           </li>
           <li>
-            <a href="../../source/API/ValidationRegistry.php.xhtml#line35">Source</a>
+            <a href="../../source/API/ValidationRegistry.php.xhtml#line48">Source</a>
           </li>
         </ul>
       </nav>
       <section>
         <h1><small>DDP\API\ValidationRegistry::</small>validate</h1>
-        <h4/>
+        <h4>Giving this method an object (not class, it will figure that out) will cause it to run the validator on the class. If the validation fails, the Violations array will contain a list of the failed validations.</h4>
         <p/>
         <ul/>
         <h2 id="signature">Signature</h2>
         <div class="styled synopsis">
           <code>public function validate(<a title="DDP\Core\IValidatable" href="../../classes/DDP_Core_IValidatable.xhtml">IValidatable</a>
         $Object,
-            &amp;
+            <a title="DDP\API\If" href="../../classes/DDP_API_If.xhtml">If</a>&amp;
         $Violations )
             </code>
         </div>
@@ -87,13 +87,13 @@
           <dd><br/><br/><br/>      </dd>
           <dt><code>$Violations</code>
                 —
-                </dt>
-          <dd/>
+                object</dt>
+          <dd>validation fails, this array is populated with descriptions of the failed validations.<br/><br/><br/>      </dd>
         </dl>
         <h2 id="return">Returns</h2>
         <dl class="styled">
           <dt>bool</dt>
-          <dd><br/>
+          <dd>False if validation fails.<br/>
         </dd>
         </dl>
       </section>

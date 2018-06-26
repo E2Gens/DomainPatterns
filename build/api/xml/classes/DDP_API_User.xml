@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="DDP\API\User" namespace="DDP\API" name="User" abstract="false" final="false" start="8" end="29">
-  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API" file="User.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API/User.php" size="595" time="2018-06-23T20:40:44+00:00" unixtime="1529786444" sha1="6ffc6d553d1433f4746cd916e0b6502681226ebf" relative="API/User.php"/>
-  <method name="registerUser" start="15" end="18" abstract="false" final="false" static="true" visibility="protected">
+<class xmlns="http://xml.phpdox.net/src" full="DDP\API\User" namespace="DDP\API" name="User" abstract="false" final="false" start="13" end="34">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API" file="User.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API/User.php" size="682" time="2018-06-26T13:02:25+00:00" unixtime="1530018145" sha1="2452a5f64004b8b30209f0a76f19879e40079885" relative="API/User.php"/>
+  <docblock>
+    <description compact="User API for registering Users and Admins."/>
+    <package value="DDP\API"/>
+  </docblock>
+  <method name="registerUser" start="20" end="23" abstract="false" final="false" static="true" visibility="protected">
     <docblock>
       <description/>
       <param type="object" variable="$UserRepo">
-        <type full="DDP\API\IRepository" namespace="DDP\API" name="IRepository"/>
+        <type full="DDP\Core\Infrastructure\IWriteRepository" namespace="DDP\Core\Infrastructure" name="IWriteRepository"/>
       </param>
       <param type="object" variable="$User">
         <type full="DDP\Domain\User\Domain\UserWithRoles" namespace="DDP\Domain\User\Domain" name="UserWithRoles"/>
@@ -19,11 +23,11 @@
       <type full="DDP\Domain\User\Domain\UserWithRoles" namespace="DDP\Domain\User\Domain" name="UserWithRoles"/>
     </parameter>
   </method>
-  <method name="registerAdmin" start="25" end="28" abstract="false" final="false" static="true" visibility="public">
+  <method name="registerAdmin" start="30" end="33" abstract="false" final="false" static="true" visibility="public">
     <docblock>
       <description/>
       <param type="object" variable="$UserRepo">
-        <type full="DDP\API\IRepository" namespace="DDP\API" name="IRepository"/>
+        <type full="DDP\Core\Infrastructure\IWriteRepository" namespace="DDP\Core\Infrastructure" name="IWriteRepository"/>
       </param>
       <param type="object" variable="$Admin">
         <type full="DDP\Domain\User\Domain\UserWithRoles" namespace="DDP\Domain\User\Domain" name="UserWithRoles"/>
