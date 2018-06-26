@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="DDP\Domain\User\Domain\UserValidator" namespace="DDP\Domain\User\Domain" name="UserValidator" abstract="false" final="false" start="16" end="23">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Domain" file="UserValidator.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Domain/UserValidator.php" size="510" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="fe609a43c3e8ff611032893e2c107338098668b1" relative="Domain/User/Domain/UserValidator.php"/>
+  <docblock>
+    <description compact="Class UserValidator"/>
+    <package value="DDP\Domain\User\Domain Validates the users name and email address."/>
+  </docblock>
+  <extends full="DDP\Core\Domain\ValidatorBase" namespace="DDP\Core\Domain" name="ValidatorBase"/>
+  <implements full="Neuron\Data\Validation\ICollection" namespace="Neuron\Data\Validation" name="ICollection" unresolved="true"/>
+  <constructor name="__construct" start="18" end="22" abstract="false" final="false" static="false" visibility="public"/>
+  <parent full="DDP\Core\Domain\ValidatorBase" namespace="DDP\Core\Domain" name="ValidatorBase">
+    <method name="add" start="18" end="21" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param variable="$Name"/>
+        <param type="object" variable="$Validator">
+          <type full="Neuron\Data\Validation\IValidator" namespace="Neuron\Data\Validation" name="IValidator"/>
+        </param>
+      </docblock>
+      <parameter name="Name" byreference="false" type="{unknown}"/>
+      <parameter name="Validator" byreference="false" type="object">
+        <type full="Neuron\Data\Validation\IValidator" namespace="Neuron\Data\Validation" name="IValidator"/>
+      </parameter>
+    </method>
+    <method name="getViolations" start="26" end="29" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="array"/>
+      </docblock>
+      <return type="array" nullable="false"/>
+    </method>
+    <method name="isValid" start="36" end="41" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param variable="$Entity"/>
+        <return type="object">
+          <type full="DDP\Core\Domain\bool" namespace="DDP\Core\Domain" name="bool"/>
+        </return>
+      </docblock>
+      <return type="bool" nullable="false"/>
+      <parameter name="Entity" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="reduceValid" start="48" end="59" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description/>
+        <param variable="$Prev"/>
+        <param variable="$Key"/>
+        <return type="object">
+          <type full="DDP\Core\Domain\bool" namespace="DDP\Core\Domain" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="Prev" byreference="false" type="{unknown}"/>
+      <parameter name="Key" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

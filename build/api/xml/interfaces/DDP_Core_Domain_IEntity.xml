@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="DDP\Core\Domain\IEntity" namespace="DDP\Core\Domain" name="IEntity" abstract="false" final="false" start="9" end="54">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain" file="IEntity.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain/IEntity.php" size="894" time="2018-06-23T12:25:09+00:00" unixtime="1529756709" sha1="a6a44f707561c8e72bd49e50199428c5aad6ce56" relative="Core/Domain/IEntity.php"/>
+  <docblock>
+    <description compact="Class EntityBase"/>
+    <package value="App\DDD"/>
+  </docblock>
+  <method name="getDeleted" start="14" end="14" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="mixed"/>
+    </docblock>
+    <return type="bool" nullable="false"/>
+  </method>
+  <method name="setDeleted" start="19" end="19" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$Deleted"/>
+    </docblock>
+    <return type="void" nullable="false"/>
+    <parameter name="Deleted" byreference="false" type="bool"/>
+  </method>
+  <method name="getIdentifier" start="24" end="24" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="setIdentifier" start="29" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$Identifier"/>
+    </docblock>
+    <return type="void" nullable="false"/>
+    <parameter name="Identifier" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fromArray" start="35" end="35" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="array" variable="$Data"/>
+      <suppresswarnings value="(&quot;unused&quot;)"/>
+    </docblock>
+    <parameter name="Data" byreference="false" type="array"/>
+  </method>
+  <method name="fromStdClass" start="41" end="41" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$Object">
+        <type full="\stdClass" namespace="" name="stdClass"/>
+      </param>
+      <suppresswarnings value="(&quot;unused&quot;)"/>
+    </docblock>
+    <parameter name="Object" byreference="false" type="object">
+      <type full="stdClass" namespace="" name="stdClass"/>
+    </parameter>
+  </method>
+  <method name="fromRequest" start="47" end="47" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$Request">
+        <type full="DDP\Core\Domain\FormRequest" namespace="DDP\Core\Domain" name="FormRequest"/>
+      </param>
+      <suppresswarnings value="(&quot;unused&quot;)"/>
+    </docblock>
+    <parameter name="Request" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="toStdClass" start="53" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="\stdClass" namespace="" name="stdClass"/>
+      </return>
+      <suppresswarnings value="(&quot;unused&quot;)"/>
+    </docblock>
+    <return type="object" nullable="false">
+      <type full="stdClass" namespace="" name="stdClass"/>
+    </return>
+  </method>
+  <implementors>
+    <class full="DDP\Core\Domain\EntityBase" namespace="DDP\Core\Domain" name="EntityBase"/>
+    <class full="DDP\Domain\User\Domain\Role" namespace="DDP\Domain\User\Domain" name="Role"/>
+    <class full="DDP\Domain\User\Domain\RoleUser" namespace="DDP\Domain\User\Domain" name="RoleUser"/>
+    <class full="DDP\Domain\User\Domain\User" namespace="DDP\Domain\User\Domain" name="User"/>
+    <class full="DDP\Domain\User\Domain\UserWithRoles" namespace="DDP\Domain\User\Domain" name="UserWithRoles"/>
+  </implementors>
+</interface>

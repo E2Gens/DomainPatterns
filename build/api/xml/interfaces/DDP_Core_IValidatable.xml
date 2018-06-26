@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="DDP\Core\IValidatable" namespace="DDP\Core" name="IValidatable" abstract="false" final="false" start="7" end="10">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core" file="IValidatable.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/IValidatable.php" size="175" time="2018-06-24T13:20:02+00:00" unixtime="1529846402" sha1="096c3cbb6006caf4742e88f038e4c390593830db" relative="Core/IValidatable.php"/>
+  <method name="validate" start="9" end="9" abstract="false" final="false" static="false" visibility="public">
+    <return type="bool" nullable="false"/>
+    <parameter name="Validator" byreference="false" type="object">
+      <type full="Neuron\Data\Validation\ICollection" namespace="Neuron\Data\Validation" name="ICollection"/>
+    </parameter>
+    <parameter name="Violations" byreference="true" type="array"/>
+  </method>
+  <implementors>
+    <class full="DDP\Core\Domain\EntityBase" namespace="DDP\Core\Domain" name="EntityBase"/>
+    <class full="DDP\Domain\User\Domain\Role" namespace="DDP\Domain\User\Domain" name="Role"/>
+    <class full="DDP\Domain\User\Domain\RoleUser" namespace="DDP\Domain\User\Domain" name="RoleUser"/>
+    <class full="DDP\Domain\User\Domain\User" namespace="DDP\Domain\User\Domain" name="User"/>
+    <class full="DDP\Domain\User\Domain\UserWithRoles" namespace="DDP\Domain\User\Domain" name="UserWithRoles"/>
+  </implementors>
+</interface>
