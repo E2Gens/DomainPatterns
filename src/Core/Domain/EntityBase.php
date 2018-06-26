@@ -5,7 +5,7 @@ namespace DDP\Core\Domain;
 use DDP\Core\IValidatable;
 
 /**
- * Class EntityBase
+ * Base class for entities.
  * @package App\DDD
  */
 
