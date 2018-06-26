@@ -77,8 +77,8 @@ class UserRepository implements IRepository
 
 		foreach( $Roles as $RoleObj )
 		{
-			$RoleUser = new RoleUser();
-			$Role     = new Role();
+			$RoleUser = new User\Domain\RoleUser();
+			$Role     = new User\Domain\Role();
 
 			$Role->setIdentifier( $RoleObj->id );
 
@@ -127,7 +127,10 @@ class UserRepository implements IRepository
 			 * If the RoleUser relation has no identifier then attach the role..
 			 */
 
-			$UserModel->roles()->attach( $RoleModel->id );
+			if( !$UserModel->hasRole( $RoleUser->getName() ) )
+			{
+				$UserModel->roles()->attach( $RoleModel->id );
+			}
 		}
 	}
 }

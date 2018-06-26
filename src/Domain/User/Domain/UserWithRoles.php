@@ -116,17 +116,14 @@ class UserWithRoles extends User
 
 	public function hasRole( Role $Role )
 	{
-		$HasRole = false;
-
 		foreach( $this->_Roles as $RoleUser )
 		{
 			if( $RoleUser->getRole()->getName() == $Role->getName() )
 			{
-				$HasRole = true;
-				break;
+				return true;
 			}
 		}
 
-		return $HasRole;
+		return false;
 	}
 }
