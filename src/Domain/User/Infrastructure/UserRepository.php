@@ -8,7 +8,10 @@ use DDP\Domain\User;
 // @todo rename to UserWithRolesRepository
 
 /**
- * Class UserRepository
+ * Repository for UsersWithRoles
+ *
+ * @see User\Domain\UserWithRoles
+ *
  * @package DDP\Domain\User\Infrastructure
  */
 class UserRepository implements IRepository
@@ -21,6 +24,7 @@ class UserRepository implements IRepository
 	 * UserRepository constructor.
 	 * @param $UserModel
 	 * @param $RoleModel
+	 * @param $RoleUserModel
 	 */
 	public function __construct( $UserModel, $RoleModel, $RoleUserModel )
 	{
@@ -56,6 +60,7 @@ class UserRepository implements IRepository
 
 	public function getAll(): array
 	{
+		// Probably never a good idea to return every record in the system.
 		return [];
 	}
 

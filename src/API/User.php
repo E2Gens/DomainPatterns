@@ -8,7 +8,7 @@ use DDP\Domain\User\Domain\UserWithRoles;
 class User
 {
 	/**
-	 * @param IRepository $UserRepo
+	 * @param IWriteRepository $UserRepo
 	 * @param UserWithRoles $User
 	 * @return mixed
 	 */
@@ -18,7 +18,7 @@ class User
 	}
 
 	/**
-	 * @param IRepository $UserRepo
+	 * @param IWriteRepository $UserRepo
 	 * @param UserWithRoles $Admin
 	 * @return mixed
 	 */
