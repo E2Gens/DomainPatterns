@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="DDP\API\ValidationRegistry" namespace="DDP\API" name="ValidationRegistry" abstract="false" final="false" start="8" end="41">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API" file="ValidationRegistry.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API/ValidationRegistry.php" size="703" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="f2b4e269315cc5e55c0505f9593f7c8bc72d87ee" relative="API/ValidationRegistry.php"/>
+  <member name="_Validations" visibility="private" static="false" line="10"/>
+  <method name="get" start="16" end="19" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$Class"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="Class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="register" start="25" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$Class"/>
+      <param type="object" variable="$Validator">
+        <type full="Neuron\Data\Validation\IValidator" namespace="Neuron\Data\Validation" name="IValidator"/>
+      </param>
+    </docblock>
+    <parameter name="Class" byreference="false" type="{unknown}"/>
+    <parameter name="Validator" byreference="false" type="object">
+      <type full="Neuron\Data\Validation\IValidator" namespace="Neuron\Data\Validation" name="IValidator"/>
+    </parameter>
+  </method>
+  <method name="validate" start="35" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$Object">
+        <type full="DDP\Core\IValidatable" namespace="DDP\Core" name="IValidatable"/>
+      </param>
+      <param variable="$Violations"/>
+      <return type="object">
+        <type full="DDP\API\bool" namespace="DDP\API" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="Object" byreference="false" type="object">
+      <type full="DDP\Core\IValidatable" namespace="DDP\Core" name="IValidatable"/>
+    </parameter>
+    <parameter name="Violations" byreference="true" type="{unknown}"/>
+  </method>
+</class>

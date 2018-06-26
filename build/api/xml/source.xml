@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<source xmlns="http://xml.phpdox.net/src">
+  <dir name="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src">
+    <dir name="API">
+      <file name="User.php" size="595" time="2018-06-23T20:40:44+00:00" unixtime="1529786444" sha1="6ffc6d553d1433f4746cd916e0b6502681226ebf" xml="tokens/API/User.php.xml"/>
+      <file name="ValidationRegistry.php" size="703" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="f2b4e269315cc5e55c0505f9593f7c8bc72d87ee" xml="tokens/API/ValidationRegistry.php.xml"/>
+    </dir>
+    <dir name="Core">
+      <dir name="Domain">
+        <file name="EntityBase.php" size="1454" time="2018-06-25T23:45:56+00:00" unixtime="1529970356" sha1="80728ee2407813f20ae99f576cee7f5181b648c7" xml="tokens/Core/Domain/EntityBase.php.xml"/>
+        <file name="EntityStateService.php" size="472" time="2018-06-25T15:09:37+00:00" unixtime="1529939377" sha1="8fbd9e70fedbb2b8eab28b72a8de99d5adc3a0a4" xml="tokens/Core/Domain/EntityStateService.php.xml"/>
+        <file name="IEntity.php" size="894" time="2018-06-23T12:25:09+00:00" unixtime="1529756709" sha1="a6a44f707561c8e72bd49e50199428c5aad6ce56" xml="tokens/Core/Domain/IEntity.php.xml"/>
+        <file name="ValidatorBase.php" size="1060" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="1f6572b13f551e3f9007a2289c7248488c4157d5" xml="tokens/Core/Domain/ValidatorBase.php.xml"/>
+      </dir>
+      <dir name="Infrastructure">
+        <file name="IReadRepository.php" size="274" time="2018-06-24T13:20:02+00:00" unixtime="1529846402" sha1="d462ca98b80e0a759a7529e3c80f8d53b6d80f28" xml="tokens/Core/Infrastructure/IReadRepository.php.xml"/>
+        <file name="IRepository.php" size="229" time="2018-06-23T12:25:09+00:00" unixtime="1529756709" sha1="320f1d59ed3a558f7ea40808d3e9514b2b40f885" xml="tokens/Core/Infrastructure/IRepository.php.xml"/>
+        <file name="IWriteRepository.php" size="243" time="2018-06-24T13:20:02+00:00" unixtime="1529846402" sha1="9d66db143e52879cd848e52daa52a22fefa7d15f" xml="tokens/Core/Infrastructure/IWriteRepository.php.xml"/>
+      </dir>
+      <file name="IValidatable.php" size="175" time="2018-06-24T13:20:02+00:00" unixtime="1529846402" sha1="096c3cbb6006caf4742e88f038e4c390593830db" xml="tokens/Core/IValidatable.php.xml"/>
+    </dir>
+    <dir name="Domain">
+      <dir name="User">
+        <dir name="Domain">
+          <file name="Role.php" size="315" time="2018-06-23T12:25:09+00:00" unixtime="1529756709" sha1="d389cbd01826d4a1744b7718ea417e81791260f1" xml="tokens/Domain/User/Domain/Role.php.xml"/>
+          <file name="RoleUser.php" size="743" time="2018-06-25T23:34:03+00:00" unixtime="1529969643" sha1="7690553e3def75d3ae43b086e2f364ade29bdd78" xml="tokens/Domain/User/Domain/RoleUser.php.xml"/>
+          <file name="User.php" size="1791" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="c1928a8677108e6ad722fb7b16a480ec3a7a29ee" xml="tokens/Domain/User/Domain/User.php.xml"/>
+          <file name="UserValidator.php" size="510" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="fe609a43c3e8ff611032893e2c107338098668b1" xml="tokens/Domain/User/Domain/UserValidator.php.xml"/>
+          <file name="UserWithRoles.php" size="2099" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="0b1ec1dfa2c5f35879f45bd1c557f30011d235dd" xml="tokens/Domain/User/Domain/UserWithRoles.php.xml"/>
+        </dir>
+        <dir name="Infrastructure">
+          <file name="UserRepository.php" size="2655" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="0b24eb21b635fde668b1f9aa29bdd73388d3a831" xml="tokens/Domain/User/Infrastructure/UserRepository.php.xml"/>
+        </dir>
+      </dir>
+    </dir>
+  </dir>
+</source>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="DDP\Domain\User\Domain\Role" namespace="DDP\Domain\User\Domain" name="Role" abstract="false" final="false" start="7" end="26">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Domain" file="Role.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Domain/Role.php" size="315" time="2018-06-23T12:25:09+00:00" unixtime="1529756709" sha1="d389cbd01826d4a1744b7718ea417e81791260f1" relative="Domain/User/Domain/Role.php"/>
+  <extends full="DDP\Core\Domain\EntityBase" namespace="DDP\Core\Domain" name="EntityBase"/>
+  <member name="_Name" visibility="private" static="false" line="9"/>
+  <method name="getName" start="14" end="17" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="setName" start="22" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$Name"/>
+    </docblock>
+    <return type="void" nullable="false"/>
+    <parameter name="Name" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="DDP\Core\Domain\EntityBase" namespace="DDP\Core\Domain" name="EntityBase">
+    <implements full="DDP\Core\Domain\IEntity" namespace="DDP\Core\Domain" name="IEntity"/>
+    <implements full="DDP\Core\IValidatable" namespace="DDP\Core" name="IValidatable"/>
+    <constructor name="__construct" start="17" end="20" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="getDeleted" start="25" end="28" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="mixed"/>
+      </docblock>
+      <return type="bool" nullable="false"/>
+    </method>
+    <method name="setDeleted" start="33" end="36" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="mixed" variable="$Deleted"/>
+      </docblock>
+      <return type="void" nullable="false"/>
+      <parameter name="Deleted" byreference="false" type="bool"/>
+    </method>
+    <method name="getIdentifier" start="41" end="44" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="mixed"/>
+      </docblock>
+    </method>
+    <method name="setIdentifier" start="49" end="52" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="mixed" variable="$Identifier"/>
+      </docblock>
+      <return type="void" nullable="false"/>
+      <parameter name="Identifier" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="fromArray" start="58" end="59" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="array" variable="$Data"/>
+        <suppresswarnings value="(&quot;unused&quot;)"/>
+      </docblock>
+      <parameter name="Data" byreference="false" type="array"/>
+    </method>
+    <method name="fromStdClass" start="65" end="66" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$Object">
+          <type full="\stdClass" namespace="" name="stdClass"/>
+        </param>
+        <suppresswarnings value="(&quot;unused&quot;)"/>
+      </docblock>
+      <parameter name="Object" byreference="false" type="object">
+        <type full="stdClass" namespace="" name="stdClass"/>
+      </parameter>
+    </method>
+    <method name="fromRequest" start="72" end="73" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$Request">
+          <type full="DDP\Core\Domain\FormRequest" namespace="DDP\Core\Domain" name="FormRequest"/>
+        </param>
+        <suppresswarnings value="(&quot;unused&quot;)"/>
+      </docblock>
+      <parameter name="Request" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="toStdClass" start="79" end="80" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="\stdClass" namespace="" name="stdClass"/>
+        </return>
+        <suppresswarnings value="(&quot;unused&quot;)"/>
+      </docblock>
+      <return type="object" nullable="false">
+        <type full="stdClass" namespace="" name="stdClass"/>
+      </return>
+    </method>
+    <method name="validate" start="82" end="88" abstract="false" final="false" static="false" visibility="public">
+      <return type="bool" nullable="false"/>
+      <parameter name="Validator" byreference="false" type="object">
+        <type full="Neuron\Data\Validation\ICollection" namespace="Neuron\Data\Validation" name="ICollection"/>
+      </parameter>
+      <parameter name="Violations" byreference="true" type="array"/>
+    </method>
+  </parent>
+  <interface full="DDP\Core\Domain\IEntity" namespace="DDP\Core\Domain" name="IEntity">
+    <method name="getDeleted" start="14" end="14" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="mixed"/>
+      </docblock>
+      <return type="bool" nullable="false"/>
+    </method>
+    <method name="setDeleted" start="19" end="19" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="mixed" variable="$Deleted"/>
+      </docblock>
+      <return type="void" nullable="false"/>
+      <parameter name="Deleted" byreference="false" type="bool"/>
+    </method>
+    <method name="getIdentifier" start="24" end="24" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="mixed"/>
+      </docblock>
+    </method>
+    <method name="setIdentifier" start="29" end="29" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="mixed" variable="$Identifier"/>
+      </docblock>
+      <return type="void" nullable="false"/>
+      <parameter name="Identifier" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="fromArray" start="35" end="35" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="array" variable="$Data"/>
+        <suppresswarnings value="(&quot;unused&quot;)"/>
+      </docblock>
+      <parameter name="Data" byreference="false" type="array"/>
+    </method>
+    <method name="fromStdClass" start="41" end="41" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$Object">
+          <type full="\stdClass" namespace="" name="stdClass"/>
+        </param>
+        <suppresswarnings value="(&quot;unused&quot;)"/>
+      </docblock>
+      <parameter name="Object" byreference="false" type="object">
+        <type full="stdClass" namespace="" name="stdClass"/>
+      </parameter>
+    </method>
+    <method name="fromRequest" start="47" end="47" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$Request">
+          <type full="DDP\Core\Domain\FormRequest" namespace="DDP\Core\Domain" name="FormRequest"/>
+        </param>
+        <suppresswarnings value="(&quot;unused&quot;)"/>
+      </docblock>
+      <parameter name="Request" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="toStdClass" start="53" end="53" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="\stdClass" namespace="" name="stdClass"/>
+        </return>
+        <suppresswarnings value="(&quot;unused&quot;)"/>
+      </docblock>
+      <return type="object" nullable="false">
+        <type full="stdClass" namespace="" name="stdClass"/>
+      </return>
+    </method>
+  </interface>
+  <interface full="DDP\Core\IValidatable" namespace="DDP\Core" name="IValidatable">
+    <method name="validate" start="9" end="9" abstract="false" final="false" static="false" visibility="public">
+      <return type="bool" nullable="false"/>
+      <parameter name="Validator" byreference="false" type="object">
+        <type full="Neuron\Data\Validation\ICollection" namespace="Neuron\Data\Validation" name="ICollection"/>
+      </parameter>
+      <parameter name="Violations" byreference="true" type="array"/>
+    </method>
+  </interface>
+</class>

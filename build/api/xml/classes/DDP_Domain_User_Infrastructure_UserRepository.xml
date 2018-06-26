@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="DDP\Domain\User\Infrastructure\UserRepository" namespace="DDP\Domain\User\Infrastructure" name="UserRepository" abstract="false" final="false" start="14" end="133">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Infrastructure" file="UserRepository.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Domain/User/Infrastructure/UserRepository.php" size="2655" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="0b24eb21b635fde668b1f9aa29bdd73388d3a831" relative="Domain/User/Infrastructure/UserRepository.php"/>
+  <docblock>
+    <description compact="Class UserRepository"/>
+    <package value="DDP\Domain\User\Infrastructure"/>
+  </docblock>
+  <implements full="DDP\Core\Infrastructure\IRepository" namespace="DDP\Core\Infrastructure" name="IRepository"/>
+  <member name="_UserModel" visibility="private" static="false" line="16"/>
+  <member name="_RoleModel" visibility="private" static="false" line="17"/>
+  <member name="_RoleUserModel" visibility="private" static="false" line="18"/>
+  <constructor name="__construct" start="25" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="UserRepository constructor."/>
+      <param variable="$UserModel"/>
+      <param variable="$RoleModel"/>
+    </docblock>
+    <parameter name="UserModel" byreference="false" type="{unknown}"/>
+    <parameter name="RoleModel" byreference="false" type="{unknown}"/>
+    <parameter name="RoleUserModel" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="save" start="38" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$User"/>
+      <return type="mixed"/>
+      <todo value="$User needs to be a reference as the id can change during save."/>
+    </docblock>
+    <parameter name="User" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAll" start="57" end="60" abstract="false" final="false" static="false" visibility="public">
+    <return type="array" nullable="false"/>
+  </method>
+  <method name="getById" start="66" end="93" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$UserId"/>
+      <return type="object">
+        <type full="DDP\Domain\User\Infrastructure\User\Domain\User" namespace="DDP\Domain\User\Infrastructure\User\Domain" name="User"/>
+      </return>
+    </docblock>
+    <parameter name="UserId" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Load all of the roles." line="72"/>
+    </inline>
+  </method>
+  <method name="saveRoles" start="98" end="106" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="object" variable="$User">
+        <type full="DDP\Domain\User\Infrastructure\User\Domain\UserWithRoles" namespace="DDP\Domain\User\Infrastructure\User\Domain" name="UserWithRoles"/>
+      </param>
+    </docblock>
+    <parameter name="User" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addOrRemoveRole" start="111" end="132" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param variable="$RoleUser"/>
+    </docblock>
+    <parameter name="RoleUser" byreference="false" type="{unknown}"/>
+  </method>
+  <interface full="DDP\Core\Infrastructure\IRepository" namespace="DDP\Core\Infrastructure" name="IRepository">
+    <extends full="DDP\Core\Infrastructure\IReadRepository" namespace="DDP\Core\Infrastructure" name="IReadRepository"/>
+    <extends full="DDP\Core\Infrastructure\IWriteRepository" namespace="DDP\Core\Infrastructure" name="IWriteRepository"/>
+  </interface>
+</class>

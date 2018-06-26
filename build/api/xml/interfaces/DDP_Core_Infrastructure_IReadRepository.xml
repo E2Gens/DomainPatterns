@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="DDP\Core\Infrastructure\IReadRepository" namespace="DDP\Core\Infrastructure" name="IReadRepository" abstract="false" final="false" start="11" end="15">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Infrastructure" file="IReadRepository.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Infrastructure/IReadRepository.php" size="274" time="2018-06-24T13:20:02+00:00" unixtime="1529846402" sha1="d462ca98b80e0a759a7529e3c80f8d53b6d80f28" relative="Core/Infrastructure/IReadRepository.php"/>
+  <docblock>
+    <description compact="Interface IReadRepository"/>
+    <package value="DDP\Core\Infrastructure Generic interface for repositories with read ability."/>
+  </docblock>
+  <method name="getById" start="13" end="13" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="Id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAll" start="14" end="14" abstract="false" final="false" static="false" visibility="public">
+    <return type="array" nullable="false"/>
+  </method>
+  <extenders>
+    <extender full="DDP\Core\Infrastructure\IRepository" namespace="DDP\Core\Infrastructure" name="IRepository"/>
+  </extenders>
+</interface>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="DDP\Core\Infrastructure\IRepository" namespace="DDP\Core\Infrastructure" name="IRepository" abstract="false" final="false" start="12" end="14">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Infrastructure" file="IRepository.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Infrastructure/IRepository.php" size="229" time="2018-06-23T12:25:09+00:00" unixtime="1529756709" sha1="320f1d59ed3a558f7ea40808d3e9514b2b40f885" relative="Core/Infrastructure/IRepository.php"/>
+  <docblock>
+    <description compact="Interface IRepository"/>
+    <package value="DDD\Infrastructure Composite interface made up of read and write."/>
+  </docblock>
+  <extends full="DDP\Core\Infrastructure\IReadRepository" namespace="DDP\Core\Infrastructure" name="IReadRepository"/>
+  <extends full="DDP\Core\Infrastructure\IWriteRepository" namespace="DDP\Core\Infrastructure" name="IWriteRepository"/>
+  <parent full="DDP\Core\Infrastructure\IReadRepository" namespace="DDP\Core\Infrastructure" name="IReadRepository">
+    <method name="getById" start="13" end="13" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="Id" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getAll" start="14" end="14" abstract="false" final="false" static="false" visibility="public">
+      <return type="array" nullable="false"/>
+    </method>
+  </parent>
+  <parent full="DDP\Core\Infrastructure\IWriteRepository" namespace="DDP\Core\Infrastructure" name="IWriteRepository">
+    <method name="save" start="13" end="13" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="Object" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <implementors>
+    <class full="DDP\Domain\User\Infrastructure\UserRepository" namespace="DDP\Domain\User\Infrastructure" name="UserRepository"/>
+  </implementors>
+</interface>
