@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <index xmlns="http://xml.phpdox.net/src" basedir="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src">
   <namespace name="DDP\API">
-    <class name="User" src="API/User.php" xml="classes/DDP_API_User.xml"/>
-    <class name="ValidationRegistry" src="API/ValidationRegistry.php" xml="classes/DDP_API_ValidationRegistry.xml"/>
-  </namespace>
+    
+    
+  <class name="Location" src="API/Location.php" description="Encapsulates location information." xml="classes/DDP_API_Location.xml"/><class name="User" src="API/User.php" description="User API for registering Users and Admins." xml="classes/DDP_API_User.xml"/><class name="ValidationRegistry" src="API/ValidationRegistry.php" description="Use to globally associate a validation object with a class." xml="classes/DDP_API_ValidationRegistry.xml"/></namespace>
   <namespace name="DDP\Core\Domain">
-    <class name="EntityBase" src="Core/Domain/EntityBase.php" description="Class EntityBase" xml="classes/DDP_Core_Domain_EntityBase.xml"/>
-    <class name="EntityStateService" src="Core/Domain/EntityStateService.php" xml="classes/DDP_Core_Domain_EntityStateService.xml"/>
+    
+    
     <interface name="IEntity" src="Core/Domain/IEntity.php" description="Class EntityBase" xml="interfaces/DDP_Core_Domain_IEntity.xml"/>
-    <class name="ValidatorBase" src="Core/Domain/ValidatorBase.php" xml="classes/DDP_Core_Domain_ValidatorBase.xml"/>
-  </namespace>
+    
+  <class name="EntityBase" src="Core/Domain/EntityBase.php" description="Base class for entities." xml="classes/DDP_Core_Domain_EntityBase.xml"/><class name="EntityStateService" src="Core/Domain/EntityStateService.php" description="Services to filter arrays of entities based on states." xml="classes/DDP_Core_Domain_EntityStateService.xml"/><class name="ValidatorBase" src="Core/Domain/ValidatorBase.php" description="Base class for constructing Validators for entity objects." xml="classes/DDP_Core_Domain_ValidatorBase.xml"/></namespace>
   <namespace name="DDP\Core\Infrastructure">
     <interface name="IReadRepository" src="Core/Infrastructure/IReadRepository.php" description="Interface IReadRepository" xml="interfaces/DDP_Core_Infrastructure_IReadRepository.xml"/>
     <interface name="IRepository" src="Core/Infrastructure/IRepository.php" description="Interface IRepository" xml="interfaces/DDP_Core_Infrastructure_IRepository.xml"/>
     <interface name="IWriteRepository" src="Core/Infrastructure/IWriteRepository.php" description="Interface IWriteRepository" xml="interfaces/DDP_Core_Infrastructure_IWriteRepository.xml"/>
   </namespace>
   <namespace name="DDP\Core">
-    <interface name="IValidatable" src="Core/IValidatable.php" xml="interfaces/DDP_Core_IValidatable.xml"/>
-  </namespace>
+    
+  <interface name="IValidatable" src="Core/IValidatable.php" description="Used by ValidationRegistry to apply a Validator against the object." xml="interfaces/DDP_Core_IValidatable.xml"/></namespace>
   <namespace name="DDP\Domain\User\Domain">
     <class name="Role" src="Domain/User/Domain/Role.php" xml="classes/DDP_Domain_User_Domain_Role.xml"/>
     <class name="RoleUser" src="Domain/User/Domain/RoleUser.php" xml="classes/DDP_Domain_User_Domain_RoleUser.xml"/>
     <class name="User" src="Domain/User/Domain/User.php" xml="classes/DDP_Domain_User_Domain_User.xml"/>
     <class name="UserValidator" src="Domain/User/Domain/UserValidator.php" description="Class UserValidator" xml="classes/DDP_Domain_User_Domain_UserValidator.xml"/>
-    <class name="UserWithRoles" src="Domain/User/Domain/UserWithRoles.php" xml="classes/DDP_Domain_User_Domain_UserWithRoles.xml"/>
-  </namespace>
+    
+  <class name="UserWithRoles" src="Domain/User/Domain/UserWithRoles.php" xml="classes/DDP_Domain_User_Domain_UserWithRoles.xml"/></namespace>
   <namespace name="DDP\Domain\User\Infrastructure">
-    <class name="UserRepository" src="Domain/User/Infrastructure/UserRepository.php" description="Class UserRepository" xml="classes/DDP_Domain_User_Infrastructure_UserRepository.xml"/>
-  </namespace>
+    
+  <class name="UserRepository" src="Domain/User/Infrastructure/UserRepository.php" description="Repository for UsersWithRoles" xml="classes/DDP_Domain_User_Infrastructure_UserRepository.xml"/></namespace>
 </index>

@@ -10,6 +10,4 @@ script:
 notifications:
   slack:
     rooms:
-      - dragonflyrg:w3hYXjTOZjrmBGQuszMILN7K#eckerd_notify
-      - dragonflyrg:w3hYXjTOZjrmBGQuszMILN7K#wavstay_notify
       - dragonflyrg:w3hYXjTOZjrmBGQuszMILN7K#opensource_notify

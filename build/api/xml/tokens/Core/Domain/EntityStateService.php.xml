@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain" file="EntityStateService.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain/EntityStateService.php" size="472" time="2018-06-25T15:09:37+00:00" unixtime="1529939377" sha1="8fbd9e70fedbb2b8eab28b72a8de99d5adc3a0a4" relative="Core/Domain/EntityStateService.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain" file="EntityStateService.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain/EntityStateService.php" size="788" time="2018-06-26T16:25:49+00:00" unixtime="1530030349" sha1="cc0c28edf5566d4ae58398e5efb15b1b1d5a2847" relative="Core/Domain/EntityStateService.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -17,14 +17,42 @@
   </line>
   <line no="4"/>
   <line no="5">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> * Services to filter arrays of entities based on states.</token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT"> * @package DDP\Core\Domain</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="9">
     <token name="T_CLASS">class</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">EntityStateService</token>
   </line>
-  <line no="6">
+  <line no="10">
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="7">
+  <line no="11">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT">	 * Returns all entities flagged for deletion.</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT">	 * @param array $Entities</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT">	 * @return array</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="16">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -41,11 +69,11 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="8">
+  <line no="17">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="9">
+  <line no="18">
     <token name="T_WHITESPACE">		</token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -67,12 +95,28 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="10">
+  <line no="19">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="11"/>
-  <line no="12">
+  <line no="20"/>
+  <line no="21">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="22">
+    <token name="T_DOC_COMMENT">	 * Returns all entities flagged for creation be the repository.</token>
+  </line>
+  <line no="23">
+    <token name="T_DOC_COMMENT">	 * @param array $Entities</token>
+  </line>
+  <line no="24">
+    <token name="T_DOC_COMMENT">	 * @return array</token>
+  </line>
+  <line no="25">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="26">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -89,11 +133,11 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="13">
+  <line no="27">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="14">
+  <line no="28">
     <token name="T_WHITESPACE">		</token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -115,12 +159,12 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="15">
+  <line no="29">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="16"/>
-  <line no="17">
+  <line no="30"/>
+  <line no="31">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -135,11 +179,11 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="18">
+  <line no="32">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="19">
+  <line no="33">
     <token name="T_WHITESPACE">		</token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -150,12 +194,12 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="20">
+  <line no="34">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="21"/>
-  <line no="22">
+  <line no="35"/>
+  <line no="36">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -170,11 +214,11 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="23">
+  <line no="37">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="24">
+  <line no="38">
     <token name="T_WHITESPACE">		</token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -186,12 +230,12 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="25">
+  <line no="39">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="26">
+  <line no="40">
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="27"/>
+  <line no="41"/>
 </source>

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="DDP\Core\Domain\ValidatorBase" namespace="DDP\Core\Domain" name="ValidatorBase" abstract="false" final="false" start="8" end="60">
-  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain" file="ValidatorBase.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain/ValidatorBase.php" size="1060" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="1f6572b13f551e3f9007a2289c7248488c4157d5" relative="Core/Domain/ValidatorBase.php"/>
-  <member name="_Validators" visibility="private" static="false" line="10"/>
-  <member name="_Violations" visibility="private" static="false" line="11"/>
-  <member name="_Entity" visibility="private" static="false" line="12"/>
-  <method name="add" start="18" end="21" abstract="false" final="false" static="false" visibility="public">
+<class xmlns="http://xml.phpdox.net/src" full="DDP\Core\Domain\ValidatorBase" namespace="DDP\Core\Domain" name="ValidatorBase" abstract="false" final="false" start="13" end="65">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain" file="ValidatorBase.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain/ValidatorBase.php" size="1159" time="2018-06-26T11:31:10+00:00" unixtime="1530012670" sha1="e6ab1dcd822776882b88edc4fa6f41f04617b32f" relative="Core/Domain/ValidatorBase.php"/>
+  <docblock>
+    <description compact="Base class for constructing Validators for entity objects."/>
+    <package value="DDP\Core\Domain"/>
+  </docblock>
+  <member name="_Validators" visibility="private" static="false" line="15"/>
+  <member name="_Violations" visibility="private" static="false" line="16"/>
+  <member name="_Entity" visibility="private" static="false" line="17"/>
+  <method name="add" start="23" end="26" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description/>
       <param variable="$Name"/>
@@ -17,14 +21,14 @@
       <type full="Neuron\Data\Validation\IValidator" namespace="Neuron\Data\Validation" name="IValidator"/>
     </parameter>
   </method>
-  <method name="getViolations" start="26" end="29" abstract="false" final="false" static="false" visibility="public">
+  <method name="getViolations" start="31" end="34" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description/>
       <return type="array"/>
     </docblock>
     <return type="array" nullable="false"/>
   </method>
-  <method name="isValid" start="36" end="41" abstract="false" final="false" static="false" visibility="public">
+  <method name="isValid" start="41" end="46" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description/>
       <param variable="$Entity"/>
@@ -35,7 +39,7 @@
     <return type="bool" nullable="false"/>
     <parameter name="Entity" byreference="false" type="{unknown}"/>
   </method>
-  <method name="reduceValid" start="48" end="59" abstract="false" final="false" static="false" visibility="protected">
+  <method name="reduceValid" start="53" end="64" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description/>
       <param variable="$Prev"/>
@@ -47,7 +51,4 @@
     <parameter name="Prev" byreference="false" type="{unknown}"/>
     <parameter name="Key" byreference="false" type="{unknown}"/>
   </method>
-  <extenders>
-    <extender full="DDP\Domain\User\Domain\UserValidator" namespace="DDP\Domain\User\Domain" name="UserValidator"/>
-  </extenders>
 </class>

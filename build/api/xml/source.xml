@@ -2,22 +2,83 @@
 <source xmlns="http://xml.phpdox.net/src">
   <dir name="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src">
     <dir name="API">
-      <file name="User.php" size="595" time="2018-06-23T20:40:44+00:00" unixtime="1529786444" sha1="6ffc6d553d1433f4746cd916e0b6502681226ebf" xml="tokens/API/User.php.xml"/>
-      <file name="ValidationRegistry.php" size="703" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="f2b4e269315cc5e55c0505f9593f7c8bc72d87ee" xml="tokens/API/ValidationRegistry.php.xml"/>
+      <file name="Location.php" size="727" time="2018-06-26T13:02:36+00:00" unixtime="1530018156" sha1="8d00c41d8f9c5cb6b691b17c19be8fd7ee59df43" xml="tokens/API/Location.php.xml"/>
+      <file name="User.php" size="682" time="2018-06-26T13:02:25+00:00" unixtime="1530018145" sha1="2452a5f64004b8b30209f0a76f19879e40079885" xml="tokens/API/User.php.xml"/>
+      <file name="ValidationRegistry.php" size="1279" time="2018-06-26T11:28:15+00:00" unixtime="1530012495" sha1="e5a3245fd3fa53157ac6e983c9fde73bbedd0ae4" xml="tokens/API/ValidationRegistry.php.xml"/>
+    </dir>
+    <dir name="build">
+      <dir name="api-cache">
+        <dir name="0fea6a13c52b4d47">
+          <dir name="25368f24b045ca84">
+            <dir name="38a865804f8fdcb6">
+              <dir name="57cd99682e939275">
+                <dir name="06c825aa18d8468e">
+                  <file name="f41afe10b431504d.php" size="37124" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="0badcb14f895bf699b8a23b99879ff3a18821064" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/06c825aa18d8468e/f41afe10b431504d.php.xml"/>
+                </dir>
+                <dir name="0cea412029244e82">
+                  <file name="d53f632f8245ef11.php" size="38000" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="0a0015ed24c11b344242f9f29df1570c539e08e4" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/0cea412029244e82/d53f632f8245ef11.php.xml"/>
+                </dir>
+                <dir name="147f888fbebfeb2c">
+                  <file name="51a96749b95a9c0e.php" size="8076" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="587c44e23202ba31c84c941247cace27b924f150" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/147f888fbebfeb2c/51a96749b95a9c0e.php.xml"/>
+                </dir>
+                <dir name="4d1f8ad3efaa1c32">
+                  <file name="76ddabe38683adbf.php" size="20976" time="2018-06-26T11:16:43+00:00" unixtime="1530011803" sha1="ee5aa2717d9b0591f42c6939a730cc0f2edbe9ae" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/4d1f8ad3efaa1c32/76ddabe38683adbf.php.xml"/>
+                </dir>
+                <dir name="514b8f60a50a4b6f">
+                  <file name="1b8b29762fff74dc.php" size="5200" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="11c76e7ee6480ddec237e4c0ebdb4ee8bf18d73b" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/514b8f60a50a4b6f/1b8b29762fff74dc.php.xml"/>
+                </dir>
+                <dir name="68d50b16b5da2009">
+                  <file name="c80de8f6ea6dc2ee.php" size="5484" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="42b85da00d47f1c9cbe6d0687efc2112f5a2079b" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/68d50b16b5da2009/c80de8f6ea6dc2ee.php.xml"/>
+                </dir>
+                <dir name="710876db5db14289">
+                  <file name="affdc2f4869a8e68.php" size="29500" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="15e98f3ed3606b01893142dc5d06015454d1f051" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/710876db5db14289/affdc2f4869a8e68.php.xml"/>
+                </dir>
+                <dir name="7672d6c489a328eb">
+                  <file name="35066eee3ff3de69.php" size="8924" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="aa5e1c98736b99c4639115ad07cc9b38ca2095f3" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/7672d6c489a328eb/35066eee3ff3de69.php.xml"/>
+                </dir>
+                <dir name="7e9d189bff9f26f3">
+                  <file name="f9a86ddf8ffc0dd7.php" size="11680" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="fb4d40641e699a7d38a5f02bdd8de58e6e98c2f8" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/7e9d189bff9f26f3/f9a86ddf8ffc0dd7.php.xml"/>
+                </dir>
+                <dir name="94d494fcae27c168">
+                  <file name="e76e73b8c2817640.php" size="16520" time="2018-06-26T11:16:43+00:00" unixtime="1530011803" sha1="8752f0fe32616aed693c8a5cb828e88658eb57bf" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/94d494fcae27c168/e76e73b8c2817640.php.xml"/>
+                </dir>
+                <dir name="a31bd9ba244469fd">
+                  <file name="0cf6f782001a7b27.php" size="12212" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="48911e76d52d2be8b6135f6b108400035bba6cc0" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/a31bd9ba244469fd/0cf6f782001a7b27.php.xml"/>
+                </dir>
+                <dir name="c8b0a94854134ef1">
+                  <file name="2ee3fd276af704b0.php" size="34992" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="b45749bee79955bab9b84d8a4e9f77e646d366ce" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/c8b0a94854134ef1/2ee3fd276af704b0.php.xml"/>
+                </dir>
+                <dir name="d927fb64d07a339b">
+                  <file name="c247850f88dfa09e.php" size="27884" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="02cd86bd6e9156c2b7c448abd56803a587a80bd7" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/d927fb64d07a339b/c247850f88dfa09e.php.xml"/>
+                </dir>
+                <dir name="e425a677980c2ef2">
+                  <file name="fcad65a4acd606a8.php" size="45616" time="2018-06-26T11:16:43+00:00" unixtime="1530011803" sha1="2fd163a7f37b36f4e723eb6e5b23a9db2d6eed33" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/e425a677980c2ef2/fcad65a4acd606a8.php.xml"/>
+                </dir>
+                <dir name="ec74d6007b46166d">
+                  <file name="2772ee64fc490123.php" size="43668" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="39eb2ed0ffbf5647fff8f6545f40ee4bb1007e12" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/ec74d6007b46166d/2772ee64fc490123.php.xml"/>
+                </dir>
+                <dir name="f6414bf0b7017bf9">
+                  <file name="ded27d2dd7bf5481.php" size="6868" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="6627234da0425e11795315f9b47e016d22bf0fdf" xml="tokens/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/f6414bf0b7017bf9/ded27d2dd7bf5481.php.xml"/>
+                </dir>
+              </dir>
+            </dir>
+          </dir>
+        </dir>
+      </dir>
     </dir>
     <dir name="Core">
       <dir name="Domain">
-        <file name="EntityBase.php" size="1454" time="2018-06-25T23:45:56+00:00" unixtime="1529970356" sha1="80728ee2407813f20ae99f576cee7f5181b648c7" xml="tokens/Core/Domain/EntityBase.php.xml"/>
-        <file name="EntityStateService.php" size="472" time="2018-06-25T15:09:37+00:00" unixtime="1529939377" sha1="8fbd9e70fedbb2b8eab28b72a8de99d5adc3a0a4" xml="tokens/Core/Domain/EntityStateService.php.xml"/>
+        <file name="EntityBase.php" size="1462" time="2018-06-26T16:25:49+00:00" unixtime="1530030349" sha1="bbc4a2ba484b91789056f171520167e0dcd8a544" xml="tokens/Core/Domain/EntityBase.php.xml"/>
+        <file name="EntityStateService.php" size="788" time="2018-06-26T16:25:49+00:00" unixtime="1530030349" sha1="cc0c28edf5566d4ae58398e5efb15b1b1d5a2847" xml="tokens/Core/Domain/EntityStateService.php.xml"/>
         <file name="IEntity.php" size="894" time="2018-06-23T12:25:09+00:00" unixtime="1529756709" sha1="a6a44f707561c8e72bd49e50199428c5aad6ce56" xml="tokens/Core/Domain/IEntity.php.xml"/>
-        <file name="ValidatorBase.php" size="1060" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="1f6572b13f551e3f9007a2289c7248488c4157d5" xml="tokens/Core/Domain/ValidatorBase.php.xml"/>
+        <file name="ValidatorBase.php" size="1159" time="2018-06-26T11:31:10+00:00" unixtime="1530012670" sha1="e6ab1dcd822776882b88edc4fa6f41f04617b32f" xml="tokens/Core/Domain/ValidatorBase.php.xml"/>
       </dir>
       <dir name="Infrastructure">
         <file name="IReadRepository.php" size="274" time="2018-06-24T13:20:02+00:00" unixtime="1529846402" sha1="d462ca98b80e0a759a7529e3c80f8d53b6d80f28" xml="tokens/Core/Infrastructure/IReadRepository.php.xml"/>
         <file name="IRepository.php" size="229" time="2018-06-23T12:25:09+00:00" unixtime="1529756709" sha1="320f1d59ed3a558f7ea40808d3e9514b2b40f885" xml="tokens/Core/Infrastructure/IRepository.php.xml"/>
         <file name="IWriteRepository.php" size="243" time="2018-06-24T13:20:02+00:00" unixtime="1529846402" sha1="9d66db143e52879cd848e52daa52a22fefa7d15f" xml="tokens/Core/Infrastructure/IWriteRepository.php.xml"/>
       </dir>
-      <file name="IValidatable.php" size="175" time="2018-06-24T13:20:02+00:00" unixtime="1529846402" sha1="096c3cbb6006caf4742e88f038e4c390593830db" xml="tokens/Core/IValidatable.php.xml"/>
+      <file name="IValidatable.php" size="394" time="2018-06-26T16:25:49+00:00" unixtime="1530030349" sha1="045947bb949a1067b7e17863ff55f85b902666ee" xml="tokens/Core/IValidatable.php.xml"/>
     </dir>
     <dir name="Domain">
       <dir name="User">
@@ -26,10 +87,10 @@
           <file name="RoleUser.php" size="743" time="2018-06-25T23:34:03+00:00" unixtime="1529969643" sha1="7690553e3def75d3ae43b086e2f364ade29bdd78" xml="tokens/Domain/User/Domain/RoleUser.php.xml"/>
           <file name="User.php" size="1791" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="c1928a8677108e6ad722fb7b16a480ec3a7a29ee" xml="tokens/Domain/User/Domain/User.php.xml"/>
           <file name="UserValidator.php" size="510" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="fe609a43c3e8ff611032893e2c107338098668b1" xml="tokens/Domain/User/Domain/UserValidator.php.xml"/>
-          <file name="UserWithRoles.php" size="2099" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="0b1ec1dfa2c5f35879f45bd1c557f30011d235dd" xml="tokens/Domain/User/Domain/UserWithRoles.php.xml"/>
+          <file name="UserWithRoles.php" size="2060" time="2018-06-26T01:12:25+00:00" unixtime="1529975545" sha1="735b718f17f21fe42db8217f08b714a3abd6138b" xml="tokens/Domain/User/Domain/UserWithRoles.php.xml"/>
         </dir>
         <dir name="Infrastructure">
-          <file name="UserRepository.php" size="2655" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="0b24eb21b635fde668b1f9aa29bdd73388d3a831" xml="tokens/Domain/User/Infrastructure/UserRepository.php.xml"/>
+          <file name="UserRepository.php" size="2889" time="2018-06-26T11:31:10+00:00" unixtime="1530012670" sha1="964214b8a26ca6c48a9e90e1a2652b6216cf311c" xml="tokens/Domain/User/Infrastructure/UserRepository.php.xml"/>
         </dir>
       </dir>
     </dir>

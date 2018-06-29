@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="DDP\Core\Domain\EntityStateService" namespace="DDP\Core\Domain" name="EntityStateService" abstract="false" final="false" start="5" end="26">
-  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain" file="EntityStateService.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain/EntityStateService.php" size="472" time="2018-06-25T15:09:37+00:00" unixtime="1529939377" sha1="8fbd9e70fedbb2b8eab28b72a8de99d5adc3a0a4" relative="Core/Domain/EntityStateService.php"/>
-  <method name="getDeleted" start="7" end="10" abstract="false" final="false" static="true" visibility="public">
+<class xmlns="http://xml.phpdox.net/src" full="DDP\Core\Domain\EntityStateService" namespace="DDP\Core\Domain" name="EntityStateService" abstract="false" final="false" start="9" end="40">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain" file="EntityStateService.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain/EntityStateService.php" size="788" time="2018-06-26T16:25:49+00:00" unixtime="1530030349" sha1="cc0c28edf5566d4ae58398e5efb15b1b1d5a2847" relative="Core/Domain/EntityStateService.php"/>
+  <docblock>
+    <description compact="Services to filter arrays of entities based on states."/>
+    <package value="DDP\Core\Domain"/>
+  </docblock>
+  <method name="getDeleted" start="16" end="19" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns all entities flagged for deletion."/>
+      <param type="array" variable="$Entities"/>
+      <return type="array"/>
+    </docblock>
     <parameter name="Entities" byreference="false" type="array"/>
   </method>
-  <method name="getNew" start="12" end="15" abstract="false" final="false" static="true" visibility="public">
+  <method name="getNew" start="26" end="29" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns all entities flagged for creation be the repository."/>
+      <param type="array" variable="$Entities"/>
+      <return type="array"/>
+    </docblock>
     <parameter name="Entities" byreference="false" type="array"/>
   </method>
-  <method name="isDeleted" start="17" end="20" abstract="false" final="false" static="true" visibility="public">
+  <method name="isDeleted" start="31" end="34" abstract="false" final="false" static="true" visibility="public">
     <parameter name="Entity" byreference="false" type="{unknown}"/>
   </method>
-  <method name="isNew" start="22" end="25" abstract="false" final="false" static="true" visibility="public">
+  <method name="isNew" start="36" end="39" abstract="false" final="false" static="true" visibility="public">
     <parameter name="Entity" byreference="false" type="{unknown}"/>
   </method>
 </class>

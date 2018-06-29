@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API" file="ValidationRegistry.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API/ValidationRegistry.php" size="703" time="2018-06-25T21:23:49+00:00" unixtime="1529961829" sha1="f2b4e269315cc5e55c0505f9593f7c8bc72d87ee" relative="API/ValidationRegistry.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API" file="ValidationRegistry.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API/ValidationRegistry.php" size="1279" time="2018-06-26T11:28:15+00:00" unixtime="1530012495" sha1="e5a3245fd3fa53157ac6e983c9fde73bbedd0ae4" relative="API/ValidationRegistry.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -38,35 +38,59 @@
   </line>
   <line no="7"/>
   <line no="8">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT"> * Use to globally associate a validation object with a class.</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * @see IValidatable</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> * @see IValidator</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * @package DDP\API</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="15">
     <token name="T_CLASS">class</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">ValidationRegistry</token>
   </line>
-  <line no="9">
+  <line no="16">
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="10">
+  <line no="17">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PRIVATE">private</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$_Validations</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="11"/>
-  <line no="12">
+  <line no="18"/>
+  <line no="19">
     <token name="T_WHITESPACE">	</token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="13">
+  <line no="20">
+    <token name="T_DOC_COMMENT">	 * Get the validator object associated with the class name.</token>
+  </line>
+  <line no="21">
     <token name="T_DOC_COMMENT">	 * @param $Class</token>
   </line>
-  <line no="14">
+  <line no="22">
     <token name="T_DOC_COMMENT">	 * @return mixed</token>
   </line>
-  <line no="15">
+  <line no="23">
     <token name="T_DOC_COMMENT">	 */</token>
   </line>
-  <line no="16">
+  <line no="24">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -79,11 +103,11 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="17">
+  <line no="25">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="18">
+  <line no="26">
     <token name="T_WHITESPACE">		</token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -97,25 +121,28 @@
     <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="19">
+  <line no="27">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="20"/>
-  <line no="21">
+  <line no="28"/>
+  <line no="29">
     <token name="T_WHITESPACE">	</token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="22">
+  <line no="30">
+    <token name="T_DOC_COMMENT">	 * Associate a validator with a class.</token>
+  </line>
+  <line no="31">
     <token name="T_DOC_COMMENT">	 * @param $Class</token>
   </line>
-  <line no="23">
+  <line no="32">
     <token name="T_DOC_COMMENT">	 * @param IValidator $Validator</token>
   </line>
-  <line no="24">
+  <line no="33">
     <token name="T_DOC_COMMENT">	 */</token>
   </line>
-  <line no="25">
+  <line no="34">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -132,11 +159,11 @@
     <token name="T_VARIABLE">$Validator</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="26">
+  <line no="35">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="27">
+  <line no="36">
     <token name="T_WHITESPACE">		</token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -152,28 +179,40 @@
     <token name="T_VARIABLE">$Validator</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="28">
+  <line no="37">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="29"/>
-  <line no="30">
+  <line no="38"/>
+  <line no="39">
     <token name="T_WHITESPACE">	</token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="31">
+  <line no="40">
+    <token name="T_DOC_COMMENT">	 * Giving this method an object (not class, it will figure that out) will</token>
+  </line>
+  <line no="41">
+    <token name="T_DOC_COMMENT">	 * cause it to run the validator on the class. If the validation fails,</token>
+  </line>
+  <line no="42">
+    <token name="T_DOC_COMMENT">	 * the Violations array will contain a list of the failed validations.</token>
+  </line>
+  <line no="43">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="44">
     <token name="T_DOC_COMMENT">	 * @param IValidatable $Object</token>
   </line>
-  <line no="32">
-    <token name="T_DOC_COMMENT">	 * @param $Violations</token>
+  <line no="45">
+    <token name="T_DOC_COMMENT">	 * @param $Violations If validation fails, this array is populated with descriptions of the failed validations.</token>
   </line>
-  <line no="33">
-    <token name="T_DOC_COMMENT">	 * @return bool</token>
+  <line no="46">
+    <token name="T_DOC_COMMENT">	 * @return bool False if validation fails.</token>
   </line>
-  <line no="34">
+  <line no="47">
     <token name="T_DOC_COMMENT">	 */</token>
   </line>
-  <line no="35">
+  <line no="48">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -192,11 +231,11 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="36">
+  <line no="49">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="37">
+  <line no="50">
     <token name="T_WHITESPACE">		</token>
     <token name="T_VARIABLE">$Validator</token>
     <token name="T_WHITESPACE"> </token>
@@ -217,8 +256,8 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="38"/>
-  <line no="39">
+  <line no="51"/>
+  <line no="52">
     <token name="T_WHITESPACE">		</token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -235,12 +274,12 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="40">
+  <line no="53">
     <token name="T_WHITESPACE">	</token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="41">
+  <line no="54">
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="42"/>
+  <line no="55"/>
 </source>

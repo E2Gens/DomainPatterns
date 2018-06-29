@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "clearidea/neuron": "^0.7.6"
+    "clearidea/neuron": "^0.7.6",
+    "menarasolutions/geographer": "^0.3.5"
   },
   "require-dev": {
     "phpunit/phpunit"               : "7.*"

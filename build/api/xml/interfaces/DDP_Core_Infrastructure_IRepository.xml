@@ -22,5 +22,5 @@
   </parent>
   <implementors>
     <class full="DDP\Domain\User\Infrastructure\UserRepository" namespace="DDP\Domain\User\Infrastructure" name="UserRepository"/>
-  </implementors>
+  <class full="DDP\Domain\User\Infrastructure\UserRepository" namespace="DDP\Domain\User\Infrastructure" name="UserRepository"/></implementors>
 </interface>

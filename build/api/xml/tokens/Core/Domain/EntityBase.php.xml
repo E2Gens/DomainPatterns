@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain" file="EntityBase.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain/EntityBase.php" size="1454" time="2018-06-25T23:45:56+00:00" unixtime="1529970356" sha1="80728ee2407813f20ae99f576cee7f5181b648c7" relative="Core/Domain/EntityBase.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain" file="EntityBase.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/Core/Domain/EntityBase.php" size="1462" time="2018-06-26T16:25:49+00:00" unixtime="1530030349" sha1="bbc4a2ba484b91789056f171520167e0dcd8a544" relative="Core/Domain/EntityBase.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -31,7 +31,7 @@
     <token name="T_DOC_COMMENT">/**</token>
   </line>
   <line no="8">
-    <token name="T_DOC_COMMENT"> * Class EntityBase</token>
+    <token name="T_DOC_COMMENT"> * Base class for entities.</token>
   </line>
   <line no="9">
     <token name="T_DOC_COMMENT"> * @package App\DDD</token>

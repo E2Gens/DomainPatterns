@@ -59,14 +59,15 @@
             <a href="#methods">Methods</a>
           </li>
           <li>
-            <a href="../source/API/ValidationRegistry.php.xhtml#line8">Source</a>
+            <a href="../source/API/ValidationRegistry.php.xhtml#line15">Source</a>
           </li>
         </ul>
       </nav>
       <section>
         <h1 id="introduction"><small>DDP\API\</small>ValidationRegistry</h1>
-        <h4/>
+        <h4>Use to globally associate a validation object with a class.</h4>
         <p/>
+        <ul/>
         <h2 id="synopsis">Synopsis</h2>
         <div class="synopsis">class ValidationRegistry
             {<br/><ul class="none"><li>// members</li><li>private  <a href="#members">$_Validations</a>;
@@ -89,15 +90,12 @@
         <div class="styled">
           <h4>public</h4>
           <ul>
-            <li id="get">
-              <a title="DDP\API\ValidationRegistry" href="../classes/DDP_API_ValidationRegistry/get.xhtml">get()</a>
-            </li>
-            <li id="register">
-              <a title="DDP\API\ValidationRegistry" href="../classes/DDP_API_ValidationRegistry/register.xhtml">register()</a>
-            </li>
-            <li id="validate">
-              <a title="DDP\API\ValidationRegistry" href="../classes/DDP_API_ValidationRegistry/validate.xhtml">validate()</a>
-            </li>
+            <li id="get"><a title="DDP\API\ValidationRegistry" href="../classes/DDP_API_ValidationRegistry/get.xhtml">get()</a>
+                — Get the validator object associated with the class name.</li>
+            <li id="register"><a title="DDP\API\ValidationRegistry" href="../classes/DDP_API_ValidationRegistry/register.xhtml">register()</a>
+                — Associate a validator with a class.</li>
+            <li id="validate"><a title="DDP\API\ValidationRegistry" href="../classes/DDP_API_ValidationRegistry/validate.xhtml">validate()</a>
+                — Giving this method an object (not class, it will figure that out) will cause it to run the validator on the class. If the validation fails, the Violations array will contain a list of the failed validations.</li>
           </ul>
         </div>
       </section>

@@ -5,10 +5,15 @@ namespace DDP\API;
 use DDP\Core\Infrastructure\IWriteRepository;
 use DDP\Domain\User\Domain\UserWithRoles;
 
+/**
+ * User API for registering Users and Admins.
+ *
+ * @package DDP\API
+ */
 class User
 {
 	/**
-	 * @param IRepository $UserRepo
+	 * @param IWriteRepository $UserRepo
 	 * @param UserWithRoles $User
 	 * @return mixed
 	 */
@@ -18,7 +23,7 @@ class User
 	}
 
 	/**
-	 * @param IRepository $UserRepo
+	 * @param IWriteRepository $UserRepo
 	 * @param UserWithRoles $Admin
 	 * @return mixed
 	 */

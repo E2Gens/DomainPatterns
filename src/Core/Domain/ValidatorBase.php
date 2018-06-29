@@ -5,6 +5,11 @@ namespace DDP\Core\Domain;
 use Neuron\Data\Validation\ICollection;
 use Neuron\Data\Validation\IValidator;
 
+/**
+ * Base class for constructing Validators for entity objects.
+ * @package DDP\Core\Domain
+ */
+
 class ValidatorBase
 {
 	private $_Validators;
