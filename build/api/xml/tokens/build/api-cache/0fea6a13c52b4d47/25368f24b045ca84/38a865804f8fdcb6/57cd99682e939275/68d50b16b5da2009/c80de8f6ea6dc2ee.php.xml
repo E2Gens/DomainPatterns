@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/68d50b16b5da2009" file="c80de8f6ea6dc2ee.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/68d50b16b5da2009/c80de8f6ea6dc2ee.php" size="5484" time="2018-06-26T11:16:44+00:00" unixtime="1530011804" sha1="42b85da00d47f1c9cbe6d0687efc2112f5a2079b" relative="build/api-cache/0fea6a13c52b4d47/25368f24b045ca84/38a865804f8fdcb6/57cd99682e939275/68d50b16b5da2009/c80de8f6ea6dc2ee.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php </token>
+  </line>
+  <line no="2">
+    <token name="T_COMMENT">/* Cachekey: cache/stash_default/documentation\api\php\769de234e2a8d4979f3027062478abef/ */</token>
+  </line>
+  <line no="3">
+    <token name="T_COMMENT">/* Type: array */</token>
+  </line>
+  <line no="4">
+    <token name="T_COMMENT">/* Expiration: 2018-06-30T17:26:28+00:00 */</token>
+  </line>
+  <line no="5"/>
+  <line no="6"/>
+  <line no="7"/>
+  <line no="8">
+    <token name="T_VARIABLE">$loaded</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">true</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="9">
+    <token name="T_VARIABLE">$expiration</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">1530379588</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="10"/>
+  <line no="11">
+    <token name="T_VARIABLE">$data</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_ARRAY">array</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="12"/>
+  <line no="13">
+    <token name="T_COMMENT">/* Child Type: object */</token>
+  </line>
+  <line no="14">
+    <token name="T_VARIABLE">$data</token>
+    <token name="T_PHPDOX_OPEN_SQUARE">[</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'return'</token>
+    <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">unserialize</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">base64_decode</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'TzozMzoicGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFBocFxGaWxlIjoxMjp7czo0MzoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxQaHBcRmlsZQBkb2NCbG9jayI7TjtzOjM5OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFBocFxGaWxlAGhhc2giO3M6MzI6ImQ0YTQyM2RhZGIxNWQxMzQ2ZWYxODAyOTFmYjY2ZTE0IjtzOjM5OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFBocFxGaWxlAG5hbWUiO3M6MTU6IklSZXBvc2l0b3J5LnBocCI7czozOToiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxQaHBcRmlsZQBwYXRoIjtzOjM1OiJDb3JlL0luZnJhc3RydWN0dXJlL0lSZXBvc2l0b3J5LnBocCI7czo0MToiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxQaHBcRmlsZQBzb3VyY2UiO3M6MjI5OiI8P3BocAoKbmFtZXNwYWNlIEREUFxDb3JlXEluZnJhc3RydWN0dXJlOwoKLyoqCiAqIEludGVyZmFjZSBJUmVwb3NpdG9yeQogKiBAcGFja2FnZSBERERcSW5mcmFzdHJ1Y3R1cmUKICoKICogQ29tcG9zaXRlIGludGVyZmFjZSBtYWRlIHVwIG9mIHJlYWQgYW5kIHdyaXRlLgogKi8KCmludGVyZmFjZSBJUmVwb3NpdG9yeSBleHRlbmRzIElSZWFkUmVwb3NpdG9yeSwgSVdyaXRlUmVwb3NpdG9yeQp7Cn0KIjtzOjQ1OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFBocFxGaWxlAG5hbWVzcGFjZXMiO2E6MTp7czoyNDoiXEREUFxDb3JlXEluZnJhc3RydWN0dXJlIjtPOjMwOiJwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cRnFzZW4iOjI6e3M6Mzc6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cRnFzZW4AZnFzZW4iO3M6MjQ6IlxERFBcQ29yZVxJbmZyYXN0cnVjdHVyZSI7czozNjoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxGcXNlbgBuYW1lIjtzOjE0OiJJbmZyYXN0cnVjdHVyZSI7fX1zOjQzOiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFBocFxGaWxlAGluY2x1ZGVzIjthOjA6e31zOjQ0OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFBocFxGaWxlAGZ1bmN0aW9ucyI7YTowOnt9czo0NDoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxQaHBcRmlsZQBjb25zdGFudHMiO2E6MDp7fXM6NDI6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cUGhwXEZpbGUAY2xhc3NlcyI7YTowOnt9czo0NToiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxQaHBcRmlsZQBpbnRlcmZhY2VzIjthOjE6e3M6MzY6IlxERFBcQ29yZVxJbmZyYXN0cnVjdHVyZVxJUmVwb3NpdG9yeSI7TzozOToicGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFBocFxJbnRlcmZhY2VfIjo2OntzOjQ2OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFBocFxJbnRlcmZhY2VfAGZxc2VuIjtPOjMwOiJwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cRnFzZW4iOjI6e3M6Mzc6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cRnFzZW4AZnFzZW4iO3M6MzY6IlxERFBcQ29yZVxJbmZyYXN0cnVjdHVyZVxJUmVwb3NpdG9yeSI7czozNjoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxGcXNlbgBuYW1lIjtzOjExOiJJUmVwb3NpdG9yeSI7fXM6NDk6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cUGhwXEludGVyZmFjZV8AZG9jQmxvY2siO086MzM6InBocERvY3VtZW50b3JcUmVmbGVjdGlvblxEb2NCbG9jayI6Nzp7czo0MjoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxEb2NCbG9jawBzdW1tYXJ5IjtzOjIxOiJJbnRlcmZhY2UgSVJlcG9zaXRvcnkiO3M6NDY6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cRG9jQmxvY2sAZGVzY3JpcHRpb24iO086NDU6InBocERvY3VtZW50b3JcUmVmbGVjdGlvblxEb2NCbG9ja1xEZXNjcmlwdGlvbiI6Mjp7czo1OToiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxEb2NCbG9ja1xEZXNjcmlwdGlvbgBib2R5VGVtcGxhdGUiO3M6MDoiIjtzOjUxOiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXERvY0Jsb2NrXERlc2NyaXB0aW9uAHRhZ3MiO2E6MDp7fX1zOjM5OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXERvY0Jsb2NrAHRhZ3MiO2E6MTp7aTowO086NDY6InBocERvY3VtZW50b3JcUmVmbGVjdGlvblxEb2NCbG9ja1xUYWdzXEdlbmVyaWMiOjI6e3M6NzoiACoAbmFtZSI7czo3OiJwYWNrYWdlIjtzOjE0OiIAKgBkZXNjcmlwdGlvbiI7Tzo0NToicGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXERvY0Jsb2NrXERlc2NyaXB0aW9uIjoyOntzOjU5OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXERvY0Jsb2NrXERlc2NyaXB0aW9uAGJvZHlUZW1wbGF0ZSI7czo2NjoiREREXEluZnJhc3RydWN0dXJlCgpDb21wb3NpdGUgaW50ZXJmYWNlIG1hZGUgdXAgb2YgcmVhZCBhbmQgd3JpdGUuIjtzOjUxOiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXERvY0Jsb2NrXERlc2NyaXB0aW9uAHRhZ3MiO2E6MDp7fX19fXM6NDI6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cRG9jQmxvY2sAY29udGV4dCI7TzozODoicGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFR5cGVzXENvbnRleHQiOjI6e3M6NDk6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cVHlwZXNcQ29udGV4dABuYW1lc3BhY2UiO3M6MjM6IkREUFxDb3JlXEluZnJhc3RydWN0dXJlIjtzOjU2OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXFR5cGVzXENvbnRleHQAbmFtZXNwYWNlQWxpYXNlcyI7YTowOnt9fXM6NDM6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cRG9jQmxvY2sAbG9jYXRpb24iO086MzM6InBocERvY3VtZW50b3JcUmVmbGVjdGlvblxMb2NhdGlvbiI6Mjp7czo0NToiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxMb2NhdGlvbgBsaW5lTnVtYmVyIjtpOjU7czo0NzoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxMb2NhdGlvbgBjb2x1bW5OdW1iZXIiO2k6MDt9czo1MDoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxEb2NCbG9jawBpc1RlbXBsYXRlU3RhcnQiO2I6MDtzOjQ4OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXERvY0Jsb2NrAGlzVGVtcGxhdGVFbmQiO2I6MDt9czoxMjoiACoAY29uc3RhbnRzIjthOjA6e31zOjEwOiIAKgBtZXRob2RzIjthOjA6e31zOjEwOiIAKgBwYXJlbnRzIjthOjI6e3M6NDA6IlxERFBcQ29yZVxJbmZyYXN0cnVjdHVyZVxJUmVhZFJlcG9zaXRvcnkiO086MzA6InBocERvY3VtZW50b3JcUmVmbGVjdGlvblxGcXNlbiI6Mjp7czozNzoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxGcXNlbgBmcXNlbiI7czo0MDoiXEREUFxDb3JlXEluZnJhc3RydWN0dXJlXElSZWFkUmVwb3NpdG9yeSI7czozNjoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxGcXNlbgBuYW1lIjtzOjE1OiJJUmVhZFJlcG9zaXRvcnkiO31zOjQxOiJcRERQXENvcmVcSW5mcmFzdHJ1Y3R1cmVcSVdyaXRlUmVwb3NpdG9yeSI7TzozMDoicGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXEZxc2VuIjoyOntzOjM3OiIAcGhwRG9jdW1lbnRvclxSZWZsZWN0aW9uXEZxc2VuAGZxc2VuIjtzOjQxOiJcRERQXENvcmVcSW5mcmFzdHJ1Y3R1cmVcSVdyaXRlUmVwb3NpdG9yeSI7czozNjoiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxGcXNlbgBuYW1lIjtzOjE2OiJJV3JpdGVSZXBvc2l0b3J5Ijt9fXM6NDk6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cUGhwXEludGVyZmFjZV8AbG9jYXRpb24iO086MzM6InBocERvY3VtZW50b3JcUmVmbGVjdGlvblxMb2NhdGlvbiI6Mjp7czo0NToiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxMb2NhdGlvbgBsaW5lTnVtYmVyIjtpOjEyO3M6NDc6IgBwaHBEb2N1bWVudG9yXFJlZmxlY3Rpb25cTG9jYXRpb24AY29sdW1uTnVtYmVyIjtpOjA7fX19czo0MToiAHBocERvY3VtZW50b3JcUmVmbGVjdGlvblxQaHBcRmlsZQB0cmFpdHMiO2E6MDp7fX0='</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="15"/>
+  <line no="16">
+    <token name="T_COMMENT">/* Child Type: integer */</token>
+  </line>
+  <line no="17">
+    <token name="T_VARIABLE">$data</token>
+    <token name="T_PHPDOX_OPEN_SQUARE">[</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'createdOn'</token>
+    <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">1530011804</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="18"/>
+</source>

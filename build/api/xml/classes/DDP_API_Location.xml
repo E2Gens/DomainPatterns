@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="DDP\API\Location" namespace="DDP\API" name="Location" abstract="false" final="false" start="10" end="45">
+  <file path="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API" file="Location.php" realpath="/Volumes/Storage/Projects/dragonfly/DomainPatterns/src/API/Location.php" size="727" time="2018-06-26T13:02:36+00:00" unixtime="1530018156" sha1="8d00c41d8f9c5cb6b691b17c19be8fd7ee59df43" relative="API/Location.php"/>
+  <docblock>
+    <description compact="Encapsulates location information."/>
+    <package value="App\API"/>
+  </docblock>
+  <member name="_Earth" visibility="private" static="false" line="12"/>
+  <constructor name="__construct" start="17" end="20" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Location constructor."/>
+    </docblock>
+  </constructor>
+  <method name="getCountries" start="25" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="\MenaraSolutions\Geographer\Collections\MemberCollection" namespace="\MenaraSolutions\Geographer\Collections" name="MemberCollection"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getStates" start="34" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="Short name of the country." variable="$Name" type="object">
+        <type full="DDP\API\-" namespace="DDP\API" name="-"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="Name" byreference="false" type="{unknown}"/>
+  </method>
+</class>
