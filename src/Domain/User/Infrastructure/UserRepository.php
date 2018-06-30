@@ -156,6 +156,6 @@ class UserRepository implements IRepository
 			throw new \Exception( "$EmailAddress is not a valid email address." );
 		}
 
-		return $this->_UserModel::where( 'email' , $EmailAddress )->exists();
+		return !$this->_UserModel::where( 'email' , $EmailAddress )->exists();
 	}
 }
