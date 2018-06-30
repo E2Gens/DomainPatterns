@@ -4,6 +4,7 @@ namespace DDP\Domain\User\Infrastructure;
 
 use DDP\Core\Infrastructure\IRepository;
 use DDP\Domain\User;
+use Neuron\Data\Validation\Email;
 
 // @todo rename to UserWithRolesRepository
 
@@ -137,5 +138,24 @@ class UserRepository implements IRepository
 				$UserModel->roles()->attach( $RoleModel->id );
 			}
 		}
+	}
+
+	/**
+	 * Returns true if the email address is available.
+	 *
+	 * @param $EmailAddress
+	 * @return mixed
+	 * @throws \Exception if the email address parameter is invalid.
+	 */
+	public function isEmailAvailable( $EmailAddress )
+	{
+		$Validation = new Email();
+
+		if( !$Validation->isValid( $EmailAddress ) )
+		{
+			throw new \Exception( "$EmailAddress is not a valid email address." );
+		}
+
+		return $this->_UserModel::where( 'email' , $EmailAddress )->exists();
 	}
 }
