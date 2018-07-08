@@ -121,6 +121,13 @@ class UserWithRoles extends User
 		return $this;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getStatusName()
+	{
+		return UserStatus::getStatusName( $this->_Status );
+	}
 
 	public function toStdClass(): \stdClass
 	{
