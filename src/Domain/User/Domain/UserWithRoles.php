@@ -9,6 +9,7 @@ class UserWithRoles extends User
 	private $_Photo;
 	private $_Roles;
 	private $_Status;
+	private $_SuspendedReason;
 
 	/**
 	 * @return mixed
@@ -100,6 +101,27 @@ class UserWithRoles extends User
 		}
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getSuspendedReason()
+	{
+		return $this->_SuspendedReason;
+	}
+
+	/**
+	 * @param mixed $SuspendedReason
+	 *
+	 * @return self
+	 */
+	public function setSuspendedReason( $SuspendedReason )
+	{
+		$this->_SuspendedReason = $SuspendedReason;
+
+		return $this;
+	}
+
+
 	public function toStdClass(): \stdClass
 	{
 		$Obj = parent::toStdClass();
@@ -108,6 +130,8 @@ class UserWithRoles extends User
 		$Obj->address = $this->getAddress();
 		$Obj->photo   = $this->getPhoto();
 		$Qbj->status  = $this->getStatus();
+
+		$Obj->reason_for_suspension = $this->getSuspendedReason();
 
 		return $Obj;
 	}
@@ -124,6 +148,8 @@ class UserWithRoles extends User
 		$User->setAddress( $Data[ 'address' ] );
 		$User->setPhoto( $Data[ 'photo' ] );
 		$User->setStatus( $Data[ 'status' ] );
+
+		$User->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
 
 		$Role = new Role();
 		$Role->setName( $Data[ 'role' ] );
