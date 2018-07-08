@@ -18,20 +18,30 @@ use Neuron\Data\Validation\Email;
 class UserRepository implements IRepository
 {
 	private $_UserModel;
-	private $_RoleModel;
-	private $_RoleUserModel;
+
+	/**
+	 * @return mixed
+	 */
+	public function getUserModel()
+	{
+		return $this->_UserModel;
+	}
+
+	/**
+	 * @param mixed $UserModel
+	 */
+	public function setUserModel( $UserModel )
+	{
+		$this->_UserModel = $UserModel;
+	}
 
 	/**
 	 * UserRepository constructor.
 	 * @param $UserModel
-	 * @param $RoleModel
-	 * @param $RoleUserModel
 	 */
-	public function __construct( $UserModel, $RoleModel, $RoleUserModel )
+	public function __construct( $UserModel  )
 	{
-		$this->_UserModel     = $UserModel;
-		$this->_RoleModel     = $RoleModel;
-		$this->_RoleUserModel = $RoleUserModel;
+		$this->_UserModel = $UserModel;
 	}
 
 	/**
@@ -54,8 +64,6 @@ class UserRepository implements IRepository
 			$UserModel = $this->_UserModel::whereId( $User->getIdentifier() )->update( ( array)$Obj );
 		}
 
-		$this->saveRoles( $User );
-
 		return $UserModel;
 	}
 
@@ -73,71 +81,9 @@ class UserRepository implements IRepository
 	{
 		$UserObj = $this->_UserModel::find( $UserId )->toArray();
 
-		$User = User\Domain\UserWithRoles::fromStdClass( $UserObj );
-
-		/**
-		 * Load all of the roles.
-		 */
-
-		$Roles = $this->_RoleUserModel::where( 'user_id', $UserId );
-
-		foreach( $Roles as $RoleObj )
-		{
-			$RoleUser = new User\Domain\RoleUser();
-			$Role     = new User\Domain\Role();
-
-			$Role->setIdentifier( $RoleObj->id );
-
-			$RoleUser->setName( $Role->getName() );
-			$RoleUser->setRole( $Role );
-			$RoleUser->setUser( $User );
-
-			$User->addRole( $RoleUser );
-		}
+		$User = User\Domain\User::fromStdClass( $UserObj );
 
 		return $User;
-	}
-
-	/**
-	 * @param User\Domain\UserWithRoles $User
-	 */
-	protected function saveRoles( $User )
-	{
-		$Roles = $User->getRoles();
-
-		if( is_array( $Roles ) )
-		{
-			array_walk( $Roles, [ $this, 'addOrRemoveRole' ] );
-		}
-	}
-
-	/**
-	 * @param $RoleUser
-	 */
-	protected function addOrRemoveRole( $RoleUser )
-	{
-		$RoleModel = $this->_RoleModel::findOrFail( $RoleUser->getRole()->getIdentifier() );
-		$UserModel = $this->_UserModel::findOrFail( $RoleUser->getUser()->getIdentifier() );
-
-		if( $RoleUser->getDeleted() )
-		{
-			/**
-			 * If RoleUser is flagged as deleted then detach the role from the user..
-			 */
-
-			$UserModel->roles()->detach( $RoleModel );
-		}
-		else if( !$RoleUser->getIdentifier() )
-		{
-			/**
-			 * If the RoleUser relation has no identifier then attach the role..
-			 */
-
-			if( !$UserModel->hasRole( $RoleUser->getName() ) )
-			{
-				$UserModel->roles()->attach( $RoleModel->id );
-			}
-		}
 	}
 
 	/**

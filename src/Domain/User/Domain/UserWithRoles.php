@@ -8,6 +8,27 @@ class UserWithRoles extends User
 	private $_Address;
 	private $_Photo;
 	private $_Roles;
+	private $_Status;
+
+	/**
+	 * @return mixed
+	 */
+	public function getStatus()
+	{
+		return $this->_Status;
+	}
+
+	/**
+	 * @param mixed $_Status
+	 *
+	 * @return self
+	 */
+	public function setStatus( $Status )
+	{
+		$this->_Status = $Status;
+
+		return $this;
+	}
 
 	/**
 	 * @return mixed
@@ -27,6 +48,7 @@ class UserWithRoles extends User
 
 	/**
 	 * @return mixed
+	 * @todo this is really dumb. Why is address one database field?
 	 */
 	public function getAddress()
 	{
@@ -85,6 +107,7 @@ class UserWithRoles extends User
 		$Obj->phone   = $this->getPhone();
 		$Obj->address = $this->getAddress();
 		$Obj->photo   = $this->getPhoto();
+		$Qbj->status  = $this->getStatus();
 
 		return $Obj;
 	}
@@ -100,6 +123,7 @@ class UserWithRoles extends User
 		$User->setPhone( $Data[ 'phone' ] );
 		$User->setAddress( $Data[ 'address' ] );
 		$User->setPhoto( $Data[ 'photo' ] );
+		$User->setStatus( $Data[ 'status' ] );
 
 		$Role = new Role();
 		$Role->setName( $Data[ 'role' ] );
