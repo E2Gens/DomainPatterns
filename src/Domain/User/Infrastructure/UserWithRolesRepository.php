@@ -106,17 +106,17 @@ class UserWithRolesRepository extends UserRepository
 	}
 
 	/**
-	 * @param int $RoleId
+	 * @param int $RoleName
 	 * @param array $Params
 	 * @return array
 	 */
-	public function getAllByRoleId( int $RoleId, array $Params ) : array
+	public function getAllByRoleName( string $RoleName, array $Params = [] ) : array
 	{
 		$Administrators = [];
 
-		$AdministratorsObject = $this->_UserModel::whereHas('roles', function ( $Query ) use ( $RoleId, $Params ) {
-			$Query->where( 'role_id', $RoleId );
-		})
+		$AdministratorsObject = $this->_UserModel::whereHas('roles', function ( $Query ) use ( $RoleName, $Params ) {
+			$Query->where( 'name', $RoleName );
+		});
 
 		if( isset( $Params[ 'status' ] ) && $Params[ 'status' ] != 'all' )
 		{
@@ -129,6 +129,8 @@ class UserWithRolesRepository extends UserRepository
 				->orwhere( 'last_name', 'LIKE', "%{$Params[ 'keyword' ]}%" )
 				->orWhere( 'email', 'LIKE', "%{$Params[ 'keyword' ]}%" );
 		}
+
+		$AdministratorsObject = $AdministratorsObject->get()->toArray();
 
 		foreach( $AdministratorsObject as $Administrator )
 		{
