@@ -104,4 +104,39 @@ class UserWithRolesRepository extends UserRepository
 
 		return $User;
 	}
+
+	/**
+	 * @param string $RoleName
+	 * @param array $Params
+	 * @return array
+	 */
+	public function getAllByRoleName( string $RoleName, array $Params = [] ) : array
+	{
+		$Administrators = [];
+
+		$AdministratorsObject = $this->_UserModel::whereHas('roles', function ( $Query ) use ( $RoleName, $Params ) {
+			$Query->where( 'name', $RoleName );
+		});
+
+		if( isset( $Params[ 'status' ] ) && $Params[ 'status' ] != 'all' )
+		{
+			$AdministratorsObject = $AdministratorsObject->where( 'status', $Params[ 'status' ] );
+		}
+
+		if( isset( $Params[ 'keyword' ] ) && $Params[ 'keyword' ] != '' )
+		{
+			$AdministratorsObject = $AdministratorsObject->where( 'first_name', 'LIKE', "%{$Params[ 'keyword' ]}%" )
+				->orwhere( 'last_name', 'LIKE', "%{$Params[ 'keyword' ]}%" )
+				->orWhere( 'email', 'LIKE', "%{$Params[ 'keyword' ]}%" );
+		}
+
+		$AdministratorsObject = $AdministratorsObject->get()->toArray();
+
+		foreach( $AdministratorsObject as $Administrator )
+		{
+			$Administrators[] = Domain\User::fromArray($Administrator)->jsonSerialize();
+		}
+
+		return $Administrators;
+	}
 }
