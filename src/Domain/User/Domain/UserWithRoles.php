@@ -147,13 +147,17 @@ class UserWithRoles extends User
 	{
 		$User = new static;
 
-		$User->setName( $Data[ 'name' ] );
+		$User->setName( $Data[ 'first_name' ] . $Data[ 'last_name' ] );
 		$User->setEmail( $Data[ 'email' ] );
-		$User->setPassword( $Data[ 'password' ] );
+
+		if( isset( $Data[ 'password' ] ) )
+		{
+			$User->setPassword( $Data[ 'password' ] );
+		}
 
 		$User->setPhone( $Data[ 'phone' ] );
-		$User->setAddress( $Data[ 'address' ] );
-		$User->setPhoto( $Data[ 'photo' ] );
+		$User->setAddress( $Data[ 'address_1' ] );
+		$User->setPhoto( $Data[ 'avatar_url' ] );
 		$User->setStatus( $Data[ 'status' ] );
 
 		$User->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
@@ -182,5 +186,15 @@ class UserWithRoles extends User
 		}
 
 		return false;
+	}
+
+	/**
+	 * @return object
+	 */
+	public function jsonSerialize()
+	{
+		$this->_Id = $this->getIdentifier();
+
+		return (object)get_object_vars($this);
 	}
 }
