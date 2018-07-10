@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.25
+* Added getAllByRoleName() to UserRepository.
 
 ## 0.0.23
 * Added unit tests for Message class.
