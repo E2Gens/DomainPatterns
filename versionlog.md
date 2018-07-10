@@ -1,6 +1,6 @@
 # Versions
 
-## 0.0.25
+## 0.0.25 2018-07-10
 * Added getAllByRoleName() to UserRepository.
 
 ## 0.0.23
