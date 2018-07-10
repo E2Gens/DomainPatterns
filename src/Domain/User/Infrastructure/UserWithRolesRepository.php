@@ -106,7 +106,7 @@ class UserWithRolesRepository extends UserRepository
 	}
 
 	/**
-	 * @param int $RoleName
+	 * @param string $RoleName
 	 * @param array $Params
 	 * @return array
 	 */
