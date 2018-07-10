@@ -6,10 +6,12 @@ class UserWithRoles extends User
 {
 	private $_Phone;
 	private $_Address;
+	private $_Country;
 	private $_Photo;
 	private $_Roles;
 	private $_Status;
 	private $_SuspendedReason;
+	private $_CreatedAt;
 
 	/**
 	 * @return mixed
@@ -62,6 +64,22 @@ class UserWithRoles extends User
 	public function setAddress( $Address ): void
 	{
 		$this->_Address = $Address;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCountry()
+	{
+		return $this->_Country;
+	}
+
+	/**
+	 * @param mixed $Country
+	 */
+	public function setCountry( $Country ): void
+	{
+		$this->_Country = $Country;
 	}
 
 	/**
@@ -122,6 +140,22 @@ class UserWithRoles extends User
 	}
 
 	/**
+	 * @return mixed
+	 */
+	public function getCreatedAt()
+	{
+		return $this->_CreatedAt;
+	}
+
+	/**
+	 * @param mixed $CreatedAt
+	 */
+	public function setCreatedAt( $CreatedAt ): void
+	{
+		$this->_CreatedAt = $CreatedAt;
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getStatusName()
@@ -157,14 +191,16 @@ class UserWithRoles extends User
 
 		$User->setPhone( $Data[ 'phone' ] );
 		$User->setAddress( $Data[ 'address_1' ] );
+		$User->setCountry( $Data[ 'country' ] );
 		$User->setPhoto( $Data[ 'avatar_url' ] );
-		$User->setStatus( $Data[ 'status' ] );
+		$User->setStatus( UserStatus::getStatusName( $Data[ 'status' ] ) );
 
 		$User->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
+		$User->setCreatedAt( $Data[ 'created_at' ] );
 
 		$Role = new Role();
-		$Role->setName( $Data[ 'role' ] );
-		$Role->setIdentifier( $Data['role_id'] );
+		$Role->setName( $Data[ 'roles' ][ 0 ][ 'name' ] );
+		$Role->setIdentifier( $Data[ 'roles' ][ 0 ][ 'id' ] );
 
 		$RoleUser = new RoleUser();
 		$RoleUser->setUser( $User );
@@ -193,8 +229,9 @@ class UserWithRoles extends User
 	 */
 	public function jsonSerialize()
 	{
-		$this->_Id = $this->getIdentifier();
+		$ParentObjVars  = parent::jsonSerialize();
+		$CurrentObjVars = (object)get_object_vars($this);
 
-		return (object)get_object_vars($this);
+		return (object) array_merge((array) $ParentObjVars, (array) $CurrentObjVars);
 	}
 }

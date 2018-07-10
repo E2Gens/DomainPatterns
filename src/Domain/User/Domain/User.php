@@ -101,4 +101,14 @@ class User extends EntityBase
 
 		return $Obj;
 	}
+
+	/**
+	 * @return object
+	 */
+	public function jsonSerialize()
+	{
+		$this->_Id = $this->getIdentifier();
+
+		return (object)get_object_vars($this);
+	}
 }
