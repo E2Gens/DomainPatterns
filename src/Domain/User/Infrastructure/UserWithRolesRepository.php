@@ -2,6 +2,8 @@
 
 namespace DDP\Domain\User\Infrastructure;
 
+use DDP\Domain\User\Domain\UserWithRoles;
+
 class UserWithRolesRepository extends UserRepository
 {
 	private $_RoleModel;
@@ -80,7 +82,7 @@ class UserWithRolesRepository extends UserRepository
 	{
 		$UserAr = parent::getUserModel()::find( $UserId )->toArray();
 
-		$User = User\Domain\UserWithRoles::fromArray( $UserAr );
+		$User = UserWithRoles::fromArray( $UserAr );
 
 		/**
 		 * Load all of the roles.
