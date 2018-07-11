@@ -181,6 +181,7 @@ class UserWithRoles extends User
 	{
 		$User = new static;
 
+		$User->setIdentifier( $Data[ 'id' ] );
 		$User->setName( $Data[ 'first_name' ] . $Data[ 'last_name' ] );
 		$User->setEmail( $Data[ 'email' ] );
 
