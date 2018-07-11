@@ -214,6 +214,8 @@ class UserWithRoles extends User
 			$User->setLastName( $Data[ 'last_name' ] );
 		}
 
+		$User->setName( $User->getFirstName() . ' ' . $User->getLastName() );
+
 		if( isset( $Data[ 'email' ] ) )
 		{
 			$User->setEmail( $Data[ 'email' ] );
