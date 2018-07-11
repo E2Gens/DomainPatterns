@@ -12,8 +12,7 @@ class UserValidatorTest extends TestCase
 
 		$UserValidator = new UserValidator();
 
-		$User->setFirstName( 'Lee' );
-		$User->setLastName( 'Jones' );
+		$User->setName( 'Lee Jones' );
 		$User->setEmail( 'lee@dragonflyrg.com' );
 
 		$this->assertTrue(
@@ -27,16 +26,14 @@ class UserValidatorTest extends TestCase
 
 		$UserValidator = new UserValidator();
 
-		$User->setFirstName( 'Lee' );
-		$User->setLastName( 'Jones' );
+		$User->setName( 'Lee Jones' );
 		$User->setEmail( 'dragonflyrgcom' );
 
 		$this->assertFalse(
 			$UserValidator->isValid( $User )
 		);
 
-		$User->setFirstName( 'Lee' );
-		$User->setLastName( 'Jones1111' );
+		$User->setName( 'Lee Jones1111' );
 		$User->setEmail( 'lee@dragonflyrg.com' );
 
 		$this->assertFalse(
@@ -50,8 +47,7 @@ class UserValidatorTest extends TestCase
 
 		$UserValidator = new UserValidator();
 
-		$User->setFirstName( 'Lee' );
-		$User->setLastName( 'Jones111' );
+		$User->setName( 'Lee Jones111' );
 		$User->setEmail( 'dragonflyrgcom' );
 
 		$this->assertFalse(
