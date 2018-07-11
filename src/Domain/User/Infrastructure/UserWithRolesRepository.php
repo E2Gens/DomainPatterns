@@ -116,7 +116,7 @@ class UserWithRolesRepository extends UserRepository
 	{
 		$Administrators = [];
 
-		$AdministratorsObject = $this->_UserModel::whereHas('roles', function ( $Query ) use ( $RoleName, $Params ) {
+		$AdministratorsObject = parent::getUserModel()::whereHas('roles', function ( $Query ) use ( $RoleName, $Params ) {
 			$Query->where( 'name', $RoleName );
 		})->with('roles');
 
