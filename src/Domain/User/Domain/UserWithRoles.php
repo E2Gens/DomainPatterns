@@ -175,14 +175,19 @@ class UserWithRoles extends User
 		return UserStatus::getStatusName( $this->_Status );
 	}
 
+	/**
+	 * @return \stdClass
+	 */
 	public function toStdClass(): \stdClass
 	{
 		$Obj = parent::toStdClass();
 
-		$Obj->phone   = $this->getPhone();
-		$Obj->address = $this->getAddress();
-		$Obj->photo   = $this->getPhoto();
-		$Qbj->status  = $this->getStatus();
+		$Obj->phone    = $this->getPhone();
+		$Obj->address1 = $this->getAddress1();
+		$Obj->address2 = $this->getAddress2();
+		$Obj->photo    = $this->getPhoto();
+		$Qbj->status   = $this->getStatus();
+		$Obj->country  = $this->getCountry();
 
 		$Obj->reason_for_suspension = $this->getSuspendedReason();
 
