@@ -5,7 +5,8 @@ namespace DDP\Domain\User\Domain;
 class UserWithRoles extends User
 {
 	private $_Phone;
-	private $_Address;
+	private $_Address1;
+	private $_Address2;
 	private $_Country;
 	private $_Photo;
 	private $_Roles;
@@ -51,19 +52,34 @@ class UserWithRoles extends User
 
 	/**
 	 * @return mixed
-	 * @todo this is really dumb. Why is address one database field?
 	 */
-	public function getAddress()
+	public function getAddress1()
 	{
-		return $this->_Address;
+		return $this->_Address1;
 	}
 
 	/**
-	 * @param mixed $Address
+	 * @param mixed $Address1
 	 */
-	public function setAddress( $Address ): void
+	public function setAddress1( $Address1 )
 	{
-		$this->_Address = $Address;
+		$this->_Address1 = $Address1;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getAddress2()
+	{
+		return $this->_Address2;
+	}
+
+	/**
+	 * @param mixed $Address2
+	 */
+	public function setAddress2( $Address2 )
+	{
+		$this->_Address2 = $Address2;
 	}
 
 	/**
@@ -177,37 +193,93 @@ class UserWithRoles extends User
 		return $Obj;
 	}
 
+	/**
+	 * @param array $Data
+	 * @return User|UserWithRoles
+	 */
 	public static function fromArray( array $Data )
 	{
 		$User = new static;
 
+		$Name = '';
+
 		$User->setIdentifier( $Data[ 'id' ] );
-		$User->setName( $Data[ 'first_name' ] . $Data[ 'last_name' ] );
-		$User->setEmail( $Data[ 'email' ] );
+
+		if( isset( $Data[ 'first_name' ] ) )
+		{
+			$Name .= $Data[ 'first_name' ];
+		}
+
+		if( isset( $Data[ 'last_name' ] ) )
+		{
+			$Name .= $Data[ 'last_name' ];
+		}
+
+		$User->setName( $Name );
+
+		if( isset( $Data[ 'email' ] ) )
+		{
+			$User->setEmail( $Data[ 'email' ] );
+		}
 
 		if( isset( $Data[ 'password' ] ) )
 		{
 			$User->setPassword( $Data[ 'password' ] );
 		}
 
-		$User->setPhone( $Data[ 'phone' ] );
-		$User->setAddress( $Data[ 'address_1' ] );
-		$User->setCountry( $Data[ 'country' ] );
-		$User->setPhoto( $Data[ 'avatar_url' ] );
-		$User->setStatus( UserStatus::getStatusName( $Data[ 'status' ] ) );
+		if( isset( $Data[ 'phone' ] ) )
+		{
+			$User->setPhone( $Data[ 'phone' ] );
+		}
 
-		$User->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
-		$User->setCreatedAt( $Data[ 'created_at' ] );
+		if( isset( $Data[ 'address_1' ] ) )
+		{
+			$User->setAddress1( $Data[ 'address_1' ] );
+		}
 
-		$Role = new Role();
-		$Role->setName( $Data[ 'roles' ][ 0 ][ 'name' ] );
-		$Role->setIdentifier( $Data[ 'roles' ][ 0 ][ 'id' ] );
+		if( isset( $Data[ 'address_2' ] ) )
+		{
+			$User->setAddress2( $Data[ 'address_2' ] );
+		}
 
-		$RoleUser = new RoleUser();
-		$RoleUser->setUser( $User );
-		$RoleUser->setRole( $Role );
+		if( isset( $Data[ 'country' ] ) )
+		{
+			$User->setCountry( $Data[ 'country' ] );
+		}
 
-		$User->addRole( $RoleUser );
+		if( isset( $Data[ 'avatar_url' ] ) )
+		{
+
+			$User->setPhoto( $Data[ 'avatar_url' ] );
+		}
+
+		if( isset( $Data[ 'status' ] ) )
+		{
+			$User->setStatus( UserStatus::getStatusName( $Data[ 'status' ] ) );
+		}
+
+		if( isset( $Data[ 'reason_for_suspension' ] ) )
+		{
+			$User->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
+		}
+
+		if( isset( $Data[ 'created_at' ] ) )
+		{
+			$User->setCreatedAt( $Data[ 'created_at' ] );
+		}
+
+		if( isset( $Data[ 'roles' ] ) )
+		{
+			$Role = new Role();
+			$Role->setName( $Data[ 'roles' ][ 0 ][ 'name' ] );
+			$Role->setIdentifier( $Data[ 'roles' ][ 0 ][ 'id' ] );
+
+			$RoleUser = new RoleUser();
+			$RoleUser->setUser( $User );
+			$RoleUser->setRole( $Role );
+
+			$User->addRole( $RoleUser );
+		}
 
 		return $User;
 	}
