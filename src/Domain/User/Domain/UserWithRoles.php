@@ -197,21 +197,17 @@ class UserWithRoles extends User
 	{
 		$User = new static;
 
-		$Name = '';
-
 		$User->setIdentifier( $Data[ 'id' ] );
 
 		if( isset( $Data[ 'first_name' ] ) )
 		{
-			$Name .= $Data[ 'first_name' ];
+			$User->setFirstName( $Data[ 'first_name' ] );
 		}
 
 		if( isset( $Data[ 'last_name' ] ) )
 		{
-			$Name .= ' ' . $Data[ 'last_name' ];
+			$User->setLastName( $Data[ 'last_name' ] );
 		}
-
-		$User->setName( $Name );
 
 		if( isset( $Data[ 'email' ] ) )
 		{
