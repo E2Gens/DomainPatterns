@@ -80,7 +80,7 @@ class UserWithRolesRepository extends UserRepository
 	 */
 	public function getById( $UserId )
 	{
-		$UserAr = parent::getUserModel()::find( $UserId )->toArray();
+		$UserAr = parent::getUserModel()::with('roles')->where( 'id', $UserId )->first()->toArray();
 
 		$User = UserWithRoles::fromArray( $UserAr );
 
