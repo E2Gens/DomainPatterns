@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends EntityBase
 {
-	private $_Name;
+	private $_FirstName;
+	private $_LastName;
 	private $_Email;
 	private $_Password;
 
@@ -28,14 +29,36 @@ class User extends EntityBase
 		$this->_Email = $Email;
 	}
 
-	public function getName()
+	/**
+	 * @return mixed
+	 */
+	public function getFirstName()
 	{
-		return $this->_Name;
+		return $this->_FirstName;
 	}
 
-	public function setName( $Name )
+	/**
+	 * @param mixed $FirstName
+	 */
+	public function setFirstName( $FirstName )
 	{
-		$this->_Name = $Name;
+		$this->_FirstName = $FirstName;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getLastName()
+	{
+		return $this->_LastName;
+	}
+
+	/**
+	 * @param mixed $LastName
+	 */
+	public function setLastName( $LastName )
+	{
+		$this->_LastName = $LastName;
 	}
 
 	/**
@@ -58,11 +81,16 @@ class User extends EntityBase
 		}
 	}
 
+	/**
+	 * @param array $Data
+	 * @return User
+	 */
 	public static function fromArray( array $Data )
 	{
 		$User = new static;
 
-		$User->setName( $Data[ 'name' ] );
+		$User->setFirstName( $Data[ 'first_name' ] );
+		$User->setLastName( $Data[ 'last_name' ] );
 		$User->setEmail( $Data[ 'email' ] );
 		$User->setPassword( isset( $Data[ 'password' ] ) ? $Data[ 'password' ]:null );
 
