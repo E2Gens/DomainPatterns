@@ -212,7 +212,7 @@ class UserWithRoles extends User
 
 		if( isset( $Data[ 'last_name' ] ) )
 		{
-			$Name .= $Data[ 'last_name' ];
+			$Name .= ' ' . $Data[ 'last_name' ];
 		}
 
 		$User->setName( $Name );
