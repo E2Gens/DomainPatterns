@@ -136,7 +136,7 @@ class UserWithRolesRepository extends UserRepository
 
 		foreach( $AdministratorsObject as $Administrator )
 		{
-			$Administrators[] = Domain\User::fromArray($Administrator)->jsonSerialize();
+			$Administrators[] = UserWithRoles::fromArray( $Administrator )->jsonSerialize();
 		}
 
 		return $Administrators;
