@@ -23,15 +23,11 @@ class UserWithRoles extends User
 	}
 
 	/**
-	 * @param mixed $_Status
-	 *
-	 * @return self
+	 * @param $Status
 	 */
 	public function setStatus( $Status )
 	{
 		$this->_Status = $Status;
-
-		return $this;
 	}
 
 	/**
