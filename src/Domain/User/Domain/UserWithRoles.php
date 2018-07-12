@@ -18,6 +18,24 @@ class UserWithRoles extends User
 	private $_SuspendedReason;
 	private $_CreatedAt;
 
+	private $DT_RowId;
+
+	/**
+	 * @return mixed
+	 */
+	public function getDTRowId()
+	{
+		return $this->DT_RowId;
+	}
+
+	/**
+	 * @param mixed $DT_RowId
+	 */
+	public function setDTRowId( $DT_RowId ): void
+	{
+		$this->DT_RowId = $DT_RowId;
+	}
+
 	/**
 	 * @return mixed
 	 */
@@ -285,6 +303,7 @@ class UserWithRoles extends User
 		if( isset( $Data[ 'id' ] ) )
 		{
 			$User->setIdentifier( $Data[ 'id' ] );
+			$User->setDtRowId( 'row_'.$Data[ 'id' ] );
 		}
 
 		if( isset( $Data[ 'first_name' ] ) )
