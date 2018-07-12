@@ -141,9 +141,10 @@ class User extends EntityBase
 	{
 		$Obj = new \stdClass();
 
-		$Obj->name     = $this->getName();
-		$Obj->email    = $this->getEmail();
-		$Obj->password = $this->getPassword();
+		$Obj->first_name = $this->getFirstName();
+		$Obj->last_name  = $this->getLastName();
+		$Obj->email      = $this->getEmail();
+		$Obj->password   = $this->getPassword();
 
 		return $Obj;
 	}
