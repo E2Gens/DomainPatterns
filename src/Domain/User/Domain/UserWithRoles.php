@@ -186,7 +186,7 @@ class UserWithRoles extends User
 		$Obj->address1 = $this->getAddress1();
 		$Obj->address2 = $this->getAddress2();
 		$Obj->photo    = $this->getPhoto();
-		$Qbj->status   = $this->getStatus();
+		$Obj->status   = $this->getStatus();
 		$Obj->country  = $this->getCountry();
 
 		$Obj->reason_for_suspension = $this->getSuspendedReason();
