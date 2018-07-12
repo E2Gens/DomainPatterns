@@ -82,7 +82,7 @@ class UserWithRolesRepository extends UserRepository
 	{
 		$UserAr = parent::getUserModel()::with('roles')->where( 'id', $UserId )->first()->toArray();
 
-		$User = UserWithRoles::fromArray( $UserAr )->jsonSerialize();
+		$User = UserWithRoles::fromArray( $UserAr );
 
 		/**
 		 * Load all of the roles.
