@@ -267,6 +267,7 @@ class UserWithRoles extends User
 		$Obj->country     = $this->getCountry();
 		$Obj->city        = $this->getCity();
 		$Obj->postal_code = $this->getPostalCode();
+		$Obj->tax_ein     = $this->getTaxEin();
 
 		$Obj->reason_for_suspension = $this->getSuspendedReason();
 
@@ -281,7 +282,10 @@ class UserWithRoles extends User
 	{
 		$User = new static;
 
-		$User->setIdentifier( $Data[ 'id' ] );
+		if( isset( $Data[ 'id' ] ) )
+		{
+			$User->setIdentifier( $Data[ 'id' ] );
+		}
 
 		if( isset( $Data[ 'first_name' ] ) )
 		{
