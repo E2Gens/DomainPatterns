@@ -259,12 +259,14 @@ class UserWithRoles extends User
 	{
 		$Obj = parent::toStdClass();
 
-		$Obj->phone      = $this->getPhone();
-		$Obj->address_1  = $this->getAddress1();
-		$Obj->address_2  = $this->getAddress2();
-		$Obj->avatar_url = $this->getPhoto();
-		$Obj->status     = $this->getStatusId();
-		$Obj->country    = $this->getCountry();
+		$Obj->phone       = $this->getPhone();
+		$Obj->address_1   = $this->getAddress1();
+		$Obj->address_2   = $this->getAddress2();
+		$Obj->avatar_url  = $this->getPhoto();
+		$Obj->status      = $this->getStatusId();
+		$Obj->country     = $this->getCountry();
+		$Obj->city        = $this->getCity();
+		$Obj->postal_code = $this->getPostalCode();
 
 		$Obj->reason_for_suspension = $this->getSuspendedReason();
 
