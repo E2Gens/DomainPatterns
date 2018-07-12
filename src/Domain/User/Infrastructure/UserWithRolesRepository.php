@@ -2,18 +2,20 @@
 
 namespace DDP\Domain\User\Infrastructure;
 
+use DDP\Domain\User\Domain\UserWithRoles;
+
 class UserWithRolesRepository extends UserRepository
 {
 	private $_RoleModel;
 	private $_RoleUserModel;
 
 	/**
-	 * UserRepository constructor.
-	 * @param $UserModel
-	 * @param $RoleModel
-	 * @param $RoleUserModel
+	 * UserWithRolesRepository constructor.
+	 * @param \App\User $UserModel
+	 * @param \App\Role $RoleModel
+	 * @param \App\RoleUser $RoleUserModel
 	 */
-	public function __construct( $UserModel, $RoleModel, $RoleUserModel )
+	public function __construct( \App\User $UserModel, \App\Role $RoleModel, \App\RoleUser $RoleUserModel )
 	{
 		parent::__construct( $UserModel );
 
@@ -49,7 +51,7 @@ class UserWithRolesRepository extends UserRepository
 	protected function addOrRemoveRole( $RoleUser )
 	{
 		$RoleModel = $this->_RoleModel::findOrFail( $RoleUser->getRole()->getIdentifier() );
-		$UserModel = $this->_UserModel::findOrFail( $RoleUser->getUser()->getIdentifier() );
+		$UserModel = parent::getUserModel()::findOrFail( $RoleUser->getUser()->getIdentifier() );
 
 		if( $RoleUser->getDeleted() )
 		{
@@ -78,9 +80,9 @@ class UserWithRolesRepository extends UserRepository
 	 */
 	public function getById( $UserId )
 	{
-		$UserObj = $this->_UserModel::find( $UserId )->toArray();
+		$UserAr = parent::getUserModel()::with('roles')->where( 'id', $UserId )->first()->toArray();
 
-		$User = User\Domain\UserWithRoles::fromStdClass( $UserObj );
+		$User = UserWithRoles::fromArray( $UserAr );
 
 		/**
 		 * Load all of the roles.
@@ -114,9 +116,9 @@ class UserWithRolesRepository extends UserRepository
 	{
 		$Administrators = [];
 
-		$AdministratorsObject = $this->_UserModel::whereHas('roles', function ( $Query ) use ( $RoleName, $Params ) {
+		$AdministratorsObject = parent::getUserModel()::whereHas('roles', function ( $Query ) use ( $RoleName, $Params ) {
 			$Query->where( 'name', $RoleName );
-		});
+		})->with('roles');
 
 		if( isset( $Params[ 'status' ] ) && $Params[ 'status' ] != 'all' )
 		{
@@ -134,7 +136,7 @@ class UserWithRolesRepository extends UserRepository
 
 		foreach( $AdministratorsObject as $Administrator )
 		{
-			$Administrators[] = Domain\User::fromArray($Administrator)->jsonSerialize();
+			$Administrators[] = UserWithRoles::fromArray( $Administrator )->jsonSerialize();
 		}
 
 		return $Administrators;
