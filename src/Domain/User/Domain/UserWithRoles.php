@@ -5,14 +5,31 @@ namespace DDP\Domain\User\Domain;
 class UserWithRoles extends User
 {
 	private $_Phone;
-	private $_Address1;
-	private $_Address2;
+	private $_Address_1;
+	private $_Address_2;
 	private $_Country;
 	private $_Photo;
 	private $_Roles;
+	private $_StatusId;
 	private $_Status;
 	private $_SuspendedReason;
 	private $_CreatedAt;
+
+	/**
+	 * @return mixed
+	 */
+	public function getStatusId()
+	{
+		return $this->_StatusId;
+	}
+
+	/**
+	 * @param mixed $StatusId
+	 */
+	public function setStatusId($StatusId): void
+	{
+		$this->_StatusId = $StatusId;
+	}
 
 	/**
 	 * @return mixed
@@ -51,7 +68,7 @@ class UserWithRoles extends User
 	 */
 	public function getAddress1()
 	{
-		return $this->_Address1;
+		return $this->_Address_1;
 	}
 
 	/**
@@ -59,7 +76,7 @@ class UserWithRoles extends User
 	 */
 	public function setAddress1( $Address1 )
 	{
-		$this->_Address1 = $Address1;
+		$this->_Address_1 = $Address1;
 	}
 
 	/**
@@ -67,7 +84,7 @@ class UserWithRoles extends User
 	 */
 	public function getAddress2()
 	{
-		return $this->_Address2;
+		return $this->_Address_2;
 	}
 
 	/**
@@ -75,7 +92,7 @@ class UserWithRoles extends User
 	 */
 	public function setAddress2( $Address2 )
 	{
-		$this->_Address2 = $Address2;
+		$this->_Address_2 = $Address2;
 	}
 
 	/**
@@ -182,12 +199,12 @@ class UserWithRoles extends User
 	{
 		$Obj = parent::toStdClass();
 
-		$Obj->phone    = $this->getPhone();
-		$Obj->address1 = $this->getAddress1();
-		$Obj->address2 = $this->getAddress2();
-		$Obj->photo    = $this->getPhoto();
-		$Obj->status   = $this->getStatus();
-		$Obj->country  = $this->getCountry();
+		$Obj->phone      = $this->getPhone();
+		$Obj->address_1  = $this->getAddress1();
+		$Obj->address_2  = $this->getAddress2();
+		$Obj->avatar_url = $this->getPhoto();
+		$Obj->status     = $this->getStatusId();
+		$Obj->country    = $this->getCountry();
 
 		$Obj->reason_for_suspension = $this->getSuspendedReason();
 
@@ -254,6 +271,7 @@ class UserWithRoles extends User
 
 		if( isset( $Data[ 'status' ] ) )
 		{
+			$User->setStatusId( $Data[ 'status' ] );
 			$User->setStatus( UserStatus::getStatusName( $Data[ 'status' ] ) );
 		}
 
