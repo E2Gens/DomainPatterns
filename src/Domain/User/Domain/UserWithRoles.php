@@ -11,6 +11,7 @@ class UserWithRoles extends User
 	private $_City;
 	private $_PostalCode;
 	private $_Photo;
+	private $_TaxEin;
 	private $_Roles;
 	private $_StatusId;
 	private $_Status;
@@ -161,16 +162,41 @@ class UserWithRoles extends User
 		$this->_Photo = $Photo;
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getTaxEin()
+	{
+		return $this->_TaxEin;
+	}
+
+	/**
+	 * @param mixed $TaxEin
+	 */
+	public function setTaxEin($TaxEin)
+	{
+		$this->_TaxEin = $TaxEin;
+	}
+
+	/**
+	 * @return mixed
+	 */
 	public function getRoles()
 	{
 		return $this->_Roles;
 	}
 
+	/**
+	 * @param RoleUser $Role
+	 */
 	public function addRole( RoleUser $Role )
 	{
 		$this->_Roles[] = $Role;
 	}
 
+	/**
+	 * @param Role $Role
+	 */
 	public function removeRole( Role $Role )
 	{
 		foreach( $this->_Roles as &$UserRole )
@@ -311,6 +337,11 @@ class UserWithRoles extends User
 		{
 
 			$User->setPhoto( $Data[ 'avatar_url' ] );
+		}
+
+		if( isset( $Data[ 'tax_ein' ] ) )
+		{
+			$User->setTaxEin( $Data[ 'tax_ein' ] );
 		}
 
 		if( isset( $Data[ 'status' ] ) )
