@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 class User extends EntityBase
 {
 	private $_Name;
+	private $_FirstName;
+	private $_LastName;
 	private $_Email;
 	private $_Password;
 
@@ -28,14 +30,52 @@ class User extends EntityBase
 		$this->_Email = $Email;
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function getName()
 	{
 		return $this->_Name;
 	}
 
-	public function setName( $Name )
+	/**
+	 * @param mixed $Name
+	 */
+	public function setName($Name)
 	{
 		$this->_Name = $Name;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getFirstName()
+	{
+		return $this->_FirstName;
+	}
+
+	/**
+	 * @param mixed $FirstName
+	 */
+	public function setFirstName( $FirstName )
+	{
+		$this->_FirstName = $FirstName;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getLastName()
+	{
+		return $this->_LastName;
+	}
+
+	/**
+	 * @param mixed $LastName
+	 */
+	public function setLastName( $LastName )
+	{
+		$this->_LastName = $LastName;
 	}
 
 	/**
@@ -58,11 +98,17 @@ class User extends EntityBase
 		}
 	}
 
+	/**
+	 * @param array $Data
+	 * @return User
+	 */
 	public static function fromArray( array $Data )
 	{
 		$User = new static;
 
-		$User->setName( $Data[ 'name' ] );
+		$User->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
+		$User->setFirstName( $Data[ 'first_name' ] );
+		$User->setLastName( $Data[ 'last_name' ] );
 		$User->setEmail( $Data[ 'email' ] );
 		$User->setPassword( isset( $Data[ 'password' ] ) ? $Data[ 'password' ]:null );
 
@@ -95,10 +141,21 @@ class User extends EntityBase
 	{
 		$Obj = new \stdClass();
 
-		$Obj->name     = $this->getName();
-		$Obj->email    = $this->getEmail();
-		$Obj->password = $this->getPassword();
+		$Obj->first_name = $this->getFirstName();
+		$Obj->last_name  = $this->getLastName();
+		$Obj->email      = $this->getEmail();
+		$Obj->password   = $this->getPassword();
 
 		return $Obj;
+	}
+
+	/**
+	 * @return object
+	 */
+	public function jsonSerialize()
+	{
+		$this->_Id = $this->getIdentifier();
+
+		return (object)get_object_vars($this);
 	}
 }

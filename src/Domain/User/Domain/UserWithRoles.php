@@ -5,11 +5,34 @@ namespace DDP\Domain\User\Domain;
 class UserWithRoles extends User
 {
 	private $_Phone;
-	private $_Address;
+	private $_Address_1;
+	private $_Address_2;
+	private $_Country;
+	private $_City;
+	private $_PostalCode;
 	private $_Photo;
+	private $_TaxEin;
 	private $_Roles;
+	private $_StatusId;
 	private $_Status;
 	private $_SuspendedReason;
+	private $_CreatedAt;
+
+	/**
+	 * @return mixed
+	 */
+	public function getStatusId()
+	{
+		return $this->_StatusId;
+	}
+
+	/**
+	 * @param mixed $StatusId
+	 */
+	public function setStatusId($StatusId): void
+	{
+		$this->_StatusId = $StatusId;
+	}
 
 	/**
 	 * @return mixed
@@ -20,15 +43,11 @@ class UserWithRoles extends User
 	}
 
 	/**
-	 * @param mixed $_Status
-	 *
-	 * @return self
+	 * @param $Status
 	 */
 	public function setStatus( $Status )
 	{
 		$this->_Status = $Status;
-
-		return $this;
 	}
 
 	/**
@@ -49,19 +68,82 @@ class UserWithRoles extends User
 
 	/**
 	 * @return mixed
-	 * @todo this is really dumb. Why is address one database field?
 	 */
-	public function getAddress()
+	public function getAddress1()
 	{
-		return $this->_Address;
+		return $this->_Address_1;
 	}
 
 	/**
-	 * @param mixed $Address
+	 * @param mixed $Address1
 	 */
-	public function setAddress( $Address ): void
+	public function setAddress1( $Address1 )
 	{
-		$this->_Address = $Address;
+		$this->_Address_1 = $Address1;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getAddress2()
+	{
+		return $this->_Address_2;
+	}
+
+	/**
+	 * @param mixed $Address2
+	 */
+	public function setAddress2( $Address2 )
+	{
+		$this->_Address_2 = $Address2;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCountry()
+	{
+		return $this->_Country;
+	}
+
+	/**
+	 * @param mixed $Country
+	 */
+	public function setCountry( $Country ): void
+	{
+		$this->_Country = $Country;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCity()
+	{
+		return $this->_City;
+	}
+
+	/**
+	 * @param mixed $City
+	 */
+	public function setCity($City)
+	{
+		$this->_City = $City;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getPostalCode()
+	{
+		return $this->_PostalCode;
+	}
+
+	/**
+	 * @param mixed $PostalCode
+	 */
+	public function setPostalCode($PostalCode)
+	{
+		$this->_PostalCode = $PostalCode;
 	}
 
 	/**
@@ -80,16 +162,41 @@ class UserWithRoles extends User
 		$this->_Photo = $Photo;
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getTaxEin()
+	{
+		return $this->_TaxEin;
+	}
+
+	/**
+	 * @param mixed $TaxEin
+	 */
+	public function setTaxEin($TaxEin)
+	{
+		$this->_TaxEin = $TaxEin;
+	}
+
+	/**
+	 * @return mixed
+	 */
 	public function getRoles()
 	{
 		return $this->_Roles;
 	}
 
+	/**
+	 * @param RoleUser $Role
+	 */
 	public function addRole( RoleUser $Role )
 	{
 		$this->_Roles[] = $Role;
 	}
 
+	/**
+	 * @param Role $Role
+	 */
 	public function removeRole( Role $Role )
 	{
 		foreach( $this->_Roles as &$UserRole )
@@ -122,6 +229,22 @@ class UserWithRoles extends User
 	}
 
 	/**
+	 * @return mixed
+	 */
+	public function getCreatedAt()
+	{
+		return $this->_CreatedAt;
+	}
+
+	/**
+	 * @param mixed $CreatedAt
+	 */
+	public function setCreatedAt( $CreatedAt ): void
+	{
+		$this->_CreatedAt = $CreatedAt;
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getStatusName()
@@ -129,44 +252,132 @@ class UserWithRoles extends User
 		return UserStatus::getStatusName( $this->_Status );
 	}
 
+	/**
+	 * @return \stdClass
+	 */
 	public function toStdClass(): \stdClass
 	{
 		$Obj = parent::toStdClass();
 
-		$Obj->phone   = $this->getPhone();
-		$Obj->address = $this->getAddress();
-		$Obj->photo   = $this->getPhoto();
-		$Qbj->status  = $this->getStatus();
+		$Obj->phone       = $this->getPhone();
+		$Obj->address_1   = $this->getAddress1();
+		$Obj->address_2   = $this->getAddress2();
+		$Obj->avatar_url  = $this->getPhoto();
+		$Obj->status      = $this->getStatusId();
+		$Obj->country     = $this->getCountry();
+		$Obj->city        = $this->getCity();
+		$Obj->postal_code = $this->getPostalCode();
+		$Obj->tax_ein     = $this->getTaxEin();
 
 		$Obj->reason_for_suspension = $this->getSuspendedReason();
 
 		return $Obj;
 	}
 
+	/**
+	 * @param array $Data
+	 * @return User|UserWithRoles
+	 */
 	public static function fromArray( array $Data )
 	{
 		$User = new static;
 
-		$User->setName( $Data[ 'name' ] );
-		$User->setEmail( $Data[ 'email' ] );
-		$User->setPassword( $Data[ 'password' ] );
+		if( isset( $Data[ 'id' ] ) )
+		{
+			$User->setIdentifier( $Data[ 'id' ] );
+		}
 
-		$User->setPhone( $Data[ 'phone' ] );
-		$User->setAddress( $Data[ 'address' ] );
-		$User->setPhoto( $Data[ 'photo' ] );
-		$User->setStatus( $Data[ 'status' ] );
+		if( isset( $Data[ 'first_name' ] ) )
+		{
+			$User->setFirstName( $Data[ 'first_name' ] );
+		}
 
-		$User->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
+		if( isset( $Data[ 'last_name' ] ) )
+		{
+			$User->setLastName( $Data[ 'last_name' ] );
+		}
 
-		$Role = new Role();
-		$Role->setName( $Data[ 'role' ] );
-		$Role->setIdentifier( $Data['role_id'] );
+		$User->setName( $User->getFirstName() . ' ' . $User->getLastName() );
 
-		$RoleUser = new RoleUser();
-		$RoleUser->setUser( $User );
-		$RoleUser->setRole( $Role );
+		if( isset( $Data[ 'email' ] ) )
+		{
+			$User->setEmail( $Data[ 'email' ] );
+		}
 
-		$User->addRole( $RoleUser );
+		if( isset( $Data[ 'password' ] ) )
+		{
+			$User->setPassword( $Data[ 'password' ] );
+		}
+
+		if( isset( $Data[ 'phone' ] ) )
+		{
+			$User->setPhone( $Data[ 'phone' ] );
+		}
+
+		if( isset( $Data[ 'address_1' ] ) )
+		{
+			$User->setAddress1( $Data[ 'address_1' ] );
+		}
+
+		if( isset( $Data[ 'address_2' ] ) )
+		{
+			$User->setAddress2( $Data[ 'address_2' ] );
+		}
+
+		if( isset( $Data[ 'country' ] ) )
+		{
+			$User->setCountry( $Data[ 'country' ] );
+		}
+
+		if( isset( $Data[ 'city' ] ) )
+		{
+			$User->setCity( $Data[ 'city' ] );
+		}
+
+		if( isset( $Data[ 'postal_code' ] ) )
+		{
+			$User->setPostalCode( $Data[ 'postal_code' ] );
+		}
+
+		if( isset( $Data[ 'avatar_url' ] ) )
+		{
+
+			$User->setPhoto( $Data[ 'avatar_url' ] );
+		}
+
+		if( isset( $Data[ 'tax_ein' ] ) )
+		{
+			$User->setTaxEin( $Data[ 'tax_ein' ] );
+		}
+
+		if( isset( $Data[ 'status' ] ) )
+		{
+			$User->setStatusId( $Data[ 'status' ] );
+			$User->setStatus( UserStatus::getStatusName( $Data[ 'status' ] ) );
+		}
+
+		if( isset( $Data[ 'reason_for_suspension' ] ) )
+		{
+			$User->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
+		}
+
+		if( isset( $Data[ 'created_at' ] ) )
+		{
+			$User->setCreatedAt( $Data[ 'created_at' ] );
+		}
+
+		if( isset( $Data[ 'roles' ] ) )
+		{
+			$Role = new Role();
+			$Role->setName( $Data[ 'roles' ][ 0 ][ 'name' ] );
+			$Role->setIdentifier( $Data[ 'roles' ][ 0 ][ 'id' ] );
+
+			$RoleUser = new RoleUser();
+			$RoleUser->setUser( $User );
+			$RoleUser->setRole( $Role );
+
+			$User->addRole( $RoleUser );
+		}
 
 		return $User;
 	}
@@ -182,5 +393,16 @@ class UserWithRoles extends User
 		}
 
 		return false;
+	}
+
+	/**
+	 * @return object
+	 */
+	public function jsonSerialize()
+	{
+		$ParentObjVars  = parent::jsonSerialize();
+		$CurrentObjVars = (object)get_object_vars($this);
+
+		return (object) array_merge((array) $ParentObjVars, (array) $CurrentObjVars);
 	}
 }
