@@ -8,6 +8,7 @@ class UserWithRoles extends User
 	private $_Address_1;
 	private $_Address_2;
 	private $_Country;
+	private $_State;
 	private $_City;
 	private $_PostalCode;
 	private $_Photo;
@@ -135,6 +136,22 @@ class UserWithRoles extends User
 	/**
 	 * @return mixed
 	 */
+	public function getState()
+	{
+		return $this->_State;
+	}
+
+	/**
+	 * @param mixed $State
+	 */
+	public function setState( $State )
+	{
+		$this->_State = $State;
+	}
+
+	/**
+	 * @return mixed
+	 */
 	public function getCity()
 	{
 		return $this->_City;
@@ -143,7 +160,7 @@ class UserWithRoles extends User
 	/**
 	 * @param mixed $City
 	 */
-	public function setCity($City)
+	public function setCity( $City )
 	{
 		$this->_City = $City;
 	}
@@ -159,7 +176,7 @@ class UserWithRoles extends User
 	/**
 	 * @param mixed $PostalCode
 	 */
-	public function setPostalCode($PostalCode)
+	public function setPostalCode( $PostalCode )
 	{
 		$this->_PostalCode = $PostalCode;
 	}
@@ -346,6 +363,11 @@ class UserWithRoles extends User
 		if( isset( $Data[ 'country' ] ) )
 		{
 			$User->setCountry( $Data[ 'country' ] );
+		}
+
+		if( isset( $Data[ 'state' ] ) )
+		{
+			$User->setState( $Data[ 'state' ] );
 		}
 
 		if( isset( $Data[ 'city' ] ) )
