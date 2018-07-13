@@ -301,6 +301,7 @@ class UserWithRoles extends User
 		$Obj->status      = $this->getStatusId();
 		$Obj->country     = $this->getCountry();
 		$Obj->city        = $this->getCity();
+		$Obj->state       = $this->getState();
 		$Obj->postal_code = $this->getPostalCode();
 		$Obj->tax_ein     = $this->getTaxEin();
 
