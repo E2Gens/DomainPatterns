@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.28
+* Getting state in toStdClass method.
+
 ## 0.0.27
 * State field added in UserWithRole entity.
 * Issue fixed in addOrRemvoeRole method.
