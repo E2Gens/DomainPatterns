@@ -67,7 +67,7 @@ class UserWithRolesRepository extends UserRepository
 			 * If the RoleUser relation has no identifier then attach the role..
 			 */
 
-			if( !$UserModel->hasRole( $RoleUser->getName() ) )
+			if( !$UserModel->hasRole( $RoleUser->getRole()->getName() ) )
 			{
 				$UserModel->roles()->attach( $RoleModel->id );
 			}
