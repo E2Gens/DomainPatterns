@@ -41,6 +41,7 @@ interface IEntity
 	public static function fromStdClass( \stdClass $Object );
 
 	/**
+	 * @deprecated
 	 * @param FormRequest $Request
 	 * @SuppressWarnings("unused")
 	 */
