@@ -66,7 +66,8 @@ abstract class EntityBase implements IEntity, IValidatable
 	{}
 
 	/**
-	 * @param FormRequest $Request
+	 * @deprecated
+	 * @param $Request
 	 * @SuppressWarnings("unused")
 	 */
 	public static function fromRequest( $Request )
