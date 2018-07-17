@@ -1,7 +1,8 @@
 # Versions
 
 ## 0.0.29
-
+* fromRequest() method deprecated.
+* Middle initial field added to User entity.
 
 ## 0.0.28
 * Getting state in toStdClass method.
