@@ -10,6 +10,7 @@ class User extends EntityBase
 {
 	private $_Name;
 	private $_FirstName;
+	private $_MiddleInitial;
 	private $_LastName;
 	private $_Email;
 	private $_Password;
@@ -41,7 +42,7 @@ class User extends EntityBase
 	/**
 	 * @param mixed $Name
 	 */
-	public function setName($Name)
+	public function setName( $Name )
 	{
 		$this->_Name = $Name;
 	}
@@ -60,6 +61,22 @@ class User extends EntityBase
 	public function setFirstName( $FirstName )
 	{
 		$this->_FirstName = $FirstName;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getMiddleInitial()
+	{
+		return $this->_MiddleInitial;
+	}
+
+	/**
+	 * @param mixed $MiddleInitial
+	 */
+	public function setMiddleInitial( $MiddleInitial )
+	{
+		$this->_MiddleInitial = $MiddleInitial;
 	}
 
 	/**
@@ -106,10 +123,31 @@ class User extends EntityBase
 	{
 		$User = new static;
 
-		$User->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
-		$User->setFirstName( $Data[ 'first_name' ] );
-		$User->setLastName( $Data[ 'last_name' ] );
-		$User->setEmail( $Data[ 'email' ] );
+		if( isset( $Data[ 'first_name' ] ) && isset( $Data[ 'last_name' ] ) )
+		{
+			$User->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
+		}
+
+		if( isset( $Data[ 'first_name' ] ) )
+		{
+			$User->setFirstName( $Data[ 'first_name' ] );
+		}
+
+		if( isset( $Data[ 'last_name' ] ) )
+		{
+			$User->setLastName( $Data[ 'last_name' ] );
+		}
+
+		if( isset( $Data[ 'middle_initial' ] ) )
+		{
+			$User->setMiddleInitial( $Data[ 'middle_initial' ] );
+		}
+
+		if( isset( $Data[ 'email' ] ) )
+		{
+			$User->setEmail( $Data[ 'email' ] );
+		}
+
 		$User->setPassword( isset( $Data[ 'password' ] ) ? $Data[ 'password' ]:null );
 
 		return $User;
@@ -141,10 +179,11 @@ class User extends EntityBase
 	{
 		$Obj = new \stdClass();
 
-		$Obj->first_name = $this->getFirstName();
-		$Obj->last_name  = $this->getLastName();
-		$Obj->email      = $this->getEmail();
-		$Obj->password   = $this->getPassword();
+		$Obj->first_name     = $this->getFirstName();
+		$Obj->last_name      = $this->getLastName();
+		$Obj->middle_initial = $this->getMiddleInitial();
+		$Obj->email          = $this->getEmail();
+		$Obj->password       = $this->getPassword();
 
 		return $Obj;
 	}
