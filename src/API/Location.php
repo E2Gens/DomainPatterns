@@ -40,6 +40,6 @@ class Location
 			return false;
 		}
 
-		return $Country->getStates()->toArray();
+		return $Country->getStates()->sortBy('name')->toArray();
 	}
 }
