@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.30
+* Issue related to avatar_url is fixed.
+
 ## 0.0.29
 * fromRequest() method deprecated.
 * Middle initial field added to User entity.
