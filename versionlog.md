@@ -1,6 +1,9 @@
 # Versions
 
-## 0.0.30
+## 0.0.31 2018-07-20
+* Added logic to order the States and Countries by Name
+
+## 0.0.30 2018-07-19
 * Issue related to avatar_url is fixed.
 
 ## 0.0.29
