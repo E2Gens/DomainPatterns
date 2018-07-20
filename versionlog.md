@@ -1,7 +1,7 @@
 # Versions
 
 ## 0.0.31
-
+* Added sorting capabilities to states and countries.
 
 ## 0.0.30 2018-07-19
 * Issue related to avatar_url is fixed.
