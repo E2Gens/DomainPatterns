@@ -20,7 +20,7 @@ class Location
 	}
 
 	/**
-	 * @param string $SortBy
+	 * @param string $SortBy defaults to 'name'
 	 * @return mixed
 	 */
 	public function getCountries( $SortBy = 'name' )
@@ -30,7 +30,7 @@ class Location
 
 	/**
 	 * @param $Name
-	 * @param string $SortBy
+	 * @param string $SortBy defaults to 'name'
 	 * @return bool
 	 */
 	public function getStates( $Name, $SortBy = 'name' )
