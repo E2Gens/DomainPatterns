@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.32
+
 ## 0.0.31 2018-07-20
 * Added logic to order the States and Countries by Name
 
