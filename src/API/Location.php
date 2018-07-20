@@ -20,18 +20,20 @@ class Location
 	}
 
 	/**
-	 * @return \MenaraSolutions\Geographer\Collections\MemberCollection
+	 * @param string $SortBy defaults to 'name'
+	 * @return mixed
 	 */
-	public function getCountries()
+	public function getCountries( $SortBy = 'name' )
 	{
-		return $this->_Earth->getCountries()->useShortNames();
+		return $this->_Earth->getCountries()->sortBy( $SortBy )->useShortNames();
 	}
 
 	/**
-	 * @param $Name - Short name of the country.
-	 * @return array
+	 * @param $Name
+	 * @param string $SortBy defaults to 'name'
+	 * @return bool
 	 */
-	public function getStates( $Name )
+	public function getStates( $Name, $SortBy = 'name' )
 	{
 		$Country = $this->_Earth->getCountries()->findOne( ['code' => $Name] );
 
@@ -40,6 +42,6 @@ class Location
 			return false;
 		}
 
-		return $Country->getStates()->toArray();
+		return $Country->getStates()->sortBy( $SortBy )->toArray();
 	}
 }
