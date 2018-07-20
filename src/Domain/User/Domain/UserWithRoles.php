@@ -297,7 +297,12 @@ class UserWithRoles extends User
 		$Obj->phone       = $this->getPhone();
 		$Obj->address_1   = $this->getAddress1();
 		$Obj->address_2   = $this->getAddress2();
-		$Obj->avatar_url  = $this->getPhoto();
+
+		if( $this->getPhoto() )
+		{
+			$Obj->avatar_url = $this->getPhoto();
+		}
+
 		$Obj->status      = $this->getStatusId();
 		$Obj->country     = $this->getCountry();
 		$Obj->city        = $this->getCity();
