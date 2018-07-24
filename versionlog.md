@@ -1,5 +1,9 @@
 # Versions
 
+## 0.0.32 2018-07-24
+* Domain and Infrastructure created for Content Block.
+* Initial implementation of Entity and Repository for the Page. 
+
 ## 0.0.31 2018-07-20
 * Added logic to order the States and Countries by Name
 
