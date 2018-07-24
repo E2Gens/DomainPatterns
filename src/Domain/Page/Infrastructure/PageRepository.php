@@ -43,4 +43,12 @@ class PageRepository implements IRepository
 	{
 		// TODO: Implement getByName() method.
 	}
+
+	/**
+	 * @return array
+	 */
+	public function getAll(): array
+	{
+		// TODO: Implement getAll() method.
+	}
 }
