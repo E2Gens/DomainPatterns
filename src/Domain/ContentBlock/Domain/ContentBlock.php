@@ -13,15 +13,15 @@ class ContentBlock extends EntityBase
 	private $_UpdatedAt;
 
 	/**
-	 * @return mixed
+	 * @return null|string
 	 */
-	public function getName()
+	public function getName(): ?string
 	{
 		return $this->_Name;
 	}
 
 	/**
-	 * @param mixed $Name
+	 * @param $Name
 	 */
 	public function setName( $Name ): void
 	{
@@ -29,9 +29,9 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
-	 * @return mixed
+	 * @return null|string
 	 */
-	public function getContent()
+	public function getContent(): ?string
 	{
 		return $this->_Content;
 	}
@@ -45,9 +45,9 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
-	 * @return mixed
+	 * @return int|null
 	 */
-	public function getModifiedBy()
+	public function getModifiedBy(): ?int
 	{
 		return $this->_ModifiedBy;
 	}
@@ -61,9 +61,9 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
-	 * @return mixed
+	 * @return null|string
 	 */
-	public function getCreatedAt()
+	public function getCreatedAt(): ?string
 	{
 		return $this->_CreatedAt;
 	}
@@ -77,9 +77,9 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
-	 * @return mixed
+	 * @return null|string
 	 */
-	public function getUpdatedAt()
+	public function getUpdatedAt(): ?string
 	{
 		return $this->_UpdatedAt;
 	}
@@ -147,5 +147,16 @@ class ContentBlock extends EntityBase
 		$Obj->updated_at  = $this->getUpdatedAt();
 
 		return $Obj;
+	}
+
+
+	/**
+	 * @return object
+	 */
+	public function jsonSerialize()
+	{
+		$this->_Id = $this->getIdentifier();
+
+		return (object)get_object_vars($this);
 	}
 }

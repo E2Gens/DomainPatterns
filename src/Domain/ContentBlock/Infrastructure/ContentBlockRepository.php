@@ -52,7 +52,9 @@ class ContentBlockRepository implements IRepository
 	 */
 	public function getById( $ContentBlockId )
 	{
-		return $this->_ContentBlockModel->findOrFail( $ContentBlockId );
+		$ContentBlockArr = $this->_ContentBlockModel->findOrFail( $ContentBlockId )->toArray();
+
+		return Domain\ContentBlock::fromArray( $ContentBlockArr );
 	}
 
 	/**
@@ -60,9 +62,18 @@ class ContentBlockRepository implements IRepository
 	 */
 	public function getAll(): array
 	{
-		return $this->_ContentBlockModel
+		$ContentBlocks = [];
+
+		$ContentBlocksArr = $this->_ContentBlockModel
 			->orderBy( 'updated_at', 'DESC' )
 			->get()
 			->toArray();
+
+		foreach ( $ContentBlocksArr as $ContentBlock )
+		{
+			$ContentBlocks[] = Domain\ContentBlock::fromArray( $ContentBlock );
+ 		}
+
+ 		return $ContentBlocks;
 	}
 }

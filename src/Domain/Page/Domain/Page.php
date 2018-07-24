@@ -11,15 +11,15 @@ class Page extends EntityBase
 	private $ContenbBlock;
 
 	/**
-	 * @return mixed
+	 * @return null|string
 	 */
-	public function getRoute()
+	public function getRoute(): ?string
 	{
 		return $this->_Route;
 	}
 
 	/**
-	 * @param mixed $Route
+	 * @param $Route
 	 */
 	public function setRoute( $Route ): void
 	{
@@ -27,9 +27,9 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @return mixed
+	 * @return null|string
 	 */
-	public function getTitle()
+	public function getTitle(): ?string
 	{
 		return $this->_Title;
 	}
@@ -43,9 +43,9 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @return mixed
+	 * @return null|string
 	 */
-	public function getMetaKeywords()
+	public function getMetaKeywords(): ?string
 	{
 		return $this->_MetaKeywords;
 	}
@@ -59,9 +59,9 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @return mixed
+	 * @return null|string
 	 */
-	public function getMetaDescription()
+	public function getMetaDescription(): ?string
 	{
 		return $this->_MetaDescription;
 	}
