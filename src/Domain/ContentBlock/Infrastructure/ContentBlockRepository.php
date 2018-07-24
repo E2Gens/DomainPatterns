@@ -47,10 +47,10 @@ class ContentBlockRepository implements IRepository
 	}
 
 	/**
-	 * @param int $ContentBlockId
+	 * @param $ContentBlockId
 	 * @return mixed
 	 */
-	public function getById( int $ContentBlockId )
+	public function getById( $ContentBlockId )
 	{
 		return $this->_ContentBlockModel->findOrFail( $ContentBlockId );
 	}
