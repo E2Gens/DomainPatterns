@@ -8,9 +8,9 @@ class ContentBlock extends EntityBase
 {
 	private $_Name;
 	private $_Content;
+	private $_ModifiedBy;
 	private $_CreatedAt;
 	private $_UpdatedAt;
-	private $_ModifiedBy;
 
 	/**
 	 * @return mixed
@@ -47,6 +47,22 @@ class ContentBlock extends EntityBase
 	/**
 	 * @return mixed
 	 */
+	public function getModifiedBy()
+	{
+		return $this->_ModifiedBy;
+	}
+
+	/**
+	 * @param mixed $ModifiedBy
+	 */
+	public function setModifiedBy( $ModifiedBy ): void
+	{
+		$this->_ModifiedBy = $ModifiedBy;
+	}
+
+	/**
+	 * @return mixed
+	 */
 	public function getCreatedAt()
 	{
 		return $this->_CreatedAt;
@@ -77,20 +93,59 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
-	 * @return mixed
+	 * @param array $Data
+	 * @return ContentBlock
 	 */
-	public function getModifiedBy()
+	public static function fromArray( array $Data )
 	{
-		return $this->_ModifiedBy;
+		$ContentBlock = new static;
+
+		if( isset( $Data[ 'id' ] ) )
+		{
+			$ContentBlock->setIdentifier( $Data[ 'id' ] );
+		}
+
+		if( isset( $Data[ 'name' ] ) )
+		{
+			$ContentBlock->setName( $Data[ 'name' ] );
+		}
+
+		if( isset( $Data[ 'content' ] ) )
+		{
+			$ContentBlock->setContent(  $Data[ 'content' ] );
+		}
+
+		if( isset( $Data[ 'modified_by' ] ) )
+		{
+			$ContentBlock->setModifiedBy( $Data[ 'modified_by' ] );
+		}
+
+		if( isset( $Data[ 'created_at' ] ) )
+		{
+			$ContentBlock->setCreatedAt( $Data[ 'created_at' ] );
+		}
+
+		if( isset( $Data[ 'updated_at' ] ) )
+		{
+			$ContentBlock->setUpdatedAt( $Data[ 'updated_at' ] );
+		}
+
+		return $ContentBlock;
 	}
 
 	/**
-	 * @param mixed $ModifiedBy
+	 * @return \stdClass
 	 */
-	public function setModifiedBy( $ModifiedBy ): void
+	public function toStdClass(): \stdClass
 	{
-		$this->_ModifiedBy = $ModifiedBy;
+		$Obj = parent::toStdClass();
+
+		$Obj->name        = $this->getName();
+		$Obj->content     = $this->getContent();
+		$Obj->modified_by = $this->getModifiedBy();
+		$Obj->created_at  = $this->getCreatedAt();
+		$Obj->updated_at  = $this->getUpdatedAt();
+
+		return $Obj;
 	}
-
-
 }
