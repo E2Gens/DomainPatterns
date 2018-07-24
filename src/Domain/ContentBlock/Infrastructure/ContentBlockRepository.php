@@ -36,7 +36,6 @@ class ContentBlockRepository implements IRepository
 		if( !$ContentBlock->getIdentifier() )
 		{
 			$ContentBlockModel = $this->_ContentBlockModel->create( (array)$Obj );
-			$ContentBlock->setIdentifier( $ContentBlockModel->id );
 		}
 		else
 		{
