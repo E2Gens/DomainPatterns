@@ -54,9 +54,21 @@ abstract class EntityBase implements IEntity, IValidatable
 	/**
 	 * @param array $Data
 	 * @SuppressWarnings("unused")
+	 * @return EntityBase
 	 */
 	public static function fromArray( array $Data )
-	{}
+	{
+		$Entity = new static;
+
+		if( isset( $Data[ 'id' ] ) )
+		{
+			$Entity->setIdentifier( $Data[ 'id' ] );
+		}
+
+		// @todo: handle "$_Deleted"
+
+		return $Entity;
+	}
 
 	/**
 	 * @param \stdClass $Object
@@ -78,7 +90,13 @@ abstract class EntityBase implements IEntity, IValidatable
 	 * @SuppressWarnings("unused")
 	 */
 	public function toStdClass() : \stdClass
-	{}
+	{
+		$Obj = new \stdClass();
+
+		$Obj->id = $this->getIdentifier();
+
+		// @todo: handle
+	}
 
 	public function validate( \Neuron\Data\Validation\ICollection $Validator, array &$Violations ): bool
 	{
