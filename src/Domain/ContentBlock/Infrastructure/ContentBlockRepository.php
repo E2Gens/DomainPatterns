@@ -54,7 +54,7 @@ class ContentBlockRepository implements IRepository
 	{
 		$ContentBlockArr = $this->_ContentBlockModel->findOrFail( $ContentBlockId )->toArray();
 
-		return Domain\ContentBlock::fromArray( $ContentBlockArr );
+		return Domain\ContentBlock::fromArray( $ContentBlockArr )->jsonSerialize();
 	}
 
 	/**
@@ -71,7 +71,7 @@ class ContentBlockRepository implements IRepository
 
 		foreach ( $ContentBlocksArr as $ContentBlock )
 		{
-			$ContentBlocks[] = Domain\ContentBlock::fromArray( $ContentBlock );
+			$ContentBlocks[] = Domain\ContentBlock::fromArray( $ContentBlock )->jsonSerialize();
  		}
 
  		return $ContentBlocks;
