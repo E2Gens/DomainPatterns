@@ -95,7 +95,9 @@ abstract class EntityBase implements IEntity, IValidatable
 
 		$Obj->id = $this->getIdentifier();
 
-		// @todo: handle
+		// @todo: handle $_Deleted property
+
+		return $Obj;
 	}
 
 	public function validate( \Neuron\Data\Validation\ICollection $Validator, array &$Violations ): bool
