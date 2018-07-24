@@ -57,18 +57,7 @@ abstract class EntityBase implements IEntity, IValidatable
 	 * @return EntityBase
 	 */
 	public static function fromArray( array $Data )
-	{
-		$Entity = new static;
-
-		if( isset( $Data[ 'id' ] ) )
-		{
-			$Entity->setIdentifier( $Data[ 'id' ] );
-		}
-
-		// @todo: handle "$_Deleted"
-
-		return $Entity;
-	}
+	{}
 
 	/**
 	 * @param \stdClass $Object

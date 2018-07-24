@@ -100,6 +100,11 @@ class ContentBlock extends EntityBase
 	{
 		$ContentBlock = parent::fromArray( $Data );
 
+		if( isset( $Data[ 'id' ] ) )
+		{
+			$ContentBlock->setIdentifier( $Data[ 'id' ] );
+		}
+
 		if( isset( $Data[ 'name' ] ) )
 		{
 			$ContentBlock->setName( $Data[ 'name' ] );
