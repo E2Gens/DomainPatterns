@@ -98,7 +98,7 @@ class ContentBlock extends EntityBase
 	 */
 	public static function fromArray( array $Data )
 	{
-		$ContentBlock = parent::fromArray( $Data );
+		$ContentBlock = new static;
 
 		if( isset( $Data[ 'id' ] ) )
 		{
