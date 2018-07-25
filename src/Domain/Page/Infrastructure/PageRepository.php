@@ -45,7 +45,7 @@ class PageRepository implements IRepository
 	}
 
 	/**
-	 * @return array
+	 * @return arrayco
 	 */
 	public function getAll(): array
 	{
