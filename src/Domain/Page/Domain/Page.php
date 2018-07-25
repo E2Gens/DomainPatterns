@@ -1,5 +1,7 @@
 <?php
 
+namespace DDP\Domain\Page\Domain;
+
 use DDP\Core\Domain\EntityBase;
 
 class Page extends EntityBase
