@@ -11,6 +11,7 @@ class Page extends EntityBase
 	private $_MetaKeywords;
 	private $_MetaDescription;
 	private $_Content;
+	private $_ContentBlockId;
 
 	/**
 	 * @return null|string
@@ -85,11 +86,27 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @param mixed $COntent
+	 * @param mixed $Content
 	 */
-	public function setContenbBlock( $COntent ): void
+	public function setContent( $Content ): void
 	{
-		$this->_Content = $COntent;
+		$this->_Content = $Content;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getContentBlockId()
+	{
+		return $this->_ContentBlockId;
+	}
+
+	/**
+	 * @param mixed $ContentBlockId
+	 */
+	public function setContentBlockId($ContentBlockId): void
+	{
+		$this->_ContentBlockId = $ContentBlockId;
 	}
 
 	/**
@@ -101,10 +118,16 @@ class Page extends EntityBase
 
 		$Obj->route   = $this->getRoute();
 		$Obj->title   = $this->getTitle();
-		$Obj->content = $this->getContenbBlock();
+
+		if( $this->getContent() )
+		{
+			$Obj->content = $this->getContent();
+		}
 
 		$Obj->meta_description = $this->getMetaDescription();
 		$Obj->meta_keywords    = $this->getMetaKeywords();
+
+		$Obj->content_block_id = $this->getContentBlockId();
 
 		return $Obj;
 	}
@@ -137,9 +160,14 @@ class Page extends EntityBase
 			$Page->setMetaKeywords( $Data[ 'meta_keywords' ] );
 		}
 
+		if( isset( $Data[ 'content_block_id' ] ) )
+		{
+			$Page->setContentBlockId( $Data[ 'content_block_id' ] );
+		}
+
 		if( isset( $Data[ 'contentBlock' ][ 'content' ] ) )
 		{
-			$Page->setContenbBlock(  $Data[ 'contentBlock' ][ 'content' ] );
+			$Page->setContent(  $Data[ 'contentBlock' ][ 'content' ] );
 		}
 
 		return $Page;
