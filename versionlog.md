@@ -1,6 +1,7 @@
 # Versions
 
 ## 0.0.33
+* Issues fixed related to ContentBlock.
 
 ## 0.0.32 2018-07-24
 * Domain and Infrastructure created for Content Block.
