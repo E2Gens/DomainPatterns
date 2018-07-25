@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.34
+
+
 ## 0.0.33
 * Issues fixed related to ContentBlock.
 
