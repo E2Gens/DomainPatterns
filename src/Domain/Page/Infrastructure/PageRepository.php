@@ -47,7 +47,8 @@ class PageRepository implements IRepository
 		$PageObj = $this->_PageModel
 			->with( 'contentBlock' )
 			->where( 'id', $PageId )
-			->first();
+			->first()
+			->toArray();
 
 		return Domain\Page::fromArray( $PageObj );
 	}
@@ -61,7 +62,8 @@ class PageRepository implements IRepository
 		$PageObj = $this->_PageModel
 			->with( 'contentBlock' )
 			->where( 'name', $Name )
-			->first();
+			->first()
+			->toArray();
 
 		return Domain\Page::fromArray( $PageObj );
 	}
@@ -76,7 +78,8 @@ class PageRepository implements IRepository
 		$PagesObj = $this->_PageModel
 			->with( 'contentBlock' )
 			->orderBy( 'updated_at', 'DESC' )
-			->get();
+			->get()
+			->toArray();
 
 		foreach( $PagesObj as $Page )
 		{

@@ -10,7 +10,7 @@ class Page extends EntityBase
 	private $_Title;
 	private $_MetaKeywords;
 	private $_MetaDescription;
-	private $ContenbBlock;
+	private $_Content;
 
 	/**
 	 * @return null|string
@@ -79,32 +79,32 @@ class Page extends EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getContenbBlock()
+	public function getContent(): ?string
 	{
-		return $this->ContenbBlock;
+		return $this->_Content;
 	}
 
 	/**
-	 * @param mixed $ContenbBlock
+	 * @param mixed $COntent
 	 */
-	public function setContenbBlock( $ContenbBlock ): void
+	public function setContenbBlock( $COntent ): void
 	{
-		$this->ContenbBlock = $ContenbBlock;
+		$this->_Content = $COntent;
 	}
 
 	/**
-	 * @return stdClass
+	 * @return \stdClass
 	 */
 	public function toStdClass(): \stdClass
 	{
 		$Obj = parent::toStdClass();
 
-		$Obj->route = $this->getRoute();
-		$Obj->title = $this->getTitle();
+		$Obj->route   = $this->getRoute();
+		$Obj->title   = $this->getTitle();
+		$Obj->content = $this->getContenbBlock();
 
 		$Obj->meta_description = $this->getMetaDescription();
 		$Obj->meta_keywords    = $this->getMetaKeywords();
-		$Obj->content_block    = $this->getContenbBlock();
 
 		return $Obj;
 	}
@@ -135,6 +135,11 @@ class Page extends EntityBase
 		if( isset( $Data[ 'meta_keywords' ] ) )
 		{
 			$Page->setMetaKeywords( $Data[ 'meta_keywords' ] );
+		}
+
+		if( isset( $Data[ 'contentBlock' ][ 'content' ] ) )
+		{
+			$Page->setContenbBlock(  $Data[ 'contentBlock' ][ 'content' ] );
 		}
 
 		return $Page;
