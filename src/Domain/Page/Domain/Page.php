@@ -90,4 +90,61 @@ class Page extends EntityBase
 		$this->ContenbBlock = $ContenbBlock;
 	}
 
+	/**
+	 * @return stdClass
+	 */
+	public function toStdClass(): \stdClass
+	{
+		$Obj = parent::toStdClass();
+
+		$Obj->route = $this->getRoute();
+		$Obj->title = $this->getTitle();
+
+		$Obj->meta_description = $this->getMetaDescription();
+		$Obj->meta_keywords    = $this->getMetaKeywords();
+		$Obj->content_block    = $this->getContenbBlock();
+
+		return $Obj;
+	}
+
+	/**
+	 * @param array $Data
+	 * @return EntityBase|Page
+	 */
+	public static function fromArray( array $Data )
+	{
+		$Page = new static;
+
+		if( isset( $Data[ 'route' ] ) )
+		{
+			$Page->setRoute( $Data[ 'route' ] );
+		}
+
+		if( isset( $Data[ 'title' ] ) )
+		{
+			$Page->setTitle( $Data[ 'title' ] );
+		}
+
+		if( isset( $Data[ 'meta_description' ] ) )
+		{
+			$Page->setMetaDescription( $Data[ 'meta_description' ] );
+		}
+
+		if( isset( $Data[ 'meta_keywords' ] ) )
+		{
+			$Page->setMetaKeywords( $Data[ 'meta_keywords' ] );
+		}
+
+		return $Page;
+	}
+
+	/**
+	 * @return object
+	 */
+	public function jsonSerialize()
+	{
+		$this->_Id = $this->getIdentifier();
+
+		return (object)get_object_vars($this);
+	}
 }
