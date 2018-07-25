@@ -26,10 +26,10 @@ class ContentBlockRepository implements IRepository
 	}
 
 	/**
-	 * @param Domain\ContentBlock $ContentBlock
+	 * @param $ContentBlock
 	 * @return mixed
 	 */
-	public function save( Domain\ContentBlock $ContentBlock )
+	public function save( $ContentBlock )
 	{
 		$Obj = $ContentBlock->toStdClass();
 
@@ -39,7 +39,7 @@ class ContentBlockRepository implements IRepository
 		}
 		else
 		{
-			$ContentBlockModel = $this->_ContentBlockModel->update( (array)$Obj );
+			$ContentBlockModel = $this->_ContentBlockModel->where( 'id', $Obj->id )->update( (array)$Obj );
 		}
 
 		return $ContentBlockModel;
@@ -53,7 +53,7 @@ class ContentBlockRepository implements IRepository
 	{
 		$ContentBlockArr = $this->_ContentBlockModel->findOrFail( $ContentBlockId )->toArray();
 
-		return Domain\ContentBlock::fromArray( $ContentBlockArr )->jsonSerialize();
+		return Domain\ContentBlock::fromArray( $ContentBlockArr );
 	}
 
 	/**
@@ -70,7 +70,7 @@ class ContentBlockRepository implements IRepository
 
 		foreach ( $ContentBlocksArr as $ContentBlock )
 		{
-			$ContentBlocks[] = Domain\ContentBlock::fromArray( $ContentBlock )->jsonSerialize();
+			$ContentBlocks[] = Domain\ContentBlock::fromArray( $ContentBlock );
  		}
 
  		return $ContentBlocks;
