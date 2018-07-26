@@ -1,5 +1,7 @@
 <?php
 
+namespace DDP\Domain\Page\Domain;
+
 use DDP\Core\Domain\EntityBase;
 
 class Page extends EntityBase
@@ -8,7 +10,8 @@ class Page extends EntityBase
 	private $_Title;
 	private $_MetaKeywords;
 	private $_MetaDescription;
-	private $ContenbBlock;
+	private $_Content;
+	private $_ContentBlockId;
 
 	/**
 	 * @return null|string
@@ -77,17 +80,106 @@ class Page extends EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getContenbBlock()
+	public function getContent(): ?string
 	{
-		return $this->ContenbBlock;
+		return $this->_Content;
 	}
 
 	/**
-	 * @param mixed $ContenbBlock
+	 * @param mixed $Content
 	 */
-	public function setContenbBlock( $ContenbBlock ): void
+	public function setContent( $Content ): void
 	{
-		$this->ContenbBlock = $ContenbBlock;
+		$this->_Content = $Content;
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getContentBlockId()
+	{
+		return $this->_ContentBlockId;
+	}
+
+	/**
+	 * @param mixed $ContentBlockId
+	 */
+	public function setContentBlockId($ContentBlockId): void
+	{
+		$this->_ContentBlockId = $ContentBlockId;
+	}
+
+	/**
+	 * @return \stdClass
+	 */
+	public function toStdClass(): \stdClass
+	{
+		$Obj = parent::toStdClass();
+
+		$Obj->route   = $this->getRoute();
+		$Obj->title   = $this->getTitle();
+
+		if( $this->getContent() )
+		{
+			$Obj->content = $this->getContent();
+		}
+
+		$Obj->meta_description = $this->getMetaDescription();
+		$Obj->meta_keywords    = $this->getMetaKeywords();
+
+		$Obj->content_block_id = $this->getContentBlockId();
+
+		return $Obj;
+	}
+
+	/**
+	 * @param array $Data
+	 * @return EntityBase|Page
+	 */
+	public static function fromArray( array $Data )
+	{
+		$Page = new static;
+
+		if( isset( $Data[ 'route' ] ) )
+		{
+			$Page->setRoute( $Data[ 'route' ] );
+		}
+
+		if( isset( $Data[ 'title' ] ) )
+		{
+			$Page->setTitle( $Data[ 'title' ] );
+		}
+
+		if( isset( $Data[ 'meta_description' ] ) )
+		{
+			$Page->setMetaDescription( $Data[ 'meta_description' ] );
+		}
+
+		if( isset( $Data[ 'meta_keywords' ] ) )
+		{
+			$Page->setMetaKeywords( $Data[ 'meta_keywords' ] );
+		}
+
+		if( isset( $Data[ 'content_block_id' ] ) )
+		{
+			$Page->setContentBlockId( $Data[ 'content_block_id' ] );
+		}
+
+		if( isset( $Data[ 'contentBlock' ][ 'content' ] ) )
+		{
+			$Page->setContent(  $Data[ 'contentBlock' ][ 'content' ] );
+		}
+
+		return $Page;
+	}
+
+	/**
+	 * @return object
+	 */
+	public function jsonSerialize()
+	{
+		$this->_Id = $this->getIdentifier();
+
+		return (object)get_object_vars($this);
+	}
 }

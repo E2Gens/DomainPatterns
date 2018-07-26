@@ -1,6 +1,9 @@
 # Versions
 
-## 0.0.33
+## 0.0.34 2018-07-26
+* Page entity and PageRepository implemented.
+
+## 0.0.33 2018-07-25
 * Issues fixed related to ContentBlock.
 
 ## 0.0.32 2018-07-24

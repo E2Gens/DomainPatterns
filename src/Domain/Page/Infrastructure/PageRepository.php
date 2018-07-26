@@ -3,6 +3,7 @@
 namespace DDP\Domain\Page\Infrastructure;
 
 use DDP\Core\Infrastructure\IRepository;
+use DDP\Domain\Page\Domain;
 
 class PageRepository implements IRepository
 {
@@ -18,30 +19,53 @@ class PageRepository implements IRepository
 	}
 
 	/**
-	 * @param $Object
-	 * @SuppressWarnings("unused")
+	 * @param $Page
+	 * @return mixed
 	 */
-	public function save( $Object )
+	public function save( $Page )
 	{
-		// TODO: Implement save() method.
+		$Obj = $Page->toStdClass();
+
+		if( !$Obj->getIdentifier() )
+		{
+			$PageModel = $this->_PageModel->create( (array)$Obj );
+		}
+		else
+		{
+			$PageModel = $this->_PageModel->where( 'id', $Obj->id )->update( (array)$Obj );
+		}
+
+		return $PageModel;
 	}
 
 	/**
-	 * @param $Id
-	 * @SuppressWarnings("unused")
+	 * @param $PageId
+	 * @return \DDP\Core\Domain\EntityBase|Domain\Page
 	 */
-	public function getById( $Id )
+	public function getById( $PageId )
 	{
-		// TODO: Implement getById() method.
+		$PageObj = $this->_PageModel
+			->with( 'contentBlock' )
+			->where( 'id', $PageId )
+			->first()
+			->toArray();
+
+		return Domain\Page::fromArray( $PageObj );
 	}
 
 	/**
 	 * @param $Name
-	 * @SuppressWarnings("unused")
+	 * @return \DDP\Core\Domain\EntityBase|Domain\Page
 	 */
 	public function getByName( $Name )
 	{
-		// TODO: Implement getByName() method.
+		$PageObj = $this->_PageModel
+			->with( 'contentBlock' )
+			->where( 'name', $Name )
+			->first()
+			->toArray();
+
+		return Domain\Page::fromArray( $PageObj );
 	}
 
 	/**
@@ -49,6 +73,19 @@ class PageRepository implements IRepository
 	 */
 	public function getAll(): array
 	{
-		// TODO: Implement getAll() method.
+		$Pages = [];
+
+		$PagesObj = $this->_PageModel
+			->with( 'contentBlock' )
+			->orderBy( 'updated_at', 'DESC' )
+			->get()
+			->toArray();
+
+		foreach( $PagesObj as $Page )
+		{
+			$Pages[] = Domain\Page::fromArray( $Page );
+		}
+
+		return $Pages;
 	}
 }
