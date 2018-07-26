@@ -26,7 +26,7 @@ class PageRepository implements IRepository
 	{
 		$Obj = $Page->toStdClass();
 
-		if( !$Obj->getIdentifier() )
+		if( !$Page->getIdentifier() )
 		{
 			$PageModel = $this->_PageModel->create( (array)$Obj );
 		}
@@ -54,14 +54,14 @@ class PageRepository implements IRepository
 	}
 
 	/**
-	 * @param $Name
+	 * @param string $Route
 	 * @return \DDP\Core\Domain\EntityBase|Domain\Page
 	 */
-	public function getByName( $Name )
+	public function getByRoute( string $Route )
 	{
 		$PageObj = $this->_PageModel
 			->with( 'contentBlock' )
-			->where( 'name', $Name )
+			->where( 'route', $Route )
 			->first()
 			->toArray();
 

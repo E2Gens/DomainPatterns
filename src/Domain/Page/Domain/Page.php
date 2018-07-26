@@ -140,6 +140,11 @@ class Page extends EntityBase
 	{
 		$Page = new static;
 
+		if( isset( $Data[ 'id' ] ) )
+		{
+			$Page->setIdentifier( $Data[ 'id' ] );
+		}
+
 		if( isset( $Data[ 'route' ] ) )
 		{
 			$Page->setRoute( $Data[ 'route' ] );
