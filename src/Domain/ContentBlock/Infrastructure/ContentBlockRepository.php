@@ -88,6 +88,6 @@ class ContentBlockRepository implements IRepository
 			->first()
 			->toArray();
 
-		return Domain\Page::fromArray( $PageObj );
+		return Domain\ContentBlock::fromArray( $PageObj );
 	}
 }
