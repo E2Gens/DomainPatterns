@@ -80,7 +80,7 @@ class ContentBlockRepository implements IRepository
 	 * @param $Name
 	 * @return mixed
 	 */
-	public function getByName( $Name )
+	public function getByName( string $Name )
 	{
 		$PageObj = $this->_ContentBlockModel
 			->with( 'page' )
