@@ -1,7 +1,7 @@
 # Versions
 
 ## 0.0.34
-
+* Page entity and PageRepository implemented.
 
 ## 0.0.33
 * Issues fixed related to ContentBlock.
