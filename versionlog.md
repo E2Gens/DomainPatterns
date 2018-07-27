@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.36
+
+
 ## 0.0.35 2018-07-27
 * ModifiedBy added to Page.
 * Query fix in PageRepository.
