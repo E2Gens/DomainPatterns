@@ -1,7 +1,9 @@
 # Versions
 
-## 0.0.35
-
+## 0.0.35 2018-07-27
+* ModifiedBy added to Page.
+* Query fix in PageRepository.
+* Method name refactoring.
 
 ## 0.0.34 2018-07-26
 * Page entity and PageRepository implemented.

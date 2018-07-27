@@ -12,6 +12,7 @@ class Page extends EntityBase
 	private $_MetaDescription;
 	private $_Content;
 	private $_ContentBlockId;
+	private $_ModifiedBy;
 
 	/**
 	 * @return null|string
@@ -96,6 +97,22 @@ class Page extends EntityBase
 	/**
 	 * @return mixed
 	 */
+	public function getModifiedBy()
+	{
+		return $this->_ModifiedBy;
+	}
+
+	/**
+	 * @param mixed $ModifiedBy
+	 */
+	public function setModifiedBy( $ModifiedBy ): void
+	{
+		$this->_ModifiedBy = $ModifiedBy;
+	}
+
+	/**
+	 * @return mixed
+	 */
 	public function getContentBlockId()
 	{
 		return $this->_ContentBlockId;
@@ -128,6 +145,7 @@ class Page extends EntityBase
 		$Obj->meta_keywords    = $this->getMetaKeywords();
 
 		$Obj->content_block_id = $this->getContentBlockId();
+		$Obj->modified_by      = $this->getModifiedBy();
 
 		return $Obj;
 	}
@@ -139,6 +157,11 @@ class Page extends EntityBase
 	public static function fromArray( array $Data )
 	{
 		$Page = new static;
+
+		if( isset( $Data[ 'id' ] ) )
+		{
+			$Page->setIdentifier( $Data[ 'id' ] );
+		}
 
 		if( isset( $Data[ 'route' ] ) )
 		{
@@ -168,6 +191,11 @@ class Page extends EntityBase
 		if( isset( $Data[ 'contentBlock' ][ 'content' ] ) )
 		{
 			$Page->setContent(  $Data[ 'contentBlock' ][ 'content' ] );
+		}
+
+		if( isset( $Data[ 'modified_by' ] ) )
+		{
+			$Page->setModifiedBy( $Data[ 'modified_by' ] );
 		}
 
 		return $Page;
