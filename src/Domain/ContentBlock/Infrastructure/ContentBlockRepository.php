@@ -75,4 +75,19 @@ class ContentBlockRepository implements IRepository
 
  		return $ContentBlocks;
 	}
+
+	/**
+	 * @param $Name
+	 * @return mixed
+	 */
+	public function getByName( string $Name )
+	{
+		$PageObj = $this->_ContentBlockModel
+			->with( 'page' )
+			->where( 'name', $Name )
+			->first()
+			->toArray();
+
+		return Domain\ContentBlock::fromArray( $PageObj );
+	}
 }
