@@ -85,9 +85,8 @@ class ContentBlockRepository implements IRepository
 		$PageObj = $this->_ContentBlockModel
 			->with( 'page' )
 			->where( 'name', $Name )
-			->first()
-			->toArray();
+			->firstOrFail();
 
-		return Domain\ContentBlock::fromArray( $PageObj );
+		return Domain\ContentBlock::fromArray( $PageObj->toArray() );
 	}
 }

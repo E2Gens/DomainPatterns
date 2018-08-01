@@ -1,7 +1,7 @@
 # Versions
 
 ## 0.0.36
-
+* Modified queries in page and block repo to use firstOrFail().
 
 ## 0.0.35 2018-07-27
 * ModifiedBy added to Page.

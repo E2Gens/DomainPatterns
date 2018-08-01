@@ -62,10 +62,9 @@ class PageRepository implements IRepository
 		$PageObj = $this->_PageModel
 			->with( 'contentBlock' )
 			->where( 'route', $Route )
-			->first()
-			->toArray();
+			->firstOrFail();
 
-		return Domain\Page::fromArray( $PageObj );
+		return Domain\Page::fromArray( $PageObj->toArray() );
 	}
 
 	/**
