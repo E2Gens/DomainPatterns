@@ -1,6 +1,8 @@
 # Versions
 
-## 0.0.36
+## 0.0.37
+
+## 0.0.36 2018-08-01
 * Modified queries in page and block repo to use firstOrFail().
 
 ## 0.0.35 2018-07-27
