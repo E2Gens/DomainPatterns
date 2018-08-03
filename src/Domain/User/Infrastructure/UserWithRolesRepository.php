@@ -115,7 +115,8 @@ class UserWithRolesRepository extends UserRepository
 	{
 		$UserObj = parent::getUserModel()
 			->where( 'email', $Email )
-			->first();
+			->first()
+			->toArray();
 
 		return UserWithRoles::fromArray( $UserObj );
 	}
