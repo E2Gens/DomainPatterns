@@ -4,7 +4,6 @@ namespace DDP\Domain\User\Domain;
 
 class UserWithRoles extends User
 {
-	private $_JobTitle;
 	private $_Phone;
 	private $_Address_1;
 	private $_Address_2;
@@ -21,24 +20,6 @@ class UserWithRoles extends User
 	private $_CreatedAt;
 
 	private $DT_RowId;
-
-	/**
-	 * @return mixed
-	 */
-	public function getJobTitle()
-	{
-		return $this->_JobTitle;
-	}
-
-	/**
-	 * @param $JobTitle
-	 * @return $this
-	 */
-	public function setJobTitle( $JobTitle )
-	{
-		$this->_JobTitle = $JobTitle;
-		return $this;
-	}
 
 	/**
 	 * @return mixed
@@ -313,11 +294,6 @@ class UserWithRoles extends User
 	{
 		$Obj = parent::toStdClass();
 
-		if( $this->getJobTitle() )
-		{
-			$Obj->job_title = $this->getJobTitle();
-		}
-
 		if( $this->getPhone() )
 		{
 			$Obj->phone = $this->getPhone();
@@ -388,11 +364,6 @@ class UserWithRoles extends User
 		{
 			$User->setIdentifier( $Data[ 'id' ] );
 			$User->setDtRowId( 'row_'.$Data[ 'id' ] );
-		}
-
-		if( isset( $Data[ 'job_title' ] ) )
-		{
-			$User->setJobTitle( 'job_title' );
 		}
 
 		if( isset( $Data[ 'first_name' ] ) )
