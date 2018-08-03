@@ -113,12 +113,12 @@ class UserWithRolesRepository extends UserRepository
 	 */
 	public function getByEmail( string $Email )
 	{
-		$UserObj = parent::getUserModel()
+		$User = parent::getUserModel()
 			->where( 'email', $Email )
 			->first()
 			->toArray();
 
-		return UserWithRoles::fromArray( $UserObj );
+		return UserWithRoles::fromArray( $User );
 	}
 
 	/**
