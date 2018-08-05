@@ -1,6 +1,6 @@
 <?php
 
-namespace DDP\Domain\Page\Domain;
+namespace DDP\Domain\Content\Domain;
 
 use DDP\Core\Domain\EntityBase;
 
