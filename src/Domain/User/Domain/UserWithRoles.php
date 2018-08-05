@@ -376,6 +376,11 @@ class UserWithRoles extends User
 			$User->setLastName( $Data[ 'last_name' ] );
 		}
 
+		if( isset( $Data[ 'middle_initial' ] ) )
+		{
+			$User->setMiddleInitial( $Data[ 'middle_initial' ] );
+		}
+
 		$User->setName( $User->getFirstName() . ' ' . $User->getLastName() );
 
 		if( isset( $Data[ 'email' ] ) )
