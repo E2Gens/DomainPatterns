@@ -117,11 +117,11 @@ class User extends EntityBase
 
 	/**
 	 * @param array $Data
-	 * @return User
+	 * @param $User
 	 */
-	public static function fromArray( array $Data )
+	public static function fromArray( array $Data, &$User ) : void
 	{
-		$User = new static;
+		parent::fromArray( $Data, $User );
 
 		if( isset( $Data[ 'first_name' ] ) && isset( $Data[ 'last_name' ] ) )
 		{
@@ -149,8 +149,6 @@ class User extends EntityBase
 		}
 
 		$User->setPassword( isset( $Data[ 'password' ] ) ? $Data[ 'password' ]:null );
-
-		return $User;
 	}
 
 	public static function fromStdClass( \stdClass $Object )
