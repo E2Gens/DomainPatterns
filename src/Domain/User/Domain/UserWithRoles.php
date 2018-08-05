@@ -294,23 +294,60 @@ class UserWithRoles extends User
 	{
 		$Obj = parent::toStdClass();
 
-		$Obj->phone       = $this->getPhone();
-		$Obj->address_1   = $this->getAddress1();
-		$Obj->address_2   = $this->getAddress2();
+		if( $this->getPhone() )
+		{
+			$Obj->phone = $this->getPhone();
+		}
+
+		if( $this->getAddress1() )
+		{
+			$Obj->address_1 = $this->getAddress1();
+		}
+
+		if( $this->getAddress2() )
+		{
+			$Obj->address_2 = $this->getAddress2();
+		}
 
 		if( $this->getPhoto() )
 		{
 			$Obj->avatar_url = $this->getPhoto();
 		}
 
-		$Obj->status      = $this->getStatusId();
-		$Obj->country     = $this->getCountry();
-		$Obj->city        = $this->getCity();
-		$Obj->state       = $this->getState();
-		$Obj->postal_code = $this->getPostalCode();
-		$Obj->tax_ein     = $this->getTaxEin();
+		if( $this->getStatusId() )
+		{
+			$Obj->status = $this->getStatusId();
+		}
 
-		$Obj->reason_for_suspension = $this->getSuspendedReason();
+		if( $this->getCountry() )
+		{
+			$Obj->country = $this->getCountry();
+		}
+
+		if( $this->getCity() )
+		{
+			$Obj->city = $this->getCity();
+		}
+
+		if( $this->getState() )
+		{
+			$Obj->state = $this->getState();
+		}
+
+		if( $this->getPostalCode() )
+		{
+			$Obj->postal_code = $this->getPostalCode();
+		}
+
+		if( $this->getTaxEin() )
+		{
+			$Obj->tax_ein = $this->getTaxEin();
+		}
+
+		if( $this->getSuspendedReason() )
+		{
+			$Obj->reason_for_suspension = $this->getSuspendedReason();
+		}
 
 		return $Obj;
 	}
