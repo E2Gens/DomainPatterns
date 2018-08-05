@@ -175,15 +175,37 @@ class User extends EntityBase
 		return $User;
 	}
 
+	/**
+	 * @return \stdClass
+	 */
 	public function toStdClass() : \stdClass
 	{
 		$Obj = new \stdClass();
 
-		$Obj->first_name     = $this->getFirstName();
-		$Obj->last_name      = $this->getLastName();
-		$Obj->middle_initial = $this->getMiddleInitial();
-		$Obj->email          = $this->getEmail();
-		$Obj->password       = $this->getPassword();
+		if( $this->getFirstName() )
+		{
+			$Obj->first_name = $this->getFirstName();
+		}
+
+		if( $this->getLastName() )
+		{
+			$Obj->last_name = $this->getLastName();
+		}
+
+		if( $this->getMiddleInitial() )
+		{
+			$Obj->middle_initial = $this->getMiddleInitial();
+		}
+
+		if( $this->getEmail() )
+		{
+			$Obj->email = $this->getEmail();
+		}
+
+		if( $this->getPassword() )
+		{
+			$Obj->password = $this->getPassword();
+		}
 
 		return $Obj;
 	}
