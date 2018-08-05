@@ -1,7 +1,7 @@
 # Versions
 
 ## 0.0.38
-
+* Merges pages and content blocks into the content domain.
 
 ## 0.0.37 2018-08-04
 * New *doesEmailExist()* method added.
