@@ -108,6 +108,17 @@ class UserWithRolesRepository extends UserRepository
 	}
 
 	/**
+	 * @param string $Email
+	 * @return bool
+	 */
+	public function doesEmailExist( string $Email ): bool
+	{
+		return parent::getUserModel()
+			->where( 'email', $Email )
+			->exist();
+	}
+
+	/**
 	 * @param string $RoleName
 	 * @param array $Params
 	 * @return array
