@@ -1,6 +1,8 @@
 # Versions
 
 ## 0.0.37
+* New *doesEmailExist()* method added.
+* toStdClass() method refactored to provide ability to update specific columns in users table.
 
 ## 0.0.36 2018-08-01
 * Modified queries in page and block repo to use firstOrFail().
