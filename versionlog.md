@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.39
+
+
 ## 0.0.38 2018-08-05
 * Merges pages and content blocks into the content domain.
 * getByEmail() method added in user repository.
