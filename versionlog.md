@@ -1,7 +1,8 @@
 # Versions
 
-## 0.0.38
+## 0.0.38 2018-08-05
 * Merges pages and content blocks into the content domain.
+* getByEmail() method added in user repository.
 
 ## 0.0.37 2018-08-04
 * New *doesEmailExist()* method added.
