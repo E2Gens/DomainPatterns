@@ -1,9 +1,9 @@
 <?php
 
-namespace DDP\Domain\ContentBlock\Infrastructure;
+namespace DDP\Domain\Content\Infrastructure;
 
 use DDP\Core\Infrastructure\IRepository;
-use DDP\Domain\ContentBlock\Domain;
+use DDP\Domain\Content\Domain;
 
 /**
  * Repository for ContentBlock
