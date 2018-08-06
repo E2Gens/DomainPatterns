@@ -1,9 +1,9 @@
 <?php
 
-namespace DDP\Domain\Page\Infrastructure;
+namespace DDP\Domain\Content\Infrastructure;
 
 use DDP\Core\Infrastructure\IRepository;
-use DDP\Domain\Page\Domain;
+use DDP\Domain\Content\Domain;
 
 class PageRepository implements IRepository
 {
