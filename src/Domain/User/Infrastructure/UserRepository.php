@@ -61,11 +61,6 @@ class UserRepository implements IRepository
 		}
 		else
 		{
-			if( !$Obj->password )
-			{
-				unset( $Obj->password );
-			}
-
 			$UserModel = $this->_UserModel::whereId( $User->getIdentifier() )->update( ( array)$Obj );
 		}
 
