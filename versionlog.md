@@ -1,7 +1,7 @@
 # Versions
 
-## 0.0.39
-
+## 0.0.39 2018-08-10
+* Legacy code has been removed from UserRepository save() method.
 
 ## 0.0.38 2018-08-05
 * Merges pages and content blocks into the content domain.
