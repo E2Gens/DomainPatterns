@@ -1,6 +1,7 @@
 # Versions
 
-## 0.0.40
+## 0.0.40 2018-08-13
+* fromArray() mapper updated.
 
 
 ## 0.0.39 2018-08-10
