@@ -15,7 +15,7 @@ use Neuron\Data\Validation\Email;
  *
  * @package DDP\Domain\User\Infrastructure
  */
-class UserRepository implements IRepository
+class UserRepository implements IUserRepository
 {
 	private $_UserModel;
 
@@ -67,7 +67,14 @@ class UserRepository implements IRepository
 		return $UserModel;
 	}
 
-	public function getAll(): array
+	/**
+	 * @param array $Params
+	 * @param $Entity
+	 * @return array
+	 *
+	 * @SuppressWarnings( PHPMD.UnusedLocalVariable )
+	 */
+	public function getAll( &$Entity, array $Params ): array
 	{
 		// Probably never a good idea to return every record in the system.
 		return [];

@@ -6,7 +6,7 @@ use App\DDD;
 use DDP\Core\Domain\EntityBase;
 use Illuminate\Support\Facades\Hash;
 
-class User extends EntityBase
+class User
 {
 	private $_Name;
 	private $_FirstName;
@@ -121,8 +121,6 @@ class User extends EntityBase
 	 */
 	public static function fromArray( array $Data, &$User ) : void
 	{
-		parent::fromArray( $Data, $User );
-
 		if( isset( $Data[ 'first_name' ] ) && isset( $Data[ 'last_name' ] ) )
 		{
 			$User->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );

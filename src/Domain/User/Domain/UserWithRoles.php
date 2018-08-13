@@ -352,6 +352,10 @@ class UserWithRoles extends User
 		return $Obj;
 	}
 
+	/**
+	 * @param array $Data
+	 * @param $Entity
+	 */
 	public static function fromArray( array $Data, &$Entity ) : void
 	{
 		parent::fromArray( $Data, $Entity );
