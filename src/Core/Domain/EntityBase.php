@@ -61,8 +61,6 @@ abstract class EntityBase implements IEntity, IValidatable
 
 		$Obj->id = $this->getIdentifier();
 
-		// @todo: handle $_Deleted property
-
 		return $Obj;
 	}
 
