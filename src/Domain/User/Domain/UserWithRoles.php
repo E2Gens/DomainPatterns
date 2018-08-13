@@ -352,107 +352,102 @@ class UserWithRoles extends User
 		return $Obj;
 	}
 
-	/**
-	 * @param array $Data
-	 * @return User|UserWithRoles
-	 */
-	public static function fromArray( array $Data )
+	public static function fromArray( array $Data, &$Entity ) : void
 	{
-		$User = new static;
+		parent::fromArray( $Data, $Entity );
 
-		if( isset( $Data[ 'id' ] ) )
-		{
-			$User->setIdentifier( $Data[ 'id' ] );
-			$User->setDtRowId( 'row_'.$Data[ 'id' ] );
-		}
+		$Entity->setDtRowId( 'row_'.$Data[ 'id' ] );
 
 		if( isset( $Data[ 'first_name' ] ) )
 		{
-			$User->setFirstName( $Data[ 'first_name' ] );
+			$Entity->setFirstName( $Data[ 'first_name' ] );
 		}
 
 		if( isset( $Data[ 'last_name' ] ) )
 		{
-			$User->setLastName( $Data[ 'last_name' ] );
+			$Entity->setLastName( $Data[ 'last_name' ] );
 		}
 
 		if( isset( $Data[ 'middle_initial' ] ) )
 		{
-			$User->setMiddleInitial( $Data[ 'middle_initial' ] );
+			$Entity->setMiddleInitial( $Data[ 'middle_initial' ] );
 		}
 
-		$User->setName( $User->getFirstName() . ' ' . $User->getLastName() );
+		$Entity->setName( $Entity->getFirstName() . ' ' . $Entity->getLastName() );
 
 		if( isset( $Data[ 'email' ] ) )
 		{
-			$User->setEmail( $Data[ 'email' ] );
+			$Entity->setEmail( $Data[ 'email' ] );
 		}
 
 		if( isset( $Data[ 'password' ] ) )
 		{
-			$User->setPassword( $Data[ 'password' ] );
+			$Entity->setPassword( $Data[ 'password' ] );
 		}
+
+		$Entity->setName( $Entity->getFirstName() . ' ' . $Entity->getLastName() );
+
 
 		if( isset( $Data[ 'phone' ] ) )
 		{
-			$User->setPhone( $Data[ 'phone' ] );
+			$Entity->setPhone( $Data[ 'phone' ] );
 		}
 
 		if( isset( $Data[ 'address_1' ] ) )
 		{
-			$User->setAddress1( $Data[ 'address_1' ] );
+			$Entity->setAddress1( $Data[ 'address_1' ] );
 		}
 
 		if( isset( $Data[ 'address_2' ] ) )
 		{
-			$User->setAddress2( $Data[ 'address_2' ] );
+			$Entity->setAddress2( $Data[ 'address_2' ] );
 		}
 
 		if( isset( $Data[ 'country' ] ) )
 		{
-			$User->setCountry( $Data[ 'country' ] );
+			$Entity->setCountry( $Data[ 'country' ] );
 		}
 
 		if( isset( $Data[ 'state' ] ) )
 		{
-			$User->setState( $Data[ 'state' ] );
+			$Entity->setState( $Data[ 'state' ] );
 		}
 
 		if( isset( $Data[ 'city' ] ) )
 		{
-			$User->setCity( $Data[ 'city' ] );
+			$Entity->setCity( $Data[ 'city' ] );
 		}
 
 		if( isset( $Data[ 'postal_code' ] ) )
 		{
-			$User->setPostalCode( $Data[ 'postal_code' ] );
+			$Entity->setPostalCode( $Data[ 'postal_code' ] );
 		}
 
 		if( isset( $Data[ 'avatar_url' ] ) )
 		{
 
-			$User->setPhoto( $Data[ 'avatar_url' ] );
+			$Entity->setPhoto( $Data[ 'avatar_url' ] );
 		}
 
 		if( isset( $Data[ 'tax_ein' ] ) )
 		{
-			$User->setTaxEin( $Data[ 'tax_ein' ] );
+			$Entity->setTaxEin( $Data[ 'tax_ein' ] );
 		}
 
 		if( isset( $Data[ 'status' ] ) )
 		{
-			$User->setStatusId( $Data[ 'status' ] );
-			$User->setStatus( UserStatus::getStatusName( $Data[ 'status' ] ) );
+			$Entity->setStatusId( $Data[ 'status' ] );
+			$Entity->setStatus( UserStatus::getStatusName( $Data[ 'status' ] ) );
 		}
 
 		if( isset( $Data[ 'reason_for_suspension' ] ) )
 		{
-			$User->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
+			$Entity->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
 		}
 
 		if( isset( $Data[ 'created_at' ] ) )
 		{
-			$User->setCreatedAt( $Data[ 'created_at' ] );
+			$Entity->setCreatedAt( $Data[ 'created_at' ] );
 		}
 
 		if( isset( $Data[ 'roles' ] ) )
@@ -462,13 +457,11 @@ class UserWithRoles extends User
 			$Role->setIdentifier( $Data[ 'roles' ][ 0 ][ 'id' ] );
 
 			$RoleUser = new RoleUser();
-			$RoleUser->setUser( $User );
+			$RoleUser->setUser( $Entity );
 			$RoleUser->setRole( $Role );
 
-			$User->addRole( $RoleUser );
+			$Entity->addRole( $RoleUser );
 		}
-
-		return $User;
 	}
 
 	public function hasRole( Role $Role )

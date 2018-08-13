@@ -29,12 +29,6 @@ interface IEntity
 	public function setIdentifier( $Identifier ): void;
 
 	/**
-	 * @param array $Data
-	 * @SuppressWarnings("unused")
-	 */
-	public static function fromArray( array $Data );
-
-	/**
 	 * @param \stdClass $Object
 	 * @SuppressWarnings("unused")
 	 */
@@ -52,4 +46,11 @@ interface IEntity
 	 * @SuppressWarnings("unused")
 	 */
 	public function toStdClass(): \stdClass;
+
+	/**
+	 * @param array $Data
+	 * @param IEnity $Entity
+	 * @return void
+	 */
+	public static function fromArray( array $Data, &$Entity ) : void;
 }

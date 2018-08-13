@@ -52,14 +52,6 @@ abstract class EntityBase implements IEntity, IValidatable
 	}
 
 	/**
-	 * @param array $Data
-	 * @SuppressWarnings("unused")
-	 * @return EntityBase
-	 */
-	public static function fromArray( array $Data )
-	{}
-
-	/**
 	 * @param \stdClass $Object
 	 * @SuppressWarnings("unused")
 	 */
