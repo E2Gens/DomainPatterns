@@ -2,7 +2,6 @@
 
 namespace DDP\Domain\User\Domain;
 
-use App\DDD;
 use DDP\Core\Domain\EntityBase;
 use Illuminate\Support\Facades\Hash;
 
