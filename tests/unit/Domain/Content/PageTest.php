@@ -43,7 +43,7 @@ class PageTest extends TestCase
 
 		$this->assertEquals(
 			$Page->getContent(),
-			$Arr[ 'content' ]
+			$Arr[ 'contentBlock' ][ 'content' ]
 		);
 
 		$this->assertEquals(
