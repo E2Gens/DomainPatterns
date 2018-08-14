@@ -11,6 +11,7 @@ class ContentBlock extends EntityBase
 	private $_ModifiedBy;
 	private $_CreatedAt;
 	private $_UpdatedAt;
+	private $_DeletedAt;
 
 	/**
 	 * @return null|string
@@ -103,6 +104,24 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
+	 * @return mixed
+	 */
+	public function getDeletedAt()
+	{
+		return $this->_DeletedAt;
+	}
+
+	/**
+	 * @param $DeletedAt
+	 * @return $this
+	 */
+	public function setDeletedAt( $DeletedAt )
+	{
+		$this->_DeletedAt = $DeletedAt;
+		return $this;
+	}
+
+	/**
 	 * @param $ContentBlock
 	 * @param array $Data
 	 */
@@ -136,6 +155,11 @@ class ContentBlock extends EntityBase
 		if( isset( $Data[ 'updated_at' ] ) )
 		{
 			$ContentBlock->setUpdatedAt( $Data[ 'updated_at' ] );
+		}
+
+		if( isset( $Data[ 'deleted_at' ] ) )
+		{
+			$ContentBlock->setDeletedAt( $Data[ 'deleted_at' ] );
 		}
 	}
 
