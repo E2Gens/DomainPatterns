@@ -2,7 +2,6 @@
 
 namespace Tests\unit\API;
 
-use DDP\Core\Infrastructure\IWriteRepository;
 use DDP\Domain\User\Domain\UserWithRoles;
 use DDP\Domain\User\Infrastructure\IUserRepository;
 use PHPUnit\Framework\TestCase;

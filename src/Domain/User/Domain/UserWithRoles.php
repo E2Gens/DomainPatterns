@@ -3,6 +3,7 @@
 namespace DDP\Domain\User\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use Illuminate\Support\Facades\Hash;
 
 class UserWithRoles extends EntityBase
 {
