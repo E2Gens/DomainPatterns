@@ -2,71 +2,132 @@
 
 namespace DDP\Domain\User\Domain;
 
-class UserWithRoles extends User
+use DDP\Core\Domain\EntityBase;
+
+class UserWithRoles extends EntityBase
 {
+	private $_Name;
+	private $_FirstName;
+	private $_LastName;
+	private $_Email;
+	private $_Password;
+	private $_RememberToken;
 	private $_Phone;
-	private $_Address_1;
-	private $_Address_2;
-	private $_Country;
-	private $_State;
-	private $_City;
-	private $_PostalCode;
 	private $_Photo;
-	private $_TaxEin;
 	private $_Roles;
-	private $_StatusId;
-	private $_Status;
-	private $_SuspendedReason;
 	private $_CreatedAt;
-
-	private $DT_RowId;
-
-	/**
-	 * @return mixed
-	 */
-	public function getDTRowId()
-	{
-		return $this->DT_RowId;
-	}
-
-	/**
-	 * @param mixed $DT_RowId
-	 */
-	public function setDTRowId( $DT_RowId ): void
-	{
-		$this->DT_RowId = $DT_RowId;
-	}
+	private $_UpdatedAt;
+	private $_DeletedAt;
 
 	/**
 	 * @return mixed
 	 */
-	public function getStatusId()
+	public function getName()
 	{
-		return $this->_StatusId;
+		return $this->_Name;
 	}
 
 	/**
-	 * @param mixed $StatusId
+	 * @param $Name
+	 * @return $this
 	 */
-	public function setStatusId($StatusId): void
+	public function setName( $Name )
 	{
-		$this->_StatusId = $StatusId;
+		$this->_Name = $Name;
+		return $this;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getStatus()
+	public function getFirstName()
 	{
-		return $this->_Status;
+		return $this->_FirstName;
 	}
 
 	/**
-	 * @param $Status
+	 * @param $FirstName
+	 * @return $this
 	 */
-	public function setStatus( $Status )
+	public function setFirstName( $FirstName )
 	{
-		$this->_Status = $Status;
+		$this->_FirstName = $FirstName;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getLastName()
+	{
+		return $this->_LastName;
+	}
+
+	/**
+	 * @param $LastName
+	 * @return $this
+	 */
+	public function setLastName( $LastName )
+	{
+		$this->_LastName = $LastName;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getEmail()
+	{
+		return $this->_Email;
+	}
+
+	/**
+	 * @param $Email
+	 * @return $this
+	 */
+	public function setEmail( $Email )
+	{
+		$this->_Email = $Email;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getPassword()
+	{
+		return $this->_Password;
+	}
+
+	/**
+	 * @param $Password
+	 * @return $this
+	 */
+	public function setPassword( $Password )
+	{
+		if( $Password != null && !empty( $Password ) )
+		{
+			$this->_Password = Hash::make( $Password );
+			return $this;
+		}
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getRememberToken()
+	{
+		return $this->_RememberToken;
+	}
+
+	/**
+	 * @param mixed $RememberToken
+	 * @return $this
+	 */
+	public function setRememberToken( $RememberToken )
+	{
+		$this->_RememberToken = $RememberToken;
+		return $this;
 	}
 
 	/**
@@ -78,107 +139,13 @@ class UserWithRoles extends User
 	}
 
 	/**
-	 * @param mixed $Phone
+	 * @param $Phone
+	 * @return $this
 	 */
-	public function setPhone( $Phone ): void
+	public function setPhone( $Phone )
 	{
 		$this->_Phone = $Phone;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getAddress1()
-	{
-		return $this->_Address_1;
-	}
-
-	/**
-	 * @param mixed $Address1
-	 */
-	public function setAddress1( $Address1 )
-	{
-		$this->_Address_1 = $Address1;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getAddress2()
-	{
-		return $this->_Address_2;
-	}
-
-	/**
-	 * @param mixed $Address2
-	 */
-	public function setAddress2( $Address2 )
-	{
-		$this->_Address_2 = $Address2;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getCountry()
-	{
-		return $this->_Country;
-	}
-
-	/**
-	 * @param mixed $Country
-	 */
-	public function setCountry( $Country ): void
-	{
-		$this->_Country = $Country;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getState()
-	{
-		return $this->_State;
-	}
-
-	/**
-	 * @param mixed $State
-	 */
-	public function setState( $State )
-	{
-		$this->_State = $State;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getCity()
-	{
-		return $this->_City;
-	}
-
-	/**
-	 * @param mixed $City
-	 */
-	public function setCity( $City )
-	{
-		$this->_City = $City;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getPostalCode()
-	{
-		return $this->_PostalCode;
-	}
-
-	/**
-	 * @param mixed $PostalCode
-	 */
-	public function setPostalCode( $PostalCode )
-	{
-		$this->_PostalCode = $PostalCode;
+		return $this;
 	}
 
 	/**
@@ -190,27 +157,13 @@ class UserWithRoles extends User
 	}
 
 	/**
-	 * @param mixed $Photo
+	 * @param $Photo
+	 * @return $this
 	 */
-	public function setPhoto( $Photo ): void
+	public function setPhoto( $Photo )
 	{
 		$this->_Photo = $Photo;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getTaxEin()
-	{
-		return $this->_TaxEin;
-	}
-
-	/**
-	 * @param mixed $TaxEin
-	 */
-	public function setTaxEin($TaxEin)
-	{
-		$this->_TaxEin = $TaxEin;
+		return $this;
 	}
 
 	/**
@@ -246,45 +199,55 @@ class UserWithRoles extends User
 	/**
 	 * @return mixed
 	 */
-	public function getSuspendedReason()
-	{
-		return $this->_SuspendedReason;
-	}
-
-	/**
-	 * @param mixed $SuspendedReason
-	 *
-	 * @return self
-	 */
-	public function setSuspendedReason( $SuspendedReason )
-	{
-		$this->_SuspendedReason = $SuspendedReason;
-
-		return $this;
-	}
-
-	/**
-	 * @return mixed
-	 */
 	public function getCreatedAt()
 	{
 		return $this->_CreatedAt;
 	}
 
 	/**
-	 * @param mixed $CreatedAt
+	 * @param $CreatedAt
+	 * @return $this
 	 */
-	public function setCreatedAt( $CreatedAt ): void
+	public function setCreatedAt( $CreatedAt )
 	{
 		$this->_CreatedAt = $CreatedAt;
+		return $this;
 	}
 
 	/**
-	 * @return string
+	 * @return mixed
 	 */
-	public function getStatusName()
+	public function getUpdatedAt()
 	{
-		return UserStatus::getStatusName( $this->_Status );
+		return $this->_UpdatedAt;
+	}
+
+	/**
+	 * @param mixed $UpdatedAt
+	 * @return UserWithRoles
+	 */
+	public function setUpdatedAt( $UpdatedAt )
+	{
+		$this->_UpdatedAt = $UpdatedAt;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getDeletedAt()
+	{
+		return $this->_DeletedAt;
+	}
+
+	/**
+	 * @param mixed $DeletedAt
+	 * @return UserWithRoles
+	 */
+	public function setDeletedAt( $DeletedAt )
+	{
+		$this->_DeletedAt = $DeletedAt;
+		return $this;
 	}
 
 	/**
@@ -292,21 +255,36 @@ class UserWithRoles extends User
 	 */
 	public function toStdClass(): \stdClass
 	{
-		$Obj = parent::toStdClass();
+		$Obj = new \stdClass();
+
+		if( $this->getName() )
+		{
+			$Obj->name = $this->getName();
+		}
+
+		if( $this->getFirstName() )
+		{
+			$Obj->first_name = $this->getFirstName();
+		}
+
+		if( $this->getLastName() )
+		{
+			$Obj->last_name = $this->getLastName();
+		}
+
+		if( $this->getEmail() )
+		{
+			$Obj->email = $this->getEmail();
+		}
+
+		if( $this->getPassword() )
+		{
+			$Obj->password = $this->getPassword();
+		}
 
 		if( $this->getPhone() )
 		{
 			$Obj->phone = $this->getPhone();
-		}
-
-		if( $this->getAddress1() )
-		{
-			$Obj->address_1 = $this->getAddress1();
-		}
-
-		if( $this->getAddress2() )
-		{
-			$Obj->address_2 = $this->getAddress2();
 		}
 
 		if( $this->getPhoto() )
@@ -314,39 +292,9 @@ class UserWithRoles extends User
 			$Obj->avatar_url = $this->getPhoto();
 		}
 
-		if( $this->getStatusId() )
+		if( $this->getRememberToken() )
 		{
-			$Obj->status = $this->getStatusId();
-		}
-
-		if( $this->getCountry() )
-		{
-			$Obj->country = $this->getCountry();
-		}
-
-		if( $this->getCity() )
-		{
-			$Obj->city = $this->getCity();
-		}
-
-		if( $this->getState() )
-		{
-			$Obj->state = $this->getState();
-		}
-
-		if( $this->getPostalCode() )
-		{
-			$Obj->postal_code = $this->getPostalCode();
-		}
-
-		if( $this->getTaxEin() )
-		{
-			$Obj->tax_ein = $this->getTaxEin();
-		}
-
-		if( $this->getSuspendedReason() )
-		{
-			$Obj->reason_for_suspension = $this->getSuspendedReason();
+			$Obj->remember_token = $this->getRememberToken();
 		}
 
 		return $Obj;
@@ -356,11 +304,17 @@ class UserWithRoles extends User
 	 * @param array $Data
 	 * @param $Entity
 	 */
-	public static function fromArray( array $Data, &$Entity ) : void
+	public static function fromArray( &$Entity, array $Data ) : void
 	{
-		parent::fromArray( $Data, $Entity );
+		if( isset( $Data[ 'id' ] ) )
+		{
+			$Entity->setIdentifier( $Data[ 'id' ] );
+		}
 
-		$Entity->setDtRowId( 'row_'.$Data[ 'id' ] );
+		if( isset( $Data[ 'first_name' ] ) && isset( $Data[ 'last_name' ] ) )
+		{
+			$Entity->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
+		}
 
 		if( isset( $Data[ 'first_name' ] ) )
 		{
@@ -370,11 +324,6 @@ class UserWithRoles extends User
 		if( isset( $Data[ 'last_name' ] ) )
 		{
 			$Entity->setLastName( $Data[ 'last_name' ] );
-		}
-
-		if( isset( $Data[ 'middle_initial' ] ) )
-		{
-			$Entity->setMiddleInitial( $Data[ 'middle_initial' ] );
 		}
 
 		$Entity->setName( $Entity->getFirstName() . ' ' . $Entity->getLastName() );
@@ -389,69 +338,34 @@ class UserWithRoles extends User
 			$Entity->setPassword( $Data[ 'password' ] );
 		}
 
-		$Entity->setName( $Entity->getFirstName() . ' ' . $Entity->getLastName() );
-
+		if( isset( $Data[ 'remember_token' ] ) )
+		{
+			$Entity->setRememberToken( $Data[ 'remember_token' ] );
+		}
 
 		if( isset( $Data[ 'phone' ] ) )
 		{
 			$Entity->setPhone( $Data[ 'phone' ] );
 		}
 
-		if( isset( $Data[ 'address_1' ] ) )
+		if( isset( $Data[ 'photo' ] ) )
 		{
-			$Entity->setAddress1( $Data[ 'address_1' ] );
-		}
-
-		if( isset( $Data[ 'address_2' ] ) )
-		{
-			$Entity->setAddress2( $Data[ 'address_2' ] );
-		}
-
-		if( isset( $Data[ 'country' ] ) )
-		{
-			$Entity->setCountry( $Data[ 'country' ] );
-		}
-
-		if( isset( $Data[ 'state' ] ) )
-		{
-			$Entity->setState( $Data[ 'state' ] );
-		}
-
-		if( isset( $Data[ 'city' ] ) )
-		{
-			$Entity->setCity( $Data[ 'city' ] );
-		}
-
-		if( isset( $Data[ 'postal_code' ] ) )
-		{
-			$Entity->setPostalCode( $Data[ 'postal_code' ] );
-		}
-
-		if( isset( $Data[ 'avatar_url' ] ) )
-		{
-
-			$Entity->setPhoto( $Data[ 'avatar_url' ] );
-		}
-
-		if( isset( $Data[ 'tax_ein' ] ) )
-		{
-			$Entity->setTaxEin( $Data[ 'tax_ein' ] );
-		}
-
-		if( isset( $Data[ 'status' ] ) )
-		{
-			$Entity->setStatusId( $Data[ 'status' ] );
-			$Entity->setStatus( UserStatus::getStatusName( $Data[ 'status' ] ) );
-		}
-
-		if( isset( $Data[ 'reason_for_suspension' ] ) )
-		{
-			$Entity->setSuspendedReason( $Data[ 'reason_for_suspension' ] );
+			$Entity->setPhoto( $Data[ 'photo' ] );
 		}
 
 		if( isset( $Data[ 'created_at' ] ) )
 		{
 			$Entity->setCreatedAt( $Data[ 'created_at' ] );
+		}
+
+		if( isset( $Data[ 'updated_at' ] ) )
+		{
+			$Entity->setUpdatedAt( $Data[ 'updated_at' ] );
+		}
+
+		if( isset( $Data[ 'deleted_at' ] ) )
+		{
+			$Entity->setDeletedAt( $Data[ 'deleted_at' ] );
 		}
 
 		if( isset( $Data[ 'roles' ] ) )
@@ -468,6 +382,10 @@ class UserWithRoles extends User
 		}
 	}
 
+	/**
+	 * @param Role $Role
+	 * @return bool
+	 */
 	public function hasRole( Role $Role )
 	{
 		foreach( $this->_Roles as $RoleUser )
@@ -486,9 +404,8 @@ class UserWithRoles extends User
 	 */
 	public function jsonSerialize()
 	{
-		$ParentObjVars  = parent::jsonSerialize();
-		$CurrentObjVars = (object)get_object_vars($this);
+		$this->_Id = $this->getIdentifier();
 
-		return (object) array_merge((array) $ParentObjVars, (array) $CurrentObjVars);
+		return (object)get_object_vars($this);
 	}
 }

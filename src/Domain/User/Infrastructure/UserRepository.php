@@ -74,7 +74,7 @@ class UserRepository implements IUserRepository
 	 *
 	 * @SuppressWarnings( PHPMD.UnusedLocalVariable )
 	 */
-	public function getAll( &$Entity, array $Params ): array
+	public function getAll( array $Params ): array
 	{
 		// Probably never a good idea to return every record in the system.
 		return [];
@@ -86,9 +86,15 @@ class UserRepository implements IUserRepository
 	 */
 	public function getById( $UserId )
 	{
-		$UserObj = $this->_UserModel::find( $UserId )->toArray();
+		$Entity = new User\Domain\UserWithRoles();
+		$User   = $this->_UserModel::find( $UserId );
 
-		$User = User\Domain\User::fromStdClass( $UserObj );
+		if( $User )
+		{
+			$User = $User->toArray();
+		}
+
+		User\Domain\User::fromArray( $Entity, $User );
 
 		return $User;
 	}
@@ -109,6 +115,6 @@ class UserRepository implements IUserRepository
 			throw new \Exception( "$EmailAddress is not a valid email address." );
 		}
 
-		return !$this->_UserModel::where( 'email' , $EmailAddress )->exists();
+		return !$this->_UserModel->where( 'email' , $EmailAddress )->exists();
 	}
 }
