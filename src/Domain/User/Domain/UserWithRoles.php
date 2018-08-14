@@ -107,7 +107,7 @@ class UserWithRoles extends EntityBase
 	{
 		if( $Password != null && !empty( $Password ) )
 		{
-			$this->_Password = \bcrypt( $Password );
+			$this->_Password = \Illuminate\Support\Facades\Hash::make( $Password );
 			return $this;
 		}
 	}
