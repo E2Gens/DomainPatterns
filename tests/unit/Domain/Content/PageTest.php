@@ -16,12 +16,13 @@ class PageTest extends TestCase
 		$Arr[ 'title' ]            = 3;
 		$Arr[ 'meta_description' ] = 4;
 		$Arr[ 'meta_keywords' ]    = 5;
-		$Arr[ 'content' ]          = 6;
 		$Arr[ 'content_block_id' ] = 7;
 		$Arr[ 'modified_by' ]      = 11;
 		$Arr[ 'created_at' ]       = 10;
 		$Arr[ 'updated_at' ]       = 8;
 		$Arr[ 'deleted_at' ]       = 9;
+
+		$Arr[ 'contentBlock' ][ 'content' ] = 6;
 
 		Page::fromArray( $Page, $Arr );
 
