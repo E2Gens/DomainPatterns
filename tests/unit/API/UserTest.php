@@ -4,11 +4,12 @@ namespace Tests\unit\API;
 
 use DDP\Core\Infrastructure\IWriteRepository;
 use DDP\Domain\User\Domain\UserWithRoles;
+use DDP\Domain\User\Infrastructure\IUserRepository;
 use PHPUnit\Framework\TestCase;
 use DDP\API\User;
 
 
-class MockRepo implements IWriteRepository
+class MockRepo implements IUserRepository
 {
 	public function save( $Object )
 	{
@@ -16,6 +17,16 @@ class MockRepo implements IWriteRepository
 			return false;
 
 		return true;
+	}
+
+	public function getAll( array $Params ): array
+	{
+		return [];
+	}
+
+	public function getById( $UserId )
+	{
+		return new UserWithRoles();
 	}
 }
 
