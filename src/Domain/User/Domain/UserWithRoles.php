@@ -3,6 +3,8 @@
 namespace DDP\Domain\User\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserWithRoles extends EntityBase
 {
@@ -107,7 +109,7 @@ class UserWithRoles extends EntityBase
 	{
 		if( $Password != null && !empty( $Password ) )
 		{
-			$this->_Password = \Illuminate\Support\Facades\Hash::make( $Password );
+			$this->_Password = Hash::make( $Password );
 			return $this;
 		}
 	}
