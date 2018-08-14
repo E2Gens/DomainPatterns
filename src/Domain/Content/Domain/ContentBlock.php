@@ -22,10 +22,12 @@ class ContentBlock extends EntityBase
 
 	/**
 	 * @param $Name
+	 * @return $this
 	 */
-	public function setName( $Name ): void
+	public function setName( $Name )
 	{
 		$this->_Name = $Name;
+		return $this;
 	}
 
 	/**
@@ -38,10 +40,12 @@ class ContentBlock extends EntityBase
 
 	/**
 	 * @param mixed $Content
+	 * @return $this
 	 */
-	public function setContent( $Content ): void
+	public function setContent( $Content )
 	{
 		$this->_Content = $Content;
+		return $this;
 	}
 
 	/**
@@ -54,10 +58,12 @@ class ContentBlock extends EntityBase
 
 	/**
 	 * @param mixed $ModifiedBy
+	 * @return $this
 	 */
-	public function setModifiedBy( $ModifiedBy ): void
+	public function setModifiedBy( $ModifiedBy )
 	{
 		$this->_ModifiedBy = $ModifiedBy;
+		return $this;
 	}
 
 	/**
@@ -70,10 +76,12 @@ class ContentBlock extends EntityBase
 
 	/**
 	 * @param mixed $CreatedAt
+	 * @return $this
 	 */
-	public function setCreatedAt( $CreatedAt ): void
+	public function setCreatedAt( $CreatedAt )
 	{
 		$this->_CreatedAt = $CreatedAt;
+		return $this;
 	}
 
 	/**
@@ -85,21 +93,21 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
-	 * @param mixed $UpdatedAt
+	 * @param $UpdatedAt
+	 * @return $this
 	 */
-	public function setUpdatedAt( $UpdatedAt ): void
+	public function setUpdatedAt( $UpdatedAt )
 	{
 		$this->_UpdatedAt = $UpdatedAt;
+		return $this;
 	}
 
 	/**
+	 * @param $ContentBlock
 	 * @param array $Data
-	 * @return ContentBlock
 	 */
-	public static function fromArray( array $Data )
+	public static function fromArray( &$ContentBlock, array $Data ): void
 	{
-		$ContentBlock = new static;
-
 		if( isset( $Data[ 'id' ] ) )
 		{
 			$ContentBlock->setIdentifier( $Data[ 'id' ] );
@@ -129,8 +137,6 @@ class ContentBlock extends EntityBase
 		{
 			$ContentBlock->setUpdatedAt( $Data[ 'updated_at' ] );
 		}
-
-		return $ContentBlock;
 	}
 
 	/**
@@ -140,11 +146,20 @@ class ContentBlock extends EntityBase
 	{
 		$Obj = parent::toStdClass();
 
-		$Obj->name        = $this->getName();
-		$Obj->content     = $this->getContent();
-		$Obj->modified_by = $this->getModifiedBy();
-		$Obj->created_at  = $this->getCreatedAt();
-		$Obj->updated_at  = $this->getUpdatedAt();
+		if( $this->getName() )
+		{
+			$Obj->name = $this->getName();
+		}
+
+		if( $this->getContent() )
+		{
+			$Obj->content = $this->getContent();
+		}
+
+		if( $this->getModifiedBy() )
+		{
+			$Obj->modified_by = $this->getModifiedBy();
+		}
 
 		return $Obj;
 	}

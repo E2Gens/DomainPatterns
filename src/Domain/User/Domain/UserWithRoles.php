@@ -255,7 +255,7 @@ class UserWithRoles extends EntityBase
 	 */
 	public function toStdClass(): \stdClass
 	{
-		$Obj = new \stdClass();
+		$Obj = parent::toStdClass();
 
 		if( $this->getName() )
 		{
