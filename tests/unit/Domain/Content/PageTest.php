@@ -9,11 +9,11 @@ class PageTest extends TestCase
 {
 	public function testFromArray()
 	{
-
+		return true;
 	}
 
 	public function testToStdClass()
 	{
-
+		return true;
 	}
 }
