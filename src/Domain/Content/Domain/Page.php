@@ -287,6 +287,21 @@ class Page extends EntityBase
 		{
 			$Page->setModifiedBy( $Data[ 'modified_by' ] );
 		}
+
+		if( isset( $Data[ 'created_at' ] ) )
+		{
+			$Page->setCreatedAt( $Data[ 'created_at' ] );
+		}
+
+		if( isset( $Data[ 'updated_at' ] ) )
+		{
+			$Page->setUpdatedAt( $Data[ 'updated_at' ] );
+		}
+
+		if( isset( $Data[ 'deleted_at' ] ) )
+		{
+			$Page->setDeletedAt( $Data[ 'deleted_at' ] );
+		}
 	}
 
 	/**
