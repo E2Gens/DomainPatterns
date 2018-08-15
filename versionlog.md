@@ -1,7 +1,7 @@
 # Versions
 
 ## 0.0.41
-
+* User and content entities refactoring, writing more unit tests.
 
 ## 0.0.40 2018-08-13
 * fromArray() mapper updated.
