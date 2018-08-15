@@ -8,7 +8,7 @@ class UserValidatorTest extends TestCase
 
 	public function testIsValid()
 	{
-		$User = new DDP\Domain\User\Domain\User();
+		$User = new \DDP\Domain\User\Domain\UserWithRoles();
 
 		$UserValidator = new UserValidator();
 
@@ -22,7 +22,7 @@ class UserValidatorTest extends TestCase
 
 	public function testInvalid()
 	{
-		$User = new DDP\Domain\User\Domain\User();
+		$User = new \DDP\Domain\User\Domain\UserWithRoles();
 
 		$UserValidator = new UserValidator();
 
@@ -43,7 +43,7 @@ class UserValidatorTest extends TestCase
 	}
 	public function testGetViolations()
 	{
-		$User = new DDP\Domain\User\Domain\User();
+		$User = new \DDP\Domain\User\Domain\UserWithRoles();
 
 		$UserValidator = new UserValidator();
 

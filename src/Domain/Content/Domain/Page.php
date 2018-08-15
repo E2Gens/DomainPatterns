@@ -13,6 +13,9 @@ class Page extends EntityBase
 	private $_Content;
 	private $_ContentBlockId;
 	private $_ModifiedBy;
+	private $_CreatedAt;
+	private $_UpdatedAt;
+	private $_DeletedAt;
 
 	/**
 	 * @return null|string
@@ -24,10 +27,12 @@ class Page extends EntityBase
 
 	/**
 	 * @param $Route
+	 * @return $this
 	 */
-	public function setRoute( $Route ): void
+	public function setRoute( $Route )
 	{
 		$this->_Route = $Route;
+		return $this;
 	}
 
 	/**
@@ -39,11 +44,13 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @param mixed $Title
+	 * @param $Title
+	 * @return $this
 	 */
-	public function setTitle( $Title ): void
+	public function setTitle( $Title )
 	{
 		$this->_Title = $Title;
+		return $this;
 	}
 
 	/**
@@ -55,11 +62,13 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @param mixed $MetaKeywords
+	 * @param $MetaKeywords
+	 * @return $this
 	 */
-	public function setMetaKeywords( $MetaKeywords ): void
+	public function setMetaKeywords( $MetaKeywords )
 	{
 		$this->_MetaKeywords = $MetaKeywords;
+		return $this;
 	}
 
 	/**
@@ -71,11 +80,13 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @param mixed $MetaDescription
+	 * @param $MetaDescription
+	 * @return $this
 	 */
-	public function setMetaDescription( $MetaDescription ): void
+	public function setMetaDescription( $MetaDescription )
 	{
 		$this->_MetaDescription = $MetaDescription;
+		return $this;
 	}
 
 	/**
@@ -87,11 +98,13 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @param mixed $Content
+	 * @param $Content
+	 * @return $this
 	 */
-	public function setContent( $Content ): void
+	public function setContent( $Content )
 	{
 		$this->_Content = $Content;
+		return $this;
 	}
 
 	/**
@@ -103,11 +116,13 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @param mixed $ModifiedBy
+	 * @param $ModifiedBy
+	 * @return $this
 	 */
-	public function setModifiedBy( $ModifiedBy ): void
+	public function setModifiedBy( $ModifiedBy )
 	{
 		$this->_ModifiedBy = $ModifiedBy;
+		return $this;
 	}
 
 	/**
@@ -119,11 +134,67 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @param mixed $ContentBlockId
+	 * @param $ContentBlockId
+	 * @return $this
 	 */
-	public function setContentBlockId($ContentBlockId): void
+	public function setContentBlockId( $ContentBlockId )
 	{
 		$this->_ContentBlockId = $ContentBlockId;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCreatedAt()
+	{
+		return $this->_CreatedAt;
+	}
+
+	/**
+	 * @param mixed $CreatedAt
+	 * @return Page
+	 */
+	public function setCreatedAt( $CreatedAt )
+	{
+		$this->_CreatedAt = $CreatedAt;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getUpdatedAt()
+	{
+		return $this->_UpdatedAt;
+	}
+
+	/**
+	 * @param mixed $UpdatedAt
+	 * @return Page
+	 */
+	public function setUpdatedAt( $UpdatedAt )
+	{
+		$this->_UpdatedAt = $UpdatedAt;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getDeletedAt()
+	{
+		return $this->_DeletedAt;
+	}
+
+	/**
+	 * @param mixed $DeletedAt
+	 * @return Page
+	 */
+	public function setDeletedAt( $DeletedAt )
+	{
+		$this->_DeletedAt = $DeletedAt;
+		return $this;
 	}
 
 	/**
@@ -133,31 +204,50 @@ class Page extends EntityBase
 	{
 		$Obj = parent::toStdClass();
 
-		$Obj->route   = $this->getRoute();
-		$Obj->title   = $this->getTitle();
+		if( $this->getRoute() )
+		{
+			$Obj->route = $this->getRoute();
+		}
+
+		if( $this->getTitle() )
+		{
+			$Obj->title = $this->getTitle();
+		}
 
 		if( $this->getContent() )
 		{
 			$Obj->content = $this->getContent();
 		}
 
-		$Obj->meta_description = $this->getMetaDescription();
-		$Obj->meta_keywords    = $this->getMetaKeywords();
+		if( $this->getMetaDescription() )
+		{
+			$Obj->meta_description = $this->getMetaDescription();
+		}
 
-		$Obj->content_block_id = $this->getContentBlockId();
-		$Obj->modified_by      = $this->getModifiedBy();
+		if( $this->getMetaKeywords() )
+		{
+			$Obj->meta_keywords = $this->getMetaKeywords();
+		}
+
+		if( $this->getContentBlockId() )
+		{
+			$Obj->content_block_id = $this->getContentBlockId();
+		}
+
+		if( $this->getModifiedBy() )
+		{
+			$Obj->modified_by = $this->getModifiedBy();
+		}
 
 		return $Obj;
 	}
 
 	/**
+	 * @param $Page
 	 * @param array $Data
-	 * @return EntityBase|Page
 	 */
-	public static function fromArray( array $Data )
+	public static function fromArray( &$Page, array $Data ): void
 	{
-		$Page = new static;
-
 		if( isset( $Data[ 'id' ] ) )
 		{
 			$Page->setIdentifier( $Data[ 'id' ] );
@@ -198,7 +288,20 @@ class Page extends EntityBase
 			$Page->setModifiedBy( $Data[ 'modified_by' ] );
 		}
 
-		return $Page;
+		if( isset( $Data[ 'created_at' ] ) )
+		{
+			$Page->setCreatedAt( $Data[ 'created_at' ] );
+		}
+
+		if( isset( $Data[ 'updated_at' ] ) )
+		{
+			$Page->setUpdatedAt( $Data[ 'updated_at' ] );
+		}
+
+		if( isset( $Data[ 'deleted_at' ] ) )
+		{
+			$Page->setDeletedAt( $Data[ 'deleted_at' ] );
+		}
 	}
 
 	/**

@@ -52,21 +52,6 @@ abstract class EntityBase implements IEntity, IValidatable
 	}
 
 	/**
-	 * @param \stdClass $Object
-	 * @SuppressWarnings("unused")
-	 */
-	public static function fromStdClass( \stdClass $Object )
-	{}
-
-	/**
-	 * @deprecated
-	 * @param $Request
-	 * @SuppressWarnings("unused")
-	 */
-	public static function fromRequest( $Request )
-	{}
-
-	/**
 	 * @return \stdClass
 	 * @SuppressWarnings("unused")
 	 */
@@ -75,8 +60,6 @@ abstract class EntityBase implements IEntity, IValidatable
 		$Obj = new \stdClass();
 
 		$Obj->id = $this->getIdentifier();
-
-		// @todo: handle $_Deleted property
 
 		return $Obj;
 	}
