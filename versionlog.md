@@ -1,6 +1,9 @@
 # Versions
 
-## 0.0.41
+## 0.0.42
+
+
+## 0.0.41 2018-08-15
 * User and content entities refactoring, writing more unit tests.
 
 ## 0.0.40 2018-08-13
