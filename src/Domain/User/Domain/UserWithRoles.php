@@ -3,8 +3,6 @@
 namespace DDP\Domain\User\Domain;
 
 use DDP\Core\Domain\EntityBase;
-use Illuminate\Support\Facades\Hash;
-
 
 class UserWithRoles extends EntityBase
 {
@@ -109,7 +107,7 @@ class UserWithRoles extends EntityBase
 	{
 		if( $Password != null && !empty( $Password ) )
 		{
-			$this->_Password = Hash::make( $Password );
+			$this->_Password = $Password;
 			return $this;
 		}
 	}
@@ -291,7 +289,7 @@ class UserWithRoles extends EntityBase
 
 		if( $this->getPhoto() )
 		{
-			$Obj->avatar_url = $this->getPhoto();
+			$Obj->photo = $this->getPhoto();
 		}
 
 		if( $this->getRememberToken() )
@@ -303,8 +301,8 @@ class UserWithRoles extends EntityBase
 	}
 
 	/**
-	 * @param array $Data
 	 * @param $Entity
+	 * @param array $Data
 	 */
 	public static function fromArray( &$Entity, array $Data ) : void
 	{

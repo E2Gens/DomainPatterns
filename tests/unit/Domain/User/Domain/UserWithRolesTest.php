@@ -12,7 +12,6 @@ class UserWithRolesTest extends TestCase
 		$Entity = new UserWithRoles();
 
 		$Arr[ 'id' ]             = 1;
-		$Arr[ 'name' ]           = 2;
 		$Arr[ 'first_name' ]     = 3;
 		$Arr[ 'last_name' ]      = 4;
 		$Arr[ 'email' ]          = 5;
@@ -23,6 +22,7 @@ class UserWithRolesTest extends TestCase
 		$Arr[ 'deleted_at' ]     = 10;
 		$Arr[ 'photo' ]          = 11;
 		$Arr[ 'phone' ]          = 12;
+		$Arr[ 'name' ]           = "{$Arr[ 'first_name' ]} {$Arr[ 'last_name' ]}";
 
 		UserWithRoles::fromArray( $Entity, $Arr );
 
@@ -96,6 +96,8 @@ class UserWithRolesTest extends TestCase
 		$User->setFirstName( 3 );
 		$User->setLastName( 4 );
 		$User->setEmail( 5 );
+		$User->setPhone(11);
+		$User->setPhoto(12);
 		$User->setPassword( 6 );
 		$User->setRememberToken( 7 );
 		$User->setCreatedAt( 8 );
