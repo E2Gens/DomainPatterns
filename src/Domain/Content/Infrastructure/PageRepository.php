@@ -5,7 +5,7 @@ namespace DDP\Domain\Content\Infrastructure;
 use DDP\Core\Infrastructure\IRepository;
 use DDP\Domain\Content\Domain;
 
-class PageRepository implements IRepository
+class PageRepository implements IPageRepository
 {
 	private $_PageModel;
 

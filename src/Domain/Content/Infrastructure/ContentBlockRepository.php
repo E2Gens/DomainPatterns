@@ -12,7 +12,7 @@ use DDP\Domain\Content\Domain;
  *
  * @package DDP\Domain\ContentBlock\Infrastructure
  */
-class ContentBlockRepository implements IRepository
+class ContentBlockRepository implements IContentBlockRepository
 {
 	private $_ContentBlockModel;
 

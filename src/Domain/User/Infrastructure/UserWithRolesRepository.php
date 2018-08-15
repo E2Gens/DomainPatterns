@@ -2,10 +2,13 @@
 
 namespace DDP\Domain\User\Infrastructure;
 
+use DDP\Domain\User;
 use DDP\Domain\User\Domain\UserWithRoles;
+use Neuron\Data\Validation\Email;
 
 class UserWithRolesRepository extends UserRepository
 {
+	private $_UserModel;
 	private $_RoleModel;
 	private $_RoleUserModel;
 
@@ -17,19 +20,33 @@ class UserWithRolesRepository extends UserRepository
 	 */
 	public function __construct( \App\User $UserModel, \App\Role $RoleModel, \App\RoleUser $RoleUserModel )
 	{
-		parent::__construct( $UserModel );
-
+		$this->_UserModel     = $UserModel;
 		$this->_RoleModel     = $RoleModel;
 		$this->_RoleUserModel = $RoleUserModel;
 	}
 
+	/**
+	 * @param $User
+	 * @return mixed
+	 */
 	public function save( $User )
 	{
-		$UserModel = parent::save( $User );
+		$Obj = $User->toStdClass();
 
-		$this->saveRoles( $User );
+		if( $User->getIdentifier() )
+		{
+			$this->_UserModel->whereId( $User->getIdentifier() )->update( ( array)$Obj );
+		}
+		else
+		{
+			$UserModel = $this->_UserModel->create( ( array)$Obj );
 
-		return $UserModel;
+			$User = new UserWithRoles();
+
+			UserWithRoles::fromArray( $User, $UserModel->toArray() );
+		}
+
+		return $User;
 	}
 
 	/**
@@ -50,8 +67,8 @@ class UserWithRolesRepository extends UserRepository
 	 */
 	protected function addOrRemoveRole( $RoleUser )
 	{
-		$RoleModel = $this->_RoleModel::findOrFail( $RoleUser->getRole()->getIdentifier() );
-		$UserModel = parent::getUserModel()::findOrFail( $RoleUser->getUser()->getIdentifier() );
+		$RoleModel = $this->_RoleModel->findOrFail( $RoleUser->getRole()->getIdentifier() );
+		$UserModel = $this->_UserModel->findOrFail( $RoleUser->getUser()->getIdentifier() );
 
 		if( $RoleUser->getDeleted() )
 		{
@@ -76,13 +93,15 @@ class UserWithRolesRepository extends UserRepository
 
 	/**
 	 * @param $UserId
-	 * @return User\Domain\User
+	 * @return User|UserWithRoles
 	 */
 	public function getById( $UserId )
 	{
-		$UserAr = parent::getUserModel()::with('roles')->where( 'id', $UserId )->first()->toArray();
+		$UserAr = $this->_UserModel->with('roles')->where( 'id', $UserId )->first()->toArray();
 
-		$User = UserWithRoles::fromArray( $UserAr );
+		$UserEntity = new UserWithRoles();
+
+		UserWithRoles::fromArray( $UserEntity, $UserAr );
 
 		/**
 		 * Load all of the roles.
@@ -99,12 +118,12 @@ class UserWithRolesRepository extends UserRepository
 
 			$RoleUser->setName( $Role->getName() );
 			$RoleUser->setRole( $Role );
-			$RoleUser->setUser( $User );
+			$RoleUser->setUser( $UserEntity );
 
-			$User->addRole( $RoleUser );
+			$UserEntity->addRole( $RoleUser );
 		}
 
-		return $User;
+		return $UserEntity;
 	}
 
 	/**
@@ -113,27 +132,50 @@ class UserWithRolesRepository extends UserRepository
 	 */
 	public function doesEmailExist( string $Email ): bool
 	{
-		return parent::getUserModel()
+		return $this->_UserModel
 			->where( 'email', $Email )
 			->exists();
 	}
 
 	/**
+	 * Returns true if the email address is available.
+	 *
+	 * @param $EmailAddress
+	 * @return mixed
+	 * @throws \Exception if the email address parameter is invalid.
+	 */
+	public function isEmailAvailable( $EmailAddress )
+	{
+		$Validation = new Email();
+
+		if( !$Validation->isValid( $EmailAddress ) )
+		{
+			throw new \Exception( "$EmailAddress is not a valid email address." );
+		}
+
+		return !$this->_UserModel->where( 'email' , $EmailAddress )->exists();
+	}
+
+	/**
 	 * @param string $Email
-	 * @return int|null
+	 * @return UserWithRoles
 	 */
 	public function getByEmail( string $Email )
 	{
-		$User = parent::getUserModel()
+		$User = $this->_UserModel
 			->where( 'email', $Email )
 			->first();
 
 		if( $User )
 		{
-			$User = UserWithRoles::fromArray( $User->toArray() );
+			$Entity = new UserWithRoles();
+
+			UserWithRoles::fromArray( $Entity, $User->toArray() );
+
+			return $Entity;
 		}
 
-		return $User;
+		return null;
 	}
 
 	/**
@@ -143,31 +185,35 @@ class UserWithRolesRepository extends UserRepository
 	 */
 	public function getAllByRoleName( string $RoleName, array $Params = [] ) : array
 	{
-		$Administrators = [];
+		$Users = [];
 
-		$AdministratorsObject = parent::getUserModel()::whereHas('roles', function ( $Query ) use ( $RoleName, $Params ) {
+		$UsersObject = $this->_UserModel->whereHas('roles', function ( $Query ) use ( $RoleName, $Params ) {
 			$Query->where( 'name', $RoleName );
 		})->with('roles');
 
 		if( isset( $Params[ 'status' ] ) && $Params[ 'status' ] != 'all' )
 		{
-			$AdministratorsObject = $AdministratorsObject->where( 'status', $Params[ 'status' ] );
+			$UsersObject = $UsersObject->where( 'status', $Params[ 'status' ] );
 		}
 
 		if( isset( $Params[ 'keyword' ] ) && $Params[ 'keyword' ] != '' )
 		{
-			$AdministratorsObject = $AdministratorsObject->where( 'first_name', 'LIKE', "%{$Params[ 'keyword' ]}%" )
+			$UsersObject = $UsersObject->where( 'first_name', 'LIKE', "%{$Params[ 'keyword' ]}%" )
 				->orwhere( 'last_name', 'LIKE', "%{$Params[ 'keyword' ]}%" )
 				->orWhere( 'email', 'LIKE', "%{$Params[ 'keyword' ]}%" );
 		}
 
-		$AdministratorsObject = $AdministratorsObject->get()->toArray();
+		$UsersObject = $UsersObject->get()->toArray();
 
-		foreach( $AdministratorsObject as $Administrator )
+		foreach( $UsersObject as $User )
 		{
-			$Administrators[] = UserWithRoles::fromArray( $Administrator )->jsonSerialize();
+			$Entity = new UserWithRoles();
+
+			UserWithRoles::fromArray( $Entity, $User );
+
+			$Users[] = $Entity;
 		}
 
-		return $Administrators;
+		return $Users;
 	}
 }
