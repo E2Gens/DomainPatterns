@@ -301,71 +301,71 @@ class UserWithRoles extends EntityBase
 	}
 
 	/**
-	 * @param $Entity
+	 * @param $User
 	 * @param array $Data
 	 */
-	public static function fromArray( &$Entity, array $Data ) : void
+	public static function fromArray( &$User, array $Data ) : void
 	{
 		if( isset( $Data[ 'id' ] ) )
 		{
-			$Entity->setIdentifier( $Data[ 'id' ] );
+			$User->setIdentifier( $Data[ 'id' ] );
 		}
 
 		if( isset( $Data[ 'first_name' ] ) && isset( $Data[ 'last_name' ] ) )
 		{
-			$Entity->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
+			$User->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
 		}
 
 		if( isset( $Data[ 'first_name' ] ) )
 		{
-			$Entity->setFirstName( $Data[ 'first_name' ] );
+			$User->setFirstName( $Data[ 'first_name' ] );
 		}
 
 		if( isset( $Data[ 'last_name' ] ) )
 		{
-			$Entity->setLastName( $Data[ 'last_name' ] );
+			$User->setLastName( $Data[ 'last_name' ] );
 		}
 
-		$Entity->setName( $Entity->getFirstName() . ' ' . $Entity->getLastName() );
+		$User->setName( $User->getFirstName() . ' ' . $User->getLastName() );
 
 		if( isset( $Data[ 'email' ] ) )
 		{
-			$Entity->setEmail( $Data[ 'email' ] );
+			$User->setEmail( $Data[ 'email' ] );
 		}
 
 		if( isset( $Data[ 'password' ] ) )
 		{
-			$Entity->setPassword( $Data[ 'password' ] );
+			$User->setPassword( $Data[ 'password' ] );
 		}
 
 		if( isset( $Data[ 'remember_token' ] ) )
 		{
-			$Entity->setRememberToken( $Data[ 'remember_token' ] );
+			$User->setRememberToken( $Data[ 'remember_token' ] );
 		}
 
 		if( isset( $Data[ 'phone' ] ) )
 		{
-			$Entity->setPhone( $Data[ 'phone' ] );
+			$User->setPhone( $Data[ 'phone' ] );
 		}
 
 		if( isset( $Data[ 'photo' ] ) )
 		{
-			$Entity->setPhoto( $Data[ 'photo' ] );
+			$User->setPhoto( $Data[ 'photo' ] );
 		}
 
 		if( isset( $Data[ 'created_at' ] ) )
 		{
-			$Entity->setCreatedAt( $Data[ 'created_at' ] );
+			$User->setCreatedAt( $Data[ 'created_at' ] );
 		}
 
 		if( isset( $Data[ 'updated_at' ] ) )
 		{
-			$Entity->setUpdatedAt( $Data[ 'updated_at' ] );
+			$User->setUpdatedAt( $Data[ 'updated_at' ] );
 		}
 
 		if( isset( $Data[ 'deleted_at' ] ) )
 		{
-			$Entity->setDeletedAt( $Data[ 'deleted_at' ] );
+			$User->setDeletedAt( $Data[ 'deleted_at' ] );
 		}
 
 		if( isset( $Data[ 'roles' ] ) )
@@ -375,10 +375,10 @@ class UserWithRoles extends EntityBase
 			$Role->setIdentifier( $Data[ 'roles' ][ 0 ][ 'id' ] );
 
 			$RoleUser = new RoleUser();
-			$RoleUser->setUser( $Entity );
+			$RoleUser->setUser( $User );
 			$RoleUser->setRole( $Role );
 
-			$Entity->addRole( $RoleUser );
+			$User->addRole( $RoleUser );
 		}
 	}
 
