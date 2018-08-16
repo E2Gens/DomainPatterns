@@ -183,7 +183,7 @@ class UserWithRolesRepository extends UserRepository
 	 * @param array $Params
 	 * @return array
 	 */
-	public function getAllByRoleName( string $RoleName, array $Params = [] ) : array
+	private function getAllByRoleName( string $RoleName, array $Params = [] ) : array
 	{
 		$Users = [];
 
