@@ -1,6 +1,6 @@
 # Versions
 
-## 0.0.43
+## 0.0.43 2018-08-20
 * Added a test for Application::init()
 
 ## 0.0.42 2018-08-20
