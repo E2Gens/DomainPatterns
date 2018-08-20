@@ -12,6 +12,8 @@ class Application
 	{
 		$Log = Log::getInstance();
 
+		$Log->initIfNeeded();
+
 		// Remove default logger
 
 		$Log->Logger->reset();
