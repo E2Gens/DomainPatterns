@@ -3,9 +3,12 @@
 namespace DDP\Domain\User\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use DDP\Core\Domain\TimestampsTrait;
 
 class UserWithRoles extends EntityBase
 {
+	use TimestampsTrait;
+
 	private $_Name;
 	private $_FirstName;
 	private $_LastName;
@@ -15,9 +18,6 @@ class UserWithRoles extends EntityBase
 	private $_Phone;
 	private $_Photo;
 	private $_Roles;
-	private $_CreatedAt;
-	private $_UpdatedAt;
-	private $_DeletedAt;
 
 	/**
 	 * @return mixed
@@ -194,60 +194,6 @@ class UserWithRoles extends EntityBase
 				$UserRole->setDeleted( true );
 			}
 		}
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getCreatedAt()
-	{
-		return $this->_CreatedAt;
-	}
-
-	/**
-	 * @param $CreatedAt
-	 * @return $this
-	 */
-	public function setCreatedAt( $CreatedAt )
-	{
-		$this->_CreatedAt = $CreatedAt;
-		return $this;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getUpdatedAt()
-	{
-		return $this->_UpdatedAt;
-	}
-
-	/**
-	 * @param mixed $UpdatedAt
-	 * @return UserWithRoles
-	 */
-	public function setUpdatedAt( $UpdatedAt )
-	{
-		$this->_UpdatedAt = $UpdatedAt;
-		return $this;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getDeletedAt()
-	{
-		return $this->_DeletedAt;
-	}
-
-	/**
-	 * @param mixed $DeletedAt
-	 * @return UserWithRoles
-	 */
-	public function setDeletedAt( $DeletedAt )
-	{
-		$this->_DeletedAt = $DeletedAt;
-		return $this;
 	}
 
 	/**
