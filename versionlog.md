@@ -1,7 +1,7 @@
 # Versions
 
-## 0.0.42
-
+## 0.0.42 2018-08-20
+* Adds first pass at database logging using neuron.
 
 ## 0.0.41 2018-08-15
 * User and content entities refactoring, writing more unit tests.
