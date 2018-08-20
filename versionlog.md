@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.43
+* Added a test for Application::init()
+
 ## 0.0.42 2018-08-20
 * Adds first pass at database logging using neuron.
 
