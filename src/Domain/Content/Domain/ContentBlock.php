@@ -3,15 +3,15 @@
 namespace DDP\Domain\Content\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use DDP\Core\Domain\TimestampsTrait;
 
 class ContentBlock extends EntityBase
 {
+	use TimestampsTrait;
+
 	private $_Name;
 	private $_Content;
 	private $_ModifiedBy;
-	private $_CreatedAt;
-	private $_UpdatedAt;
-	private $_DeletedAt;
 
 	/**
 	 * @return null|string
@@ -64,60 +64,6 @@ class ContentBlock extends EntityBase
 	public function setModifiedBy( $ModifiedBy )
 	{
 		$this->_ModifiedBy = $ModifiedBy;
-		return $this;
-	}
-
-	/**
-	 * @return null|string
-	 */
-	public function getCreatedAt(): ?string
-	{
-		return $this->_CreatedAt;
-	}
-
-	/**
-	 * @param mixed $CreatedAt
-	 * @return $this
-	 */
-	public function setCreatedAt( $CreatedAt )
-	{
-		$this->_CreatedAt = $CreatedAt;
-		return $this;
-	}
-
-	/**
-	 * @return null|string
-	 */
-	public function getUpdatedAt(): ?string
-	{
-		return $this->_UpdatedAt;
-	}
-
-	/**
-	 * @param $UpdatedAt
-	 * @return $this
-	 */
-	public function setUpdatedAt( $UpdatedAt )
-	{
-		$this->_UpdatedAt = $UpdatedAt;
-		return $this;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getDeletedAt()
-	{
-		return $this->_DeletedAt;
-	}
-
-	/**
-	 * @param $DeletedAt
-	 * @return $this
-	 */
-	public function setDeletedAt( $DeletedAt )
-	{
-		$this->_DeletedAt = $DeletedAt;
 		return $this;
 	}
 

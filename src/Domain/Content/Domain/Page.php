@@ -3,9 +3,12 @@
 namespace DDP\Domain\Content\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use DDP\Core\Domain\TimestampsTrait;
 
 class Page extends EntityBase
 {
+	use TimestampsTrait;
+
 	private $_Route;
 	private $_Title;
 	private $_MetaKeywords;
@@ -13,9 +16,6 @@ class Page extends EntityBase
 	private $_Content;
 	private $_ContentBlockId;
 	private $_ModifiedBy;
-	private $_CreatedAt;
-	private $_UpdatedAt;
-	private $_DeletedAt;
 
 	/**
 	 * @return null|string
@@ -140,60 +140,6 @@ class Page extends EntityBase
 	public function setContentBlockId( $ContentBlockId )
 	{
 		$this->_ContentBlockId = $ContentBlockId;
-		return $this;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getCreatedAt()
-	{
-		return $this->_CreatedAt;
-	}
-
-	/**
-	 * @param mixed $CreatedAt
-	 * @return Page
-	 */
-	public function setCreatedAt( $CreatedAt )
-	{
-		$this->_CreatedAt = $CreatedAt;
-		return $this;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getUpdatedAt()
-	{
-		return $this->_UpdatedAt;
-	}
-
-	/**
-	 * @param mixed $UpdatedAt
-	 * @return Page
-	 */
-	public function setUpdatedAt( $UpdatedAt )
-	{
-		$this->_UpdatedAt = $UpdatedAt;
-		return $this;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getDeletedAt()
-	{
-		return $this->_DeletedAt;
-	}
-
-	/**
-	 * @param mixed $DeletedAt
-	 * @return Page
-	 */
-	public function setDeletedAt( $DeletedAt )
-	{
-		$this->_DeletedAt = $DeletedAt;
 		return $this;
 	}
 

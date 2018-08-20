@@ -9,7 +9,7 @@ class UserWithRolesTest extends TestCase
 {
 	public function testFromArray()
 	{
-		$Entity = new UserWithRoles();
+		$User = new UserWithRoles();
 
 		$Arr[ 'id' ]             = 1;
 		$Arr[ 'first_name' ]     = 3;
@@ -24,65 +24,65 @@ class UserWithRolesTest extends TestCase
 		$Arr[ 'phone' ]          = 12;
 		$Arr[ 'name' ]           = "{$Arr[ 'first_name' ]} {$Arr[ 'last_name' ]}";
 
-		UserWithRoles::fromArray( $Entity, $Arr );
+		UserWithRoles::fromArray( $User, $Arr );
 
 		$this->assertEquals(
-			$Entity->getIdentifier(),
+			$User->getIdentifier(),
 			$Arr[ 'id' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getName(),
+			$User->getName(),
 			$Arr[ 'name' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getFirstName(),
+			$User->getFirstName(),
 			$Arr[ 'first_name' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getLastName(),
+			$User->getLastName(),
 			$Arr[ 'last_name' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getEmail(),
+			$User->getEmail(),
 			$Arr[ 'email' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getPhoto(),
+			$User->getPhoto(),
 			$Arr[ 'photo' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getPhone(),
+			$User->getPhone(),
 			$Arr[ 'phone' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getPassword(),
+			$User->getPassword(),
 			$Arr[ 'password' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getRememberToken(),
+			$User->getRememberToken(),
 			$Arr[ 'remember_token' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getCreatedAt(),
+			$User->getCreatedAt(),
 			$Arr[ 'created_at' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getUpdatedAt(),
+			$User->getUpdatedAt(),
 			$Arr[ 'updated_at' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getDeletedAt(),
+			$User->getDeletedAt(),
 			$Arr[ 'deleted_at' ]
 		);
 	}

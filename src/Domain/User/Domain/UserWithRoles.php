@@ -3,9 +3,12 @@
 namespace DDP\Domain\User\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use DDP\Core\Domain\TimestampsTrait;
 
 class UserWithRoles extends EntityBase
 {
+	use TimestampsTrait;
+
 	private $_Name;
 	private $_FirstName;
 	private $_LastName;
@@ -15,9 +18,6 @@ class UserWithRoles extends EntityBase
 	private $_Phone;
 	private $_Photo;
 	private $_Roles;
-	private $_CreatedAt;
-	private $_UpdatedAt;
-	private $_DeletedAt;
 
 	/**
 	 * @return mixed
@@ -197,60 +197,6 @@ class UserWithRoles extends EntityBase
 	}
 
 	/**
-	 * @return mixed
-	 */
-	public function getCreatedAt()
-	{
-		return $this->_CreatedAt;
-	}
-
-	/**
-	 * @param $CreatedAt
-	 * @return $this
-	 */
-	public function setCreatedAt( $CreatedAt )
-	{
-		$this->_CreatedAt = $CreatedAt;
-		return $this;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getUpdatedAt()
-	{
-		return $this->_UpdatedAt;
-	}
-
-	/**
-	 * @param mixed $UpdatedAt
-	 * @return UserWithRoles
-	 */
-	public function setUpdatedAt( $UpdatedAt )
-	{
-		$this->_UpdatedAt = $UpdatedAt;
-		return $this;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getDeletedAt()
-	{
-		return $this->_DeletedAt;
-	}
-
-	/**
-	 * @param mixed $DeletedAt
-	 * @return UserWithRoles
-	 */
-	public function setDeletedAt( $DeletedAt )
-	{
-		$this->_DeletedAt = $DeletedAt;
-		return $this;
-	}
-
-	/**
 	 * @return \stdClass
 	 */
 	public function toStdClass(): \stdClass
@@ -301,71 +247,71 @@ class UserWithRoles extends EntityBase
 	}
 
 	/**
-	 * @param $Entity
+	 * @param $User
 	 * @param array $Data
 	 */
-	public static function fromArray( &$Entity, array $Data ) : void
+	public static function fromArray( &$User, array $Data ) : void
 	{
 		if( isset( $Data[ 'id' ] ) )
 		{
-			$Entity->setIdentifier( $Data[ 'id' ] );
+			$User->setIdentifier( $Data[ 'id' ] );
 		}
 
 		if( isset( $Data[ 'first_name' ] ) && isset( $Data[ 'last_name' ] ) )
 		{
-			$Entity->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
+			$User->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
 		}
 
 		if( isset( $Data[ 'first_name' ] ) )
 		{
-			$Entity->setFirstName( $Data[ 'first_name' ] );
+			$User->setFirstName( $Data[ 'first_name' ] );
 		}
 
 		if( isset( $Data[ 'last_name' ] ) )
 		{
-			$Entity->setLastName( $Data[ 'last_name' ] );
+			$User->setLastName( $Data[ 'last_name' ] );
 		}
 
-		$Entity->setName( $Entity->getFirstName() . ' ' . $Entity->getLastName() );
+		$User->setName( $User->getFirstName() . ' ' . $User->getLastName() );
 
 		if( isset( $Data[ 'email' ] ) )
 		{
-			$Entity->setEmail( $Data[ 'email' ] );
+			$User->setEmail( $Data[ 'email' ] );
 		}
 
 		if( isset( $Data[ 'password' ] ) )
 		{
-			$Entity->setPassword( $Data[ 'password' ] );
+			$User->setPassword( $Data[ 'password' ] );
 		}
 
 		if( isset( $Data[ 'remember_token' ] ) )
 		{
-			$Entity->setRememberToken( $Data[ 'remember_token' ] );
+			$User->setRememberToken( $Data[ 'remember_token' ] );
 		}
 
 		if( isset( $Data[ 'phone' ] ) )
 		{
-			$Entity->setPhone( $Data[ 'phone' ] );
+			$User->setPhone( $Data[ 'phone' ] );
 		}
 
 		if( isset( $Data[ 'photo' ] ) )
 		{
-			$Entity->setPhoto( $Data[ 'photo' ] );
+			$User->setPhoto( $Data[ 'photo' ] );
 		}
 
 		if( isset( $Data[ 'created_at' ] ) )
 		{
-			$Entity->setCreatedAt( $Data[ 'created_at' ] );
+			$User->setCreatedAt( $Data[ 'created_at' ] );
 		}
 
 		if( isset( $Data[ 'updated_at' ] ) )
 		{
-			$Entity->setUpdatedAt( $Data[ 'updated_at' ] );
+			$User->setUpdatedAt( $Data[ 'updated_at' ] );
 		}
 
 		if( isset( $Data[ 'deleted_at' ] ) )
 		{
-			$Entity->setDeletedAt( $Data[ 'deleted_at' ] );
+			$User->setDeletedAt( $Data[ 'deleted_at' ] );
 		}
 
 		if( isset( $Data[ 'roles' ] ) )
@@ -375,10 +321,10 @@ class UserWithRoles extends EntityBase
 			$Role->setIdentifier( $Data[ 'roles' ][ 0 ][ 'id' ] );
 
 			$RoleUser = new RoleUser();
-			$RoleUser->setUser( $Entity );
+			$RoleUser->setUser( $User );
 			$RoleUser->setRole( $Role );
 
-			$Entity->addRole( $RoleUser );
+			$User->addRole( $RoleUser );
 		}
 	}
 
