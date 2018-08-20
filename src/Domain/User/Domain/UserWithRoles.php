@@ -3,7 +3,7 @@
 namespace DDP\Domain\User\Domain;
 
 use DDP\Core\Domain\EntityBase;
-use DDP\Core\Domain\TimestampsTrait;
+use DDP\Core\Domain\TimestampsTrait;#
 
 class UserWithRoles extends EntityBase
 {

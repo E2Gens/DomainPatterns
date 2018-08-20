@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.48
+
 ## 0.0.47 2018-08-20
 * getAllByRoleName() of UserWithRoles entity is now private method.
 * TimestampsTrait created, entities refactored to use the trait.
