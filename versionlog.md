@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.47
+
 ## 0.0.46
 * Removed entity typing from user api.
 
