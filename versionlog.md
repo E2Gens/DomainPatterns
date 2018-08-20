@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.45
+
 ## 0.0.44 2018-08-20
 * Fix to dblogdestination.
 
