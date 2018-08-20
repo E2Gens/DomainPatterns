@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.44 2018-08-20
+* Fix to dblogdestination.
+
 ## 0.0.43 2018-08-20
 * Added a test for Application::init()
 
