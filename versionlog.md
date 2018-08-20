@@ -1,7 +1,21 @@
 # Versions
 
-## 0.0.42
+## 0.0.47
 
+## 0.0.46
+* Removed entity typing from user api.
+
+## 0.0.45 2018-08-20
+* Final updates to dblogdestination for laravel.
+
+## 0.0.44 2018-08-20
+* Fix to dblogdestination.
+
+## 0.0.43 2018-08-20
+* Added a test for Application::init()
+
+## 0.0.42 2018-08-20
+* Adds first pass at database logging using neuron.
 
 ## 0.0.41 2018-08-15
 * User and content entities refactoring, writing more unit tests.
