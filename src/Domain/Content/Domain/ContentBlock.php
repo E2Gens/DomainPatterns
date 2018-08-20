@@ -3,11 +3,11 @@
 namespace DDP\Domain\Content\Domain;
 
 use DDP\Core\Domain\EntityBase;
-use DDP\Traits\Entities\Timestamps;
+use DDP\Core\Domain\TimestampsTrait;
 
 class ContentBlock extends EntityBase
 {
-	use Timestamps;
+	use TimestampsTrait;
 
 	private $_Name;
 	private $_Content;

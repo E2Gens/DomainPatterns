@@ -3,11 +3,11 @@
 namespace DDP\Domain\User\Domain;
 
 use DDP\Core\Domain\EntityBase;
-use DDP\Traits\Entities\Timestamps;
+use DDP\Core\Domain\TimestampsTrait;
 
 class UserWithRoles extends EntityBase
 {
-	use Timestamps;
+	use TimestampsTrait;
 
 	private $_Name;
 	private $_FirstName;

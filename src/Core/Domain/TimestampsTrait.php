@@ -1,8 +1,8 @@
 <?php
 
-namespace DDP\Traits\Entities;
+namespace DDP\Core\Domain;
 
-trait Timestamps
+trait TimestampsTrait
 {
 	private $_CreatedAt;
 	private $_UpdatedAt;

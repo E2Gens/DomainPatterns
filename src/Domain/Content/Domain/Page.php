@@ -3,11 +3,11 @@
 namespace DDP\Domain\Content\Domain;
 
 use DDP\Core\Domain\EntityBase;
-use DDP\Traits\Entities\Timestamps;
+use DDP\Core\Domain\TimestampsTrait;
 
 class Page extends EntityBase
 {
-	use Timestamps;
+	use TimestampsTrait;
 
 	private $_Route;
 	private $_Title;
