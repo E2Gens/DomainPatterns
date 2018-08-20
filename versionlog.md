@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.45 2018-08-20
+* Final updates to dblogdestination for laravel.
+
 ## 0.0.44 2018-08-20
 * Fix to dblogdestination.
 
