@@ -13,6 +13,32 @@ class UserWithRolesRepository implements IUserRepository
 	private $_RoleUserModel;
 
 	/**
+	 * @return \App\User
+	 */
+	public function getUserModel()
+	{
+		return $this->_UserModel;
+	}
+
+	/**
+	 * @return \App\Role
+	 */
+	public function getRoleModel()
+	{
+		return $this->_RoleModel;
+	}
+
+	/**
+	 * @return \App\RoleUser
+	 */
+	public function getRoleUserModel()
+	{
+		return $this->_RoleUserModel;
+	}
+
+
+
+	/**
 	 * UserWithRolesRepository constructor.
 	 * @param \App\User $UserModel
 	 * @param \App\Role $RoleModel
@@ -43,11 +69,11 @@ class UserWithRolesRepository implements IUserRepository
 			unset( $Obj->is_deleted );
 			unset( $Obj->is_new );
 
-			if( $Obj->password == null )
+			if( property_exists( $Obj, 'password' ) && $Obj->password == null )
 			{
 				unset( $Obj->password );
 			}
-			if( $Obj->photo == null )
+			if( property_exists( $Obj, 'photo' ) &&  $Obj->photo == null )
 			{
 				unset( $Obj->photo );
 			}
@@ -217,7 +243,8 @@ class UserWithRolesRepository implements IUserRepository
 
 		if( isset( $Params[ 'keyword' ] ) && $Params[ 'keyword' ] != '' )
 		{
-			$UsersObject = $UsersObject->where( 'first_name', 'LIKE', "%{$Params[ 'keyword' ]}%" )
+			$UsersObject = $UsersObject
+				->where( 'first_name', 'LIKE', "%{$Params[ 'keyword' ]}%" )
 				->orwhere( 'last_name', 'LIKE', "%{$Params[ 'keyword' ]}%" )
 				->orWhere( 'email', 'LIKE', "%{$Params[ 'keyword' ]}%" );
 		}
