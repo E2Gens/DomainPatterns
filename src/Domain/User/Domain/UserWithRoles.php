@@ -314,17 +314,20 @@ class UserWithRoles extends EntityBase
 			$User->setDeletedAt( $Data[ 'deleted_at' ] );
 		}
 
-		if( isset( $Data[ 'roles' ] ) )
+		if( isset( $Data[ 'roles' ] ) && is_array( $Data[ 'roles' ] ) )
 		{
-			$Role = new Role();
-			$Role->setName( $Data[ 'roles' ][ 0 ][ 'name' ] );
-			$Role->setIdentifier( $Data[ 'roles' ][ 0 ][ 'id' ] );
+			foreach( $Data[ 'roles' ] as $RoleObj )
+			{
+				$Role = new Role();
+				$Role->setName( $RoleObj[ 'name' ] );
+				$Role->setIdentifier( $RoleObj[ 'id' ] );
 
-			$RoleUser = new RoleUser();
-			$RoleUser->setUser( $User );
-			$RoleUser->setRole( $Role );
+				$RoleUser = new RoleUser();
+				$RoleUser->setUser( $User );
+				$RoleUser->setRole( $Role );
 
-			$User->addRole( $RoleUser );
+				$User->addRole( $RoleUser );
+			}
 		}
 	}
 

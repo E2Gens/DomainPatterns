@@ -37,7 +37,6 @@ class UserWithRolesRepository implements IUserRepository
 	}
 
 
-
 	/**
 	 * UserWithRolesRepository constructor.
 	 * @param \App\User $UserModel
@@ -53,6 +52,7 @@ class UserWithRolesRepository implements IUserRepository
 
 	public function getAll( array $Params ): array
 	{
+		// No. Just.. no.
 		return [];
 	}
 
@@ -142,31 +142,11 @@ class UserWithRolesRepository implements IUserRepository
 	 */
 	public function getById( $UserId )
 	{
-		$UserAr = $this->_UserModel->with('roles')->where( 'id', $UserId )->first()->toArray();
+		$User = $this->_UserModel->with('roles')->where( 'id', $UserId )->first()->toArray();
 
 		$UserEntity = new UserWithRoles();
 
-		UserWithRoles::fromArray( $UserEntity, $UserAr );
-
-		/**
-		 * Load all of the roles.
-		 */
-
-		$Roles = $this->_RoleUserModel::where( 'user_id', $UserId );
-
-		foreach( $Roles as $RoleObj )
-		{
-			$RoleUser = new User\Domain\RoleUser();
-			$Role     = new User\Domain\Role();
-
-			$Role->setIdentifier( $RoleObj->id );
-
-			$RoleUser->setName( $Role->getName() );
-			$RoleUser->setRole( $Role );
-			$RoleUser->setUser( $UserEntity );
-
-			$UserEntity->addRole( $RoleUser );
-		}
+		UserWithRoles::fromArray( $UserEntity, $User );
 
 		return $UserEntity;
 	}
