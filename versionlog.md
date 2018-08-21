@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.49
+
 ## 0.0.48 2018-08-21
 * Fixed an issue with UserWithRolesRepository.
 
