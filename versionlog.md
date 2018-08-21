@@ -1,6 +1,7 @@
 # Versions
 
-## 0.0.50
+## 0.0.50 2018-08-21
+* Updated userwithroles mapper.
 
 ## 0.0.49
 * Fixed an issue in UserRepository save.
