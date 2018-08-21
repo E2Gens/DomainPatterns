@@ -6,7 +6,7 @@ use DDP\Domain\User;
 use DDP\Domain\User\Domain\UserWithRoles;
 use Neuron\Data\Validation\Email;
 
-class UserWithRolesRepository extends UserRepository
+class UserWithRolesRepository implements IUserRepository
 {
 	private $_UserModel;
 	private $_RoleModel;
@@ -25,6 +25,11 @@ class UserWithRolesRepository extends UserRepository
 		$this->_RoleUserModel = $RoleUserModel;
 	}
 
+	public function getAll( array $Params ): array
+	{
+		return [];
+	}
+
 	/**
 	 * @param $User
 	 * @return mixed
@@ -35,6 +40,18 @@ class UserWithRolesRepository extends UserRepository
 
 		if( $User->getIdentifier() )
 		{
+			unset( $Obj->is_deleted );
+			unset( $Obj->is_new );
+
+			if( $Obj->password == null )
+			{
+				unset( $Obj->password );
+			}
+			if( $Obj->photo == null )
+			{
+				unset( $Obj->photo );
+			}
+
 			$this->_UserModel->whereId( $User->getIdentifier() )->update( ( array)$Obj );
 		}
 		else
@@ -45,6 +62,8 @@ class UserWithRolesRepository extends UserRepository
 
 			UserWithRoles::fromArray( $User, $UserModel->toArray() );
 		}
+
+		$this->saveRoles( $User );
 
 		return $User;
 	}
@@ -140,20 +159,20 @@ class UserWithRolesRepository extends UserRepository
 	/**
 	 * Returns true if the email address is available.
 	 *
-	 * @param $EmailAddress
+	 * @param $Email
 	 * @return mixed
 	 * @throws \Exception if the email address parameter is invalid.
 	 */
-	public function isEmailAvailable( $EmailAddress )
+	public function isEmailAvailable( string $Email )
 	{
 		$Validation = new Email();
 
-		if( !$Validation->isValid( $EmailAddress ) )
+		if( !$Validation->isValid( $Email ) )
 		{
-			throw new \Exception( "$EmailAddress is not a valid email address." );
+			throw new \Exception( "$Email is not a valid email address." );
 		}
 
-		return !$this->_UserModel->where( 'email' , $EmailAddress )->exists();
+		return !$this->doesEmailExist( $Email );
 	}
 
 	/**
