@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.51
+
 ## 0.0.50 2018-08-21
 * Updated userwithroles mapper.
 
