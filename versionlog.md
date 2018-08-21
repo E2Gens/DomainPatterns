@@ -1,6 +1,7 @@
 # Versions
 
-## 0.0.48
+## 0.0.48 2018-08-21
+* Fixed an issue with UserWithRolesRepository.
 
 ## 0.0.47 2018-08-20
 * getAllByRoleName() of UserWithRoles entity is now private method.
