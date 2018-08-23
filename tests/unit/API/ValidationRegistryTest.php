@@ -35,11 +35,9 @@ class ValidationRegistryTest extends TestCase
 {
 	public function testRegister()
 	{
-		$Registry = new ValidationRegistry();
-
+		$Registry    = new ValidationRegistry();
 		$Validator   = new MockValidator();
 		$Validatable = new MockValidatable();
-
 
 		$Registry->register( get_class( $Validatable ), $Validator );
 
@@ -53,8 +51,7 @@ class ValidationRegistryTest extends TestCase
 
 	public function testValidate()
 	{
-		$Registry = new ValidationRegistry();
-
+		$Registry    = new ValidationRegistry();
 		$Validator   = new MockValidator();
 		$Validatable = new MockValidatable();
 

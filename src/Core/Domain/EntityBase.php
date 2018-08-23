@@ -52,6 +52,22 @@ abstract class EntityBase implements IEntity, IValidatable
 	}
 
 	/**
+	 * @return mixed
+	 */
+	public function getIsNew()
+	{
+		return $this->_IsNew || !$this->getIdentifier();
+	}
+
+	/**
+	 * @param mixed $IsNew
+	 */
+	public function setIsNew( $IsNew ): void
+	{
+		$this->_IsNew = $IsNew;
+	}
+
+	/**
 	 * @return \stdClass
 	 * @SuppressWarnings("unused")
 	 */
@@ -66,7 +82,7 @@ abstract class EntityBase implements IEntity, IValidatable
 
 	public function validate( \Neuron\Data\Validation\ICollection $Validator, array &$Violations ): bool
 	{
-		$Result     = $Validator->isValid( static::class );
+		$Result     = $Validator->isValid( $this );
 		$Violations = $Validator->getViolations();
 
 		return $Result;

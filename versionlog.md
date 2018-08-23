@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.51
+* Fix to validation registry.
+
 ## 0.0.50 2018-08-21
 * Updated userwithroles mapper.
 
