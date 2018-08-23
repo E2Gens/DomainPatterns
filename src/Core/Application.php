@@ -5,6 +5,7 @@ namespace DDP\Core;
 use Neuron\Log\Destination\DestinationBase;
 use Neuron\Log\Log;
 use Neuron\Log\Logger;
+use Neuron\Patterns\Registry;
 
 class Application
 {

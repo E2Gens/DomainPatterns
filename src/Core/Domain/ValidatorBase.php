@@ -33,7 +33,6 @@ class ValidatorBase
 		return $this->_Violations;
 	}
 
-
 	/**
 	 * @param $Entity
 	 * @return bool
