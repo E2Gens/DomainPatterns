@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.53
+
 ## 0.0.52 2018-08-23
 * Added better detail to validation failures.
 * Updated uservalidatortest.
