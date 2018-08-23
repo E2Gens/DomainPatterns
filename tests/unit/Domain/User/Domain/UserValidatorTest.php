@@ -56,7 +56,6 @@ class UserValidatorTest extends TestCase
 
 		$Violations = $UserValidator->getViolations();
 
-		var_dump( $Violations );
 		$this->assertContains(
 			"Neuron\Data\Validation\Name validation failed for getName: Lee Jones111",
 			$Violations
