@@ -1,6 +1,10 @@
 # Versions
 
-## 0.0.51
+## 0.0.52 2018-08-23
+* Added better detail to validation failures.
+* Updated uservalidatortest.
+
+## 0.0.51 2018-08-23
 * Fix to validation registry.
 
 ## 0.0.50 2018-08-21
