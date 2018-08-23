@@ -1,6 +1,7 @@
 # Versions
 
 ## 0.0.52
+* Added better detail to validation failures.
 
 ## 0.0.51
 * Fix to validation registry.

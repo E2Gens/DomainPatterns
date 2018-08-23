@@ -16,6 +16,11 @@ class ValidatorBase
 	private $_Violations;
 	private $_Entity;
 
+	public function __construct()
+	{
+		$this->_Violations = [];
+	}
+
 	/**
 	 * @param $Name
 	 * @param IValidator $Validator
@@ -55,7 +60,7 @@ class ValidatorBase
 
 		if( !$Validator->isValid( $this->_Entity->$Key() ) )
 		{
-			$this->_Violations[] = get_class( $Validator)." validation failed for ".$this->_Entity->$Key();
+			$this->_Violations[] = get_class( $Validator)." validation failed for ".$Key.": ".$this->_Entity->$Key();
 			$Prev = false;
 		}
 
