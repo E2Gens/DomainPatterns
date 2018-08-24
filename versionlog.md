@@ -1,6 +1,6 @@
 # Versions
 
-## 0.0.53
+## 0.0.53 2018-08-24
 * Added HashService and LaravelHashService implementation.
 
 ## 0.0.52 2018-08-23
