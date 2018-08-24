@@ -1,6 +1,7 @@
 # Versions
 
-## 0.0.54
+## 0.0.54 2018-08-24
+* Fixed an issue with UserWithRoles array mapper.
 
 ## 0.0.53 2018-08-24
 * Added HashService and LaravelHashService implementation.
