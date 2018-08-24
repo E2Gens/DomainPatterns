@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.55
+
 ## 0.0.54 2018-08-24
 * Fixed an issue with UserWithRoles array mapper.
 
