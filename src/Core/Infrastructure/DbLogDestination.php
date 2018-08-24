@@ -27,10 +27,11 @@ class DbLogDestination extends DestinationBase
 
 	protected function write( $Text, Log\Data $Data )
 	{
-		$this->_Model->datetime = date( "Y-m-d G:i:s", $Data->TimeStamp );
-		$this->_Model->text     = $Data->Text;
-		$this->_Model->type     = $Data->Level;
+		$Model           = $this->_Model->newInstance();
+		$Model->datetime = date( "Y-m-d G:i:s", $Data->TimeStamp );
+		$Model->text     = $Data->Text;
+		$Model->type     = $Data->Level;
 
-		$this->_Model->save();
+		$Model->save();
 	}
 }

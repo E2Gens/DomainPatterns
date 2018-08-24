@@ -261,6 +261,10 @@ class UserWithRoles extends EntityBase
 		{
 			$User->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
 		}
+		else if( isset( $Data[ 'name' ] ) )
+		{
+			$User->setName( $Data[ 'name' ] );
+		}
 
 		if( isset( $Data[ 'first_name' ] ) )
 		{
