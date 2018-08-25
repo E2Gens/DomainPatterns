@@ -84,9 +84,7 @@ class UserWithRolesRepository implements IUserRepository
 		{
 			$UserModel = $this->_UserModel->create( ( array)$Obj );
 
-			$User = new UserWithRoles();
-
-			UserWithRoles::fromArray( $User, $UserModel->toArray() );
+			$User->setIdentifier( $UserModel->id );
 		}
 
 		$this->saveRoles( $User );
