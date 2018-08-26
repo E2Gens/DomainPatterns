@@ -23,7 +23,7 @@ class UserWithRoles extends EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getUseFirstLastName()
+	public function getUseFirstLastName() : bool
 	{
 		return $this->_UseFirstLastName;
 	}
@@ -32,7 +32,7 @@ class UserWithRoles extends EntityBase
 	 * @param mixed $UseFirstLastName
 	 * @return UserWithRoles
 	 */
-	public function setUseFirstLastName( $UseFirstLastName )
+	public function setUseFirstLastName( bool $UseFirstLastName )
 	{
 		$this->_UseFirstLastName = $UseFirstLastName;
 		return $this;
