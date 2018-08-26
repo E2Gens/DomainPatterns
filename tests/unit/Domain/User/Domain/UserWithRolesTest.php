@@ -7,9 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 class UserWithRolesTest extends TestCase
 {
-	public function testFromArray()
+	public function testFromArrayName()
 	{
 		$User = new UserWithRoles();
+		$User->setUseFirstLastName( false );
 
 		$Arr[ 'id' ]             = 1;
 		$Arr[ 'first_name' ]     = 3;
@@ -34,6 +35,73 @@ class UserWithRolesTest extends TestCase
 		$this->assertEquals(
 			$User->getName(),
 			$Arr[ 'name' ]
+		);
+
+
+		$this->assertEquals(
+			$User->getEmail(),
+			$Arr[ 'email' ]
+		);
+
+		$this->assertEquals(
+			$User->getPhoto(),
+			$Arr[ 'photo' ]
+		);
+
+		$this->assertEquals(
+			$User->getPhone(),
+			$Arr[ 'phone' ]
+		);
+
+		$this->assertEquals(
+			$User->getPassword(),
+			$Arr[ 'password' ]
+		);
+
+		$this->assertEquals(
+			$User->getRememberToken(),
+			$Arr[ 'remember_token' ]
+		);
+
+		$this->assertEquals(
+			$User->getCreatedAt(),
+			$Arr[ 'created_at' ]
+		);
+
+		$this->assertEquals(
+			$User->getUpdatedAt(),
+			$Arr[ 'updated_at' ]
+		);
+
+		$this->assertEquals(
+			$User->getDeletedAt(),
+			$Arr[ 'deleted_at' ]
+		);
+	}
+
+	public function testFromArrayFirstLast()
+	{
+		$User = new UserWithRoles();
+		$User->setUseFirstLastName( true );
+
+		$Arr[ 'id' ]             = 1;
+		$Arr[ 'first_name' ]     = 3;
+		$Arr[ 'last_name' ]      = 4;
+		$Arr[ 'email' ]          = 5;
+		$Arr[ 'password' ]       = 6;
+		$Arr[ 'remember_token' ] = 7;
+		$Arr[ 'created_at' ]     = 8;
+		$Arr[ 'updated_at' ]     = 9;
+		$Arr[ 'deleted_at' ]     = 10;
+		$Arr[ 'photo' ]          = 11;
+		$Arr[ 'phone' ]          = 12;
+		$Arr[ 'name' ]           = "{$Arr[ 'first_name' ]} {$Arr[ 'last_name' ]}";
+
+		UserWithRoles::fromArray( $User, $Arr );
+
+		$this->assertEquals(
+			$User->getIdentifier(),
+			$Arr[ 'id' ]
 		);
 
 		$this->assertEquals(

@@ -9,6 +9,7 @@ class UserWithRoles extends EntityBase
 {
 	use TimestampsTrait;
 
+	private $_UseFirstLastName;
 	private $_Name;
 	private $_FirstName;
 	private $_LastName;
@@ -18,6 +19,24 @@ class UserWithRoles extends EntityBase
 	private $_Phone;
 	private $_Photo;
 	private $_Roles;
+
+	/**
+	 * @return mixed
+	 */
+	public function getUseFirstLastName() : bool
+	{
+		return $this->_UseFirstLastName;
+	}
+
+	/**
+	 * @param mixed $UseFirstLastName
+	 * @return UserWithRoles
+	 */
+	public function setUseFirstLastName( bool $UseFirstLastName )
+	{
+		$this->_UseFirstLastName = $UseFirstLastName;
+		return $this;
+	}
 
 	/**
 	 * @return mixed
@@ -257,23 +276,28 @@ class UserWithRoles extends EntityBase
 			$User->setIdentifier( $Data[ 'id' ] );
 		}
 
-		if( isset( $Data[ 'first_name' ] ) && isset( $Data[ 'last_name' ] ) )
+		if( $User->getUseFirstLastName() )
 		{
-			$User->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
-		}
-		else if( isset( $Data[ 'name' ] ) )
-		{
-			$User->setName( $Data[ 'name' ] );
-		}
+			if( isset( $Data[ 'first_name' ] ) )
+			{
+				$User->setFirstName( $Data[ 'first_name' ] );
+			}
 
-		if( isset( $Data[ 'first_name' ] ) )
-		{
-			$User->setFirstName( $Data[ 'first_name' ] );
+			if( isset( $Data[ 'last_name' ] ) )
+			{
+				$User->setLastName( $Data[ 'last_name' ] );
+			}
 		}
-
-		if( isset( $Data[ 'last_name' ] ) )
+		else
 		{
-			$User->setLastName( $Data[ 'last_name' ] );
+			if( isset( $Data[ 'name' ] ) )
+			{
+				$User->setName( $Data[ 'name' ] );
+			}
+			else if( isset( $Data[ 'first_name' ] ) && isset( $Data[ 'last_name' ] ) )
+			{
+				$User->setName( $Data[ 'first_name' ] . ' ' .$Data[ 'last_name' ] );
+			}
 		}
 
 		if( isset( $Data[ 'email' ] ) )
