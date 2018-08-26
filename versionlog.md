@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.57
+
 ## 0.0.56 2018-08-25
 * Added the ability to toggle between name and first/last in userwithroles.
 
