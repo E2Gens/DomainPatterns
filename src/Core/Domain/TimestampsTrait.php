@@ -11,7 +11,7 @@ trait TimestampsTrait
 	/**
 	 * @return mixed
 	 */
-	public function getCreatedAt()
+	public function getCreatedAt() : string
 	{
 		return $this->_CreatedAt;
 	}
@@ -19,7 +19,7 @@ trait TimestampsTrait
 	/**
 	 * @param mixed $CreatedAt
 	 */
-	public function setCreatedAt( $CreatedAt )
+	public function setCreatedAt( string $CreatedAt )
 	{
 		$this->_CreatedAt = $CreatedAt;
 	}
@@ -27,7 +27,7 @@ trait TimestampsTrait
 	/**
 	 * @return mixed
 	 */
-	public function getUpdatedAt()
+	public function getUpdatedAt() : string
 	{
 		return $this->_UpdatedAt;
 	}
@@ -35,7 +35,7 @@ trait TimestampsTrait
 	/**
 	 * @param mixed $UpdatedAt
 	 */
-	public function setUpdatedAt( $UpdatedAt )
+	public function setUpdatedAt( string $UpdatedAt )
 	{
 		$this->_UpdatedAt = $UpdatedAt;
 	}
@@ -43,7 +43,7 @@ trait TimestampsTrait
 	/**
 	 * @return mixed
 	 */
-	public function getDeletedAt()
+	public function getDeletedAt() : string
 	{
 		return $this->_DeletedAt;
 	}
@@ -51,7 +51,7 @@ trait TimestampsTrait
 	/**
 	 * @param mixed $DeletedAt
 	 */
-	public function setDeletedAt( $DeletedAt )
+	public function setDeletedAt( string $DeletedAt )
 	{
 		$this->_DeletedAt = $DeletedAt;
 	}
