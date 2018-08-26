@@ -1,6 +1,7 @@
 # Versions
 
 ## 0.0.56
+* Added the ability to toggle between name and first/last in userwithroles.
 
 ## 0.0.55 2018-08-25
 * Fixed another userwithroles mapper issue relating to roles.
