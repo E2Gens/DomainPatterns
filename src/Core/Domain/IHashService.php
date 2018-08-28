@@ -4,5 +4,5 @@ namespace DDP\Core\Domain;
 
 interface IHashService
 {
-	public function hash( \string $Data ) : \string;
+	public function hash( string $Data ) : string;
 }
