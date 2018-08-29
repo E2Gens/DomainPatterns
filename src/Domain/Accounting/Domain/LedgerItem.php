@@ -63,4 +63,53 @@ class LedgerItem extends EntityBase
 		$this->_TransactionId = $TransactionId;
 		return $this;
 	}
+
+	/**
+	 * @return \stdClass
+	 */
+	public function toStdClass(): \stdClass
+	{
+		$Obj = parent::toStdClass();
+
+		if( $this->getAccountId() )
+		{
+			$Obj->account_id = $this->getAccountId();
+		}
+
+		if( $this->getTransactionId() )
+		{
+			$Obj->transaction_id = $this->getTransactionId();
+		}
+
+		if( $this->getAmount() )
+		{
+			$Obj->amount = $this->getAmount();
+		}
+
+		return $Obj;
+	}
+
+	/**
+	 * @param $Transaction
+	 * @param array $Data
+	 */
+	public static function fromArray( &$Transaction, array $Data ): void
+	{
+		parent::fromArray( $Transaction, $Data );
+
+		if( isset( $Data[ 'account_id' ] ) )
+		{
+			$Transaction->setAccountId( $Data[ 'account_id' ] );
+		}
+
+		if( isset( $Data[ 'transaction_id' ] ) )
+		{
+			$Transaction->setTransactionId( $Data[ 'transaction_id' ] );
+		}
+
+		if( isset( $Data[ 'amount' ] ) )
+		{
+			$Transaction->setAmount( $Data[ 'amount' ] );
+		}
+	}
 }
