@@ -27,9 +27,9 @@ class ContentBlockRepository implements IContentBlockRepository
 
 	/**
 	 * @param $ContentBlock
-	 * @return mixed
+	 * @return Domain\ContentBlock
 	 */
-	public function save( $ContentBlock )
+	public function save( $ContentBlock ) : Domain\ContentBlock
 	{
 		$Obj = $ContentBlock->toStdClass();
 
@@ -47,13 +47,16 @@ class ContentBlockRepository implements IContentBlockRepository
 
 	/**
 	 * @param $ContentBlockId
-	 * @return mixed
+	 * @return Domain\ContentBlock
 	 */
-	public function getById( $ContentBlockId )
+	public function getById( $ContentBlockId ) : Domain\ContentBlock
 	{
 		$ContentBlockArr = $this->_ContentBlockModel->findOrFail( $ContentBlockId )->toArray();
 
-		return Domain\ContentBlock::fromArray( $ContentBlockArr );
+		$ContentBlock = new Domain\ContentBlock();
+		Domain\ContentBlock::fromArray( $ContentBlock, $ContentBlockArr );
+
+		return $ContentBlock;
 	}
 
 	/**
@@ -70,23 +73,30 @@ class ContentBlockRepository implements IContentBlockRepository
 
 		foreach ( $ContentBlocksArr as $ContentBlock )
 		{
-			$ContentBlocks[] = Domain\ContentBlock::fromArray( $ContentBlock );
+			$Block = new Domain\ContentBlock();
+
+			Domain\ContentBlock::fromArray( $Block, $ContentBlock );
+
+			$ContentBlocks[] = $Block;
  		}
 
  		return $ContentBlocks;
 	}
 
 	/**
-	 * @param $Name
-	 * @return mixed
+	 * @param string $Name
+	 * @return Domain\ContentBlock
 	 */
-	public function getByName( string $Name )
+	public function getByName( string $Name ) : Domain\ContentBlock
 	{
 		$PageObj = $this->_ContentBlockModel
 			->with( 'page' )
 			->where( 'name', $Name )
 			->firstOrFail();
 
-		return Domain\ContentBlock::fromArray( $PageObj->toArray() );
+		$Block = new Domain\ContentBlock();
+		Domain\ContentBlock::fromArray( $Block, $PageObj->toArray() );
+
+		return $Block;
 	}
 }
