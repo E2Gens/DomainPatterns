@@ -271,10 +271,7 @@ class UserWithRoles extends EntityBase
 	 */
 	public static function fromArray( &$User, array $Data ) : void
 	{
-		if( isset( $Data[ 'id' ] ) )
-		{
-			$User->setIdentifier( $Data[ 'id' ] );
-		}
+		parent::fromArray( $User, $Data );
 
 		if( $User->getUseFirstLastName() )
 		{

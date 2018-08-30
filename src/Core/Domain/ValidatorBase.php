@@ -22,6 +22,15 @@ class ValidatorBase
 	}
 
 	/**
+	 * Used to add information regarding which tests failed.
+	 * @param string $Message
+	 */
+	protected function addViolation( string $Message )
+	{
+		$this->_Violations[] = $Message;
+	}
+
+	/**
 	 * @param $Name
 	 * @param IValidator $Validator
 	 */
@@ -60,7 +69,7 @@ class ValidatorBase
 
 		if( !$Validator->isValid( $this->_Entity->$Key() ) )
 		{
-			$this->_Violations[] = get_class( $Validator)." validation failed for ".$Key.": ".$this->_Entity->$Key();
+			$this->addViolation( get_class( $Validator)." validation failed for ".$Key.": ".$this->_Entity->$Key() );
 			$Prev = false;
 		}
 

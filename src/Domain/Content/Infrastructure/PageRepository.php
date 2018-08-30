@@ -19,30 +19,31 @@ class PageRepository implements IPageRepository
 	}
 
 	/**
-	 * @param $Page
-	 * @return mixed
+	 * @param Domain\Page $Page
+	 * @return Domain\Page
 	 */
-	public function save( $Page )
+	public function save( Domain\Page $Page ) : Domain\Page
 	{
 		$Obj = $Page->toStdClass();
 
 		if( !$Page->getIdentifier() )
 		{
 			$PageModel = $this->_PageModel->create( (array)$Obj );
+			$Page->setIdentifier( $PageModel->id );
 		}
 		else
 		{
-			$PageModel = $this->_PageModel->where( 'id', $Obj->id )->update( (array)$Obj );
+			$this->_PageModel->where( 'id', $Obj->id )->update( (array)$Obj );
 		}
 
-		return $PageModel;
+		return $Page;
 	}
 
 	/**
 	 * @param $PageId
 	 * @return \DDP\Core\Domain\EntityBase|Domain\Page
 	 */
-	public function getById( $PageId )
+	public function getById( $PageId ) : Domain\Page
 	{
 		$PageObj = $this->_PageModel
 			->with( 'contentBlock' )
@@ -50,21 +51,29 @@ class PageRepository implements IPageRepository
 			->first()
 			->toArray();
 
-		return Domain\Page::fromArray( $PageObj );
+		$Page = new Domain\Page();
+
+		Domain\Page::fromArray( $Page, $PageObj );
+
+		return $Page;
 	}
 
 	/**
 	 * @param string $Route
 	 * @return \DDP\Core\Domain\EntityBase|Domain\Page
 	 */
-	public function getByRoute( string $Route )
+	public function getByRoute( string $Route ) : Domain\Page
 	{
 		$PageObj = $this->_PageModel
 			->with( 'contentBlock' )
 			->where( 'route', $Route )
 			->firstOrFail();
 
-		return Domain\Page::fromArray( $PageObj->toArray() );
+		$Page = new Domain\Page();
+
+		Domain\Page::fromArray( $Page, $PageObj->toArray() );
+
+		return $Page;
 	}
 
 	/**
@@ -74,15 +83,19 @@ class PageRepository implements IPageRepository
 	{
 		$Pages = [];
 
-		$PagesObj = $this->_PageModel
+		$PageObjs = $this->_PageModel
 			->with( 'contentBlock' )
 			->orderBy( 'updated_at', 'DESC' )
 			->get()
 			->toArray();
 
-		foreach( $PagesObj as $Page )
+		foreach( $PageObjs as $PageObj )
 		{
-			$Pages[] = Domain\Page::fromArray( $Page );
+			$Page = new Domain\Page();
+
+			Domain\Page::fromArray( $Page, $PageObj->toArray() );
+
+			$Pages[] = $Page;
 		}
 
 		return $Pages;

@@ -1,5 +1,9 @@
 # Versions
 
+## 0.0.59
+* Starting to build out accounting subdomain structure.
+* Fixes to content domain repositories.
+
 ## 0.0.58 2018-08-28
 * Removed backslashes from scalar type in IHashService interface and LaravelIHashService class.
 

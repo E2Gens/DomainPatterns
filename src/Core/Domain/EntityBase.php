@@ -80,6 +80,23 @@ abstract class EntityBase implements IEntity, IValidatable
 		return $Obj;
 	}
 
+	/**
+	 * @param $Entity
+	 * @param array $Data
+	 */
+	public static function fromArray( &$Entity, array $Data ) : void
+	{
+		if( isset( $Data[ 'id' ] ) )
+		{
+			$Entity->setIdentifier( $Data[ 'id' ] );
+		}
+	}
+
+	/**
+	 * @param \Neuron\Data\Validation\ICollection $Validator
+	 * @param array $Violations
+	 * @return bool
+	 */
 	public function validate( \Neuron\Data\Validation\ICollection $Validator, array &$Violations ): bool
 	{
 		$Result     = $Validator->isValid( $this );
