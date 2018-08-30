@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.60
+
 ## 0.0.59
 * Starting to build out accounting subdomain structure.
 * Fixes to content domain repositories.
