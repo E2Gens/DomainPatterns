@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.61
+
 ## 0.0.60
 * Fix to update user id if roles added before save.'
 
