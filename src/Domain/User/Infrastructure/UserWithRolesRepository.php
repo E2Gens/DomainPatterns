@@ -11,6 +11,7 @@ class UserWithRolesRepository implements IUserRepository
 	private $_UserModel;
 	private $_RoleModel;
 	private $_RoleUserModel;
+	private $_CurrentUserId;
 
 	/**
 	 * @return \App\User
@@ -101,6 +102,7 @@ class UserWithRolesRepository implements IUserRepository
 
 		if( is_array( $Roles ) )
 		{
+			$this->_CurrentUserId = $User->getIdentifier();
 			array_walk( $Roles, [ $this, 'addOrRemoveRole' ] );
 		}
 	}
@@ -111,7 +113,7 @@ class UserWithRolesRepository implements IUserRepository
 	protected function addOrRemoveRole( $RoleUser )
 	{
 		$RoleModel = $this->_RoleModel->findOrFail( $RoleUser->getRole()->getIdentifier() );
-		$UserModel = $this->_UserModel->findOrFail( $RoleUser->getUser()->getIdentifier() );
+		$UserModel = $this->_UserModel->findOrFail( $this->_CurrentUserId );
 
 		if( $RoleUser->getDeleted() )
 		{
