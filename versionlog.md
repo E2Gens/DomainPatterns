@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.60
+* Fix to update user id if roles added before save.'
+
 ## 0.0.59
 * Starting to build out accounting subdomain structure.
 * Fixes to content domain repositories.
