@@ -18,9 +18,10 @@ class PageTest extends TestCase
 		$Arr[ 'meta_keywords' ]    = 5;
 		$Arr[ 'content_block_id' ] = 7;
 		$Arr[ 'modified_by' ]      = 11;
-		$Arr[ 'created_at' ]       = 10;
-		$Arr[ 'updated_at' ]       = 8;
-		$Arr[ 'deleted_at' ]       = 9;
+
+		$Arr[ 'created_at' ]  = '2018-01-01';
+		$Arr[ 'updated_at' ]  = '2018-02-01';
+		$Arr[ 'deleted_at' ]  = '0000-00-00';
 
 		$Arr[ 'contentBlock' ][ 'content' ] = 6;
 

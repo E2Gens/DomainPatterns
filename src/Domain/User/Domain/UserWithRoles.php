@@ -34,9 +34,6 @@ class UserWithRoles extends EntityBase
 		$this->addMap( 'Phone',         'phone',          new Validation\StringData() );
 		$this->addMap( 'Photo',         'photo',          new Validation\StringData() );
 		$this->addMap( 'Roles',         'roles',          new Validation\ArrayData() );
-		$this->addMap( 'CreatedAt',     'created_at',     new Validation\Date() );
-		$this->addMap( 'UpdatedAt',     'updated_at',     new Validation\Date() );
-		$this->addMap( 'DeletedAt',     'deleted_at',     new Validation\Date() );
 	}
 
 	/**

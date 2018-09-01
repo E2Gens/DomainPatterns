@@ -15,9 +15,9 @@ class ContentBlockTest extends TestCase
 		$Arr[ 'name' ]        = 6;
 		$Arr[ 'content' ]     = 2;
 		$Arr[ 'modified_by' ] = 3;
-		$Arr[ 'created_at' ]  = 4;
-		$Arr[ 'updated_at' ]  = 5;
-		$Arr[ 'deleted_at' ]  = 7;
+		$Arr[ 'created_at' ]  = '2018-01-01';
+		$Arr[ 'updated_at' ]  = '2018-02-01';
+		$Arr[ 'deleted_at' ]  = '0000-00-00';
 
 		ContentBlock::fromArray( $Entity, $Arr );
 
