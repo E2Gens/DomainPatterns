@@ -3,12 +3,22 @@
 namespace DDP\Domain\Accounting\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use Neuron\Data\Validation;
 
 class LedgerItem extends EntityBase
 {
 	private $_AccountId;
 	private $_Amount;
 	private $_TransactionId;
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->addMap( 'AccountId',    'account_id',     new Validation\Integer() );
+		$this->addMap( 'Amount',       'amount',         new Validation\Integer() );
+		$this->addMap( 'TransactionId','transaction_id', new Validation\Integer() );
+	}
 
 	/**
 	 * @return mixed
@@ -62,54 +72,5 @@ class LedgerItem extends EntityBase
 	{
 		$this->_TransactionId = $TransactionId;
 		return $this;
-	}
-
-	/**
-	 * @return \stdClass
-	 */
-	public function toStdClass(): \stdClass
-	{
-		$Obj = parent::toStdClass();
-
-		if( $this->getAccountId() )
-		{
-			$Obj->account_id = $this->getAccountId();
-		}
-
-		if( $this->getTransactionId() )
-		{
-			$Obj->transaction_id = $this->getTransactionId();
-		}
-
-		if( $this->getAmount() )
-		{
-			$Obj->amount = $this->getAmount();
-		}
-
-		return $Obj;
-	}
-
-	/**
-	 * @param $Transaction
-	 * @param array $Data
-	 */
-	public static function fromArray( &$Transaction, array $Data ): void
-	{
-		parent::fromArray( $Transaction, $Data );
-
-		if( isset( $Data[ 'account_id' ] ) )
-		{
-			$Transaction->setAccountId( $Data[ 'account_id' ] );
-		}
-
-		if( isset( $Data[ 'transaction_id' ] ) )
-		{
-			$Transaction->setTransactionId( $Data[ 'transaction_id' ] );
-		}
-
-		if( isset( $Data[ 'amount' ] ) )
-		{
-			$Transaction->setAmount( $Data[ 'amount' ] );
-		}
 	}
 }

@@ -3,10 +3,22 @@
 namespace DDP\Domain\Accounting\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use Neuron\Data\Validation\StringData;
 
 class Account extends EntityBase
 {
 	private $_Name;
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->addMap(
+			'Name',
+			'name',
+			new StringData()
+		);
+	}
 
 	/**
 	 * @return mixed
@@ -27,31 +39,14 @@ class Account extends EntityBase
 	}
 
 	/**
-	 * @return \stdClass
-	 */
-	public function toStdClass(): \stdClass
-	{
-		$Obj = parent::toStdClass();
-
-		if( $this->getName() )
-		{
-			$Obj->name = $this->getName();
-		}
-
-		return $Obj;
-	}
-
-	/**
 	 * @param $Transaction
 	 * @param array $Data
+	 * @throws \Exception
+	 *
+	 * @deprecated
 	 */
 	public static function fromArray( &$Transaction, array $Data ): void
 	{
-		parent::fromArray( $Transaction, $Data );
-
-		if( isset( $Data[ 'name' ] ) )
-		{
-			$Transaction->setName( $Data[ 'name' ] );
-		}
+		throw new \Exception( 'deprecated' );
 	}
 }

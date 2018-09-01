@@ -3,20 +3,33 @@
 namespace DDP\Core\Domain;
 
 use DDP\Core\IValidatable;
+use Neuron\Data\Validation\Integer;
+use Neuron\Data\Validation\IValidator;
 
 /**
  * Base class for entities.
  * @package App\DDD
  */
 
-abstract class EntityBase implements IEntity, IValidatable
+class EntityBase implements IEntity, IValidatable
 {
 	private $_Identifier;
 	private $_Deleted;
+	private $_IsNew;
+	private $_ArrayMap;
+	private $_Validators;
+
+	protected function addMap( $Method, $Element, IValidator $Validator )
+	{
+		$this->_ArrayMap[ $Element ]   = $Method;
+		$this->_Validators[ $Element ] = $Validator;
+	}
 
 	public function __construct()
 	{
 		$this->_Deleted = false;
+
+		$this->addMap( 'Identifier', 'id', new Integer() );
 	}
 
 	/**
@@ -75,7 +88,17 @@ abstract class EntityBase implements IEntity, IValidatable
 	{
 		$Obj = new \stdClass();
 
-		$Obj->id = $this->getIdentifier();
+		foreach( $this->_ArrayMap as $Data => $Var )
+		{
+			$Method = 'get'.$Var;
+
+			$Result = $this->$Method();
+
+			if( $Result )
+			{
+				$Obj->$Data = $Result;
+			}
+		}
 
 		return $Obj;
 	}
@@ -83,12 +106,40 @@ abstract class EntityBase implements IEntity, IValidatable
 	/**
 	 * @param $Entity
 	 * @param array $Data
+	 * @deprecated
 	 */
 	public static function fromArray( &$Entity, array $Data ) : void
 	{
 		if( isset( $Data[ 'id' ] ) )
 		{
 			$Entity->setIdentifier( $Data[ 'id' ] );
+		}
+	}
+
+	/**
+	 * @param array $Data
+	 * @throws \Exception
+	 */
+	public function arrayMap( array $Data )
+	{
+		if( !count( $this->_ArrayMap ) )
+		{
+			throw new \Exception( "No automapper configuration for class." );
+		}
+
+		foreach( $Data as $Key => $Value )
+		{
+			if( array_key_exists( $Key, $this->_Validators ) )
+			{
+				if( !$this->_Validators[ $Key ]->isValid( $Value ) )
+				{
+					throw new \Exception( "Validation error: ".$Key." ".$Value );
+				}
+			}
+
+			$Method = 'set'.$this->_ArrayMap[ $Key ];
+
+			$this->$Method( $Value );
 		}
 	}
 

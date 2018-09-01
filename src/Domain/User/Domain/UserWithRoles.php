@@ -3,7 +3,8 @@
 namespace DDP\Domain\User\Domain;
 
 use DDP\Core\Domain\EntityBase;
-use DDP\Core\Domain\TimestampsTrait;#
+use DDP\Core\Domain\TimestampsTrait;
+use Neuron\Data\Validation;
 
 class UserWithRoles extends EntityBase
 {
@@ -19,6 +20,24 @@ class UserWithRoles extends EntityBase
 	private $_Phone;
 	private $_Photo;
 	private $_Roles;
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->addMap( 'Name',          'name',           new Validation\StringData() );
+		$this->addMap( 'FirstName',     'first_name',     new Validation\StringData() );
+		$this->addMap( 'LastName',      'last_name',      new Validation\StringData() );
+		$this->addMap( 'Email',         'email',          new Validation\Email() );
+		$this->addMap( 'Password',      'password',       new Validation\StringData() );
+		$this->addMap( 'RememberToken', 'remember_token', new Validation\StringData() );
+		$this->addMap( 'Phone',         'phone',          new Validation\StringData() );
+		$this->addMap( 'Photo',         'photo',          new Validation\StringData() );
+		$this->addMap( 'Roles',         'roles',          new Validation\ArrayData() );
+		$this->addMap( 'CreatedAt',     'created_at',     new Validation\Date() );
+		$this->addMap( 'UpdatedAt',     'updated_at',     new Validation\Date() );
+		$this->addMap( 'DeletedAt',     'deleted_at',     new Validation\Date() );
+	}
 
 	/**
 	 * @return mixed
@@ -215,54 +234,20 @@ class UserWithRoles extends EntityBase
 		}
 	}
 
-	/**
-	 * @return \stdClass
-	 */
-	public function toStdClass(): \stdClass
+	public function setRoles( array $Roles )
 	{
-		$Obj = parent::toStdClass();
-
-		if( $this->getName() )
+		foreach( $Roles as $RoleObj )
 		{
-			$Obj->name = $this->getName();
-		}
+			$Role = new Role();
+			$Role->setName( $RoleObj[ 'name' ] );
+			$Role->setIdentifier( $RoleObj[ 'id' ] );
 
-		if( $this->getFirstName() )
-		{
-			$Obj->first_name = $this->getFirstName();
-		}
+			$RoleUser = new RoleUser();
+			$RoleUser->setUser( $this );
+			$RoleUser->setRole( $Role );
 
-		if( $this->getLastName() )
-		{
-			$Obj->last_name = $this->getLastName();
+			$this->addRole( $RoleUser );
 		}
-
-		if( $this->getEmail() )
-		{
-			$Obj->email = $this->getEmail();
-		}
-
-		if( $this->getPassword() )
-		{
-			$Obj->password = $this->getPassword();
-		}
-
-		if( $this->getPhone() )
-		{
-			$Obj->phone = $this->getPhone();
-		}
-
-		if( $this->getPhoto() )
-		{
-			$Obj->photo = $this->getPhoto();
-		}
-
-		if( $this->getRememberToken() )
-		{
-			$Obj->remember_token = $this->getRememberToken();
-		}
-
-		return $Obj;
 	}
 
 	/**
@@ -339,18 +324,7 @@ class UserWithRoles extends EntityBase
 
 		if( isset( $Data[ 'roles' ] ) && is_array( $Data[ 'roles' ] ) )
 		{
-			foreach( $Data[ 'roles' ] as $RoleObj )
-			{
-				$Role = new Role();
-				$Role->setName( $RoleObj[ 'name' ] );
-				$Role->setIdentifier( $RoleObj[ 'id' ] );
-
-				$RoleUser = new RoleUser();
-				$RoleUser->setUser( $User );
-				$RoleUser->setRole( $Role );
-
-				$User->addRole( $RoleUser );
-			}
+			$User->setRoles( $Data[ 'roles' ] );
 		}
 	}
 

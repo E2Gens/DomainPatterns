@@ -53,7 +53,7 @@ class LedgerItemTest extends TestCase
 
 		$LedgerItem = new LedgerItem();
 
-		LedgerItem::fromArray( $LedgerItem, $Data );
+		$LedgerItem->arrayMap( $Data );
 
 		$this->assertEquals(
 			$LedgerItem->getIdentifier(),
