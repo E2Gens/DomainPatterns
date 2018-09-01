@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.63 2018-09-01
+* Added datetime validation to timestamps.
+
 ## 0.0.62 2018-09-01
 * Added auto mapping of timestamps in Entitybase.
 

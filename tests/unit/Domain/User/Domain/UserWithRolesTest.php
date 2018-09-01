@@ -19,9 +19,9 @@ class UserWithRolesTest extends TestCase
 		$this->Data[ 'email' ]          = 'test@example.org';
 		$this->Data[ 'password' ]       = '12345';
 		$this->Data[ 'remember_token' ] = '12345';
-		$this->Data[ 'created_at' ]     = '2018-08-01';
-		$this->Data[ 'updated_at' ]     = '2018-08-02';
-		$this->Data[ 'deleted_at' ]     = '2018-08-03';
+		$this->Data[ 'created_at' ]     = '2018-08-01 12:13:14';
+		$this->Data[ 'updated_at' ]     = '2018-08-02 12:13:14';
+		$this->Data[ 'deleted_at' ]     = '2018-08-03 15:16:17';
 		$this->Data[ 'photo' ]          = 'face.jpg';
 		$this->Data[ 'phone' ]          = '941-555-5555';
 		$this->Data[ 'name' ]           = "{$this->Data['first_name']} {$this->Data['last_name']}";

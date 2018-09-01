@@ -32,20 +32,7 @@ class EntityBase implements IEntity, IValidatable
 
 		$this->addMap( 'Identifier', 'id', new Integer() );
 
-		if( property_exists( $this, '_CreatedAt' ) )
-		{
-			$this->addMap( 'CreatedAt', 'created_at', new Validation\Date() );
-		}
-
-		if( property_exists( $this, '_UpdatedAt' ) )
-		{
-			$this->addMap( 'UpdatedAt', 'updated_at', new Validation\Date() );
-		}
-
-		if( property_exists( $this, '_DeletedAt' ) )
-		{
-			$this->addMap( 'DeletedAt', 'deleted_at', new Validation\Date() );
-		}
+		$this->mapTimeStamps();
 	}
 
 	/**
@@ -170,5 +157,23 @@ class EntityBase implements IEntity, IValidatable
 		$Violations = $Validator->getViolations();
 
 		return $Result;
+	}
+
+	protected function mapTimeStamps(): void
+	{
+		if( property_exists( $this, '_CreatedAt' ) )
+		{
+			$this->addMap( 'CreatedAt', 'created_at', new Validation\DateTime() );
+		}
+
+		if( property_exists( $this, '_UpdatedAt' ) )
+		{
+			$this->addMap( 'UpdatedAt', 'updated_at', new Validation\DateTime() );
+		}
+
+		if( property_exists( $this, '_DeletedAt' ) )
+		{
+			$this->addMap( 'DeletedAt', 'deleted_at', new Validation\DateTime() );
+		}
 	}
 }
