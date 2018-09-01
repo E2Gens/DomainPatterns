@@ -1,6 +1,9 @@
 # Versions
 
+## 0.0.66
+
 ## 0.0.65
+* Timestamp traits are now nullable.
 
 ## 0.0.64
 * Update to allow empty data to pass automapper validation.
