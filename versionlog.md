@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.61 2108-09-01
+* Implemented automapper functionality.
+
 ## 0.0.60
 * Fix to update user id if roles added before save.'
 

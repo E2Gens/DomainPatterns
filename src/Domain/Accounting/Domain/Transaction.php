@@ -3,6 +3,7 @@
 namespace DDP\Domain\Accounting\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use Neuron\Data\Validation;
 
 class Transaction extends EntityBase
 {
@@ -10,6 +11,16 @@ class Transaction extends EntityBase
 	private $_Total;
 	private $_Key;
 	private $_Ledger;
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->addMap( 'UserId','user_id', new Validation\Integer() );
+		$this->addMap( 'Total', 'total',   new Validation\Integer() );
+		$this->addMap( 'Key',   'key',     new Validation\StringData() );
+		$this->addMap( 'Ledger','ledger',  new Validation\ArrayData() );
+	}
 
 	/**
 	 * @return mixed
@@ -68,7 +79,7 @@ class Transaction extends EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getLedger() : array
+	public function getLedger() : ?array
 	{
 		return $this->_Ledger;
 	}
@@ -81,62 +92,13 @@ class Transaction extends EntityBase
 		$this->_Ledger[] = $Item;
 	}
 
-	/**
-	 * @return \stdClass
-	 */
-	public function toStdClass(): \stdClass
+	public function setLedger( array $Data )
 	{
-		$Obj = parent::toStdClass();
-
-		if( $this->getUserId() )
+		foreach( $Data as $Item )
 		{
-			$Obj->user_id = $this->getUserId();
-		}
-
-		if( $this->getTotal() )
-		{
-			$Obj->total = $this->getTotal();
-		}
-
-		if( $this->getKey() )
-		{
-			$Obj->key = $this->getKey();
-		}
-
-		return $Obj;
-	}
-
-	/**
-	 * @param $Transaction
-	 * @param array $Data
-	 */
-	public static function fromArray( &$Transaction, array $Data ): void
-	{
-		parent::fromArray( $Transaction, $Data );
-
-		if( isset( $Data[ 'user_id' ] ) )
-		{
-			$Transaction->setUserId( $Data[ 'user_id' ] );
-		}
-
-		if( isset( $Data[ 'total' ] ) )
-		{
-			$Transaction->setTotal( $Data[ 'total' ] );
-		}
-
-		if( isset( $Data[ 'key' ] ) )
-		{
-			$Transaction->setKey( $Data[ 'key' ] );
-		}
-
-		if( isset( $Data[ 'ledger' ] ) & is_array( $Data[ 'ledger' ] ) )
-		{
-			foreach( $Data[ 'ledger' ] as $Item )
-			{
-				$LedgerItem = new LedgerItem();
-				$LedgerItem::fromArray( $LedgerItem, $Item );
-				$Transaction->addLedgerItem( $LedgerItem );
-			}
+			$LedgerItem = new LedgerItem();
+			$LedgerItem->arrayMap( $Item );
+			$this->addLedgerItem( $LedgerItem );
 		}
 	}
 }

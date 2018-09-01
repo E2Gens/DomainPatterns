@@ -7,75 +7,82 @@ use PHPUnit\Framework\TestCase;
 
 class UserWithRolesTest extends TestCase
 {
+	public $Data;
+	
+	protected function setUp()
+	{
+		parent::setUp();
+
+		$this->Data[ 'id' ]             = 1;
+		$this->Data[ 'first_name' ]     = "First";
+		$this->Data[ 'last_name' ]      = "Last";
+		$this->Data[ 'email' ]          = 'test@example.org';
+		$this->Data[ 'password' ]       = '12345';
+		$this->Data[ 'remember_token' ] = '12345';
+		$this->Data[ 'created_at' ]     = '2018-08-01';
+		$this->Data[ 'updated_at' ]     = '2018-08-02';
+		$this->Data[ 'deleted_at' ]     = '2018-08-03';
+		$this->Data[ 'photo' ]          = 'face.jpg';
+		$this->Data[ 'phone' ]          = '941-555-5555';
+		$this->Data[ 'name' ]           = "{$this->Data['first_name']} {$this->Data['last_name']}";
+	}
+
 	public function testFromArrayName()
 	{
 		$User = new UserWithRoles();
 		$User->setUseFirstLastName( false );
 
-		$Arr[ 'id' ]             = 1;
-		$Arr[ 'first_name' ]     = 3;
-		$Arr[ 'last_name' ]      = 4;
-		$Arr[ 'email' ]          = 5;
-		$Arr[ 'password' ]       = 6;
-		$Arr[ 'remember_token' ] = 7;
-		$Arr[ 'created_at' ]     = 8;
-		$Arr[ 'updated_at' ]     = 9;
-		$Arr[ 'deleted_at' ]     = 10;
-		$Arr[ 'photo' ]          = 11;
-		$Arr[ 'phone' ]          = 12;
-		$Arr[ 'name' ]           = "{$Arr[ 'first_name' ]} {$Arr[ 'last_name' ]}";
-
-		UserWithRoles::fromArray( $User, $Arr );
+		UserWithRoles::fromArray( $User, $this->Data );
 
 		$this->assertEquals(
 			$User->getIdentifier(),
-			$Arr[ 'id' ]
+			$this->Data[ 'id' ]
 		);
 
 		$this->assertEquals(
 			$User->getName(),
-			$Arr[ 'name' ]
+			$this->Data[ 'name' ]
 		);
 
 
 		$this->assertEquals(
 			$User->getEmail(),
-			$Arr[ 'email' ]
+			$this->Data[ 'email' ]
 		);
 
 		$this->assertEquals(
 			$User->getPhoto(),
-			$Arr[ 'photo' ]
+			$this->Data[ 'photo' ]
 		);
 
 		$this->assertEquals(
 			$User->getPhone(),
-			$Arr[ 'phone' ]
+			$this->Data[ 'phone' ]
 		);
 
 		$this->assertEquals(
 			$User->getPassword(),
-			$Arr[ 'password' ]
+			$this->Data[ 'password' ]
 		);
 
 		$this->assertEquals(
 			$User->getRememberToken(),
-			$Arr[ 'remember_token' ]
+			$this->Data[ 'remember_token' ]
 		);
 
 		$this->assertEquals(
 			$User->getCreatedAt(),
-			$Arr[ 'created_at' ]
+			$this->Data[ 'created_at' ]
 		);
 
 		$this->assertEquals(
 			$User->getUpdatedAt(),
-			$Arr[ 'updated_at' ]
+			$this->Data[ 'updated_at' ]
 		);
 
 		$this->assertEquals(
 			$User->getDeletedAt(),
-			$Arr[ 'deleted_at' ]
+			$this->Data[ 'deleted_at' ]
 		);
 	}
 
@@ -84,74 +91,183 @@ class UserWithRolesTest extends TestCase
 		$User = new UserWithRoles();
 		$User->setUseFirstLastName( true );
 
-		$Arr[ 'id' ]             = 1;
-		$Arr[ 'first_name' ]     = 3;
-		$Arr[ 'last_name' ]      = 4;
-		$Arr[ 'email' ]          = 5;
-		$Arr[ 'password' ]       = 6;
-		$Arr[ 'remember_token' ] = 7;
-		$Arr[ 'created_at' ]     = 8;
-		$Arr[ 'updated_at' ]     = 9;
-		$Arr[ 'deleted_at' ]     = 10;
-		$Arr[ 'photo' ]          = 11;
-		$Arr[ 'phone' ]          = 12;
-		$Arr[ 'name' ]           = "{$Arr[ 'first_name' ]} {$Arr[ 'last_name' ]}";
-
-		UserWithRoles::fromArray( $User, $Arr );
+		UserWithRoles::fromArray( $User, $this->Data );
 
 		$this->assertEquals(
 			$User->getIdentifier(),
-			$Arr[ 'id' ]
+			$this->Data[ 'id' ]
 		);
 
 		$this->assertEquals(
 			$User->getFirstName(),
-			$Arr[ 'first_name' ]
+			$this->Data[ 'first_name' ]
 		);
 
 		$this->assertEquals(
 			$User->getLastName(),
-			$Arr[ 'last_name' ]
+			$this->Data[ 'last_name' ]
 		);
 
 		$this->assertEquals(
 			$User->getEmail(),
-			$Arr[ 'email' ]
+			$this->Data[ 'email' ]
 		);
 
 		$this->assertEquals(
 			$User->getPhoto(),
-			$Arr[ 'photo' ]
+			$this->Data[ 'photo' ]
 		);
 
 		$this->assertEquals(
 			$User->getPhone(),
-			$Arr[ 'phone' ]
+			$this->Data[ 'phone' ]
 		);
 
 		$this->assertEquals(
 			$User->getPassword(),
-			$Arr[ 'password' ]
+			$this->Data[ 'password' ]
 		);
 
 		$this->assertEquals(
 			$User->getRememberToken(),
-			$Arr[ 'remember_token' ]
+			$this->Data[ 'remember_token' ]
 		);
 
 		$this->assertEquals(
 			$User->getCreatedAt(),
-			$Arr[ 'created_at' ]
+			$this->Data[ 'created_at' ]
 		);
 
 		$this->assertEquals(
 			$User->getUpdatedAt(),
-			$Arr[ 'updated_at' ]
+			$this->Data[ 'updated_at' ]
 		);
 
 		$this->assertEquals(
 			$User->getDeletedAt(),
-			$Arr[ 'deleted_at' ]
+			$this->Data[ 'deleted_at' ]
+		);
+	}
+
+	public function testArrayMapName()
+	{
+		$User = new UserWithRoles();
+		$User->setUseFirstLastName( false );
+
+		$User->arrayMap( $this->Data );
+
+		$this->assertEquals(
+			$User->getIdentifier(),
+			$this->Data[ 'id' ]
+		);
+
+		$this->assertEquals(
+			$User->getName(),
+			$this->Data[ 'name' ]
+		);
+
+
+		$this->assertEquals(
+			$User->getEmail(),
+			$this->Data[ 'email' ]
+		);
+
+		$this->assertEquals(
+			$User->getPhoto(),
+			$this->Data[ 'photo' ]
+		);
+
+		$this->assertEquals(
+			$User->getPhone(),
+			$this->Data[ 'phone' ]
+		);
+
+		$this->assertEquals(
+			$User->getPassword(),
+			$this->Data[ 'password' ]
+		);
+
+		$this->assertEquals(
+			$User->getRememberToken(),
+			$this->Data[ 'remember_token' ]
+		);
+
+		$this->assertEquals(
+			$User->getCreatedAt(),
+			$this->Data[ 'created_at' ]
+		);
+
+		$this->assertEquals(
+			$User->getUpdatedAt(),
+			$this->Data[ 'updated_at' ]
+		);
+
+		$this->assertEquals(
+			$User->getDeletedAt(),
+			$this->Data[ 'deleted_at' ]
+		);
+	}
+
+	public function testArrayMapFirstLast()
+	{
+		$User = new UserWithRoles();
+		$User->setUseFirstLastName( true );
+
+		$User->arrayMap( $this->Data );
+
+		$this->assertEquals(
+			$User->getIdentifier(),
+			$this->Data[ 'id' ]
+		);
+
+		$this->assertEquals(
+			$User->getFirstName(),
+			$this->Data[ 'first_name' ]
+		);
+
+		$this->assertEquals(
+			$User->getLastName(),
+			$this->Data[ 'last_name' ]
+		);
+
+		$this->assertEquals(
+			$User->getEmail(),
+			$this->Data[ 'email' ]
+		);
+
+		$this->assertEquals(
+			$User->getPhoto(),
+			$this->Data[ 'photo' ]
+		);
+
+		$this->assertEquals(
+			$User->getPhone(),
+			$this->Data[ 'phone' ]
+		);
+
+		$this->assertEquals(
+			$User->getPassword(),
+			$this->Data[ 'password' ]
+		);
+
+		$this->assertEquals(
+			$User->getRememberToken(),
+			$this->Data[ 'remember_token' ]
+		);
+
+		$this->assertEquals(
+			$User->getCreatedAt(),
+			$this->Data[ 'created_at' ]
+		);
+
+		$this->assertEquals(
+			$User->getUpdatedAt(),
+			$this->Data[ 'updated_at' ]
+		);
+
+		$this->assertEquals(
+			$User->getDeletedAt(),
+			$this->Data[ 'deleted_at' ]
 		);
 	}
 

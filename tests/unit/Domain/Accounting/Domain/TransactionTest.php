@@ -36,7 +36,7 @@ class TransactionTest extends TestCase
 
 		$Transaction = new Transaction();
 
-		Transaction::fromArray( $Transaction, $Data );
+		$Transaction->arrayMap( $Data );
 
 		$this->assertEquals(
 			$Transaction->getIdentifier(),

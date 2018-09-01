@@ -40,7 +40,7 @@ class AccountTest extends TestCase
 
 		$Account = new Account();
 
-		Account::fromArray( $Account, $Data );
+		$Account->arrayMap( $Data );
 
 		$this->assertEquals(
 			$Account->getIdentifier(),

@@ -19,7 +19,7 @@ class EntityStateService
 	}
 
 	/**
-	 * Returns all entities flagged for creation be the repository.
+	 * Returns all entities flagged for creation by the repository.
 	 * @param array $Entities
 	 * @return array
 	 */
