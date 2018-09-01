@@ -163,17 +163,17 @@ class EntityBase implements IEntity, IValidatable
 	{
 		if( property_exists( $this, '_CreatedAt' ) )
 		{
-			$this->addMap( 'CreatedAt', 'created_at', new Validation\Date() );
+			$this->addMap( 'CreatedAt', 'created_at', new Validation\DateTime() );
 		}
 
 		if( property_exists( $this, '_UpdatedAt' ) )
 		{
-			$this->addMap( 'UpdatedAt', 'updated_at', new Validation\Date() );
+			$this->addMap( 'UpdatedAt', 'updated_at', new Validation\DateTime() );
 		}
 
 		if( property_exists( $this, '_DeletedAt' ) )
 		{
-			$this->addMap( 'DeletedAt', 'deleted_at', new Validation\Date() );
+			$this->addMap( 'DeletedAt', 'deleted_at', new Validation\DateTime() );
 		}
 	}
 }
