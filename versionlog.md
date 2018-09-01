@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.62
+
 ## 0.0.61 2108-09-01
 * Implemented automapper functionality.
 
