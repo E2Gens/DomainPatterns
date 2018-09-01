@@ -5,6 +5,7 @@ namespace DDP\Core\Domain;
 use DDP\Core\IValidatable;
 use Neuron\Data\Validation\Integer;
 use Neuron\Data\Validation\IValidator;
+use Neuron\Data\Validation;
 
 /**
  * Base class for entities.
@@ -30,6 +31,21 @@ class EntityBase implements IEntity, IValidatable
 		$this->_Deleted = false;
 
 		$this->addMap( 'Identifier', 'id', new Integer() );
+
+		if( property_exists( $this, '_CreatedAt' ) )
+		{
+			$this->addMap( 'CreatedAt', 'created_at', new Validation\Date() );
+		}
+
+		if( property_exists( $this, '_UpdatedAt' ) )
+		{
+			$this->addMap( 'UpdatedAt', 'updated_at', new Validation\Date() );
+		}
+
+		if( property_exists( $this, '_DeletedAt' ) )
+		{
+			$this->addMap( 'DeletedAt', 'deleted_at', new Validation\Date() );
+		}
 	}
 
 	/**
