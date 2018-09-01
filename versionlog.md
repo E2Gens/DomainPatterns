@@ -1,6 +1,9 @@
 # Versions
 
+## 0.0.65
+
 ## 0.0.64
+* Update to allow empty data to pass automapper validation.
 
 ## 0.0.63 2018-09-01
 * Added datetime validation to timestamps.
