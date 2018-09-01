@@ -132,11 +132,14 @@ class EntityBase implements IEntity, IValidatable
 
 		foreach( $Data as $Key => $Value )
 		{
-			if( array_key_exists( $Key, $this->_Validators ) )
+			if( $Value )
 			{
-				if( !$this->_Validators[ $Key ]->isValid( $Value ) )
+				if( array_key_exists( $Key, $this->_Validators ) )
 				{
-					throw new \Exception( "Validation error: ".$Key." ".$Value );
+					if( !$this->_Validators[ $Key ]->isValid( $Value ) )
+					{
+						throw new \Exception( "Validation error: " . $Key . " " . $Value );
+					}
 				}
 			}
 

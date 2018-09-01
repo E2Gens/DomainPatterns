@@ -85,7 +85,7 @@ class ContentBlock extends EntityBase
 
 		if( isset( $Data[ 'content' ] ) )
 		{
-			$ContentBlock->setContent(  $Data[ 'content' ] );
+			$ContentBlock->setContent( $Data[ 'content' ] );
 		}
 
 		if( isset( $Data[ 'modified_by' ] ) )
