@@ -1,6 +1,7 @@
 # Versions
 
-## 0.0.62
+## 0.0.62 2018-09-01
+* Added auto mapping of timestamps in Entitybase.
 
 ## 0.0.61 2108-09-01
 * Implemented automapper functionality.
