@@ -134,18 +134,13 @@ class EntityBase implements IEntity, IValidatable
 		{
 			if( $Value )
 			{
-				if( array_key_exists( $Key, $this->_Validators ) )
-				{
-					if( !$this->_Validators[ $Key ]->isValid( $Value ) )
-					{
-						throw new \Exception( "Validation error: " . $Key . " " . $Value );
-					}
-				}
+				$this->validateMap( $Key, $Value );
 			}
 
-			$Method = 'set'.$this->_ArrayMap[ $Key ];
-
-			$this->$Method( $Value );
+			if( array_key_exists( $Key, $this->_ArrayMap ) )
+			{
+				$this->mapSet( $Key, $Value );
+			}
 		}
 	}
 
@@ -178,5 +173,32 @@ class EntityBase implements IEntity, IValidatable
 		{
 			$this->addMap( 'DeletedAt', 'deleted_at', new Validation\DateTime() );
 		}
+	}
+
+	/**
+	 * @param $Key
+	 * @param $Value
+	 * @throws \Exception
+	 */
+	protected function validateMap( $Key, $Value ): void
+	{
+		if( array_key_exists( $Key, $this->_Validators ) )
+		{
+			if( !$this->_Validators[ $Key ]->isValid( $Value ) )
+			{
+				throw new \Exception( "Validation error: " . $Key . " " . $Value );
+			}
+		}
+	}
+
+	/**
+	 * @param $Key
+	 * @param $Value
+	 */
+	protected function mapSet( $Key, $Value ): void
+	{
+		$Method = 'set' . $this->_ArrayMap[ $Key ];
+
+		$this->$Method( $Value );
 	}
 }
