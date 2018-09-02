@@ -97,7 +97,7 @@ class EntityBase implements IEntity, IValidatable
 
 			$Result = $this->$Method();
 
-			if( $Result )
+			if( $Result && !is_object( $Result ) && !is_array( $Result ) )
 			{
 				$Obj->$Data = $Result;
 			}
