@@ -1,6 +1,6 @@
 # Versions
 
-## 0.0.67
+## 0.0.67 2018-09-02
 * toStdClass now ignores complex data types.
 
 ## 0.0.66 2018-09-02
