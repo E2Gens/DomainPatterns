@@ -16,6 +16,14 @@ class DbLogDestination extends DestinationBase
 	}
 
 	/**
+	 * @return \App\Log
+	 */
+	public function getModel()
+	{
+		return $this->_Model;
+	}
+
+	/**
 	 * @param array $aParams
 	 * @return mixed|void
 	 *
