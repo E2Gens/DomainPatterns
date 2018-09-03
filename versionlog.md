@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.69
+
 ## 0.0.68
 * Added accessor for dblogdestination model.
 
