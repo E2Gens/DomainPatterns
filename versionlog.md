@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.68
+* Added accessor for dblogdestination model.
+
 ## 0.0.67 2018-09-02
 * toStdClass now ignores complex data types.
 
