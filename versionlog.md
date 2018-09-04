@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.71
+
 ## 0.0.70 2018-09-03
 * Fixed an issue in log repo.
 
@@ -16,7 +18,7 @@
 * automapper will now ignore missing setters.
 
 ## 0.0.65
-* Timestamp traits are now nullable.
+* Timestamp traits are now nullab
 
 ## 0.0.64
 * Update to allow empty data to pass automapper validation.
