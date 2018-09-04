@@ -1,6 +1,7 @@
 # Versions
 
 ## 0.0.69
+* Added Log entity and LogRepository.
 
 ## 0.0.68
 * Added accessor for dblogdestination model.
