@@ -1,6 +1,7 @@
 # Versions
 
 ## 0.0.70
+* Fixed an issue in log repo.
 
 ## 0.0.69 2018-09-03
 * Added Log entity and LogRepository.
