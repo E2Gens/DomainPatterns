@@ -30,13 +30,16 @@ class LogRepository implements ILogRepository
 	 */
 	public function getById( int $LogId ) : Log
 	{
-		return ( new Log() )
+		$Log = new Log();
+		$Log
 			->arrayMap(
 				$this->getLogModel()
 					->where( 'id', $LogId )
 					->first()
 					->toArray()
 			);
+
+		return $Log;
 	}
 
 	/**
@@ -60,7 +63,9 @@ class LogRepository implements ILogRepository
 
 		foreach( $Rows as $Row )
 		{
-			$Logs[] = ( new Log() )->arrayMap( $Row );
+			$Log = new Log;
+			$Log->arrayMap( $Row );
+			$Logs[] = $Log;
 		}
 
 		return $Logs;
@@ -89,7 +94,9 @@ class LogRepository implements ILogRepository
 
 		foreach( $Rows as $Row )
 		{
-			$Logs[] = ( new Log() )->arrayMap( $Row );
+			$Log = new Log;
+			$Log->arrayMap( $Row );
+			$Logs[] = $Log;
 		}
 
 		return $Logs;
