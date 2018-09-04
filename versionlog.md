@@ -1,6 +1,6 @@
 # Versions
 
-## 0.0.70
+## 0.0.70 2018-09-03
 * Fixed an issue in log repo.
 
 ## 0.0.69 2018-09-03
