@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.73
+
 ## 0.0.72 2018-09-04
 * Added Payment api and service.
 
