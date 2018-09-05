@@ -2,25 +2,64 @@
 
 namespace DDP\Domain\Accounting\Infrastructure;
 
+use DDP\Domain\Accounting\Domain\Account;
 use DDP\Domain\Accounting\Domain\LedgerItem;
 use Neuron\Data\Object\DateRange;
 
 class LedgerItemRepository
 {
 	private $_LedgerModel;
+	private $_AccountModel;
 
 	/**
 	 * LedgerItemRepository constructor.
 	 * @param \App\Ledger $Ledger
 	 */
-	public function __construct( \App\Ledger $Ledger )
+	public function __construct( \App\Ledger $Ledger, \App\Account $Account )
 	{
 		$this->_LedgerModel = $Ledger;
+		$this->_AccountModel = $Account;
+	}
+
+	/**
+	 * @param int $AccountId
+	 * @return Account
+	 *
+	 * @throws \Exception
+	 */
+	public function getAccountById( int $AccountId ) : Account
+	{
+		$Account = new Account();
+
+		$Data = $this->_AccountModel->where( 'id', $AccountId )->first()->toArray();
+
+		$Account->arrayMap( $Data );
+
+		return $Account;
+	}
+
+	/**
+	 * @param string $Name
+	 * @return Account
+	 *
+	 * @throws \Exception
+	 */
+	public function getAccountByName( string $Name ) : Account
+	{
+		$Account = new Account();
+
+		$Data = $this->_AccountModel->where( 'name', $Name )->first()->toArray();
+
+		$Account->arrayMap( $Data );
+
+		return $Account;
 	}
 
 	/**
 	 * @param int $LedgerItemId
 	 * @return LedgerItem
+	 *
+	 * @throws \Exception
 	 */
 	public function getById( int $LedgerItemId ) : LedgerItem
 	{
@@ -28,7 +67,7 @@ class LedgerItemRepository
 
 		$Ledger = new LedgerItem();
 
-		LedgerItem::fromArray( $Ledger, $Data );
+		$Ledger->arrayMap( $Data );
 
 		return $Ledger;
 	}
@@ -36,6 +75,7 @@ class LedgerItemRepository
 	/**
 	 * @param DateRange $Range
 	 * @return array
+	 *
 	 * @throws \Exception
 	 */
 	public function getByDateRange( DateRange $Range ) : array
@@ -54,6 +94,7 @@ class LedgerItemRepository
 	/**
 	 * @param int $AccountId
 	 * @param DateRange $Range
+	 *
 	 * @throws \Exception
 	 */
 	public function getByAccountAndDateRange( int $AccountId, DateRange $Range )
