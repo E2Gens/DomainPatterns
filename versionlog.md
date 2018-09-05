@@ -1,6 +1,9 @@
 # Versions
 
-## 0.0.71
+## 0.0.72
+* Added Payment api and service.
+
+## 0.0.71 2018-09-04
 * Added access to accounts via ledger item repo.
 
 ## 0.0.70 2018-09-03

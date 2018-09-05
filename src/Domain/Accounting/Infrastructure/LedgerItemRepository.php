@@ -6,7 +6,7 @@ use DDP\Domain\Accounting\Domain\Account;
 use DDP\Domain\Accounting\Domain\LedgerItem;
 use Neuron\Data\Object\DateRange;
 
-class LedgerItemRepository
+class LedgerItemRepository implements ILedgerItemRepository
 {
 	private $_LedgerModel;
 	private $_AccountModel;

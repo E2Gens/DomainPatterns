@@ -5,7 +5,7 @@ namespace DDP\Domain\Accounting\Infrastructure;
 use DDP\Domain\Accounting\Domain\LedgerItem;
 use DDP\Domain\Accounting\Domain\Transaction;
 
-class TransactionRepository
+class TransactionRepository implements ITransactionRepository
 {
 	private $_TransactionModel;
 	private $_LedgerModel;
