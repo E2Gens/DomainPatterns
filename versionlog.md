@@ -1,6 +1,7 @@
 # Versions
 
 ## 0.0.71
+* Added access to accounts via ledger item repo.
 
 ## 0.0.70 2018-09-03
 * Fixed an issue in log repo.
