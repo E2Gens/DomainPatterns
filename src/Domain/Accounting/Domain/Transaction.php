@@ -11,15 +11,33 @@ class Transaction extends EntityBase
 	private $_Total;
 	private $_Key;
 	private $_Ledger;
+	private $_ItemId;
 
 	public function __construct()
 	{
 		parent::__construct();
 
 		$this->addMap( 'UserId','user_id', new Validation\Integer() );
+		$this->addMap( 'ItemId','item_id', new Validation\Integer() );
 		$this->addMap( 'Total', 'total',   new Validation\Integer() );
 		$this->addMap( 'Key',   'key',     new Validation\StringData() );
 		$this->addMap( 'Ledger','ledger',  new Validation\ArrayData() );
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getItemId()
+	{
+		return $this->_ItemId;
+	}
+
+	/**
+	 * @param mixed $ItemId
+	 */
+	public function setItemId( $ItemId ): void
+	{
+		$this->_ItemId = $ItemId;
 	}
 
 	/**

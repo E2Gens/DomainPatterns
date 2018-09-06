@@ -10,6 +10,7 @@ class LedgerItem extends EntityBase
 	private $_AccountId;
 	private $_Amount;
 	private $_TransactionId;
+	private $_ItemId;
 
 	public function __construct()
 	{
@@ -18,6 +19,7 @@ class LedgerItem extends EntityBase
 		$this->addMap( 'AccountId',    'account_id',     new Validation\Integer() );
 		$this->addMap( 'Amount',       'amount',         new Validation\Integer() );
 		$this->addMap( 'TransactionId','transaction_id', new Validation\Integer() );
+		$this->addMap( 'ItemId',       'item_id',        new Validation\Integer() );
 	}
 
 	/**
@@ -71,6 +73,24 @@ class LedgerItem extends EntityBase
 	public function setTransactionId( int $TransactionId )
 	{
 		$this->_TransactionId = $TransactionId;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getItemId() : ?int
+	{
+		return $this->_ItemId;
+	}
+
+	/**
+	 * @param mixed $ItemId
+	 * @return LedgerItem
+	 */
+	public function setItemId( int $ItemId )
+	{
+		$this->_ItemId = $ItemId;
 		return $this;
 	}
 }
