@@ -3,10 +3,13 @@
 namespace DDP\Domain\Accounting\Domain;
 
 use DDP\Core\Domain\EntityBase;
+use DDP\Core\Domain\TimestampsTrait;
 use Neuron\Data\Validation;
 
 class Transaction extends EntityBase
 {
+	use TimestampsTrait;
+
 	private $_UserId;
 	private $_Total;
 	private $_Key;

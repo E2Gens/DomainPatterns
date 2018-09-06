@@ -1,7 +1,7 @@
 # Versions
 
 ## 0.0.74
-
+* Added timestamps to transaction.
 
 ## 0.0.73 2018-09-05
 * Added item_id to ledger items.
