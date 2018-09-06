@@ -1,6 +1,8 @@
 # Versions
 
 ## 0.0.73
+* Added item_id to ledger items.
+* Added item_id to transaction.
 
 ## 0.0.72 2018-09-04
 * Added Payment api and service.

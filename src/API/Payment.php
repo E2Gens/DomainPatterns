@@ -25,6 +25,30 @@ class Payment
 	}
 
 	/**
+	 * @return ITransactionRepository
+	 */
+	public function getTransactionRepository(): ITransactionRepository
+	{
+		return $this->_TransactionRepository;
+	}
+
+	/**
+	 * @return ILedgerItemRepository
+	 */
+	public function getLedgerRepository(): ILedgerItemRepository
+	{
+		return $this->_LedgerRepository;
+	}
+
+	/**
+	 * @return IPaymentService
+	 */
+	public function getPaymentService(): IPaymentService
+	{
+		return $this->_PaymentService;
+	}
+
+	/**
 	 * @param array $LineItems
 	 * @return Transaction
 	 * @throws \Exception
@@ -43,6 +67,11 @@ class Payment
 
 			$Ledger->setAccountId( $Account->getIdentifier() );
 			$Ledger->setAmount( $LineItem[ 'amount' ] );
+
+			if( array_key_exists( 'item_id', $LineItem ) )
+			{
+				$Ledger->setItemId( $LineItem[ 'item_id' ] );
+			}
 
 			$Total += $LineItem[ 'amount' ];
 			$Transaction->addLedgerItem( $Ledger );
