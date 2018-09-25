@@ -1,6 +1,9 @@
 # Versions
 
-## 0.0.74
+## 0.0.75 2018-09-25
+* Update to toStdClass to handle bool/false properties.
+
+## 0.0.74 2018-09-05
 * Added timestamps to transaction.
 
 ## 0.0.73 2018-09-05

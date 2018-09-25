@@ -48,6 +48,18 @@ class Payment
 		return $this->_PaymentService;
 	}
 
+	public function getTotal( array $LineItems ) : int
+	{
+		$Total = 0;
+
+		foreach( $LineItems as $LineItem )
+		{
+			$Total += $LineItem[ 'amount' ];
+		}
+
+		return $Total;
+	}
+
 	/**
 	 * @param array $LineItems
 	 * @return Transaction
