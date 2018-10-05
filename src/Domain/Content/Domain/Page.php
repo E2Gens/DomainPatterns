@@ -4,10 +4,25 @@ namespace DDP\Domain\Content\Domain;
 
 use DDP\Core\Domain\EntityBase;
 use DDP\Core\Domain\TimestampsTrait;
+use Neuron\Data\Validation\Integer;
+use Neuron\Data\Validation\StringData;
 
 class Page extends EntityBase
 {
 	use TimestampsTrait;
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->addMap( 'Route', 				'route', 					new StringData() );
+		$this->addMap( 'Title', 		  	   'title',					new StringData() );
+		$this->addMap( 'MetaKeywords', 	'meta_keywords', 		new StringData() );
+		$this->addMap( 'MetaDescription', 'meta_description', 	new StringData() );
+		$this->addMap( 'Content', 			'content',			 	new StringData() );
+		$this->addMap( 'ModifiedBy',  		'modified_by',		 	new Integer() );
+		$this->addMap( 'ContentBlockId',  'content_block_id',	new Integer() );
+	}
 
 	private $_Route;
 	private $_Title;
@@ -26,10 +41,10 @@ class Page extends EntityBase
 	}
 
 	/**
-	 * @param $Route
+	 * @param string $Route
 	 * @return $this
 	 */
-	public function setRoute( $Route )
+	public function setRoute( ?string $Route )
 	{
 		$this->_Route = $Route;
 		return $this;
@@ -47,7 +62,7 @@ class Page extends EntityBase
 	 * @param $Title
 	 * @return $this
 	 */
-	public function setTitle( $Title )
+	public function setTitle( ?string $Title )
 	{
 		$this->_Title = $Title;
 		return $this;
@@ -101,7 +116,7 @@ class Page extends EntityBase
 	 * @param $Content
 	 * @return $this
 	 */
-	public function setContent( $Content )
+	public function setContent( ?string $Content )
 	{
 		$this->_Content = $Content;
 		return $this;
@@ -110,7 +125,7 @@ class Page extends EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getModifiedBy()
+	public function getModifiedBy(): ?int
 	{
 		return $this->_ModifiedBy;
 	}
@@ -119,7 +134,7 @@ class Page extends EntityBase
 	 * @param $ModifiedBy
 	 * @return $this
 	 */
-	public function setModifiedBy( $ModifiedBy )
+	public function setModifiedBy( ?int $ModifiedBy )
 	{
 		$this->_ModifiedBy = $ModifiedBy;
 		return $this;
@@ -128,7 +143,7 @@ class Page extends EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getContentBlockId()
+	public function getContentBlockId(): ?int
 	{
 		return $this->_ContentBlockId;
 	}
@@ -137,55 +152,10 @@ class Page extends EntityBase
 	 * @param $ContentBlockId
 	 * @return $this
 	 */
-	public function setContentBlockId( $ContentBlockId )
+	public function setContentBlockId( ?int $ContentBlockId )
 	{
 		$this->_ContentBlockId = $ContentBlockId;
 		return $this;
-	}
-
-	/**
-	 * @return \stdClass
-	 */
-	public function toStdClass(): \stdClass
-	{
-		$Obj = parent::toStdClass();
-
-		if( $this->getRoute() )
-		{
-			$Obj->route = $this->getRoute();
-		}
-
-		if( $this->getTitle() )
-		{
-			$Obj->title = $this->getTitle();
-		}
-
-		if( $this->getContent() )
-		{
-			$Obj->content = $this->getContent();
-		}
-
-		if( $this->getMetaDescription() )
-		{
-			$Obj->meta_description = $this->getMetaDescription();
-		}
-
-		if( $this->getMetaKeywords() )
-		{
-			$Obj->meta_keywords = $this->getMetaKeywords();
-		}
-
-		if( $this->getContentBlockId() )
-		{
-			$Obj->content_block_id = $this->getContentBlockId();
-		}
-
-		if( $this->getModifiedBy() )
-		{
-			$Obj->modified_by = $this->getModifiedBy();
-		}
-
-		return $Obj;
 	}
 
 	/**

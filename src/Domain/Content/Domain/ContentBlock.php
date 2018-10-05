@@ -4,6 +4,8 @@ namespace DDP\Domain\Content\Domain;
 
 use DDP\Core\Domain\EntityBase;
 use DDP\Core\Domain\TimestampsTrait;
+use Neuron\Data\Validation\Integer;
+use Neuron\Data\Validation\StringData;
 
 class ContentBlock extends EntityBase
 {
@@ -14,6 +16,18 @@ class ContentBlock extends EntityBase
 	private $_ModifiedBy;
 
 	/**
+	 * ContentBlock constructor.
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->addMap( 'Name', 'name', new StringData() );
+		$this->addMap( 'Content', 'content', new StringData() );
+		$this->addMap( 'ModifiedBy', 'modified_by', new Integer() );
+	}
+
+	/**
 	 * @return null|string
 	 */
 	public function getName(): ?string
@@ -22,10 +36,10 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
-	 * @param $Name
+	 * @param string $Name
 	 * @return $this
 	 */
-	public function setName( $Name )
+	public function setName( ?string $Name )
 	{
 		$this->_Name = $Name;
 		return $this;
@@ -40,10 +54,10 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
-	 * @param mixed $Content
+	 * @param string $Content
 	 * @return $this
 	 */
-	public function setContent( $Content )
+	public function setContent( ?string $Content )
 	{
 		$this->_Content = $Content;
 		return $this;
@@ -58,10 +72,10 @@ class ContentBlock extends EntityBase
 	}
 
 	/**
-	 * @param mixed $ModifiedBy
+	 * @param int $ModifiedBy
 	 * @return $this
 	 */
-	public function setModifiedBy( $ModifiedBy )
+	public function setModifiedBy( ?int $ModifiedBy )
 	{
 		$this->_ModifiedBy = $ModifiedBy;
 		return $this;
@@ -108,32 +122,6 @@ class ContentBlock extends EntityBase
 			$ContentBlock->setDeletedAt( $Data[ 'deleted_at' ] );
 		}
 	}
-
-	/**
-	 * @return \stdClass
-	 */
-	public function toStdClass(): \stdClass
-	{
-		$Obj = parent::toStdClass();
-
-		if( $this->getName() )
-		{
-			$Obj->name = $this->getName();
-		}
-
-		if( $this->getContent() )
-		{
-			$Obj->content = $this->getContent();
-		}
-
-		if( $this->getModifiedBy() )
-		{
-			$Obj->modified_by = $this->getModifiedBy();
-		}
-
-		return $Obj;
-	}
-
 
 	/**
 	 * @return object
