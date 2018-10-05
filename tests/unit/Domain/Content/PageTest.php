@@ -12,20 +12,20 @@ class PageTest extends TestCase
 		$Page = new Page();
 
 		$Arr[ 'id' ]               = 1;
-		$Arr[ 'route' ]            = 2;
-		$Arr[ 'title' ]            = 3;
-		$Arr[ 'meta_description' ] = 4;
-		$Arr[ 'meta_keywords' ]    = 5;
+		$Arr[ 'route' ]            = 'Some route';
+		$Arr[ 'title' ]            = 'Some title';
+		$Arr[ 'meta_description' ] = 'Some meta description';
+		$Arr[ 'meta_keywords' ]    = 'Some keywords';
 		$Arr[ 'content_block_id' ] = 7;
 		$Arr[ 'modified_by' ]      = 11;
 
-		$Arr[ 'created_at' ]  = '2018-01-01';
-		$Arr[ 'updated_at' ]  = '2018-02-01';
-		$Arr[ 'deleted_at' ]  = '0000-00-00';
+		$Arr[ 'created_at' ]  = '2018-01-01 00:00:00';
+		$Arr[ 'updated_at' ]  = '2018-02-01 00:00:00';
+		$Arr[ 'deleted_at' ]  = '2018-02-01 00:00:00';
 
-		$Arr[ 'contentBlock' ][ 'content' ] = 6;
+		$Arr[ 'content' ] = 'Some content';
 
-		Page::fromArray( $Page, $Arr );
+		$Page->arrayMap( $Arr );
 
 		$this->assertEquals(
 			$Page->getIdentifier(),
@@ -44,7 +44,7 @@ class PageTest extends TestCase
 
 		$this->assertEquals(
 			$Page->getContent(),
-			$Arr[ 'contentBlock' ][ 'content' ]
+			$Arr[ 'content' ]
 		);
 
 		$this->assertEquals(
@@ -87,14 +87,16 @@ class PageTest extends TestCase
 	{
 		$Page = new Page();
 
-		$Page->setIdentifier( 1 );
-		$Page->setRoute( 2 );
-		$Page->setTitle( 3 );
-		$Page->setContent( 4 );
-		$Page->setMetaDescription( 5 );
-		$Page->setMetaKeywords( 6 );
-		$Page->setContentBlockId( 7 );
-		$Page->setModifiedBy( 8 );
+		$Arr[ 'id' ]               = 1;
+		$Arr[ 'route' ]            = 'Some route';
+		$Arr[ 'title' ]            = 'Some title';
+		$Arr[ 'meta_description' ] = 'Some meta description';
+		$Arr[ 'meta_keywords' ]    = 'Some keywords';
+		$Arr[ 'content' ]          = 'Some content';
+		$Arr[ 'content_block_id' ] = 7;
+		$Arr[ 'modified_by' ]      = 11;
+
+		$Page->arrayMap( $Arr );
 
 		$Obj = $Page->toStdClass();
 

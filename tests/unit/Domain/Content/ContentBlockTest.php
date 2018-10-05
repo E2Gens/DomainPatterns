@@ -9,50 +9,50 @@ class ContentBlockTest extends TestCase
 {
 	public function testFromArray()
 	{
-		$Entity = new ContentBlock();
+		$ContentBlock = new ContentBlock();
 
 		$Arr[ 'id' ]          = 1;
-		$Arr[ 'name' ]        = 6;
-		$Arr[ 'content' ]     = 2;
+		$Arr[ 'name' ]        = 'Some name';
+		$Arr[ 'content' ]     = 'Some content';
 		$Arr[ 'modified_by' ] = 3;
-		$Arr[ 'created_at' ]  = '2018-01-01';
-		$Arr[ 'updated_at' ]  = '2018-02-01';
-		$Arr[ 'deleted_at' ]  = '0000-00-00';
+		$Arr[ 'created_at' ]  = '2018-01-01 00:00:00';
+		$Arr[ 'updated_at' ]  = '2018-02-01 00:00:00';
+		$Arr[ 'deleted_at' ]  = '2018-02-01 00:00:00';
 
-		ContentBlock::fromArray( $Entity, $Arr );
+		$ContentBlock->arrayMap( $Arr );
 
 		$this->assertEquals(
-			$Entity->getIdentifier(),
+			$ContentBlock->getIdentifier(),
 			$Arr[ 'id' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getName(),
+			$ContentBlock->getName(),
 			$Arr[ 'name' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getContent(),
+			$ContentBlock->getContent(),
 			$Arr[ 'content' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getModifiedBy(),
+			$ContentBlock->getModifiedBy(),
 			$Arr[ 'modified_by' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getCreatedAt(),
+			$ContentBlock->getCreatedAt(),
 			$Arr[ 'created_at' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getUpdatedAt(),
+			$ContentBlock->getUpdatedAt(),
 			$Arr[ 'updated_at' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getDeletedAt(),
+			$ContentBlock->getDeletedAt(),
 			$Arr[ 'deleted_at' ]
 		);
 	}
@@ -61,10 +61,12 @@ class ContentBlockTest extends TestCase
 	{
 		$ContentBlock = new ContentBlock();
 
-		$ContentBlock->setIdentifier( 1 );
-		$ContentBlock->setName( 2 );
-		$ContentBlock->setContent( 3 );
-		$ContentBlock->setModifiedBy( 4 );
+		$Arr[ 'id' ]          = 1;
+		$Arr[ 'name' ]        = 'Some name';
+		$Arr[ 'content' ]     = 'Some content';
+		$Arr[ 'modified_by' ] = 3;
+
+		$ContentBlock->arrayMap( $Arr );
 
 		$Obj = $ContentBlock->toStdClass();
 

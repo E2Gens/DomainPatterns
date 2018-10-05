@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.76 2018-10-05
+* CMS issues fixed. Tests updated.
+
 ## 0.0.75 2018-09-25
 * Update to toStdClass to handle bool/false properties.
 
