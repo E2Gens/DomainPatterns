@@ -127,7 +127,7 @@ class Page extends EntityBase
 	 */
 	public function getModifiedBy(): ?int
 	{
-		return $modified_bythis->_ModifiedBy;
+		return $this->_ModifiedBy;
 	}
 
 	/**
