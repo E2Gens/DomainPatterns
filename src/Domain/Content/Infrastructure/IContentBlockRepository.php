@@ -24,7 +24,7 @@ interface IContentBlockRepository
 	 * @param $ContentBlock
 	 * @return Domain\ContentBlock
 	 */
-	public function save( $ContentBlock ): Domain\ContentBlock;
+	public function save( Domain\ContentBlock $ContentBlock ): Domain\ContentBlock;
 
 	/**
 	 * @param $ContentBlockId

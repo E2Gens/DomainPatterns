@@ -29,20 +29,20 @@ class ContentBlockRepository implements IContentBlockRepository
 	 * @param $ContentBlock
 	 * @return Domain\ContentBlock
 	 */
-	public function save( $ContentBlock ) : Domain\ContentBlock
+	public function save( Domain\ContentBlock $ContentBlock ) : Domain\ContentBlock
 	{
 		$Obj = $ContentBlock->toStdClass();
 
 		if( !$ContentBlock->getIdentifier() )
 		{
-			$ContentBlockModel = $this->_ContentBlockModel->create( (array)$Obj );
+			$this->_ContentBlockModel->create( (array)$Obj );
 		}
 		else
 		{
-			$ContentBlockModel = $this->_ContentBlockModel->where( 'id', $Obj->id )->update( (array)$Obj );
+			$this->_ContentBlockModel->where( 'id', $Obj->id )->update( (array)$Obj );
 		}
 
-		return $ContentBlockModel;
+		return $ContentBlock;
 	}
 
 	/**
