@@ -9,7 +9,7 @@ class ContentBlockTest extends TestCase
 {
 	public function testFromArray()
 	{
-		$Entity = new ContentBlock();
+		$ContentBlock = new ContentBlock();
 
 		$Arr[ 'id' ]          = 1;
 		$Arr[ 'name' ]        = 6;
@@ -19,40 +19,40 @@ class ContentBlockTest extends TestCase
 		$Arr[ 'updated_at' ]  = '2018-02-01';
 		$Arr[ 'deleted_at' ]  = '0000-00-00';
 
-		ContentBlock::fromArray( $Entity, $Arr );
+		$ContentBlock->arrayMap( $Arr );
 
 		$this->assertEquals(
-			$Entity->getIdentifier(),
+			$ContentBlock->getIdentifier(),
 			$Arr[ 'id' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getName(),
+			$ContentBlock->getName(),
 			$Arr[ 'name' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getContent(),
+			$ContentBlock->getContent(),
 			$Arr[ 'content' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getModifiedBy(),
+			$ContentBlock->getModifiedBy(),
 			$Arr[ 'modified_by' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getCreatedAt(),
+			$ContentBlock->getCreatedAt(),
 			$Arr[ 'created_at' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getUpdatedAt(),
+			$ContentBlock->getUpdatedAt(),
 			$Arr[ 'updated_at' ]
 		);
 
 		$this->assertEquals(
-			$Entity->getDeletedAt(),
+			$ContentBlock->getDeletedAt(),
 			$Arr[ 'deleted_at' ]
 		);
 	}

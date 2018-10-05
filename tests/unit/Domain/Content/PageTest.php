@@ -25,7 +25,7 @@ class PageTest extends TestCase
 
 		$Arr[ 'contentBlock' ][ 'content' ] = 6;
 
-		Page::fromArray( $Page, $Arr );
+		$Page->arrayMap( $Arr );
 
 		$this->assertEquals(
 			$Page->getIdentifier(),
