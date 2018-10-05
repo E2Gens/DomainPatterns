@@ -87,14 +87,15 @@ class PageTest extends TestCase
 	{
 		$Page = new Page();
 
-		$Page->setIdentifier( 1 );
-		$Page->setRoute( 2 );
-		$Page->setTitle( 3 );
-		$Page->setContent( 4 );
-		$Page->setMetaDescription( 5 );
-		$Page->setMetaKeywords( 6 );
-		$Page->setContentBlockId( 7 );
-		$Page->setModifiedBy( 8 );
+		$Arr[ 'id' ]               = 1;
+		$Arr[ 'route' ]            = 'Some route';
+		$Arr[ 'title' ]            = 'Some title';
+		$Arr[ 'meta_description' ] = 'Some meta description';
+		$Arr[ 'meta_keywords' ]    = 'Some keywords';
+		$Arr[ 'content_block_id' ] = 7;
+		$Arr[ 'modified_by' ]      = 11;
+
+		$Page->arrayMap( $Arr );
 
 		$Obj = $Page->toStdClass();
 

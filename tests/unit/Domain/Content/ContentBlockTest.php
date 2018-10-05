@@ -61,10 +61,12 @@ class ContentBlockTest extends TestCase
 	{
 		$ContentBlock = new ContentBlock();
 
-		$ContentBlock->setIdentifier( 1 );
-		$ContentBlock->setName( 2 );
-		$ContentBlock->setContent( 3 );
-		$ContentBlock->setModifiedBy( 4 );
+		$Arr[ 'id' ]          = 1;
+		$Arr[ 'name' ]        = 'Some name';
+		$Arr[ 'content' ]     = 'Some content';
+		$Arr[ 'modified_by' ] = 3;
+
+		$ContentBlock->arrayMap( $Arr );
 
 		$Obj = $ContentBlock->toStdClass();
 
