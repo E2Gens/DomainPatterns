@@ -15,9 +15,9 @@ class ContentBlockTest extends TestCase
 		$Arr[ 'name' ]        = 'Some name';
 		$Arr[ 'content' ]     = 'Some content';
 		$Arr[ 'modified_by' ] = 3;
-		$Arr[ 'created_at' ]  = '2018-01-01';
-		$Arr[ 'updated_at' ]  = '2018-02-01';
-		$Arr[ 'deleted_at' ]  = '0000-00-00';
+		$Arr[ 'created_at' ]  = '2018-01-01 00:00:00';
+		$Arr[ 'updated_at' ]  = '2018-02-01 00:00:00';
+		$Arr[ 'deleted_at' ]  = '2018-02-01 00:00:00';
 
 		$ContentBlock->arrayMap( $Arr );
 
