@@ -12,8 +12,8 @@ class ContentBlockTest extends TestCase
 		$ContentBlock = new ContentBlock();
 
 		$Arr[ 'id' ]          = 1;
-		$Arr[ 'name' ]        = 6;
-		$Arr[ 'content' ]     = 2;
+		$Arr[ 'name' ]        = 'Some name';
+		$Arr[ 'content' ]     = 'Some content';
 		$Arr[ 'modified_by' ] = 3;
 		$Arr[ 'created_at' ]  = '2018-01-01';
 		$Arr[ 'updated_at' ]  = '2018-02-01';

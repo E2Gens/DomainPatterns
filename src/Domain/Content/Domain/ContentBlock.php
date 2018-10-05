@@ -20,6 +20,8 @@ class ContentBlock extends EntityBase
 	 */
 	public function __construct()
 	{
+		parent::__construct();
+
 		$this->addMap( 'Name', 'name', new StringData() );
 		$this->addMap( 'Content', 'content', new StringData() );
 		$this->addMap( 'ModifiedBy', 'modified_by', new Integer() );

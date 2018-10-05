@@ -12,10 +12,10 @@ class PageTest extends TestCase
 		$Page = new Page();
 
 		$Arr[ 'id' ]               = 1;
-		$Arr[ 'route' ]            = 2;
-		$Arr[ 'title' ]            = 3;
-		$Arr[ 'meta_description' ] = 4;
-		$Arr[ 'meta_keywords' ]    = 5;
+		$Arr[ 'route' ]            = 'Some route';
+		$Arr[ 'title' ]            = 'Some title';
+		$Arr[ 'meta_description' ] = 'Some meta description';
+		$Arr[ 'meta_keywords' ]    = 'Some keywords';
 		$Arr[ 'content_block_id' ] = 7;
 		$Arr[ 'modified_by' ]      = 11;
 

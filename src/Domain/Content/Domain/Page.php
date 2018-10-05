@@ -13,6 +13,8 @@ class Page extends EntityBase
 
 	public function __construct()
 	{
+		parent::__construct();
+
 		$this->addMap( 'Route', 				'route', 					new StringData() );
 		$this->addMap( 'Title', 		  	   'title',					new StringData() );
 		$this->addMap( 'MetaKeywords', 	'meta_keywords', 		new StringData() );
