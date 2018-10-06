@@ -1,8 +1,11 @@
 # Versions
 
-## 0.0.77 2018-10-6
+## 0.0.78 2018-10-06
+* Added Transaction getById()
+
+## 0.0.77 2018-10-06
 * Fixed an issue with transaction repository - saveLedgerItem
-* Added Transaction repository getAllByTransactionId()
+* Added Ledger repository getAllByTransactionId()
 
 ## 0.0.76 2018-10-05
 * CMS issues fixed. Tests updated.

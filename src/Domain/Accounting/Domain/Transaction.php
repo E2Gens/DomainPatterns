@@ -30,17 +30,19 @@ class Transaction extends EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getItemId()
+	public function getItemId() : ?int
 	{
 		return $this->_ItemId;
 	}
 
 	/**
 	 * @param mixed $ItemId
+	 * @return Transaction
 	 */
-	public function setItemId( $ItemId ): void
+	public function setItemId( $ItemId ) : Transaction
 	{
 		$this->_ItemId = $ItemId;
+		return $this;
 	}
 
 	/**
@@ -55,7 +57,7 @@ class Transaction extends EntityBase
 	 * @param mixed $UserId
 	 * @return Transaction
 	 */
-	public function setUserId( int $UserId )
+	public function setUserId( int $UserId )  : Transaction
 	{
 		$this->_UserId = $UserId;
 		return $this;
@@ -73,7 +75,7 @@ class Transaction extends EntityBase
 	 * @param mixed $Total
 	 * @return Transaction
 	 */
-	public function setTotal( int $Total )
+	public function setTotal( int $Total ) : Transaction
 	{
 		$this->_Total = $Total;
 		return $this;
@@ -91,7 +93,7 @@ class Transaction extends EntityBase
 	 * @param mixed $Key
 	 * @return Transaction
 	 */
-	public function setKey( string $Key )
+	public function setKey( string $Key ) : Transaction
 	{
 		$this->_Key = $Key;
 		return $this;
@@ -113,13 +115,23 @@ class Transaction extends EntityBase
 		$this->_Ledger[] = $Item;
 	}
 
-	public function setLedger( array $Data )
+	public function setLedger( array $Data ) : Transaction
 	{
 		foreach( $Data as $Item )
 		{
 			$LedgerItem = new LedgerItem();
-			$LedgerItem->arrayMap( $Item );
+
+			if( is_array( $Item ) )
+			{
+				$LedgerItem->arrayMap( $Item );
+			}
+			else
+			{
+				$LedgerItem = $Item;
+			}
+
 			$this->addLedgerItem( $LedgerItem );
 		}
+		return $this;
 	}
 }
