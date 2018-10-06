@@ -1,6 +1,7 @@
 # Versions
 
 ## 0.0.79
+* Fix to saveledgeritem.
 
 ## 0.0.78 2018-10-06
 * Added Transaction getById()
