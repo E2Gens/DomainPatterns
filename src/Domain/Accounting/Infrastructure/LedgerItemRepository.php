@@ -73,6 +73,31 @@ class LedgerItemRepository implements ILedgerItemRepository
 	}
 
 	/**
+	 * @param int $TransactionId
+	 * @return array
+	 *
+	 * @throws \Exception
+	 */
+	public function getAllByTransactionId( int $TransactionId ) : array
+	{
+		$Objects = $this->_LedgerModel->where( 'transaction_id', $TransactionId )
+			->get()
+			->toArray();
+
+		$Items = [];
+
+		foreach( $Objects as $Object )
+		{
+			$Item = new LedgerItem();
+			$Item->arrayMap( $Object );
+
+			$Items[] = $Item;
+		}
+
+		return $Items;
+	}
+
+	/**
 	 * @param DateRange $Range
 	 * @return array
 	 *

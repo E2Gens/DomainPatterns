@@ -129,8 +129,9 @@ class TransactionRepository implements ITransactionRepository
 
 	/**
 	 * @param LedgerItem $Item
+	 * @return LedgerItem
 	 */
-	protected function saveLedgerItem( LedgerItem $Item )
+	protected function saveLedgerItem( LedgerItem $Item ) : LedgerItem
 	{
 		$Obj = $Item->toStdClass();
 
@@ -143,9 +144,17 @@ class TransactionRepository implements ITransactionRepository
 			unset( $Obj->is_deleted );
 			unset( $Obj->is_new );
 
-			$LedgerModel = $this->_LedgerModel->create( ( array)$Obj );
+			$Model = $this->_LedgerModel->newInstance();
 
-			$LedgerModel->setIdentifier( $LedgerModel->id );
+			$Model->save();
+
+			$LedgerModel = $this->_LedgerModel->newInstance();
+
+			$LedgerModel->create( ( array)$Obj );
+
+			$Item->setIdentifier( $LedgerModel->id );
 		}
+
+		return $Item;
 	}
 }
