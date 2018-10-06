@@ -27,6 +27,26 @@ class TransactionRepository implements ITransactionRepository
 		$this->_TransactionModel = $Transaction;
 	}
 
+	public function getById( int $TransactionId ) : Transaction
+	{
+		$Data = $this->_TransactionModel->where( 'id', $TransactionId )->first()->toArray();
+
+		$Transaction = new Transaction();
+
+		$Transaction->arrayMap( $Data );
+
+		$Repo = new LedgerItemRepository(
+			$this->_LedgerModel,
+			$this->_AccountModel
+		);
+
+		$Transaction->setLedger(
+			$Repo->getAllByTransactionId( $TransactionId )
+		);
+
+		return $Transaction;
+	}
+
 	/**
 	 * @param Transaction $Transaction
 	 * @return Transaction
