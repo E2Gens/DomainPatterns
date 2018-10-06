@@ -164,15 +164,9 @@ class TransactionRepository implements ITransactionRepository
 			unset( $Obj->is_deleted );
 			unset( $Obj->is_new );
 
-			$Model = $this->_LedgerModel->newInstance();
+			$Model = $this->_LedgerModel->->create( ( array)$Obj );
 
-			$Model->save();
-
-			$LedgerModel = $this->_LedgerModel->newInstance();
-
-			$LedgerModel->create( ( array)$Obj );
-
-			$Item->setIdentifier( $LedgerModel->id );
+			$Item->setIdentifier( $Model->id );
 		}
 
 		return $Item;
