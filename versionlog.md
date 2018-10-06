@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.80 2018-10-06
+* Fix to transactionrepository.
+
 ## 0.0.79 2018-10-06
 * Fix to saveledgeritem.
 
