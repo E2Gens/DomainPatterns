@@ -1,6 +1,6 @@
 # Versions
 
-## 0.0.77
+## 0.0.77 2018-10-6
 * Fixed an issue with transaction repository - saveLedgerItem
 * Added Transaction repository getAllByTransactionId()
 
