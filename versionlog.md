@@ -1,5 +1,9 @@
 # Versions
 
+## 0.0.82 2018-10-07
+* Added confirmationid to transaction Payment::charge and
+    PaymentService::processPayment.
+
 ## 0.0.81 2018-10-07
 * Added the ability to filter LedgerItems by account name in the repo.
 

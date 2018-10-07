@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 class MockPaymentService implements IPaymentService
 {
-	public function processPayment( Transaction $transaction ): string
+	public function processPayment( Transaction $transaction, string $ConfirmationId ): string
 	{
 		return "1234";
 	}
@@ -90,7 +90,8 @@ class PaymentTest extends TestCase
 					'account' => 'tax',
 					'amount' => 2
 				]
-			]
+			],
+			'1234'
 		);
 
 		$Ledger = $Transaction->getLedger();
