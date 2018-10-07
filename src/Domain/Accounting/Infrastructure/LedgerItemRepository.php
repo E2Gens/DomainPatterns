@@ -74,15 +74,22 @@ class LedgerItemRepository implements ILedgerItemRepository
 
 	/**
 	 * @param int $TransactionId
+	 * @param string $AccountName
 	 * @return array
 	 *
 	 * @throws \Exception
 	 */
-	public function getAllByTransactionId( int $TransactionId ) : array
+	public function getAllByTransactionId( int $TransactionId, string $AccountName = '' ) : array
 	{
-		$Objects = $this->_LedgerModel->where( 'transaction_id', $TransactionId )
-			->get()
-			->toArray();
+		$Query = $this->_LedgerModel->where( 'transaction_id', $TransactionId );
+
+		if( $AccountName )
+		{
+			$Query->join( 'accounts', 'accounts.id', '=', 'ledger_items.account_id' )
+				->where( 'accounts.name', '=' , $AccountName );
+		}
+
+		$Objects = $Query->get()->toArray();
 
 		$Items = [];
 
