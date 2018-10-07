@@ -62,10 +62,11 @@ class Payment
 
 	/**
 	 * @param array $LineItems
+	 * @param string $ConfirmationId
 	 * @return Transaction
 	 * @throws \Exception
 	 */
-	public function charge( array $LineItems ) : Transaction
+	public function charge( array $LineItems, string $ConfirmationId ) : Transaction
 	{
 		$Transaction = new Transaction();
 
@@ -92,7 +93,7 @@ class Payment
 		$Transaction->setTotal( $Total );
 
 		$Transaction->setKey(
-			$this->_PaymentService->processPayment( $Transaction )
+			$this->_PaymentService->processPayment( $Transaction, $ConfirmationId )
 		);
 
 		return $Transaction;

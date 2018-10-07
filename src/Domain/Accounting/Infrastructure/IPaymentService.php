@@ -6,5 +6,5 @@ use DDP\Domain\Accounting\Domain\Transaction;
 
 interface IPaymentService
 {
-	public function processPayment( Transaction $transaction ) : string;
+	public function processPayment( Transaction $transaction, string $ConfirmationId ) : string;
 }
