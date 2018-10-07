@@ -1,6 +1,6 @@
 # Versions
 
-## 0.0.82
+## 0.0.82 2018-10-07
 * Added confirmationid to transaction Payment::charge and
     PaymentService::processPayment.
 
