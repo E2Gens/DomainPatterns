@@ -16,7 +16,12 @@ class MockPaymentService implements IPaymentService
 {
 	public function processPayment( Transaction $transaction, string $ConfirmationId ): string
 	{
-		return "1234";
+		return $ConfirmationId;
+	}
+
+	public function processRefund( Transaction $Transaction, string $ConfirmationId ): string
+	{
+		return $ConfirmationId;
 	}
 }
 

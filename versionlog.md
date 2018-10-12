@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.83 2018-10-12
+* Added processRefund method to IPaymentService.
+
 ## 0.0.82 2018-10-07
 * Added confirmationid to transaction Payment::charge and
     PaymentService::processPayment.
