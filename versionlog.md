@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.85
+
 ## 0.0.84 2018-10-13
 * Made LedgerItem::getTransactionId nullable.
 
