@@ -1,6 +1,7 @@
 # Versions
 
 ## 0.0.84
+* Made LedgerItem::getTransactionId nullable.
 
 ## 0.0.83 2018-10-12
 * Added processRefund method to IPaymentService.

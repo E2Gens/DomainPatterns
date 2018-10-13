@@ -61,7 +61,7 @@ class LedgerItem extends EntityBase
 	/**
 	 * @return mixed
 	 */
-	public function getTransactionId() : int
+	public function getTransactionId() : ?int
 	{
 		return $this->_TransactionId;
 	}
