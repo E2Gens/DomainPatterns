@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.85 2018-18-15
+* Added the ChargeId parameter to the processRefund method.
+
 ## 0.0.84 2018-10-13
 * Made LedgerItem::getTransactionId nullable.
 

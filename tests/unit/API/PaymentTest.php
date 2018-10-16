@@ -19,7 +19,7 @@ class MockPaymentService implements IPaymentService
 		return $ConfirmationId;
 	}
 
-	public function processRefund( Transaction $Transaction, string $ConfirmationId ): string
+	public function processRefund( Transaction $Transaction, string $ConfirmationId, string $ChargeId): string
 	{
 		return $ConfirmationId;
 	}
