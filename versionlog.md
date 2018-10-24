@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.86 2018-10-24
+* Added nested entity hydration in arrayMap.
+
 ## 0.0.85 2018-18-15
 * Added the ChargeId parameter to the processRefund method.
 
