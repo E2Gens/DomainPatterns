@@ -19,11 +19,17 @@ class EntityBase implements IEntity, IValidatable
 	private $_IsNew;
 	private $_ArrayMap;
 	private $_Validators;
+	private $_Classes = [];
 
-	protected function addMap( $Method, $Element, IValidator $Validator )
+	protected function addMap( $Method, $Element, IValidator $Validator, string $Class = '' )
 	{
 		$this->_ArrayMap[ $Element ]   = $Method;
 		$this->_Validators[ $Element ] = $Validator;
+
+		if( $Class )
+		{
+			$this->_Classes[ $Element ] = $Class;
+		}
 	}
 
 	public function __construct()
@@ -138,6 +144,17 @@ class EntityBase implements IEntity, IValidatable
 				$this->validateMap( $Key, $Value );
 			}
 
+			if( array_key_exists( $Key, $this->_Classes ) )
+			{
+				$Class = $this->_Classes[ $Key ];
+
+				$Object = new $Class;
+
+				$Object->arrayMap( $Value );
+
+				$Value = $Object;
+			}
+
 			if( array_key_exists( $Key, $this->_ArrayMap ) )
 			{
 				$this->mapSet( $Key, $Value );
@@ -150,7 +167,7 @@ class EntityBase implements IEntity, IValidatable
 	 * @param array $Violations
 	 * @return bool
 	 */
-	public function validate( \Neuron\Data\Validation\ICollection $Validator, array &$Violations ): bool
+	public function validate( Validation\ICollection $Validator, array &$Violations ): bool
 	{
 		$Result     = $Validator->isValid( $this );
 		$Violations = $Validator->getViolations();
