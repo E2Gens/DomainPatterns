@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.87
+
 ## 0.0.86 2018-10-24
 * Added nested entity hydration in arrayMap.
 
