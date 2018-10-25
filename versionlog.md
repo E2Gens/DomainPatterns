@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.87 2018-10-25
+* Updated DbLogDestination for Neuron 0.7.21
+
 ## 0.0.86 2018-10-24
 * Added nested entity hydration in arrayMap.
 
