@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.88
+
 ## 0.0.87 2018-10-25
 * Updated DbLogDestination for Neuron 0.7.21
 
