@@ -29,7 +29,7 @@ class DbLogDestination extends DestinationBase
 	 *
 	 * @Suppress(PHPMD.UnusedFormalParameter)
 	 */
-	public function open( array $aParams )
+	public function open( array $aParams ) : bool
 	{
 	}
 
