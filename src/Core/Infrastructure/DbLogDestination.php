@@ -33,7 +33,7 @@ class DbLogDestination extends DestinationBase
 	{
 	}
 
-	protected function write( $Text, Log\Data $Data )
+	protected function write( string $Text, Log\Data $Data )
 	{
 		$Model           = $this->_Model->newInstance();
 		$Model->datetime = date( "Y-m-d G:i:s", $Data->TimeStamp );
