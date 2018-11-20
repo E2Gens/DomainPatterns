@@ -242,4 +242,17 @@ class UserWithRolesRepository implements IUserRepository
 
 		return $Users;
 	}
+
+	/**
+	 * @param int $UserId
+	 * @return int
+	 */
+	public function deleteAvatar( int $UserId ): int
+	{
+		return $this->getUserModel()
+			->find( $UserId )
+			->update([
+				'photo' => null
+			]);
+	}
 }
