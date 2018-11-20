@@ -1,6 +1,6 @@
 # Versions
 
-## 0.0.89
+## 0.0.89 2018-11-20
 * Added FormatterService and tests.
 
 ## 0.0.88 2018-10-27
