@@ -1,5 +1,8 @@
 # Versions
 
+## 0.0.89 2018-11-20
+* Added FormatterService and tests.
+
 ## 0.0.88 2018-10-27
 * Updated DbLogDestination for Neuron 0.7.21.. again
 
