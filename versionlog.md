@@ -1,6 +1,10 @@
 # Versions
 
-## 0.0.90
+## 0.0.91 2018-12-13
+* Added basic multilingual support.
+
+## 0.0.90 2018-11-21
+* deleteAvatar method added to UserWithRolesRepository class.
 
 ## 0.0.89 2018-11-20
 * Added FormatterService and tests.
