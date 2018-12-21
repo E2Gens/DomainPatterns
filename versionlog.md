@@ -1,6 +1,7 @@
 # Versions
 
-## 0.0.92
+## 0.0.92 2018-12-21
+* Fix to TranslationRepo constructor.
 
 ## 0.0.91 2018-12-13
 * Added basic multilingual support.
