@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.93
+
 ## 0.0.92 2018-12-21
 * Fix to TranslationRepo constructor.
 
