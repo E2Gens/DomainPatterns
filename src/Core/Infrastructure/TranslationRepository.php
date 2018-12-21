@@ -10,7 +10,7 @@ class TranslationRepository
 	private $_Language;
 	private $_TranslationModel;
 
-	public function construct( Language $Language, \App\Translation $Model )
+	public function __construct( Language $Language, \App\Translation $Model )
 	{
 		$this->_Language         = $Language;
 		$this->_TranslationModel = $Model;
