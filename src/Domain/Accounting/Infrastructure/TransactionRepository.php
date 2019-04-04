@@ -2,6 +2,7 @@
 
 namespace DDP\Domain\Accounting\Infrastructure;
 
+use App\DDD\CurrencyService;
 use DDP\Domain\Accounting\Domain\LedgerItem;
 use DDP\Domain\Accounting\Domain\Transaction;
 
@@ -182,6 +183,8 @@ class TransactionRepository implements ITransactionRepository
 	protected function saveLedgerItem( LedgerItem $Item ) : LedgerItem
 	{
 		$Obj = $Item->toStdClass();
+
+        $Obj->amount = CurrencyService::toInteger( $Obj->amount );
 
 		if( $Item->getIdentifier() )
 		{
