@@ -48,6 +48,34 @@ class TransactionRepository implements ITransactionRepository
 	}
 
 	/**
+	 * @param int $UserId
+	 * @return array
+	 * @throws \Exception
+	 */
+	public function getByUserId( int $UserId ): array
+	{
+		$Transactions = [];
+
+		$Rows = $this->_TransactionModel
+			->where( 'user_id', $UserId )
+			->orderBy('created_at', 'DESC')
+			->with('ledger')
+			->get()
+			->toArray();
+
+		foreach ( $Rows as $Row )
+		{
+			$Transaction = new Transaction();
+
+			$Transaction->arrayMap( $Row );
+
+			$Transactions[] = $Transaction;
+		}
+
+		return $Transactions;
+	}
+
+	/**
 	 * @param Transaction $Transaction
 	 * @return Transaction
 	 */
