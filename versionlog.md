@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.94
+
 ## 0.0.93 2019-04-05
 * Added TransactionRepository::getByUserId() method.
 * Converting amount to cents before saving ledger item.
