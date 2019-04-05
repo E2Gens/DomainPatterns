@@ -1,5 +1,9 @@
 # Versions
 
+## 0.0.93 2019-04-05
+* Added TransactionRepository::getByUserId() method.
+* Converting amount to cents before saving ledger item.
+
 ## 0.0.92 2018-12-21
 * Fix to TranslationRepo constructor.
 

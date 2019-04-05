@@ -2,6 +2,7 @@
 
 namespace DDP\Domain\Accounting\Infrastructure;
 
+use App\DDD\CurrencyService;
 use DDP\Domain\Accounting\Domain\LedgerItem;
 use DDP\Domain\Accounting\Domain\Transaction;
 
@@ -45,6 +46,34 @@ class TransactionRepository implements ITransactionRepository
 		);
 
 		return $Transaction;
+	}
+
+	/**
+	 * @param int $UserId
+	 * @return array
+	 * @throws \Exception
+	 */
+	public function getByUserId( int $UserId ): array
+	{
+		$Transactions = [];
+
+		$Rows = $this->_TransactionModel
+			->where( 'user_id', $UserId )
+			->orderBy('created_at', 'DESC')
+			->with('ledger')
+			->get()
+			->toArray();
+
+		foreach ( $Rows as $Row )
+		{
+			$Transaction = new Transaction();
+
+			$Transaction->arrayMap( $Row );
+
+			$Transactions[] = $Transaction;
+		}
+
+		return $Transactions;
 	}
 
 	/**
@@ -154,6 +183,8 @@ class TransactionRepository implements ITransactionRepository
 	protected function saveLedgerItem( LedgerItem $Item ) : LedgerItem
 	{
 		$Obj = $Item->toStdClass();
+
+        $Obj->amount = CurrencyService::toInteger( $Obj->amount );
 
 		if( $Item->getIdentifier() )
 		{
