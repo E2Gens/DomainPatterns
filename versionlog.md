@@ -1,6 +1,7 @@
 # Versions
 
-## 0.0.94
+## 0.0.94 2019-05-23
+* Implemented TransactionRepository::getByDateRange method.
 
 ## 0.0.93 2019-04-05
 * Added TransactionRepository::getByUserId() method.
