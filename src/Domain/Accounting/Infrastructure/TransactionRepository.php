@@ -5,6 +5,8 @@ namespace DDP\Domain\Accounting\Infrastructure;
 use App\DDD\CurrencyService;
 use DDP\Domain\Accounting\Domain\LedgerItem;
 use DDP\Domain\Accounting\Domain\Transaction;
+use Neuron\Data\Object\DateRange;
+
 
 class TransactionRepository implements ITransactionRepository
 {
@@ -26,6 +28,11 @@ class TransactionRepository implements ITransactionRepository
 		$this->_AccountModel     = $Account;
 		$this->_LedgerModel      = $Ledger;
 		$this->_TransactionModel = $Transaction;
+	}
+
+	public function getByDateRange( DateRange $Range ): array
+	{
+
 	}
 
 	public function getById( int $TransactionId ) : Transaction
