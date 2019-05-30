@@ -52,7 +52,7 @@ class TransactionRepository implements ITransactionRepository
 
 			$Transaction->arrayMap( $Result );
 
-			$Results[] = $Transaction;
+			$Transactions[] = $Transaction;
 		}
 
 		return $Transactions;
