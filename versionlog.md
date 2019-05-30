@@ -1,5 +1,7 @@
 # Versions
 
+## 0.0.96
+
 ## 0.0.95 2019-05-30
 * Bug fix in TransactionsRepository::getByDateRange method.
 
