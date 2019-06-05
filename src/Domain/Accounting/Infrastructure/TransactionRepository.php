@@ -214,8 +214,6 @@ class TransactionRepository implements ITransactionRepository
 	{
 		$Obj = $Item->toStdClass();
 
-        $Obj->amount = CurrencyService::toInteger( $Obj->amount );
-
 		if( $Item->getIdentifier() )
 		{
 			$this->_LedgerModel->whereId( $Item->getIdentifier() )->update( ( array)$Obj );
