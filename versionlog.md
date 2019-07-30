@@ -1,5 +1,10 @@
+## 0.0.97
+* Condition added to EntityBase::toStdClass for floating numbers that has a value "0.0".
+
 ## 0.0.96 2019-06-05
 * Ledger items amounts are no longer subject to currency conversion before saving.
+
+## 0.0.96
 
 ## 0.0.95 2019-05-30
 * Bug fix in TransactionsRepository::getByDateRange method.
