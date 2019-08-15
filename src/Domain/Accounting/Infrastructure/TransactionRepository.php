@@ -131,9 +131,12 @@ class TransactionRepository implements ITransactionRepository
 
 			$Items = $Transaction->getLedger();
 
-			foreach( $Items as $Item )
+			if( is_array($Items) )
 			{
-				$Item->setTransactionId( $Transaction->getIdentifier() );
+				foreach( $Items as $Item )
+				{
+					$Item->setTransactionId( $Transaction->getIdentifier() );
+				}
 			}
 		}
 
@@ -162,16 +165,18 @@ class TransactionRepository implements ITransactionRepository
 					'addOrRemoveLedgerItem'
 				]
 			);
+
+			// Rebuild the array, removing deleted items..
+			return array_filter(
+				$Items,
+				[
+					$this,
+					'filterDeletedItem'
+				]
+			);
 		}
 
-		// Rebuild the array, removing deleted items..
-		return array_filter(
-			$Items,
-			[
-				$this,
-				'filterDeletedItem'
-			]
-		);
+		return $Items;
 	}
 
 	protected function filterDeletedItem( LedgerItem $Item )
