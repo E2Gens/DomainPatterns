@@ -45,11 +45,15 @@ class LedgerItemTest extends TestCase
 	public function testArrayMap()
 	{
 		$Data = [
-			'id'             => '1',
-			'amount'         => 500,
-			'transaction_id' => 2,
-			'account_id'     => 3,
-			'payment_type'   => 1
+			'id'              => '1',
+			'amount'          => 500,
+			'transaction_id'  => 2,
+			'account_id'      => 3,
+			'payment_type_id' => 4,
+			'payment_type'    => [
+				'id'   => 1,
+				'name' => 'Cash'
+			]
 		];
 
 		$LedgerItem = new LedgerItem();
@@ -69,6 +73,11 @@ class LedgerItemTest extends TestCase
 		$this->assertEquals(
 			$Data[ 'transaction_id' ],
 			$LedgerItem->getTransactionId()
+		);
+
+		$this->assertEquals(
+			$Data['payment_type_id'],
+			$LedgerItem->getPaymentTypeId()
 		);
 
 		$this->assertEquals(
