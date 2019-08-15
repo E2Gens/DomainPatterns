@@ -11,17 +11,19 @@ class LedgerItem extends EntityBase
 	private $_Amount;
 	private $_TransactionId;
 	private $_ItemId;
+	private $_PaymentTypeId;
 	private $_PaymentType;
 
 	public function __construct()
 	{
 		parent::__construct();
 
-		$this->addMap( 'AccountId',    'account_id',     new Validation\Integer() );
-		$this->addMap( 'Amount',       'amount',         new Validation\Integer() );
-		$this->addMap( 'TransactionId','transaction_id', new Validation\Integer() );
-		$this->addMap( 'ItemId',       'item_id',        new Validation\Integer() );
-		$this->addMap( 'PaymentType',  'payment_type',   new Validation\Integer() );
+		$this->addMap( 'AccountId',    'account_id',       new Validation\Integer() );
+		$this->addMap( 'Amount',       'amount',           new Validation\Integer() );
+		$this->addMap( 'TransactionId','transaction_id',   new Validation\Integer() );
+		$this->addMap( 'ItemId',       'item_id',          new Validation\Integer() );
+		$this->addMap( 'PaymentTypeId','payment_type_id',  new Validation\Integer() );
+		$this->addMap( 'PaymentType',  'payment_type',     new Validation\ArrayData() );
 	}
 
 	/**
@@ -99,16 +101,34 @@ class LedgerItem extends EntityBase
 	/**
 	 * @return int|null
 	 */
-	public function getPaymentType(): ?int
+	public function getPaymentTypeId(): ?int
+	{
+		return $this->_PaymentTypeId;
+	}
+
+	/**
+	 * @param int|null $PaymentTypeId
+	 * @return LedgerItem
+	 */
+	public function setPaymentTypeId( ?int $PaymentTypeId ): LedgerItem
+	{
+		$this->_PaymentTypeId = $PaymentTypeId;
+		return $this;
+	}
+
+	/**
+	 * @return array|null
+	 */
+	public function getPaymentType(): ?array
 	{
 		return $this->_PaymentType;
 	}
 
 	/**
-	 * @param int|null $PaymentType
-	 * @return $this
+	 * @param array|null $PaymentType
+	 * @return LedgerItem
 	 */
-	public function setPaymentType( ?int $PaymentType ): LedgerItem
+	public function setPaymentType( ?array $PaymentType ): LedgerItem
 	{
 		$this->_PaymentType = $PaymentType;
 		return $this;
