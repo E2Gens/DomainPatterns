@@ -82,18 +82,18 @@ class Transaction extends EntityBase
 	}
 
 	/**
-	 * @return mixed
+	 * @return string|null
 	 */
-	public function getKey() : string
+	public function getKey() : ?string
 	{
 		return $this->_Key;
 	}
 
 	/**
-	 * @param mixed $Key
+	 * @param string|null $Key
 	 * @return Transaction
 	 */
-	public function setKey( string $Key ) : Transaction
+	public function setKey( ?string $Key ) : Transaction
 	{
 		$this->_Key = $Key;
 		return $this;
