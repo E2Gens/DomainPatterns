@@ -141,4 +141,17 @@ class LedgerItemRepository implements ILedgerItemRepository
 		// @todo
 		throw new \Exception( 'not implemented' );
 	}
+
+	/**
+	 * @param LedgerItem $LedgerItem
+	 * @return LedgerItem
+	 */
+	public function save( LedgerItem $LedgerItem ): LedgerItem
+	{
+		$Obj = $LedgerItem->toStdClass();
+
+		$LedgerModel = $this->_LedgerModel->create( (array)$Obj );
+
+		$LedgerItem->setIdentifier( $LedgerModel->id );
+	}
 }
