@@ -36,7 +36,7 @@ class LedgerItem extends EntityBase
 	 * @param mixed $AccountId
 	 * @return LedgerItem
 	 */
-	public function setAccountId( int $AccountId )
+	public function setAccountId( int $AccountId ): LedgerItem
 	{
 		$this->_AccountId = $AccountId;
 		return $this;
@@ -54,7 +54,7 @@ class LedgerItem extends EntityBase
 	 * @param mixed $Amount
 	 * @return LedgerItem
 	 */
-	public function setAmount( int $Amount )
+	public function setAmount( int $Amount ): LedgerItem
 	{
 		$this->_Amount = $Amount;
 		return $this;
@@ -72,7 +72,7 @@ class LedgerItem extends EntityBase
 	 * @param mixed $TransactionId
 	 * @return LedgerItem
 	 */
-	public function setTransactionId( int $TransactionId )
+	public function setTransactionId( int $TransactionId ): LedgerItem
 	{
 		$this->_TransactionId = $TransactionId;
 		return $this;
@@ -90,7 +90,7 @@ class LedgerItem extends EntityBase
 	 * @param mixed $ItemId
 	 * @return LedgerItem
 	 */
-	public function setItemId( int $ItemId )
+	public function setItemId( int $ItemId ): LedgerItem
 	{
 		$this->_ItemId = $ItemId;
 		return $this;
@@ -108,7 +108,7 @@ class LedgerItem extends EntityBase
 	 * @param int|null $PaymentType
 	 * @return $this
 	 */
-	public function setPaymentType( ?int $PaymentType )
+	public function setPaymentType( ?int $PaymentType ): LedgerItem
 	{
 		$this->_PaymentType = $PaymentType;
 		return $this;
