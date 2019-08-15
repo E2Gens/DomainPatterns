@@ -90,7 +90,7 @@ class LedgerItemRepository implements ILedgerItemRepository
 				->where( 'accounts.name', '=' , $AccountName );
 		}
 
-		$Objects = $Query->get()->toArray();
+		$Objects = $Query->get(['ledger_items.*'])->toArray();
 
 		$Items = [];
 
