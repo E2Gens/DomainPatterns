@@ -90,6 +90,25 @@ class LedgerItemTest extends TestCase
 			$LedgerItem->getAccountId()
 		);
 	}
+
+	public function testSetTransactionId()
+	{
+		$LedgerItem = new LedgerItem();
+
+		$TransactionId = 1;
+
+		$LedgerItem->setTransactionId( $TransactionId );
+
+		$this->assertEquals(
+			$TransactionId, $LedgerItem->getTransactionId()
+		);
+
+		$TransactionId = null;
+
+		$LedgerItem->setTransactionId( $TransactionId );
+
+		$this->assertNull( $LedgerItem->getTransactionId() );
+	}
 }
 
 

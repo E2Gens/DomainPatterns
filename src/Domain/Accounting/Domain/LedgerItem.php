@@ -71,10 +71,10 @@ class LedgerItem extends EntityBase
 	}
 
 	/**
-	 * @param mixed $TransactionId
+	 * @param int|null $TransactionId
 	 * @return LedgerItem
 	 */
-	public function setTransactionId( int $TransactionId ): LedgerItem
+	public function setTransactionId( ?int $TransactionId ): LedgerItem
 	{
 		$this->_TransactionId = $TransactionId;
 		return $this;
