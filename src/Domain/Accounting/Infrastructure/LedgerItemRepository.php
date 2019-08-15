@@ -81,7 +81,8 @@ class LedgerItemRepository implements ILedgerItemRepository
 	 */
 	public function getAllByTransactionId( int $TransactionId, string $AccountName = '' ) : array
 	{
-		$Query = $this->_LedgerModel->where( 'transaction_id', $TransactionId );
+		$Query = $this->_LedgerModel->with('paymentType', 'item', 'transaction', 'account')
+			->where( 'transaction_id', $TransactionId );
 
 		if( $AccountName )
 		{
