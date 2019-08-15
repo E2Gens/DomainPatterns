@@ -156,6 +156,7 @@ class LedgerItemRepository implements ILedgerItemRepository
 		$LedgerItem->setIdentifier( $LedgerModel->id );
 		$LedgerItem->setCreatedAt( $LedgerModel->created_at );
 		$LedgerItem->setUpdatedAt( $LedgerModel->updated_at );
+		$LedgerItem->setPaymentType( $LedgerModel->paymentType->toArray() );
 
 		return $LedgerItem;
 	}
