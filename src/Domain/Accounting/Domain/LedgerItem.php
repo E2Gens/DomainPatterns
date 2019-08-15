@@ -11,6 +11,7 @@ class LedgerItem extends EntityBase
 	private $_Amount;
 	private $_TransactionId;
 	private $_ItemId;
+	private $_PaymentType;
 
 	public function __construct()
 	{
@@ -20,6 +21,7 @@ class LedgerItem extends EntityBase
 		$this->addMap( 'Amount',       'amount',         new Validation\Integer() );
 		$this->addMap( 'TransactionId','transaction_id', new Validation\Integer() );
 		$this->addMap( 'ItemId',       'item_id',        new Validation\Integer() );
+		$this->addMap( 'PaymentType',  'payment_type',   new Validation\Integer() );
 	}
 
 	/**
@@ -91,6 +93,24 @@ class LedgerItem extends EntityBase
 	public function setItemId( int $ItemId )
 	{
 		$this->_ItemId = $ItemId;
+		return $this;
+	}
+
+	/**
+	 * @return int|null
+	 */
+	public function getPaymentType(): ?int
+	{
+		return $this->_PaymentType;
+	}
+
+	/**
+	 * @param int|null $PaymentType
+	 * @return $this
+	 */
+	public function setPaymentType( ?int $PaymentType )
+	{
+		$this->_PaymentType = $PaymentType;
 		return $this;
 	}
 }
