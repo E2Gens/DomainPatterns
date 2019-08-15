@@ -153,5 +153,7 @@ class LedgerItemRepository implements ILedgerItemRepository
 		$LedgerModel = $this->_LedgerModel->create( (array)$Obj );
 
 		$LedgerItem->setIdentifier( $LedgerModel->id );
+
+		return $LedgerItem;
 	}
 }
