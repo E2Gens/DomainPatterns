@@ -109,6 +109,25 @@ class LedgerItemTest extends TestCase
 
 		$this->assertNull( $LedgerItem->getTransactionId() );
 	}
+
+	public function testSetItemId()
+	{
+		$LedgerItem = new LedgerItem();
+
+		$ItemId = 1;
+
+		$LedgerItem->setItemId( $ItemId );
+
+		$this->assertEquals(
+			$ItemId, $LedgerItem->getItemId()
+		);
+
+		$ItemId = null;
+
+		$LedgerItem->setItemId( $ItemId );
+
+		$this->assertNull( $LedgerItem->getItemId() );
+	}
 }
 
 
