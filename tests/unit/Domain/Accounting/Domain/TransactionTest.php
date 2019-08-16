@@ -120,4 +120,24 @@ class TransactionTest extends TestCase
 			$Obj->user_id
 		);
 	}
+
+	public function testSetKey()
+	{
+		$Transaction = new Transaction();
+
+		$Key = '<SOME_KEY>';
+
+		$Transaction->setKey($Key);
+
+		$this->assertEquals(
+			$Key,
+			$Transaction->getKey()
+		);
+
+		$Key = null;
+
+		$Transaction->setKey( $Key );
+
+		$this->assertNull( $Transaction->getKey() );
+	}
 }

@@ -1,4 +1,9 @@
-## 0.0.97
+
+
+## 0.0.98 2019-08-16
+* Various updates to Ledger.
+
+## 0.0.97 2019-07-30
 * Condition added to EntityBase::toStdClass for floating numbers that has a value "0.0".
 
 ## 0.0.96 2019-06-05
