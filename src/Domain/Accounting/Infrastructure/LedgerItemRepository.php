@@ -81,7 +81,8 @@ class LedgerItemRepository implements ILedgerItemRepository
 	 */
 	public function getAllByTransactionId( int $TransactionId, string $AccountName = '' ) : array
 	{
-		$Query = $this->_LedgerModel->where( 'transaction_id', $TransactionId );
+		$Query = $this->_LedgerModel->with('paymentType', 'item', 'transaction', 'account')
+			->where( 'transaction_id', $TransactionId );
 
 		if( $AccountName )
 		{
@@ -89,7 +90,7 @@ class LedgerItemRepository implements ILedgerItemRepository
 				->where( 'accounts.name', '=' , $AccountName );
 		}
 
-		$Objects = $Query->get()->toArray();
+		$Objects = $Query->get(['ledger_items.*'])->toArray();
 
 		$Items = [];
 
@@ -140,5 +141,23 @@ class LedgerItemRepository implements ILedgerItemRepository
 
 		// @todo
 		throw new \Exception( 'not implemented' );
+	}
+
+	/**
+	 * @param LedgerItem $LedgerItem
+	 * @return LedgerItem
+	 */
+	public function save( LedgerItem $LedgerItem ): LedgerItem
+	{
+		$Obj = $LedgerItem->toStdClass();
+
+		$LedgerModel = $this->_LedgerModel->create( (array)$Obj );
+
+		$LedgerItem->setIdentifier( $LedgerModel->id );
+		$LedgerItem->setCreatedAt( $LedgerModel->created_at );
+		$LedgerItem->setUpdatedAt( $LedgerModel->updated_at );
+		$LedgerItem->setPaymentType( $LedgerModel->paymentType->toArray() );
+
+		return $LedgerItem;
 	}
 }

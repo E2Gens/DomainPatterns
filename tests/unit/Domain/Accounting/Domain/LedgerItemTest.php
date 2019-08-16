@@ -42,13 +42,18 @@ class LedgerItemTest extends TestCase
 		);
 	}
 
-	public function testFromArray()
+	public function testArrayMap()
 	{
 		$Data = [
-			'id'             => '1',
-			'amount'         => 500,
-			'transaction_id' => 2,
-			'account_id'     => 3
+			'id'              => '1',
+			'amount'          => 500,
+			'transaction_id'  => 2,
+			'account_id'      => 3,
+			'payment_type_id' => 4,
+			'payment_type'    => [
+				'id'   => 1,
+				'name' => 'Cash'
+			]
 		];
 
 		$LedgerItem = new LedgerItem();
@@ -56,24 +61,72 @@ class LedgerItemTest extends TestCase
 		$LedgerItem->arrayMap( $Data );
 
 		$this->assertEquals(
-			$LedgerItem->getIdentifier(),
-			$Data[ 'id' ]
+			$Data[ 'id' ],
+			$LedgerItem->getIdentifier()
 		);
 
 		$this->assertEquals(
-			$LedgerItem->getAmount(),
-			$Data[ 'amount' ]
+			$Data[ 'amount' ],
+			$LedgerItem->getAmount()
 		);
 
 		$this->assertEquals(
-			$LedgerItem->getTransactionId(),
-			$Data[ 'transaction_id' ]
+			$Data[ 'transaction_id' ],
+			$LedgerItem->getTransactionId()
 		);
 
 		$this->assertEquals(
-			$LedgerItem->getAccountId(),
-			$Data[ 'account_id' ]
+			$Data['payment_type_id'],
+			$LedgerItem->getPaymentTypeId()
 		);
+
+		$this->assertEquals(
+			$Data['payment_type'],
+			$LedgerItem->getPaymentType()
+		);
+
+		$this->assertEquals(
+			$Data[ 'account_id' ],
+			$LedgerItem->getAccountId()
+		);
+	}
+
+	public function testSetTransactionId()
+	{
+		$LedgerItem = new LedgerItem();
+
+		$TransactionId = 1;
+
+		$LedgerItem->setTransactionId( $TransactionId );
+
+		$this->assertEquals(
+			$TransactionId, $LedgerItem->getTransactionId()
+		);
+
+		$TransactionId = null;
+
+		$LedgerItem->setTransactionId( $TransactionId );
+
+		$this->assertNull( $LedgerItem->getTransactionId() );
+	}
+
+	public function testSetItemId()
+	{
+		$LedgerItem = new LedgerItem();
+
+		$ItemId = 1;
+
+		$LedgerItem->setItemId( $ItemId );
+
+		$this->assertEquals(
+			$ItemId, $LedgerItem->getItemId()
+		);
+
+		$ItemId = null;
+
+		$LedgerItem->setItemId( $ItemId );
+
+		$this->assertNull( $LedgerItem->getItemId() );
 	}
 }
 
