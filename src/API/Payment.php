@@ -92,9 +92,12 @@ class Payment
 
 		$Transaction->setTotal( $Total );
 
-		$Transaction->setKey(
-			$this->_PaymentService->processPayment( $Transaction, $ConfirmationId )
-		);
+		if( $Total > 0 )
+		{
+			$Transaction->setKey(
+				$this->_PaymentService->processPayment( $Transaction, $ConfirmationId )
+			);
+		}
 
 		return $Transaction;
 	}
