@@ -1,4 +1,7 @@
-# 0.0.99 2018-09-03
+## 0.0.100 2019-09-13
+* Added hacks to get rid of them later.
+
+## 0.0.99 2019-09-03
 * Returning empty transaction if given total equals to 0 without processing payment.
 
 ## 0.0.98 2019-08-16

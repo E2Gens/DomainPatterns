@@ -65,6 +65,22 @@ class UserWithRolesRepository implements IUserRepository
 	{
 		$Obj = $User->toStdClass();
 
+		// @todo: get rid of these conditions
+		if( property_exists( $Obj, 'program_id' ) )
+		{
+			unset( $Obj->program_id );
+		}
+
+		if( property_exists( $Obj, 'organization_id' ) )
+		{
+			unset( $Obj->organization_id );
+		}
+
+		if( property_exists( $Obj, 'is_scoring_enabled' ) )
+		{
+			unset( $Obj->is_scoring_enabled );
+		}
+
 		if( $User->getIdentifier() )
 		{
 			unset( $Obj->is_deleted );
