@@ -86,7 +86,15 @@ class Payment
 				$Ledger->setItemId( $LineItem[ 'item_id' ] );
 			}
 
-			$Total += $LineItem[ 'amount' ];
+			if( $LineItem['account'] == 'Discount' )
+			{
+				$Total -= $LineItem[ 'amount' ];
+			}
+			else
+			{
+				$Total += $LineItem[ 'amount' ];
+			}
+
 			$Transaction->addLedgerItem( $Ledger );
 		}
 
